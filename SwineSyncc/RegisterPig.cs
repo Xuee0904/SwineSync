@@ -24,6 +24,7 @@ namespace SwineSyncc
 
             ApplyTheme();
             ApplyButtonStyles();
+            ApplyTextBoxHeight();
         }
 
         private void ApplyTheme()
@@ -44,6 +45,15 @@ namespace SwineSyncc
                 radio.ForeColor = UIStyle.AccentColor;
                 radio.Font = UIStyle.RadioFont;
             }           
+        }
+
+        private void ApplyTextBoxHeight() 
+        {
+            UIStyle.TextBoxHeight(tagNumberTxt);
+            UIStyle.TextBoxHeight(weightTxt);
+            UIStyle.TextBoxHeight(dtPicker);
+            UIStyle.TextBoxHeight(comboBreed);
+            UIStyle.TextBoxHeight(comboStatus);
         }
 
         private void ApplyButtonStyles()
@@ -79,6 +89,9 @@ namespace SwineSyncc
             CancelClicked?.Invoke(this, EventArgs.Empty);
         }
 
-        
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

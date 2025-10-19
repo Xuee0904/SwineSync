@@ -38,7 +38,7 @@
             this.navPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.navPanel.Location = new System.Drawing.Point(0, 0);
             this.navPanel.Name = "navPanel";
-            this.navPanel.Size = new System.Drawing.Size(369, 673);
+            this.navPanel.Size = new System.Drawing.Size(369, 781);
             this.navPanel.TabIndex = 0;
             this.navPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.navPanel_Paint);
             // 
@@ -48,16 +48,17 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(369, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(893, 673);
+            this.mainPanel.Size = new System.Drawing.Size(1050, 781);
             this.mainPanel.TabIndex = 1;
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.ClientSize = new System.Drawing.Size(1419, 781);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.navPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

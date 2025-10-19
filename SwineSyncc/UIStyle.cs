@@ -16,9 +16,9 @@ namespace SwineSyncc
 
       
         public static readonly Font HeaderFont = new Font("Segoe UI", 24, FontStyle.Bold);
-        public static readonly Font LabelFont = new Font("Segoe UI", 14, FontStyle.Bold);
+        public static readonly Font LabelFont = new Font("Segoe UI", 18, FontStyle.Bold);
         public static readonly Font RadioFont = new Font("Segoe UI", 9, FontStyle.Bold);
-        public static readonly Font ButtonFont = new Font("Segoe UI", 14, FontStyle.Bold);
+        public static readonly Font ButtonFont = new Font("Segoe UI", 17, FontStyle.Bold);
         
         public static void StyleFilledButton(Button btn)
         {
@@ -45,5 +45,25 @@ namespace SwineSyncc
             btn.MouseEnter += (s, e) => btn.BackColor = Color.FromArgb(245, 245, 245);
             btn.MouseLeave += (s, e) => btn.BackColor = Color.White;
         }
+
+        public static void TextBoxHeight(TextBox txt)
+        {
+            txt.Multiline = true;     
+            txt.AutoSize = false;     
+            txt.Height = 30;          
+        }
+
+        public static void TextBoxHeight(DateTimePicker txt)
+        {          
+            txt.AutoSize = false;
+            txt.Height = 30;
+        }
+
+        public static void TextBoxHeight(ComboBox txt)
+        {
+            txt.AutoSize = false;
+            txt.Height = 30;
+        }
+
     }
 }
