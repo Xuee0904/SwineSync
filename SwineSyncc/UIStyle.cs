@@ -46,20 +46,20 @@ namespace SwineSyncc
             btn.MouseLeave += (s, e) => btn.BackColor = Color.White;
         }
 
-        public static void TextBoxHeight(TextBox txt)
+        public static void BoxHeight(TextBox txt)
         {
             txt.Multiline = true;     
             txt.AutoSize = false;     
             txt.Height = 30;          
         }
 
-        public static void TextBoxHeight(DateTimePicker txt)
+        public static void BoxHeight(DateTimePicker txt)
         {          
             txt.AutoSize = false;
             txt.Height = 30;
         }
 
-        public static void TextBoxHeight(ComboBox txt)
+        public static void BoxHeight(ComboBox txt)
         {
             txt.AutoSize = false;
             txt.Height = 30;

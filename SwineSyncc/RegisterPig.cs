@@ -49,11 +49,11 @@ namespace SwineSyncc
 
         private void ApplyTextBoxHeight() 
         {
-            UIStyle.TextBoxHeight(tagNumberTxt);
-            UIStyle.TextBoxHeight(weightTxt);
-            UIStyle.TextBoxHeight(dtPicker);
-            UIStyle.TextBoxHeight(comboBreed);
-            UIStyle.TextBoxHeight(comboStatus);
+            UIStyle.BoxHeight(tagNumberTxt);
+            UIStyle.BoxHeight(weightTxt);
+            UIStyle.BoxHeight(dtPicker);
+            UIStyle.BoxHeight(comboBreed);
+            UIStyle.BoxHeight(comboStatus);
         }
 
         private void ApplyButtonStyles()
