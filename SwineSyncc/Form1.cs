@@ -24,5 +24,10 @@ namespace SwineSyncc
             dashboard.Show();
             this.Hide();
         }
+
+        private void roundedButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
