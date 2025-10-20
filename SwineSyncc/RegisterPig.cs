@@ -18,6 +18,9 @@ namespace SwineSyncc
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
+            this.Padding = new Padding(100); // white space on all sides
+
+            //panel1.Dock = DockStyle.Fill; // panel becomes "card" area
             this.BackColor = Color.WhiteSmoke;
 
             panel1.BackColor = Color.FromArgb(217, 221, 220);
@@ -83,15 +86,15 @@ namespace SwineSyncc
 
             panel1.Region = new Region(path);
         }
-
-        private void cancelbtn_Click(object sender, EventArgs e)
-        {
-            CancelClicked?.Invoke(this, EventArgs.Empty);
-        }
-
+       
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cancelbtn_Click_1(object sender, EventArgs e)
+        {
+            CancelClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }
