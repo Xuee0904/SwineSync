@@ -101,5 +101,16 @@ namespace SwineSyncc
         {
 
         }
+
+        private void sexlbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maleradiobtn_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+ 
     }
 }
