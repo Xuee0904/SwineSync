@@ -32,17 +32,8 @@
             this.btnDeletePig = new System.Windows.Forms.Button();
             this.btnEditPig = new System.Windows.Forms.Button();
             this.btnRegisterPig = new System.Windows.Forms.Button();
-            this.pigTable = new System.Windows.Forms.DataGridView();
-            this.PigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TagNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Breed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pigTable)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -50,7 +41,6 @@
             this.panel1.Controls.Add(this.btnDeletePig);
             this.panel1.Controls.Add(this.btnEditPig);
             this.panel1.Controls.Add(this.btnRegisterPig);
-            this.panel1.Controls.Add(this.pigTable);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -86,67 +76,6 @@
             this.btnRegisterPig.UseVisualStyleBackColor = true;
             this.btnRegisterPig.Click += new System.EventHandler(this.btnRegisterPig_Click_1);
             // 
-            // pigTable
-            // 
-            this.pigTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.pigTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.pigTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PigID,
-            this.TagNumber,
-            this.Breed,
-            this.Sex,
-            this.BirthDate,
-            this.Weight,
-            this.Status});
-            this.pigTable.Location = new System.Drawing.Point(373, 114);
-            this.pigTable.Name = "pigTable";
-            this.pigTable.RowHeadersWidth = 51;
-            this.pigTable.RowTemplate.Height = 24;
-            this.pigTable.Size = new System.Drawing.Size(929, 488);
-            this.pigTable.TabIndex = 6;
-            // 
-            // PigID
-            // 
-            this.PigID.HeaderText = "Pig ID";
-            this.PigID.MinimumWidth = 6;
-            this.PigID.Name = "PigID";
-            // 
-            // TagNumber
-            // 
-            this.TagNumber.HeaderText = "Tag Number";
-            this.TagNumber.MinimumWidth = 6;
-            this.TagNumber.Name = "TagNumber";
-            // 
-            // Breed
-            // 
-            this.Breed.HeaderText = "Breed";
-            this.Breed.MinimumWidth = 6;
-            this.Breed.Name = "Breed";
-            // 
-            // Sex
-            // 
-            this.Sex.HeaderText = "Sex";
-            this.Sex.MinimumWidth = 6;
-            this.Sex.Name = "Sex";
-            // 
-            // BirthDate
-            // 
-            this.BirthDate.HeaderText = "BirthDate";
-            this.BirthDate.MinimumWidth = 6;
-            this.BirthDate.Name = "BirthDate";
-            // 
-            // Weight
-            // 
-            this.Weight.HeaderText = "Weight";
-            this.Weight.MinimumWidth = 6;
-            this.Weight.Name = "Weight";
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -165,7 +94,6 @@
             this.Size = new System.Drawing.Size(1346, 797);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pigTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,14 +104,6 @@
         private System.Windows.Forms.Button btnDeletePig;
         private System.Windows.Forms.Button btnEditPig;
         private System.Windows.Forms.Button btnRegisterPig;
-        private System.Windows.Forms.DataGridView pigTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PigID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TagNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Breed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Weight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.Label label1;
     }
 }

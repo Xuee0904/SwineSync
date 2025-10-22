@@ -245,6 +245,7 @@
             this.savebtn.TabIndex = 30;
             this.savebtn.Text = "Save";
             this.savebtn.UseVisualStyleBackColor = true;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // RegisterPig
             // 
