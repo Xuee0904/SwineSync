@@ -13,7 +13,8 @@ namespace SwineSyncc
     public partial class Dashboard : Form
     {
         private NavigationPanel navigationPanel;
-        
+        private PigManagement pigUC;
+
         public Dashboard()
         {
             InitializeComponent();
@@ -33,15 +34,22 @@ namespace SwineSyncc
 
         private void LoadPigManagement()
         {
-            PigManagement pigUC = new PigManagement();
-            pigUC.RegisterPigClicked += (s, e) => LoadRegisterPig();
+            if (pigUC == null)
+            {
+                pigUC = new PigManagement();
+                pigUC.RegisterPigClicked += (s, e) => LoadRegisterPig();
+            }
             ShowUserControl(pigUC);
         }
 
         private void LoadRegisterPig()
-        {
-            RegisterPig registerPig = new RegisterPig();
-            registerPig.CancelClicked += (s, e) => LoadPigManagement();
+        {          
+            PigManagement pigUC = new PigManagement();
+            RegisterPig registerPig = new RegisterPig(pigUC);
+
+            registerPig.CancelClicked += (s, e) => ShowUserControl(pigUC);
+            registerPig.SaveCompleted += (s, e) => ShowUserControl(pigUC);
+
             ShowUserControl(registerPig);
         }
 

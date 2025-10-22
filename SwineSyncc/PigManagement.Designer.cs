@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDeletePig = new System.Windows.Forms.Button();
-            this.btnEditPig = new System.Windows.Forms.Button();
-            this.btnRegisterPig = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnRegisterPig = new System.Windows.Forms.Button();
+            this.btnEditPig = new System.Windows.Forms.Button();
+            this.btnDeletePig = new System.Windows.Forms.Button();
+            this.flpPigs = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.flpPigs);
             this.panel1.Controls.Add(this.btnDeletePig);
             this.panel1.Controls.Add(this.btnEditPig);
             this.panel1.Controls.Add(this.btnRegisterPig);
@@ -47,24 +49,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1346, 797);
             this.panel1.TabIndex = 0;
+            
             // 
-            // btnDeletePig
+            // label1
             // 
-            this.btnDeletePig.Location = new System.Drawing.Point(1088, 652);
-            this.btnDeletePig.Name = "btnDeletePig";
-            this.btnDeletePig.Size = new System.Drawing.Size(214, 79);
-            this.btnDeletePig.TabIndex = 9;
-            this.btnDeletePig.Text = "Delete pig";
-            this.btnDeletePig.UseVisualStyleBackColor = true;
-            // 
-            // btnEditPig
-            // 
-            this.btnEditPig.Location = new System.Drawing.Point(735, 652);
-            this.btnEditPig.Name = "btnEditPig";
-            this.btnEditPig.Size = new System.Drawing.Size(214, 79);
-            this.btnEditPig.TabIndex = 8;
-            this.btnEditPig.Text = "Edit pig info";
-            this.btnEditPig.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(326, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Pig Management";
             // 
             // btnRegisterPig
             // 
@@ -76,14 +70,31 @@
             this.btnRegisterPig.UseVisualStyleBackColor = true;
             this.btnRegisterPig.Click += new System.EventHandler(this.btnRegisterPig_Click_1);
             // 
-            // label1
+            // btnEditPig
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(326, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Pig Management";
+            this.btnEditPig.Location = new System.Drawing.Point(735, 652);
+            this.btnEditPig.Name = "btnEditPig";
+            this.btnEditPig.Size = new System.Drawing.Size(214, 79);
+            this.btnEditPig.TabIndex = 8;
+            this.btnEditPig.Text = "Edit pig info";
+            this.btnEditPig.UseVisualStyleBackColor = true;
+            // 
+            // btnDeletePig
+            // 
+            this.btnDeletePig.Location = new System.Drawing.Point(1088, 652);
+            this.btnDeletePig.Name = "btnDeletePig";
+            this.btnDeletePig.Size = new System.Drawing.Size(214, 79);
+            this.btnDeletePig.TabIndex = 9;
+            this.btnDeletePig.Text = "Delete pig";
+            this.btnDeletePig.UseVisualStyleBackColor = true;
+            // 
+            // flpPigs
+            // 
+            this.flpPigs.AutoScroll = true;
+            this.flpPigs.Location = new System.Drawing.Point(329, 160);
+            this.flpPigs.Name = "flpPigs";
+            this.flpPigs.Size = new System.Drawing.Size(973, 423);
+            this.flpPigs.TabIndex = 10;
             // 
             // PigManagement
             // 
@@ -105,5 +116,6 @@
         private System.Windows.Forms.Button btnEditPig;
         private System.Windows.Forms.Button btnRegisterPig;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flpPigs;
     }
 }

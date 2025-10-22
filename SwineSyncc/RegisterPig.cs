@@ -14,9 +14,13 @@ namespace SwineSyncc
     public partial class RegisterPig : UserControl
     {
         public event EventHandler CancelClicked;
-        public RegisterPig()
+        private PigManagement _parentPigManagement;
+        public event EventHandler SaveCompleted;
+
+        public RegisterPig(PigManagement pigManagement)
         {
             InitializeComponent();
+            _parentPigManagement = pigManagement;
             this.Dock = DockStyle.Fill;
             this.Padding = new Padding(100); // white space on all sides
 
@@ -99,7 +103,15 @@ namespace SwineSyncc
 
         private void savebtn_Click(object sender, EventArgs e)
         {
+            // TODO: save pig to database here
 
+            int newPigId = 1; // example, later will come from DB
+            string newPigTag = tagNumberTxt.Text; // tag num eto lang kinuha ko hahaha
+
+            _parentPigManagement.AddPigButton(newPigId, newPigTag);
+
+            MessageBox.Show("Pig registered successfully!");
+            SaveCompleted?.Invoke(this, EventArgs.Empty);
         }
 
         private void sexlbl_Click(object sender, EventArgs e)
