@@ -17,7 +17,7 @@ namespace SwineSyncc
       
         public static readonly Font HeaderFont = new Font("Segoe UI", 24, FontStyle.Bold);
         public static readonly Font LabelFont = new Font("Segoe UI", 18, FontStyle.Bold);
-        public static readonly Font RadioFont = new Font("Segoe UI", 9, FontStyle.Bold);
+        public static readonly Font RadioFont = new Font("Segoe UI", 14, FontStyle.Bold);
         public static readonly Font ButtonFont = new Font("Segoe UI", 17, FontStyle.Bold);
         
         public static void StyleFilledButton(Button btn)
