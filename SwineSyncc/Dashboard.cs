@@ -43,8 +43,7 @@ namespace SwineSyncc
         }
 
         private void LoadRegisterPig()
-        {          
-            PigManagement pigUC = new PigManagement();
+        {                    
             RegisterPig registerPig = new RegisterPig(pigUC);
 
             registerPig.CancelClicked += (s, e) => ShowUserControl(pigUC);
