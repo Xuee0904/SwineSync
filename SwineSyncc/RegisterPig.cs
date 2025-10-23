@@ -126,7 +126,13 @@ namespace SwineSyncc
 
         private void clearbtn_Click(object sender, EventArgs e)
         {
+            tagNumberTxt.Clear();
+            weightTxt.Clear();
 
+            //comboBreed.SelectedIndex = -1;
+            //comboStatus.SelectedIndex = -1;
+
+            dtPicker.Value = DateTime.Now;
         }
     }
 }
