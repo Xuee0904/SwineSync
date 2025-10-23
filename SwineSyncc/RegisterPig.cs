@@ -123,6 +123,10 @@ namespace SwineSyncc
         {
 
         }
- 
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

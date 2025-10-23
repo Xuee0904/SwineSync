@@ -234,43 +234,48 @@
             // 
             // cancelbtn
             // 
+            this.cancelbtn.BackColor = System.Drawing.SystemColors.Control;
             this.cancelbtn.BorderRadious = 9;
             this.cancelbtn.FlatAppearance.BorderSize = 0;
             this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelbtn.Location = new System.Drawing.Point(566, 571);
+            this.cancelbtn.Location = new System.Drawing.Point(669, 563);
             this.cancelbtn.Margin = new System.Windows.Forms.Padding(2);
             this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(110, 45);
+            this.cancelbtn.Size = new System.Drawing.Size(134, 45);
             this.cancelbtn.TabIndex = 32;
             this.cancelbtn.Text = "Cancel";
-            this.cancelbtn.UseVisualStyleBackColor = true;
+            this.cancelbtn.UseVisualStyleBackColor = false;
             this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click_1);
             // 
             // clearbtn
             // 
+            this.clearbtn.BackColor = System.Drawing.SystemColors.Control;
             this.clearbtn.BorderRadious = 9;
             this.clearbtn.FlatAppearance.BorderSize = 0;
             this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearbtn.Location = new System.Drawing.Point(695, 571);
+            this.clearbtn.Location = new System.Drawing.Point(527, 563);
             this.clearbtn.Margin = new System.Windows.Forms.Padding(2);
             this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(110, 45);
+            this.clearbtn.Size = new System.Drawing.Size(134, 45);
             this.clearbtn.TabIndex = 31;
             this.clearbtn.Text = "Clear";
-            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.UseVisualStyleBackColor = false;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // savebtn
             // 
+            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.savebtn.BorderRadious = 9;
             this.savebtn.FlatAppearance.BorderSize = 0;
             this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebtn.Location = new System.Drawing.Point(825, 571);
+            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.savebtn.Location = new System.Drawing.Point(811, 563);
             this.savebtn.Margin = new System.Windows.Forms.Padding(2);
             this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(110, 45);
+            this.savebtn.Size = new System.Drawing.Size(134, 45);
             this.savebtn.TabIndex = 30;
             this.savebtn.Text = "Save";
-            this.savebtn.UseVisualStyleBackColor = true;
+            this.savebtn.UseVisualStyleBackColor = false;
             this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // RegisterPig
