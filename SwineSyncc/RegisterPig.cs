@@ -20,6 +20,7 @@ namespace SwineSyncc
         public RegisterPig(PigManagement pigManagement)
         {
             InitializeComponent();
+
             _parentPigManagement = pigManagement;
             this.Dock = DockStyle.Fill;
             this.Padding = new Padding(100); // white space on all sides
@@ -32,6 +33,15 @@ namespace SwineSyncc
             ApplyTheme();
             ApplyButtonStyles();
             ApplyTextBoxHeight();
+
+            //ADD VALUES TO COMBO BOXES
+            comboBreed.Items.Add("SAMPLE BREED 1");
+            comboBreed.Items.Add("SAMPLE BREED 2");
+            comboBreed.Items.Add("SAMPLE BREED 3");
+
+            comboStatus.Items.Add("ALIVE");
+            comboStatus.Items.Add("SOLD (BINARAT)");
+            comboStatus.Items.Add("NILECHON NG KAPITBAHAY");
         }
 
         private void ApplyTheme()
@@ -129,10 +139,11 @@ namespace SwineSyncc
             tagNumberTxt.Clear();
             weightTxt.Clear();
 
-            //comboBreed.SelectedIndex = -1;
-            //comboStatus.SelectedIndex = -1;
+            comboBreed.SelectedIndex = -1;
+            comboStatus.SelectedIndex = -1;
 
             dtPicker.Value = DateTime.Now;
         }
+
     }
 }
