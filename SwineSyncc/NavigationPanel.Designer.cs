@@ -33,7 +33,7 @@
             this.pigManagementBtn = new System.Windows.Forms.Button();
             this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.pregnancyBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -88,7 +88,7 @@
             this.panelPigSubMenu.AutoSize = true;
             this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelPigSubMenu.Controls.Add(this.button5);
-            this.panelPigSubMenu.Controls.Add(this.button4);
+            this.panelPigSubMenu.Controls.Add(this.pregnancyBtn);
             this.panelPigSubMenu.Controls.Add(this.button2);
             this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPigSubMenu.Location = new System.Drawing.Point(3, 221);
@@ -106,14 +106,15 @@
             this.button5.Text = "Health records";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // pregnancyBtn
             // 
-            this.button4.Location = new System.Drawing.Point(81, 83);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(283, 77);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Pregnancy records";
-            this.button4.UseVisualStyleBackColor = true;
+            this.pregnancyBtn.Location = new System.Drawing.Point(81, 83);
+            this.pregnancyBtn.Name = "pregnancyBtn";
+            this.pregnancyBtn.Size = new System.Drawing.Size(283, 77);
+            this.pregnancyBtn.TabIndex = 7;
+            this.pregnancyBtn.Text = "Pregnancy records";
+            this.pregnancyBtn.UseVisualStyleBackColor = true;
+            this.pregnancyBtn.Click += new System.EventHandler(this.pregnancyBtn_Click);
             // 
             // button2
             // 
@@ -123,6 +124,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Breeding records";
             this.button2.UseVisualStyleBackColor = true;
+           
             // 
             // button6
             // 
@@ -190,7 +192,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panelPigSubMenu;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button pregnancyBtn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;

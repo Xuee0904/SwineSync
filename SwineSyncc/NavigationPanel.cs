@@ -12,6 +12,7 @@ namespace SwineSyncc
 {
     public partial class NavigationPanel : UserControl
     {
+        public event EventHandler PregnancyRecordsClicked;
         public NavigationPanel()
         {
             InitializeComponent();
@@ -26,5 +27,17 @@ namespace SwineSyncc
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pregnancyBtn_Click(object sender, EventArgs e)
+        {
+            PregnancyRecordsClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        
     }
 }

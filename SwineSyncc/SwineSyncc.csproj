@@ -76,6 +76,12 @@
     <Compile Include="PigManagement.Designer.cs">
       <DependentUpon>PigManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="PregnancyReccords.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PregnancyReccords.Designer.cs">
+      <DependentUpon>PregnancyReccords.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterPig.cs">
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PigManagement.resx">
       <DependentUpon>PigManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregnancyReccords.resx">
+      <DependentUpon>PregnancyReccords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

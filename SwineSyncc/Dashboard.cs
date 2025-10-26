@@ -14,6 +14,7 @@ namespace SwineSyncc
     {
         private NavigationPanel navigationPanel;
         private PigManagement pigUC;
+        private PregnancyReccords pregnancyUC;
 
         public Dashboard()
         {
@@ -22,9 +23,10 @@ namespace SwineSyncc
             navPanel.Controls.Add(navigationPanel);
             
             navigationPanel.pigManagementBtn.Click += (s, e) => LoadPigManagement();
-            
+            navigationPanel.PregnancyRecordsClicked += (s, e) => LoadPregnancyRecords();
+
         }
-      
+
         private void ShowUserControl(UserControl uc)
         {        
             mainPanel.Controls.Clear();
@@ -50,6 +52,14 @@ namespace SwineSyncc
             registerPig.SaveCompleted += (s, e) => ShowUserControl(pigUC);
 
             ShowUserControl(registerPig);
+        }
+
+        private void LoadPregnancyRecords()
+        {
+            if (pregnancyUC == null)
+                pregnancyUC = new PregnancyReccords();
+
+            ShowUserControl(pregnancyUC);
         }
 
 

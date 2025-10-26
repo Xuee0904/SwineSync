@@ -23,9 +23,9 @@ namespace SwineSyncc
 
             _parentPigManagement = pigManagement;
             this.Dock = DockStyle.Fill;
-            this.Padding = new Padding(100); // white space on all sides
+            this.Padding = new Padding(100); 
 
-            //panel1.Dock = DockStyle.Fill; // panel becomes "card" area
+           
             this.BackColor = Color.WhiteSmoke;
 
             panel1.BackColor = Color.FromArgb(217, 221, 220);
@@ -145,5 +145,6 @@ namespace SwineSyncc
             dtPicker.Value = DateTime.Now;
         }
 
+       
     }
 }

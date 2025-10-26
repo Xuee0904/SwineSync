@@ -47,46 +47,47 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 648);
+            this.panel1.Size = new System.Drawing.Size(1347, 798);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // flpPigs
             // 
             this.flpPigs.AutoScroll = true;
-            this.flpPigs.Location = new System.Drawing.Point(247, 130);
-            this.flpPigs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpPigs.Location = new System.Drawing.Point(329, 160);
+            this.flpPigs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpPigs.Name = "flpPigs";
-            this.flpPigs.Size = new System.Drawing.Size(730, 344);
+            this.flpPigs.Size = new System.Drawing.Size(973, 423);
             this.flpPigs.TabIndex = 10;
             // 
             // btnDeletePig
             // 
-            this.btnDeletePig.Location = new System.Drawing.Point(816, 530);
-            this.btnDeletePig.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeletePig.Location = new System.Drawing.Point(1088, 652);
+            this.btnDeletePig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeletePig.Name = "btnDeletePig";
-            this.btnDeletePig.Size = new System.Drawing.Size(160, 64);
+            this.btnDeletePig.Size = new System.Drawing.Size(213, 79);
             this.btnDeletePig.TabIndex = 9;
             this.btnDeletePig.Text = "Delete pig";
             this.btnDeletePig.UseVisualStyleBackColor = true;
             // 
             // btnEditPig
             // 
-            this.btnEditPig.Location = new System.Drawing.Point(551, 530);
-            this.btnEditPig.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditPig.Location = new System.Drawing.Point(735, 652);
+            this.btnEditPig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditPig.Name = "btnEditPig";
-            this.btnEditPig.Size = new System.Drawing.Size(160, 64);
+            this.btnEditPig.Size = new System.Drawing.Size(213, 79);
             this.btnEditPig.TabIndex = 8;
             this.btnEditPig.Text = "Edit pig info";
             this.btnEditPig.UseVisualStyleBackColor = true;
             // 
             // btnRegisterPig
             // 
-            this.btnRegisterPig.Location = new System.Drawing.Point(280, 530);
-            this.btnRegisterPig.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegisterPig.Location = new System.Drawing.Point(373, 652);
+            this.btnRegisterPig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegisterPig.Name = "btnRegisterPig";
-            this.btnRegisterPig.Size = new System.Drawing.Size(160, 64);
+            this.btnRegisterPig.Size = new System.Drawing.Size(213, 79);
             this.btnRegisterPig.TabIndex = 7;
             this.btnRegisterPig.Text = "Register pig";
             this.btnRegisterPig.UseVisualStyleBackColor = true;
@@ -95,21 +96,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(244, 48);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(325, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(109, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "Pig Management";
             // 
             // PigManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PigManagement";
-            this.Size = new System.Drawing.Size(1010, 648);
+            this.Size = new System.Drawing.Size(1347, 798);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
