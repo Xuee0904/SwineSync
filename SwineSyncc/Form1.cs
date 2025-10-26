@@ -14,7 +14,7 @@ namespace SwineSyncc
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); 
             
         }
 
@@ -25,9 +25,7 @@ namespace SwineSyncc
             this.Hide();
         }
 
-        private void roundedButton1_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
     }
+
 }
