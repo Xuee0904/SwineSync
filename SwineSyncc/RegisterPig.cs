@@ -145,6 +145,9 @@ namespace SwineSyncc
             dtPicker.Value = DateTime.Now;
         }
 
-       
+        private void femaleradiobtn_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

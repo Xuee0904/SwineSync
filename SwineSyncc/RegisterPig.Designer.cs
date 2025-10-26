@@ -119,6 +119,7 @@
             this.femaleradiobtn.TabStop = true;
             this.femaleradiobtn.Text = "Female";
             this.femaleradiobtn.UseVisualStyleBackColor = true;
+            this.femaleradiobtn.CheckedChanged += new System.EventHandler(this.femaleradiobtn_CheckedChanged);
             // 
             // birthdatelbl
             // 
