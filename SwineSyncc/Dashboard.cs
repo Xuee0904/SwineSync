@@ -13,56 +13,21 @@ namespace SwineSyncc
     public partial class Dashboard : Form
     {
         private NavigationPanel navigationPanel;
-        private PigManagement pigUC;
-        private PregnancyReccords pregnancyUC;
+        private UserControlManager ucManager;
 
         public Dashboard()
         {
             InitializeComponent();
             navigationPanel = new NavigationPanel();
             navPanel.Controls.Add(navigationPanel);
-            
-            navigationPanel.pigManagementBtn.Click += (s, e) => LoadPigManagement();
-            navigationPanel.PregnancyRecordsClicked += (s, e) => LoadPregnancyRecords();
+
+            ucManager = new UserControlManager(mainPanel);
+
+            navigationPanel.pigManagementBtn.Click += (s, e) => ucManager.LoadPigManagement();
+            navigationPanel.PregnancyRecordsClicked += (s, e) => ucManager.LoadPregnancyRecords();
 
         }
-
-        private void ShowUserControl(UserControl uc)
-        {        
-            mainPanel.Controls.Clear();
-            uc.Dock = DockStyle.Fill;
-            mainPanel.Controls.Add(uc);
-        }
-
-        private void LoadPigManagement()
-        {
-            if (pigUC == null)
-            {
-                pigUC = new PigManagement();
-                pigUC.RegisterPigClicked += (s, e) => LoadRegisterPig();
-            }
-            ShowUserControl(pigUC);
-        }
-
-        private void LoadRegisterPig()
-        {                    
-            RegisterPig registerPig = new RegisterPig(pigUC);
-
-            registerPig.CancelClicked += (s, e) => ShowUserControl(pigUC);
-            registerPig.SaveCompleted += (s, e) => ShowUserControl(pigUC);
-
-            ShowUserControl(registerPig);
-        }
-
-        private void LoadPregnancyRecords()
-        {
-            if (pregnancyUC == null)
-                pregnancyUC = new PregnancyReccords();
-
-            ShowUserControl(pregnancyUC);
-        }
-
-
+    
         private void Dashboard_Load(object sender, EventArgs e)
         {
 

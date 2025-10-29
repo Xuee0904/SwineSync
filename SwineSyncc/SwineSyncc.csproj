@@ -97,6 +97,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UIStyle.cs" />
+    <Compile Include="UserControlManager.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
