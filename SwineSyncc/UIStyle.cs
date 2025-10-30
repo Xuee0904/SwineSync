@@ -36,14 +36,14 @@ namespace SwineSyncc
         public static void StyleOutlineButton(Button btn)
         {
             btn.FlatStyle = FlatStyle.Flat;
-            btn.FlatAppearance.BorderSize = 5;
-            btn.FlatAppearance.BorderColor = AccentColor;
+            btn.FlatAppearance.BorderSize = 4;  // border
+            btn.FlatAppearance.BorderColor = AccentColor;  // border color
             btn.BackColor = Color.Transparent;
-            btn.ForeColor = AccentColor;
+            btn.ForeColor = AccentColor;  // brown text to match the border
             btn.Font = ButtonFont;
-
-            // Add rounded corners to match the panel's border radius
-            int borderRadius = 20;  // Same as the panel in RegisterPig
+            btn.UseCompatibleTextRendering = true;  // keeps text rendering quality to avoid blurriness
+            // added rounded corners to match the panel's border radius
+            int borderRadius = 20;  // same as the panel in RegisterPig
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
             path.AddArc(0, 0, borderRadius, borderRadius, 180, 90);
             path.AddArc(btn.Width - borderRadius, 0, borderRadius, borderRadius, 270, 90);
