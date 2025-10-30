@@ -36,7 +36,7 @@ namespace SwineSyncc
         public static void StyleOutlineButton(Button btn)
         {
             btn.FlatStyle = FlatStyle.Flat;
-            btn.FlatAppearance.BorderSize = 4;  // border
+            btn.FlatAppearance.BorderSize = 3;  // border
             btn.FlatAppearance.BorderColor = AccentColor;  // border color
             btn.BackColor = Color.Transparent;
             btn.ForeColor = AccentColor;  // brown text to match the border
