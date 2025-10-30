@@ -25,7 +25,10 @@ namespace SwineSyncc
             this.Hide();
         }
 
- 
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

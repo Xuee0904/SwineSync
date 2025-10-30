@@ -32,18 +32,18 @@ namespace SwineSyncc
             btn.MouseLeave += (s, e) => btn.BackColor = AccentColor;
         }
 
-        
+
         public static void StyleOutlineButton(Button btn)
         {
             btn.FlatStyle = FlatStyle.Flat;
-            btn.FlatAppearance.BorderSize = 2;
+            btn.FlatAppearance.BorderSize = 4;
             btn.FlatAppearance.BorderColor = AccentColor;
-            btn.BackColor = Color.White;
-            btn.ForeColor = AccentColor;
+            btn.BackColor = Color.Transparent;
+            btn.ForeColor = AccentColor;  // Changed to AccentColor (brown) for better visibility against the transparent background
             btn.Font = ButtonFont;
-            
+
             btn.MouseEnter += (s, e) => btn.BackColor = Color.FromArgb(245, 245, 245);
-            btn.MouseLeave += (s, e) => btn.BackColor = Color.White;
+            btn.MouseLeave += (s, e) => btn.BackColor = Color.Transparent;
         }
 
 
