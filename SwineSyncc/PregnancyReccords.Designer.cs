@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.roundedButton1 = new RoundedButton();
-            this.roundedButton2 = new RoundedButton();
-            this.roundedButton3 = new RoundedButton();
+            this.editPregnancyBtn = new BorderRoundedButton();
+            this.addPregnancyBtn = new BorderRoundedButton();
+            this.deletePregnancyBtn = new BorderRoundedButton();
             this.SuspendLayout();
             // 
             // label1
@@ -52,49 +52,62 @@
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
-            // roundedButton1
+            // editPregnancyBtn
             // 
-            this.roundedButton1.BorderRadious = 9;
-            this.roundedButton1.FlatAppearance.BorderSize = 0;
-            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton1.Location = new System.Drawing.Point(626, 639);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(179, 55);
-            this.roundedButton1.TabIndex = 2;
-            this.roundedButton1.Text = "Add pregnancy record";
-            this.roundedButton1.UseVisualStyleBackColor = true;
+            this.editPregnancyBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.editPregnancyBtn.BorderRadious = 9;
+            this.editPregnancyBtn.BorderThickness = 3;
+            this.editPregnancyBtn.FlatAppearance.BorderSize = 0;
+            this.editPregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editPregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.editPregnancyBtn.Location = new System.Drawing.Point(923, 641);
+            this.editPregnancyBtn.Name = "editPregnancyBtn";
+            this.editPregnancyBtn.Size = new System.Drawing.Size(179, 55);
+            this.editPregnancyBtn.TabIndex = 5;
+            this.editPregnancyBtn.Text = "Edit pregnancy";
+            this.editPregnancyBtn.UseVisualStyleBackColor = true;
             // 
-            // roundedButton2
+            // addPregnancyBtn
             // 
-            this.roundedButton2.BorderRadious = 9;
-            this.roundedButton2.FlatAppearance.BorderSize = 0;
-            this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton2.Location = new System.Drawing.Point(887, 639);
-            this.roundedButton2.Name = "roundedButton2";
-            this.roundedButton2.Size = new System.Drawing.Size(179, 55);
-            this.roundedButton2.TabIndex = 3;
-            this.roundedButton2.Text = "Edit pregnancy record";
-            this.roundedButton2.UseVisualStyleBackColor = true;
+            this.addPregnancyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.addPregnancyBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.addPregnancyBtn.BorderRadious = 9;
+            this.addPregnancyBtn.BorderThickness = 3;
+            this.addPregnancyBtn.FlatAppearance.BorderSize = 0;
+            this.addPregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addPregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.addPregnancyBtn.Location = new System.Drawing.Point(1123, 641);
+            this.addPregnancyBtn.Name = "addPregnancyBtn";
+            this.addPregnancyBtn.Size = new System.Drawing.Size(179, 55);
+            this.addPregnancyBtn.TabIndex = 6;
+            this.addPregnancyBtn.Text = "Add pregnancy";
+            this.addPregnancyBtn.UseVisualStyleBackColor = false;
             // 
-            // roundedButton3
+            // deletePregnancyBtn
             // 
-            this.roundedButton3.BorderRadious = 9;
-            this.roundedButton3.FlatAppearance.BorderSize = 0;
-            this.roundedButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton3.Location = new System.Drawing.Point(1123, 639);
-            this.roundedButton3.Name = "roundedButton3";
-            this.roundedButton3.Size = new System.Drawing.Size(179, 55);
-            this.roundedButton3.TabIndex = 4;
-            this.roundedButton3.Text = "Delete pregnancy record";
-            this.roundedButton3.UseVisualStyleBackColor = true;
+            this.deletePregnancyBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.deletePregnancyBtn.BorderRadious = 9;
+            this.deletePregnancyBtn.BorderThickness = 3;
+            this.deletePregnancyBtn.FlatAppearance.BorderSize = 0;
+            this.deletePregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletePregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletePregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.deletePregnancyBtn.Location = new System.Drawing.Point(721, 641);
+            this.deletePregnancyBtn.Name = "deletePregnancyBtn";
+            this.deletePregnancyBtn.Size = new System.Drawing.Size(179, 55);
+            this.deletePregnancyBtn.TabIndex = 7;
+            this.deletePregnancyBtn.Text = "Delete pregnancy";
+            this.deletePregnancyBtn.UseVisualStyleBackColor = true;
             // 
             // PregnancyReccords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.roundedButton3);
-            this.Controls.Add(this.roundedButton2);
-            this.Controls.Add(this.roundedButton1);
+            this.Controls.Add(this.deletePregnancyBtn);
+            this.Controls.Add(this.addPregnancyBtn);
+            this.Controls.Add(this.editPregnancyBtn);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Name = "PregnancyReccords";
@@ -109,8 +122,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private RoundedButton roundedButton1;
-        private RoundedButton roundedButton2;
-        private RoundedButton roundedButton3;
+        private BorderRoundedButton editPregnancyBtn;
+        private BorderRoundedButton addPregnancyBtn;
+        private BorderRoundedButton deletePregnancyBtn;
     }
 }

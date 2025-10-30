@@ -28,10 +28,7 @@ namespace SwineSyncc
            
             this.BackColor = Color.WhiteSmoke;
 
-            panel1.BackColor = Color.FromArgb(217, 221, 220);
-
-            ApplyTheme();
-            ApplyButtonStyles();
+            panel1.BackColor = Color.FromArgb(217, 221, 220);                        
             ApplyTextBoxHeight();
 
             //ADD VALUES TO COMBO BOXES
@@ -44,25 +41,7 @@ namespace SwineSyncc
             comboStatus.Items.Add("NILECHON NG KAPITBAHAY");
         }
 
-        private void ApplyTheme()
-        {           
-            this.BackColor = Color.White;
-
-            registerpiglbl.ForeColor = UIStyle.AccentColor;
-            registerpiglbl.Font = UIStyle.HeaderFont;
-
-            foreach (var label in new[] { tagnumberlbl, birthdatelbl, breedlbl, weightlbl, sexlbl, statuslbl })
-            {
-                label.ForeColor = UIStyle.AccentColor;
-                label.Font = UIStyle.LabelFont;
-            }
-
-            foreach (var radio in new[] { maleradiobtn, femaleradiobtn })
-            {
-                radio.ForeColor = UIStyle.AccentColor;
-                radio.Font = UIStyle.RadioFont;
-            }           
-        }
+        
 
         private void ApplyTextBoxHeight() 
         {
@@ -72,14 +51,7 @@ namespace SwineSyncc
             UIStyle.BoxHeight(comboBreed);
             UIStyle.BoxHeight(comboStatus);
         }
-
-        private void ApplyButtonStyles()
-        {            
-            UIStyle.StyleFilledButton(savebtn);
-            UIStyle.StyleOutlineButton(clearbtn);
-            UIStyle.StyleOutlineButton(cancelbtn);
-        }
-
+        
         private void RegisterPig_Load(object sender, EventArgs e)
         {
 
@@ -104,12 +76,7 @@ namespace SwineSyncc
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void cancelbtn_Click_1(object sender, EventArgs e)
-        {
-            CancelClicked?.Invoke(this, EventArgs.Empty);
-        }
+        }       
 
         private void savebtn_Click(object sender, EventArgs e)
         {
@@ -133,8 +100,18 @@ namespace SwineSyncc
         {
 
         }
+     
+        private void femaleradiobtn_CheckedChanged(object sender, EventArgs e)
+        {
 
-        private void clearbtn_Click(object sender, EventArgs e)
+        }
+
+        private void cancelbtn_Click(object sender, EventArgs e)
+        {
+            CancelClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void clearbtn_Click_1(object sender, EventArgs e)
         {
             tagNumberTxt.Clear();
             weightTxt.Clear();
@@ -143,11 +120,6 @@ namespace SwineSyncc
             comboStatus.SelectedIndex = -1;
 
             dtPicker.Value = DateTime.Now;
-        }
-
-        private void femaleradiobtn_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

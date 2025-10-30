@@ -46,6 +46,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.pigManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.panelPigSubMenu);
@@ -124,7 +125,6 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Breeding records";
             this.button2.UseVisualStyleBackColor = true;
-           
             // 
             // button6
             // 
