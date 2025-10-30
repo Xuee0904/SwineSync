@@ -23,7 +23,7 @@ namespace SwineSyncc
 
             _parentPigManagement = pigManagement;
             this.Dock = DockStyle.Fill;
-            this.Padding = new Padding(100); 
+            this.Padding = new Padding(40); 
 
            
             this.BackColor = Color.WhiteSmoke;

@@ -56,7 +56,7 @@
             // 
             this.tagnumberlbl.AutoSize = true;
             this.tagnumberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagnumberlbl.Location = new System.Drawing.Point(97, 134);
+            this.tagnumberlbl.Location = new System.Drawing.Point(100, 182);
             this.tagnumberlbl.Name = "tagnumberlbl";
             this.tagnumberlbl.Size = new System.Drawing.Size(193, 36);
             this.tagnumberlbl.TabIndex = 16;
@@ -65,10 +65,10 @@
             // tagNumberTxt
             // 
             this.tagNumberTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagNumberTxt.Location = new System.Drawing.Point(103, 176);
+            this.tagNumberTxt.Location = new System.Drawing.Point(106, 224);
             this.tagNumberTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tagNumberTxt.Name = "tagNumberTxt";
-            this.tagNumberTxt.Size = new System.Drawing.Size(337, 41);
+            this.tagNumberTxt.Size = new System.Drawing.Size(377, 41);
             this.tagNumberTxt.TabIndex = 17;
             this.tagNumberTxt.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -76,7 +76,7 @@
             // 
             this.breedlbl.AutoSize = true;
             this.breedlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breedlbl.Location = new System.Drawing.Point(100, 300);
+            this.breedlbl.Location = new System.Drawing.Point(99, 328);
             this.breedlbl.Name = "breedlbl";
             this.breedlbl.Size = new System.Drawing.Size(108, 36);
             this.breedlbl.TabIndex = 18;
@@ -86,7 +86,7 @@
             // 
             this.sexlbl.AutoSize = true;
             this.sexlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sexlbl.Location = new System.Drawing.Point(97, 469);
+            this.sexlbl.Location = new System.Drawing.Point(96, 518);
             this.sexlbl.Name = "sexlbl";
             this.sexlbl.Size = new System.Drawing.Size(78, 36);
             this.sexlbl.TabIndex = 19;
@@ -97,7 +97,7 @@
             // 
             this.maleradiobtn.AutoSize = true;
             this.maleradiobtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maleradiobtn.Location = new System.Drawing.Point(105, 517);
+            this.maleradiobtn.Location = new System.Drawing.Point(104, 566);
             this.maleradiobtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maleradiobtn.Name = "maleradiobtn";
             this.maleradiobtn.Size = new System.Drawing.Size(100, 40);
@@ -111,7 +111,7 @@
             // 
             this.femaleradiobtn.AutoSize = true;
             this.femaleradiobtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.femaleradiobtn.Location = new System.Drawing.Point(236, 517);
+            this.femaleradiobtn.Location = new System.Drawing.Point(235, 566);
             this.femaleradiobtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.femaleradiobtn.Name = "femaleradiobtn";
             this.femaleradiobtn.Size = new System.Drawing.Size(132, 40);
@@ -125,7 +125,7 @@
             // 
             this.birthdatelbl.AutoSize = true;
             this.birthdatelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdatelbl.Location = new System.Drawing.Point(563, 134);
+            this.birthdatelbl.Location = new System.Drawing.Point(593, 182);
             this.birthdatelbl.Name = "birthdatelbl";
             this.birthdatelbl.Size = new System.Drawing.Size(161, 36);
             this.birthdatelbl.TabIndex = 22;
@@ -134,17 +134,17 @@
             // dtPicker
             // 
             this.dtPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtPicker.Location = new System.Drawing.Point(569, 176);
+            this.dtPicker.Location = new System.Drawing.Point(599, 224);
             this.dtPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtPicker.Name = "dtPicker";
-            this.dtPicker.Size = new System.Drawing.Size(337, 41);
+            this.dtPicker.Size = new System.Drawing.Size(377, 41);
             this.dtPicker.TabIndex = 23;
             // 
             // weightlbl
             // 
             this.weightlbl.AutoSize = true;
             this.weightlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightlbl.Location = new System.Drawing.Point(563, 305);
+            this.weightlbl.Location = new System.Drawing.Point(589, 333);
             this.weightlbl.Name = "weightlbl";
             this.weightlbl.Size = new System.Drawing.Size(189, 36);
             this.weightlbl.TabIndex = 24;
@@ -153,37 +153,37 @@
             // weightTxt
             // 
             this.weightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightTxt.Location = new System.Drawing.Point(569, 346);
+            this.weightTxt.Location = new System.Drawing.Point(595, 374);
             this.weightTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.weightTxt.Name = "weightTxt";
-            this.weightTxt.Size = new System.Drawing.Size(337, 41);
+            this.weightTxt.Size = new System.Drawing.Size(378, 41);
             this.weightTxt.TabIndex = 25;
             // 
             // comboBreed
             // 
             this.comboBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBreed.FormattingEnabled = true;
-            this.comboBreed.Location = new System.Drawing.Point(105, 343);
+            this.comboBreed.Location = new System.Drawing.Point(104, 371);
             this.comboBreed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBreed.Name = "comboBreed";
-            this.comboBreed.Size = new System.Drawing.Size(335, 44);
+            this.comboBreed.Size = new System.Drawing.Size(377, 44);
             this.comboBreed.TabIndex = 26;
             // 
             // comboStatus
             // 
             this.comboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.FormattingEnabled = true;
-            this.comboStatus.Location = new System.Drawing.Point(569, 512);
+            this.comboStatus.Location = new System.Drawing.Point(595, 561);
             this.comboStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboStatus.Name = "comboStatus";
-            this.comboStatus.Size = new System.Drawing.Size(337, 44);
+            this.comboStatus.Size = new System.Drawing.Size(375, 44);
             this.comboStatus.TabIndex = 27;
             // 
             // statuslbl
             // 
             this.statuslbl.AutoSize = true;
             this.statuslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statuslbl.Location = new System.Drawing.Point(563, 469);
+            this.statuslbl.Location = new System.Drawing.Point(589, 518);
             this.statuslbl.Name = "statuslbl";
             this.statuslbl.Size = new System.Drawing.Size(114, 36);
             this.statuslbl.TabIndex = 28;
@@ -224,7 +224,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1440, 1080);
+            this.panel1.Size = new System.Drawing.Size(1071, 1080);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -236,10 +236,10 @@
             this.cancelbtn.FlatAppearance.BorderSize = 0;
             this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.Location = new System.Drawing.Point(537, 684);
+            this.cancelbtn.Location = new System.Drawing.Point(599, 709);
             this.cancelbtn.Margin = new System.Windows.Forms.Padding(4);
             this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(183, 55);
+            this.cancelbtn.Size = new System.Drawing.Size(179, 55);
             this.cancelbtn.TabIndex = 34;
             this.cancelbtn.Text = "Cancel";
             this.cancelbtn.UseVisualStyleBackColor = true;
@@ -253,10 +253,10 @@
             this.clearbtn.FlatAppearance.BorderSize = 0;
             this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearbtn.Location = new System.Drawing.Point(346, 684);
+            this.clearbtn.Location = new System.Drawing.Point(408, 709);
             this.clearbtn.Margin = new System.Windows.Forms.Padding(4);
             this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(183, 55);
+            this.clearbtn.Size = new System.Drawing.Size(179, 55);
             this.clearbtn.TabIndex = 33;
             this.clearbtn.Text = "Clear";
             this.clearbtn.UseVisualStyleBackColor = true;
@@ -270,7 +270,7 @@
             this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.savebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.savebtn.Location = new System.Drawing.Point(727, 684);
+            this.savebtn.Location = new System.Drawing.Point(794, 709);
             this.savebtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(179, 55);
@@ -286,7 +286,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RegisterPig";
-            this.Size = new System.Drawing.Size(1440, 1080);
+            this.Size = new System.Drawing.Size(1071, 1080);
             this.Load += new System.EventHandler(this.RegisterPig_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
