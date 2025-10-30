@@ -49,14 +49,14 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1347, 798);
+            this.panel1.Size = new System.Drawing.Size(1097, 798);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // flpPigs
             // 
             this.flpPigs.AutoScroll = true;
-            this.flpPigs.Location = new System.Drawing.Point(329, 160);
+            this.flpPigs.Location = new System.Drawing.Point(45, 134);
             this.flpPigs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpPigs.Name = "flpPigs";
             this.flpPigs.Size = new System.Drawing.Size(973, 423);
@@ -64,7 +64,7 @@
             // 
             // btnDeletePig
             // 
-            this.btnDeletePig.Location = new System.Drawing.Point(1088, 652);
+            this.btnDeletePig.Location = new System.Drawing.Point(804, 626);
             this.btnDeletePig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeletePig.Name = "btnDeletePig";
             this.btnDeletePig.Size = new System.Drawing.Size(213, 79);
@@ -74,7 +74,7 @@
             // 
             // btnEditPig
             // 
-            this.btnEditPig.Location = new System.Drawing.Point(735, 652);
+            this.btnEditPig.Location = new System.Drawing.Point(451, 626);
             this.btnEditPig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditPig.Name = "btnEditPig";
             this.btnEditPig.Size = new System.Drawing.Size(213, 79);
@@ -84,7 +84,7 @@
             // 
             // btnRegisterPig
             // 
-            this.btnRegisterPig.Location = new System.Drawing.Point(373, 652);
+            this.btnRegisterPig.Location = new System.Drawing.Point(89, 626);
             this.btnRegisterPig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegisterPig.Name = "btnRegisterPig";
             this.btnRegisterPig.Size = new System.Drawing.Size(213, 79);
@@ -96,7 +96,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(325, 59);
+            this.label1.Location = new System.Drawing.Point(41, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 16);
             this.label1.TabIndex = 5;
@@ -109,7 +109,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PigManagement";
-            this.Size = new System.Drawing.Size(1347, 798);
+            this.Size = new System.Drawing.Size(1097, 798);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
