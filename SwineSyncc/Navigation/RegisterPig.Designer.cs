@@ -44,12 +44,12 @@
             this.comboStatus = new System.Windows.Forms.ComboBox();
             this.statuslbl = new System.Windows.Forms.Label();
             this.registerpiglbl = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.registerPigPanel = new System.Windows.Forms.Panel();
             this.cancelbtn = new BorderRoundedButton();
             this.clearbtn = new BorderRoundedButton();
             this.savebtn = new RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.registerPigPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tagnumberlbl
@@ -196,33 +196,33 @@
             this.registerpiglbl.TabIndex = 29;
             this.registerpiglbl.Text = "Register pig";
             // 
-            // panel1
+            // registerPigPanel
             // 
-            this.panel1.Controls.Add(this.cancelbtn);
-            this.panel1.Controls.Add(this.clearbtn);
-            this.panel1.Controls.Add(this.savebtn);
-            this.panel1.Controls.Add(this.registerpiglbl);
-            this.panel1.Controls.Add(this.statuslbl);
-            this.panel1.Controls.Add(this.comboStatus);
-            this.panel1.Controls.Add(this.comboBreed);
-            this.panel1.Controls.Add(this.weightTxt);
-            this.panel1.Controls.Add(this.weightlbl);
-            this.panel1.Controls.Add(this.dtPicker);
-            this.panel1.Controls.Add(this.birthdatelbl);
-            this.panel1.Controls.Add(this.femaleradiobtn);
-            this.panel1.Controls.Add(this.maleradiobtn);
-            this.panel1.Controls.Add(this.sexlbl);
-            this.panel1.Controls.Add(this.breedlbl);
-            this.panel1.Controls.Add(this.tagNumberTxt);
-            this.panel1.Controls.Add(this.tagnumberlbl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1071, 1081);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.registerPigPanel.Controls.Add(this.cancelbtn);
+            this.registerPigPanel.Controls.Add(this.clearbtn);
+            this.registerPigPanel.Controls.Add(this.savebtn);
+            this.registerPigPanel.Controls.Add(this.registerpiglbl);
+            this.registerPigPanel.Controls.Add(this.statuslbl);
+            this.registerPigPanel.Controls.Add(this.comboStatus);
+            this.registerPigPanel.Controls.Add(this.comboBreed);
+            this.registerPigPanel.Controls.Add(this.weightTxt);
+            this.registerPigPanel.Controls.Add(this.weightlbl);
+            this.registerPigPanel.Controls.Add(this.dtPicker);
+            this.registerPigPanel.Controls.Add(this.birthdatelbl);
+            this.registerPigPanel.Controls.Add(this.femaleradiobtn);
+            this.registerPigPanel.Controls.Add(this.maleradiobtn);
+            this.registerPigPanel.Controls.Add(this.sexlbl);
+            this.registerPigPanel.Controls.Add(this.breedlbl);
+            this.registerPigPanel.Controls.Add(this.tagNumberTxt);
+            this.registerPigPanel.Controls.Add(this.tagnumberlbl);
+            this.registerPigPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.registerPigPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.registerPigPanel.Location = new System.Drawing.Point(0, 0);
+            this.registerPigPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.registerPigPanel.Name = "registerPigPanel";
+            this.registerPigPanel.Size = new System.Drawing.Size(1071, 1081);
+            this.registerPigPanel.TabIndex = 0;
+          
             // 
             // cancelbtn
             // 
@@ -233,7 +233,7 @@
             this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelbtn.Location = new System.Drawing.Point(673, 608);
-            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4);
             this.cancelbtn.Name = "cancelbtn";
             this.cancelbtn.Size = new System.Drawing.Size(147, 55);
             this.cancelbtn.TabIndex = 34;
@@ -250,7 +250,7 @@
             this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearbtn.Location = new System.Drawing.Point(519, 608);
-            this.clearbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearbtn.Margin = new System.Windows.Forms.Padding(4);
             this.clearbtn.Name = "clearbtn";
             this.clearbtn.Size = new System.Drawing.Size(147, 55);
             this.clearbtn.TabIndex = 33;
@@ -279,14 +279,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.registerPigPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RegisterPig";
             this.Size = new System.Drawing.Size(1071, 1081);
             this.Load += new System.EventHandler(this.RegisterPig_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.registerPigPanel.ResumeLayout(false);
+            this.registerPigPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -308,7 +308,7 @@
         private System.Windows.Forms.Label statuslbl;
         private System.Windows.Forms.Label registerpiglbl;
         private RoundedButton savebtn;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel registerPigPanel;
         private BorderRoundedButton cancelbtn;
         private BorderRoundedButton clearbtn;
     }

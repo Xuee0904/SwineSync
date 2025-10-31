@@ -74,6 +74,12 @@
     <Compile Include="Navigation\NavigationPanel.Designer.cs">
       <DependentUpon>NavigationPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\PigDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\PigDetails.Designer.cs">
+      <DependentUpon>PigDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\PigManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,7 +106,8 @@
     <Compile Include="CustomUIElements\RoundedPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UIStyle.cs" />
+    <Compile Include="Styles\RoundedPanelStyle.cs" />
+    <Compile Include="Styles\UIStyle.cs" />
     <Compile Include="UserControlManager.cs" />
     <EmbeddedResource Include="Dashboard\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -110,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\NavigationPanel.resx">
       <DependentUpon>NavigationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\PigDetails.resx">
+      <DependentUpon>PigDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\PigManagement.resx">
       <DependentUpon>PigManagement.cs</DependentUpon>

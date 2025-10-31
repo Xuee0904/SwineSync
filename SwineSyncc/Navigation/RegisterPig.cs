@@ -24,12 +24,13 @@ namespace SwineSyncc
 
             _parentPigManagement = pigManagement;
             this.Dock = DockStyle.Fill;
-            this.Padding = new Padding(40); 
+            this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(registerPigPanel, 20);
 
-           
+
             this.BackColor = Color.WhiteSmoke;
 
-            panel1.BackColor = Color.FromArgb(217, 221, 220);                        
+            registerPigPanel.BackColor = Color.FromArgb(217, 221, 220);                        
             ApplyTextBoxHeight();
 
             //ADD VALUES TO COMBO BOXES
@@ -57,25 +58,7 @@ namespace SwineSyncc
         {
 
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            int borderRadius = 20;
-            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            Rectangle rect = new Rectangle(0, 0, panel1.Width, panel1.Height);
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-
-            path.AddArc(0, 0, borderRadius, borderRadius, 180, 90);
-            path.AddArc(rect.Width - borderRadius, 0, borderRadius, borderRadius, 270, 90);
-            path.AddArc(rect.Width - borderRadius, rect.Height - borderRadius, borderRadius, borderRadius, 0, 90);
-            path.AddArc(0, rect.Height - borderRadius, borderRadius, borderRadius, 90, 90);
-            path.CloseAllFigures();
-
-            panel1.Region = new Region(path);
-        }
-       
-             
-
+                        
         private void savebtn_Click(object sender, EventArgs e)
         {           
             string connectionString = "Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
