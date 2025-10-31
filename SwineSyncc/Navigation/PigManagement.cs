@@ -12,10 +12,12 @@ namespace SwineSyncc
 
         public event EventHandler RegisterPigClicked;
 
-        public PigManagement()
+        private Panel _mainPanel;
+        public PigManagement(Panel mainPanel)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Right;
+            _mainPanel = mainPanel;
+            this.Dock = DockStyle.Fill; 
             LoadPigButtons();
         }
 
@@ -32,7 +34,7 @@ namespace SwineSyncc
 
             if (pig != null)
             {
-                PigDetails details = new PigDetails();
+                PigDetails details = new PigDetails(_mainPanel); 
                 details.DisplayPigDetails(
                     pig.PigID,
                     pig.TagNumber,
@@ -43,20 +45,17 @@ namespace SwineSyncc
                     pig.Status
                 );
 
-                // ✅ safer way
-                Form parentForm = this.FindForm();
-                if (parentForm != null)
-                {
-                    parentForm.Controls.Clear();
-                    parentForm.Controls.Add(details);
-                    details.Dock = DockStyle.Fill;
-                }
-                else
-                {
-                    MessageBox.Show("Parent form not found.");
-                }
+               
+                _mainPanel.Controls.Clear();
+                _mainPanel.Controls.Add(details);
+                details.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                MessageBox.Show("Pig not found.");
             }
         }
+
 
 
         public void RefreshPigList()

@@ -12,6 +12,14 @@ namespace SwineSyncc.Navigation
 {
     public partial class PigDetails : UserControl
     {
+
+        private Panel _mainPanel; 
+       
+        public PigDetails(Panel mainPanel)
+        {
+            InitializeComponent();
+            _mainPanel = mainPanel;
+        }
         public PigDetails()
         {
             InitializeComponent();
