@@ -9,12 +9,16 @@ namespace SwineSyncc.Data
             new Lazy<DBConnection>(() => new DBConnection());
 
         private readonly string _connectionString =
-            "Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
+            //ADRIAN SERVER
+            //"Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
 
-        
+            //CEDRIC SERVER
+            "Data Source=DESKTOP-2ARRBJ3\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
+
+
         private DBConnection() { }
        
-        public static DBConnection Instance => _instance.Value;      
+        public static DBConnection Instance => _instance.Value;
         public SqlConnection GetConnection()
         {
             return new SqlConnection(_connectionString);

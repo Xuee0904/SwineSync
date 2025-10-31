@@ -45,7 +45,7 @@ public class RoundedPictureBox : PictureBox
         {
             this.Region = new Region(path);
 
-            // Optional: Draw a border (if you want one)
+            // Optional: Draw a border
             // pe.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             // using (Pen borderPen = new Pen(Color.Gray, 1))
             // {
