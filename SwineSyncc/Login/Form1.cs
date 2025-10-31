@@ -22,7 +22,7 @@ namespace SwineSyncc
         {
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
