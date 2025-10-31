@@ -13,24 +13,26 @@ namespace SwineSyncc.Navigation
     public partial class PigDetails : UserControl
     {
 
-        private Panel _mainPanel; 
-       
-        public PigDetails(Panel mainPanel)
+        private Panel _mainPanel;
+
+        public PigDetails(Panel mainPanel) : this()
         {
-            InitializeComponent();
             _mainPanel = mainPanel;
         }
+
         public PigDetails()
         {
             InitializeComponent();
             RoundedPanelStyle.ApplyRoundedCorners(pigDetailsPanel, 20);
+            pigDetailsPanel.BackColor = Color.FromArgb(217, 221, 220);
+            this.Padding = new Padding(40);
         }
 
         public void DisplayPigDetails(int pigId, string tagNumber, string breed, string sex, DateTime birthDate, int weight, string status)
         {
             lblPig.Text = $"Pig ID: {pigId}";
             tagNumberLbl.Text = tagNumber;
-            pigDetailsPanel.Text = breed;
+            breedLbl.Text = breed;
             sexLbl.Text = sex;
             birthDateLbl.Text = birthDate.ToString("MMMM dd, yyyy");
             weightLbl.Text = $"{weight} kg";

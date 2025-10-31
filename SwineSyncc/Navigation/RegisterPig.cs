@@ -133,5 +133,10 @@ namespace SwineSyncc
 
             dtPicker.Value = DateTime.Now;
         }
+
+        private void registerPigPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -222,7 +222,7 @@
             this.registerPigPanel.Name = "registerPigPanel";
             this.registerPigPanel.Size = new System.Drawing.Size(1071, 1081);
             this.registerPigPanel.TabIndex = 0;
-          
+            this.registerPigPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.registerPigPanel_Paint);
             // 
             // cancelbtn
             // 
