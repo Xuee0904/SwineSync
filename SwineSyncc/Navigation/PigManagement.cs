@@ -58,8 +58,9 @@ namespace SwineSyncc
         {
             LoadPigButtons();
         }
+        
 
-        private void btnRegisterPig_Click_1(object sender, EventArgs e)
+        private void btnRegisterPig_Click(object sender, EventArgs e)
         {
             RegisterPigClicked?.Invoke(this, EventArgs.Empty);
         }
