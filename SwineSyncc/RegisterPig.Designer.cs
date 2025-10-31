@@ -56,31 +56,28 @@
             // 
             this.tagnumberlbl.AutoSize = true;
             this.tagnumberlbl.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagnumberlbl.Location = new System.Drawing.Point(39, 148);
-            this.tagnumberlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tagnumberlbl.Location = new System.Drawing.Point(52, 182);
             this.tagnumberlbl.Name = "tagnumberlbl";
-            this.tagnumberlbl.Size = new System.Drawing.Size(137, 30);
+            this.tagnumberlbl.Size = new System.Drawing.Size(178, 37);
             this.tagnumberlbl.TabIndex = 16;
             this.tagnumberlbl.Text = "Tag number:";
             // 
             // tagNumberTxt
             // 
             this.tagNumberTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagNumberTxt.Location = new System.Drawing.Point(44, 182);
-            this.tagNumberTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tagNumberTxt.Location = new System.Drawing.Point(59, 224);
+            this.tagNumberTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tagNumberTxt.Name = "tagNumberTxt";
-            this.tagNumberTxt.Size = new System.Drawing.Size(341, 31);
+            this.tagNumberTxt.Size = new System.Drawing.Size(453, 37);
             this.tagNumberTxt.TabIndex = 17;
-            this.tagNumberTxt.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // breedlbl
             // 
             this.breedlbl.AutoSize = true;
             this.breedlbl.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breedlbl.Location = new System.Drawing.Point(40, 250);
-            this.breedlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.breedlbl.Location = new System.Drawing.Point(53, 308);
             this.breedlbl.Name = "breedlbl";
-            this.breedlbl.Size = new System.Drawing.Size(75, 30);
+            this.breedlbl.Size = new System.Drawing.Size(99, 37);
             this.breedlbl.TabIndex = 18;
             this.breedlbl.Text = "Breed:";
             // 
@@ -88,110 +85,103 @@
             // 
             this.sexlbl.AutoSize = true;
             this.sexlbl.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sexlbl.Location = new System.Drawing.Point(40, 354);
-            this.sexlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.sexlbl.Location = new System.Drawing.Point(53, 436);
             this.sexlbl.Name = "sexlbl";
-            this.sexlbl.Size = new System.Drawing.Size(54, 30);
+            this.sexlbl.Size = new System.Drawing.Size(69, 37);
             this.sexlbl.TabIndex = 19;
             this.sexlbl.Text = "Sex:";
-            this.sexlbl.Click += new System.EventHandler(this.sexlbl_Click);
             // 
             // maleradiobtn
             // 
             this.maleradiobtn.AutoSize = true;
             this.maleradiobtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maleradiobtn.Location = new System.Drawing.Point(48, 386);
-            this.maleradiobtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maleradiobtn.Location = new System.Drawing.Point(64, 475);
+            this.maleradiobtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maleradiobtn.Name = "maleradiobtn";
-            this.maleradiobtn.Size = new System.Drawing.Size(77, 34);
+            this.maleradiobtn.Size = new System.Drawing.Size(97, 41);
             this.maleradiobtn.TabIndex = 20;
             this.maleradiobtn.TabStop = true;
             this.maleradiobtn.Text = "Male";
             this.maleradiobtn.UseVisualStyleBackColor = true;
-            this.maleradiobtn.CheckedChanged += new System.EventHandler(this.maleradiobtn_CheckedChanged);
             // 
             // femaleradiobtn
             // 
             this.femaleradiobtn.AutoSize = true;
             this.femaleradiobtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.femaleradiobtn.Location = new System.Drawing.Point(146, 386);
-            this.femaleradiobtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.femaleradiobtn.Location = new System.Drawing.Point(195, 475);
+            this.femaleradiobtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.femaleradiobtn.Name = "femaleradiobtn";
-            this.femaleradiobtn.Size = new System.Drawing.Size(97, 34);
+            this.femaleradiobtn.Size = new System.Drawing.Size(123, 41);
             this.femaleradiobtn.TabIndex = 21;
             this.femaleradiobtn.TabStop = true;
             this.femaleradiobtn.Text = "Female";
             this.femaleradiobtn.UseVisualStyleBackColor = true;
-            this.femaleradiobtn.CheckedChanged += new System.EventHandler(this.femaleradiobtn_CheckedChanged);
             // 
             // birthdatelbl
             // 
             this.birthdatelbl.AutoSize = true;
             this.birthdatelbl.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdatelbl.Location = new System.Drawing.Point(384, 148);
-            this.birthdatelbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.birthdatelbl.Location = new System.Drawing.Point(512, 182);
             this.birthdatelbl.Name = "birthdatelbl";
-            this.birthdatelbl.Size = new System.Drawing.Size(117, 30);
+            this.birthdatelbl.Size = new System.Drawing.Size(153, 37);
             this.birthdatelbl.TabIndex = 22;
             this.birthdatelbl.Text = "Birth date:";
             // 
             // dtPicker
             // 
             this.dtPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtPicker.Location = new System.Drawing.Point(389, 182);
-            this.dtPicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtPicker.Location = new System.Drawing.Point(519, 224);
+            this.dtPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtPicker.Name = "dtPicker";
-            this.dtPicker.Size = new System.Drawing.Size(341, 31);
+            this.dtPicker.Size = new System.Drawing.Size(453, 37);
             this.dtPicker.TabIndex = 23;
             // 
             // weightlbl
             // 
             this.weightlbl.AutoSize = true;
             this.weightlbl.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightlbl.Location = new System.Drawing.Point(384, 250);
-            this.weightlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.weightlbl.Location = new System.Drawing.Point(512, 308);
             this.weightlbl.Name = "weightlbl";
-            this.weightlbl.Size = new System.Drawing.Size(137, 30);
+            this.weightlbl.Size = new System.Drawing.Size(176, 37);
             this.weightlbl.TabIndex = 24;
             this.weightlbl.Text = "Weight (kg):";
             // 
             // weightTxt
             // 
             this.weightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightTxt.Location = new System.Drawing.Point(389, 282);
-            this.weightTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.weightTxt.Location = new System.Drawing.Point(519, 347);
+            this.weightTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.weightTxt.Name = "weightTxt";
-            this.weightTxt.Size = new System.Drawing.Size(341, 31);
+            this.weightTxt.Size = new System.Drawing.Size(453, 37);
             this.weightTxt.TabIndex = 25;
             // 
             // comboBreed
             // 
             this.comboBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBreed.FormattingEnabled = true;
-            this.comboBreed.Location = new System.Drawing.Point(44, 280);
-            this.comboBreed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBreed.Location = new System.Drawing.Point(59, 345);
+            this.comboBreed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBreed.Name = "comboBreed";
-            this.comboBreed.Size = new System.Drawing.Size(341, 33);
+            this.comboBreed.Size = new System.Drawing.Size(453, 38);
             this.comboBreed.TabIndex = 26;
             // 
             // comboStatus
             // 
             this.comboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.FormattingEnabled = true;
-            this.comboStatus.Location = new System.Drawing.Point(389, 386);
-            this.comboStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboStatus.Location = new System.Drawing.Point(519, 475);
+            this.comboStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboStatus.Name = "comboStatus";
-            this.comboStatus.Size = new System.Drawing.Size(341, 33);
+            this.comboStatus.Size = new System.Drawing.Size(453, 38);
             this.comboStatus.TabIndex = 27;
             // 
             // statuslbl
             // 
             this.statuslbl.AutoSize = true;
             this.statuslbl.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statuslbl.Location = new System.Drawing.Point(384, 354);
-            this.statuslbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.statuslbl.Location = new System.Drawing.Point(512, 436);
             this.statuslbl.Name = "statuslbl";
-            this.statuslbl.Size = new System.Drawing.Size(79, 30);
+            this.statuslbl.Size = new System.Drawing.Size(103, 37);
             this.statuslbl.TabIndex = 28;
             this.statuslbl.Text = "Status:";
             // 
@@ -200,10 +190,9 @@
             this.registerpiglbl.AutoSize = true;
             this.registerpiglbl.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerpiglbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.registerpiglbl.Location = new System.Drawing.Point(38, 38);
-            this.registerpiglbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.registerpiglbl.Location = new System.Drawing.Point(51, 47);
             this.registerpiglbl.Name = "registerpiglbl";
-            this.registerpiglbl.Size = new System.Drawing.Size(172, 37);
+            this.registerpiglbl.Size = new System.Drawing.Size(211, 46);
             this.registerpiglbl.TabIndex = 29;
             this.registerpiglbl.Text = "Register pig";
             // 
@@ -229,9 +218,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 878);
+            this.panel1.Size = new System.Drawing.Size(1071, 1081);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -243,9 +232,10 @@
             this.cancelbtn.FlatAppearance.BorderSize = 0;
             this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.Location = new System.Drawing.Point(505, 494);
+            this.cancelbtn.Location = new System.Drawing.Point(673, 608);
+            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(110, 45);
+            this.cancelbtn.Size = new System.Drawing.Size(147, 55);
             this.cancelbtn.TabIndex = 34;
             this.cancelbtn.Text = "Cancel";
             this.cancelbtn.UseVisualStyleBackColor = true;
@@ -259,9 +249,10 @@
             this.clearbtn.FlatAppearance.BorderSize = 0;
             this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearbtn.Location = new System.Drawing.Point(389, 494);
+            this.clearbtn.Location = new System.Drawing.Point(519, 608);
+            this.clearbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(110, 45);
+            this.clearbtn.Size = new System.Drawing.Size(147, 55);
             this.clearbtn.TabIndex = 33;
             this.clearbtn.Text = "Clear";
             this.clearbtn.UseVisualStyleBackColor = true;
@@ -275,10 +266,10 @@
             this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.savebtn.Location = new System.Drawing.Point(620, 494);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.savebtn.Location = new System.Drawing.Point(827, 608);
+            this.savebtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(110, 45);
+            this.savebtn.Size = new System.Drawing.Size(147, 55);
             this.savebtn.TabIndex = 30;
             this.savebtn.Text = "Save";
             this.savebtn.UseVisualStyleBackColor = false;
@@ -286,12 +277,12 @@
             // 
             // RegisterPig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RegisterPig";
-            this.Size = new System.Drawing.Size(803, 878);
+            this.Size = new System.Drawing.Size(1071, 1081);
             this.Load += new System.EventHandler(this.RegisterPig_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);

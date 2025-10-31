@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
@@ -73,38 +74,68 @@ namespace SwineSyncc
             panel1.Region = new Region(path);
         }
        
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }       
+             
 
         private void savebtn_Click(object sender, EventArgs e)
-        {
-            // TODO: save pig to database here
+        {           
+            string connectionString = "Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
 
-            int newPigId = 1; // example, later will come from DB
-            string newPigTag = tagNumberTxt.Text; // tag num eto lang kinuha ko hahaha
+            
+            string tagNumber = tagNumberTxt.Text;
+            string breed = comboBreed.Text;
+            string sex = "Male"; 
+            string status = comboStatus.Text;
+            int weight = 0;
+            int.TryParse(weightTxt.Text, out weight);
+            DateTime birthdate = dtPicker.Value;
 
-            _parentPigManagement.AddPigButton(newPigId, newPigTag);
+            
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"INSERT INTO Pigs (TagNumber, Birthdate, Breed, Sex, Weight, Status)
+                         VALUES (@TagNumber, @Birthdate, @Breed, @Sex, @Weight, @Status)";
 
-            MessageBox.Show("Pig registered successfully!");
-            SaveCompleted?.Invoke(this, EventArgs.Empty);
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@TagNumber", tagNumber);
+                    cmd.Parameters.AddWithValue("@Birthdate", birthdate);
+                    cmd.Parameters.AddWithValue("@Breed", breed);
+                    cmd.Parameters.AddWithValue("@Sex", sex);
+                    cmd.Parameters.AddWithValue("@Weight", weight);
+                    cmd.Parameters.AddWithValue("@Status", status);
+
+                    try
+                    {
+                        conn.Open();
+                        int result = cmd.ExecuteNonQuery();
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("🐷 Pig registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            
+                            _parentPigManagement.RefreshPigList();
+                         
+                            tagNumberTxt.Clear();
+                            weightTxt.Clear();
+                            comboBreed.SelectedIndex = -1;
+                            comboStatus.SelectedIndex = -1;
+                            dtPicker.Value = DateTime.Now;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to register pig.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
-        private void sexlbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void maleradiobtn_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-     
-        private void femaleradiobtn_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void cancelbtn_Click(object sender, EventArgs e)
         {

@@ -18,7 +18,22 @@ namespace SwineSyncc
         {
             InitializeComponent();
             this.Dock = DockStyle.Right;
+            LoadPigButtons();
         }
+
+        private void LoadPigButtons()
+        {
+            string connectionString = "Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
+
+            PigLoader loader = new PigLoader(connectionString);
+            loader.LoadPigs(flpPigs);
+        }
+
+        public void RefreshPigList()
+        {
+            LoadPigButtons();
+        }
+
 
         public void AddPigButton(int pigId, string pigTag)
         {
