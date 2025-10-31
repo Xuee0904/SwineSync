@@ -5,44 +5,32 @@ namespace SwineSyncc.Data
 {
     public class PigRepository
     {
-        private readonly string _connectionString;
-
-        public PigRepository(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
-
         public Pig GetPigById(int pigId)
         {
-            Pig pig = null;
-
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
-                string query = @"SELECT PigID, TagNumber, Breed, Sex, Birthdate, Weight, Status 
-                                 FROM Pigs WHERE PigID = @PigID";
-
+                string query = "SELECT * FROM Pigs WHERE PigID = @id";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@PigID", pigId);
+                cmd.Parameters.AddWithValue("@id", pigId);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-
                 if (reader.Read())
                 {
-                    pig = new Pig
+                    return new Pig
                     {
                         PigID = (int)reader["PigID"],
                         TagNumber = reader["TagNumber"].ToString(),
                         Breed = reader["Breed"].ToString(),
                         Sex = reader["Sex"].ToString(),
-                        Birthdate = Convert.ToDateTime(reader["Birthdate"]),
-                        Weight = reader["Weight"] != DBNull.Value ? Convert.ToInt32(reader["Weight"]) : 0,
+                        Birthdate = (DateTime)reader["Birthdate"],
+                        Weight = Convert.ToInt32(reader["Weight"]),
                         Status = reader["Status"].ToString()
                     };
                 }
             }
 
-            return pig;
+            return null;
         }
     }
 

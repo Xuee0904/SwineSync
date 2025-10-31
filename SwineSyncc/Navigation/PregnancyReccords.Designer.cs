@@ -82,6 +82,7 @@
             this.addPregnancyBtn.TabIndex = 11;
             this.addPregnancyBtn.Text = "Add pregnancy";
             this.addPregnancyBtn.UseVisualStyleBackColor = false;
+            this.addPregnancyBtn.Click += new System.EventHandler(this.addPregnancyBtn_Click);
             // 
             // editPregnancyBtn
             // 

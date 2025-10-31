@@ -9,6 +9,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwineSyncc.Data;
 
 namespace SwineSyncc
 {
@@ -57,22 +58,19 @@ namespace SwineSyncc
         {
 
         }
-                        
-        private void savebtn_Click(object sender, EventArgs e)
-        {           
-            string connectionString = "Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
 
+        private void savebtn_Click(object sender, EventArgs e)
+        {
             
             string tagNumber = tagNumberTxt.Text;
             string breed = comboBreed.Text;
-            string sex = "Male"; 
+            string sex = "Male";
             string status = comboStatus.Text;
             int weight = 0;
             int.TryParse(weightTxt.Text, out weight);
             DateTime birthdate = dtPicker.Value;
-
-            
-            using (SqlConnection conn = new SqlConnection(connectionString))
+           
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 string query = @"INSERT INTO Pigs (TagNumber, Birthdate, Breed, Sex, Weight, Status)
                          VALUES (@TagNumber, @Birthdate, @Breed, @Sex, @Weight, @Status)";
@@ -94,9 +92,9 @@ namespace SwineSyncc
                         if (result > 0)
                         {
                             MessageBox.Show("🐷 Pig registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            
+
                             _parentPigManagement.RefreshPigList();
-                       
+                          
                             tagNumberTxt.Clear();
                             weightTxt.Clear();
                             comboBreed.SelectedIndex = -1;
@@ -116,7 +114,8 @@ namespace SwineSyncc
             }
         }
 
-        
+
+
 
         private void cancelbtn_Click(object sender, EventArgs e)
         {

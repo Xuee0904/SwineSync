@@ -1,0 +1,23 @@
+﻿using System;
+using System.Data.SqlClient;
+
+namespace SwineSyncc.Data
+{
+    public sealed class DBConnection
+    {
+        private static readonly Lazy<DBConnection> _instance =
+            new Lazy<DBConnection>(() => new DBConnection());
+
+        private readonly string _connectionString =
+            "Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
+
+        
+        private DBConnection() { }
+       
+        public static DBConnection Instance => _instance.Value;      
+        public SqlConnection GetConnection()
+        {
+            return new SqlConnection(_connectionString);
+        }
+    }
+}

@@ -2,18 +2,17 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using SwineSyncc.Data; 
 
 namespace SwineSyncc
 {
     public class PigLoader
     {
-        private readonly string _connectionString;
         private readonly FlowLayoutPanel _panel;
-        private readonly Action<int> _onPigClicked; 
-
-        public PigLoader(string connectionString, FlowLayoutPanel panel, Action<int> onPigClicked = null)
+        private readonly Action<int> _onPigClicked;
+      
+        public PigLoader(FlowLayoutPanel panel, Action<int> onPigClicked = null)
         {
-            _connectionString = connectionString;
             _panel = panel;
             _onPigClicked = onPigClicked;
         }
@@ -21,8 +20,8 @@ namespace SwineSyncc
         public void LoadPigs()
         {
             _panel.Controls.Clear();
-
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
                 string query = "SELECT PigID, TagNumber FROM Pigs";
@@ -44,8 +43,7 @@ namespace SwineSyncc
                         BackColor = Color.White,
                         Font = new Font("Segoe UI", 10, FontStyle.Bold)
                     };
-
-                 
+                  
                     pigButton.Click += (s, e) => _onPigClicked?.Invoke(pigId);
 
                     _panel.Controls.Add(pigButton);
