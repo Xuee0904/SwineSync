@@ -27,7 +27,6 @@ namespace SwineSyncc
             this.Padding = new Padding(40);
             RoundedPanelStyle.ApplyRoundedCorners(registerPigPanel, 20);
 
-
             this.BackColor = Color.WhiteSmoke;
 
             registerPigPanel.BackColor = Color.FromArgb(217, 221, 220);                        
@@ -95,10 +94,9 @@ namespace SwineSyncc
                         if (result > 0)
                         {
                             MessageBox.Show("🐷 Pig registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                             
                             _parentPigManagement.RefreshPigList();
-                         
+                       
                             tagNumberTxt.Clear();
                             weightTxt.Clear();
                             comboBreed.SelectedIndex = -1;

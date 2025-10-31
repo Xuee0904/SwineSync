@@ -61,6 +61,7 @@
     <Compile Include="Dashboard\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\PigRepository.cs" />
     <Compile Include="DynamicButtonLoader\PigLoader.cs" />
     <Compile Include="Login\Form1.cs">
       <SubType>Form</SubType>

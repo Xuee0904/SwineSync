@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwineSyncc.Data;      
+using SwineSyncc.Navigation; 
 
 namespace SwineSyncc
 {
     public partial class PigManagement : UserControl
     {
+        private string _connectionString = "Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
+
         public event EventHandler RegisterPigClicked;
 
         public PigManagement()
@@ -23,25 +21,46 @@ namespace SwineSyncc
 
         private void LoadPigButtons()
         {
-            string connectionString = "Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
+            PigLoader loader = new PigLoader(_connectionString, flpPigs, OnPigSelected);
+            loader.LoadPigs();
+        }
 
-            PigLoader loader = new PigLoader(connectionString);
-            loader.LoadPigs(flpPigs);
+        private void OnPigSelected(int pigId)
+        {
+           
+            PigRepository repo = new PigRepository(_connectionString);
+            Pig pig = repo.GetPigById(pigId);
+
+            if (pig != null)
+            {
+                PigDetails details = new PigDetails();
+                details.DisplayPigDetails(
+                    pig.PigID,
+                    pig.TagNumber,
+                    pig.Breed,
+                    pig.Sex,
+                    pig.Birthdate,
+                    pig.Weight,
+                    pig.Status
+                );
+           
+                this.Parent.Controls.Clear();
+                this.Parent.Controls.Add(details);
+            }
+            else
+            {
+                MessageBox.Show("Pig not found in database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void RefreshPigList()
         {
             LoadPigButtons();
         }
-          
+
         private void btnRegisterPig_Click_1(object sender, EventArgs e)
         {
             RegisterPigClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

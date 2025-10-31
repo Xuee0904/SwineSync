@@ -18,9 +18,23 @@ namespace SwineSyncc.Navigation
             RoundedPanelStyle.ApplyRoundedCorners(pigDetailsPanel, 20);
         }
 
+        public void DisplayPigDetails(int pigId, string tagNumber, string breed, string sex, DateTime birthDate, int weight, string status)
+        {
+            lblPig.Text = $"Pig ID: {pigId}";
+            tagNumberLbl.Text = tagNumber;
+            pigDetailsPanel.Text = breed;
+            sexLbl.Text = sex;
+            birthDateLbl.Text = birthDate.ToString("MMMM dd, yyyy");
+            weightLbl.Text = $"{weight} kg";
+            statusLbl.Text = status;
+        }
+
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             
         }
+
+        
     }
 }
