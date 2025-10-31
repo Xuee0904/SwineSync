@@ -27,7 +27,6 @@ namespace SwineSyncc
 
         private void OnPigSelected(int pigId)
         {
-           
             PigRepository repo = new PigRepository(_connectionString);
             Pig pig = repo.GetPigById(pigId);
 
@@ -43,15 +42,22 @@ namespace SwineSyncc
                     pig.Weight,
                     pig.Status
                 );
-           
-                this.Parent.Controls.Clear();
-                this.Parent.Controls.Add(details);
-            }
-            else
-            {
-                MessageBox.Show("Pig not found in database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // ✅ safer way
+                Form parentForm = this.FindForm();
+                if (parentForm != null)
+                {
+                    parentForm.Controls.Clear();
+                    parentForm.Controls.Add(details);
+                    details.Dock = DockStyle.Fill;
+                }
+                else
+                {
+                    MessageBox.Show("Parent form not found.");
+                }
             }
         }
+
 
         public void RefreshPigList()
         {
