@@ -126,8 +126,8 @@ namespace SwineSyncc
             comboBreed.SelectedIndex = -1;
             comboStatus.SelectedIndex = -1;
             dtPicker.Value = DateTime.Now;
-            maleradiobtn.Checked = false;
-            femaleradiobtn.Checked = false;
+            maleRadioBtn.Checked = false;
+            femaleRadioBtn.Checked = false;
         }
 
         private void registerPigPanel_Paint(object sender, PaintEventArgs e)
