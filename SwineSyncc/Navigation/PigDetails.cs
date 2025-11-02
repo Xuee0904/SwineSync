@@ -14,10 +14,12 @@ namespace SwineSyncc.Navigation
     {
 
         private Panel _mainPanel;
+        private UserControlManager _controlManager;
 
         public PigDetails(Panel mainPanel) : this()
         {
             _mainPanel = mainPanel;
+            _controlManager = new UserControlManager(mainPanel);
         }
 
         public PigDetails()
@@ -45,6 +47,9 @@ namespace SwineSyncc.Navigation
             
         }
 
-        
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            _controlManager.LoadPigManagement();
+        }
     }
 }
