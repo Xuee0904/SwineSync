@@ -51,5 +51,6 @@ namespace SwineSyncc.Navigation
         {
             _controlManager.LoadPigManagement();
         }
+
     }
 }
