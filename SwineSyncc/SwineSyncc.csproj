@@ -70,6 +70,7 @@
     <Compile Include="Login\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\Session.cs" />
     <Compile Include="Navigation\NavigationPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
