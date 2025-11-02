@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigationPanel));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
             this.pigManagementBtn = new System.Windows.Forms.Button();
@@ -47,6 +48,8 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
+            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.pigManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.panelPigSubMenu);
@@ -60,7 +63,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(385, 1000);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(385, 1000);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(389, 1000);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
@@ -88,6 +91,8 @@
             // 
             this.panelPigSubMenu.AutoSize = true;
             this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelPigSubMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelPigSubMenu.BackgroundImage")));
+            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelPigSubMenu.Controls.Add(this.button5);
             this.panelPigSubMenu.Controls.Add(this.pregnancyBtn);
             this.panelPigSubMenu.Controls.Add(this.button2);
@@ -177,7 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "NavigationPanel";
-            this.Size = new System.Drawing.Size(385, 1000);
+            this.Size = new System.Drawing.Size(389, 1000);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panelPigSubMenu.ResumeLayout(false);
