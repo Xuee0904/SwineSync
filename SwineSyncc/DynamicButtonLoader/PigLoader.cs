@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -17,10 +18,13 @@ namespace SwineSyncc
             _onPigClicked = onPigClicked;
         }
 
-        public void LoadPigs()
+        public void LoadPigs(bool isDeleteMode = false, List<int> selectedPigIds = null)
         {
             _panel.Controls.Clear();
-            
+            if (selectedPigIds == null)
+                selectedPigIds = new List<int>();
+
+
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
@@ -40,15 +44,35 @@ namespace SwineSyncc
                         Height = 100,
                         Tag = pigId,
                         Margin = new Padding(10),
-                        BackColor = Color.White,
+                        BackColor = selectedPigIds.Contains(pigId) ? Color.Red : Color.White,
                         Font = new Font("Segoe UI", 10, FontStyle.Bold)
                     };
-                  
-                    pigButton.Click += (s, e) => _onPigClicked?.Invoke(pigId);
+
+                    pigButton.Click += (s, e) =>
+                    {
+                        if (isDeleteMode)
+                        {
+                            if (selectedPigIds.Contains(pigId))
+                            {
+                                selectedPigIds.Remove(pigId);
+                                pigButton.BackColor = Color.White;
+                            }
+                            else
+                            {
+                                selectedPigIds.Add(pigId);
+                                pigButton.BackColor = Color.Red;
+                            }
+                        }
+                        else
+                        {
+                            _onPigClicked?.Invoke(pigId);
+                        }
+                    };
 
                     _panel.Controls.Add(pigButton);
                 }
             }
         }
+
     }
 }

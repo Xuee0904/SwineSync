@@ -45,11 +45,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pigIdLbl = new System.Windows.Forms.Label();
             this.pigDetailsLbl = new System.Windows.Forms.Label();
+            this.btnEdit = new RoundedButton();
             this.pigDetailsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // pigDetailsPanel
             // 
+            this.pigDetailsPanel.Controls.Add(this.btnEdit);
             this.pigDetailsPanel.Controls.Add(this.btnBack);
             this.pigDetailsPanel.Controls.Add(this.statusLbl);
             this.pigDetailsPanel.Controls.Add(this.weightLbl);
@@ -256,6 +258,22 @@
             this.pigDetailsLbl.TabIndex = 30;
             this.pigDetailsLbl.Text = "Pig details";
             // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.btnEdit.BorderRadious = 9;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.btnEdit.Location = new System.Drawing.Point(614, 666);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(213, 79);
+            this.btnEdit.TabIndex = 46;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            // 
             // PigDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -289,5 +307,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label statusLbl;
         private RoundedButton btnBack;
+        private RoundedButton btnEdit;
     }
 }

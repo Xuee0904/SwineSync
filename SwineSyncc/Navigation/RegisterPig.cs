@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwineSyncc.Data;
 
@@ -29,11 +22,9 @@ namespace SwineSyncc
             RoundedPanelStyle.ApplyRoundedCorners(registerPigPanel, 20);
 
             this.BackColor = Color.WhiteSmoke;
-
-            registerPigPanel.BackColor = Color.FromArgb(217, 221, 220);                        
+            registerPigPanel.BackColor = Color.FromArgb(217, 221, 220);
             ApplyTextBoxHeight();
-
-            //ADD VALUES TO COMBO BOXES
+          
             comboBreed.Items.Add("SAMPLE BREED 1");
             comboBreed.Items.Add("SAMPLE BREED 2");
             comboBreed.Items.Add("SAMPLE BREED 3");
@@ -43,9 +34,7 @@ namespace SwineSyncc
             comboStatus.Items.Add("NILECHON NG KAPITBAHAY");
         }
 
-        
-
-        private void ApplyTextBoxHeight() 
+        private void ApplyTextBoxHeight()
         {
             UIStyle.BoxHeight(tagNumberTxt);
             UIStyle.BoxHeight(weightTxt);
@@ -53,27 +42,33 @@ namespace SwineSyncc
             UIStyle.BoxHeight(comboBreed);
             UIStyle.BoxHeight(comboStatus);
         }
-        
-        private void RegisterPig_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void savebtn_Click(object sender, EventArgs e)
         {
-            
             string tagNumber = tagNumberTxt.Text;
             string breed = comboBreed.Text;
-            string sex = "Male";
+            string sex = "";
+          
+            if (maleRadioBtn.Checked)
+                sex = "Male";
+            else if (femaleRadioBtn.Checked)
+                sex = "Female";
+            else
+            {
+                MessageBox.Show("Please select a sex before registering.", "Missing Selection",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string status = comboStatus.Text;
             int weight = 0;
             int.TryParse(weightTxt.Text, out weight);
             DateTime birthdate = dtPicker.Value;
-           
+
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 string query = @"INSERT INTO Pigs (TagNumber, Birthdate, Breed, Sex, Weight, Status)
-                         VALUES (@TagNumber, @Birthdate, @Breed, @Sex, @Weight, @Status)";
+                                 VALUES (@TagNumber, @Birthdate, @Breed, @Sex, @Weight, @Status)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -91,31 +86,33 @@ namespace SwineSyncc
 
                         if (result > 0)
                         {
-                            MessageBox.Show("🐷 Pig registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("🐷 Pig registered successfully!", "Success",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             _parentPigManagement.RefreshPigList();
-                          
+                         
                             tagNumberTxt.Clear();
                             weightTxt.Clear();
                             comboBreed.SelectedIndex = -1;
                             comboStatus.SelectedIndex = -1;
                             dtPicker.Value = DateTime.Now;
+                            maleRadioBtn.Checked = false;
+                            femaleRadioBtn.Checked = false;
                         }
                         else
                         {
-                            MessageBox.Show("Failed to register pig.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Failed to register pig.", "Error",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error: " + ex.Message, "Database Error",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
-
-
-
 
         private void cancelbtn_Click(object sender, EventArgs e)
         {
@@ -126,16 +123,15 @@ namespace SwineSyncc
         {
             tagNumberTxt.Clear();
             weightTxt.Clear();
-
             comboBreed.SelectedIndex = -1;
             comboStatus.SelectedIndex = -1;
-
             dtPicker.Value = DateTime.Now;
+            maleradiobtn.Checked = false;
+            femaleradiobtn.Checked = false;
         }
 
         private void registerPigPanel_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }

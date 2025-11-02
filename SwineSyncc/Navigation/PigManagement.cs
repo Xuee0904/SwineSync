@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using SwineSyncc.Data;
@@ -11,6 +12,8 @@ namespace SwineSyncc
         public event EventHandler RegisterPigClicked;
 
         private readonly Panel _mainPanel;
+        private bool _isDeleteMode = false; 
+        private List<int> _selectedPigIds = new List<int>();
 
         public PigManagement(Panel mainPanel)
         {
@@ -24,11 +27,14 @@ namespace SwineSyncc
         private void LoadPigButtons()
         {          
             PigLoader loader = new PigLoader(flpPigs, OnPigSelected);
-            loader.LoadPigs();
+            loader.LoadPigs(_isDeleteMode, _selectedPigIds);
         }
 
         private void OnPigSelected(int pigId)
         {
+            
+            if (_isDeleteMode) return;
+
             PigRepository repo = new PigRepository();
             Pig pig = repo.GetPigById(pigId);
 
@@ -54,15 +60,68 @@ namespace SwineSyncc
                 MessageBox.Show("Pig not found.");
             }
         }
+
         public void RefreshPigList()
         {
             LoadPigButtons();
         }
-        
 
         private void btnRegisterPig_Click(object sender, EventArgs e)
         {
             RegisterPigClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void btnDeletePig_Click(object sender, EventArgs e)
+        {
+            
+            if (!_isDeleteMode)
+            {
+                _isDeleteMode = true;
+                _selectedPigIds.Clear();
+
+                MessageBox.Show("Delete mode enabled. Select pigs to delete.");
+                btnDeletePig.Text = "Confirm Delete";
+                
+                LoadPigButtons();
+            }
+            else
+            {
+               
+                if (_selectedPigIds.Count == 0)
+                {
+                    MessageBox.Show("No pigs selected for deletion.");
+                    _isDeleteMode = false;
+                    btnDeletePig.Text = "Delete Mode";
+                    LoadPigButtons();
+                    return;
+                }
+
+                var confirm = MessageBox.Show(
+                    $"Are you sure you want to delete {_selectedPigIds.Count} selected pig(s)?",
+                    "Confirm Deletion",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirm == DialogResult.Yes)
+                {
+                    PigRepository repo = new PigRepository();
+
+                    foreach (int id in _selectedPigIds)
+                    {
+                        repo.SafeDeletePig(id);
+                    }
+
+                    MessageBox.Show("Selected pigs have been moved to DeletedPigs table successfully!");
+                }
+             
+                _isDeleteMode = false;
+                _selectedPigIds.Clear();
+                btnDeletePig.Text = "Delete Mode";
+
+                LoadPigButtons();
+            }
+        }
+
     }
 }
