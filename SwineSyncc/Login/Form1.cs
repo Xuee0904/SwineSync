@@ -18,8 +18,9 @@ namespace SwineSyncc
         {
             
         }
-        
-        private void logInBtn_Click(object sender, EventArgs e)
+       
+
+        private void logInBtn_Click_1(object sender, EventArgs e)
         {
             string username = usernameRichTxt.Text.Trim();
             string password = passwordRichTxt.Text.Trim();
