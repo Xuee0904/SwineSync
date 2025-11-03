@@ -39,7 +39,7 @@ namespace SwineSyncc
             Pig pig = repo.GetPigById(pigId);
 
             if (pig != null)
-            {
+            {                
                 PigDetails details = new PigDetails(_mainPanel);
                 details.DisplayPigDetails(
                     pig.PigID,

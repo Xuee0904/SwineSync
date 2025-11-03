@@ -10,13 +10,13 @@ namespace SwineSyncc.Data
 
         private readonly string _connectionString =
             //ADRIAN SERVER
-            //"Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
+            "Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
 
             //CEDRIC SERVER
             //"Data Source=DESKTOP-2ARRBJ3\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
 
             //RUSSEL SERVER
-            "Data Source=LAPTOP-VBK2CP8T\\SQLEXPRESS01;Initial Catalog=SwineSync;Integrated Security=True;";
+            //"Data Source=LAPTOP-VBK2CP8T\\SQLEXPRESS01;Initial Catalog=SwineSync;Integrated Security=True;";
 
 
         private DBConnection() { }
