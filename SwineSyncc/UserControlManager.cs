@@ -69,7 +69,7 @@ namespace SwineSyncc
                     PigDetails pigDetails = new PigDetails(_mainPanel);
                     pigDetails.DisplayPigDetails(
                         pig.PigID,
-                        pig.TagNumber,
+                        pig.Name,
                         pig.Breed,
                         pig.Sex,
                         pig.Birthdate,
@@ -89,7 +89,7 @@ namespace SwineSyncc
                     PigDetails pigDetails = new PigDetails(_mainPanel);
                     pigDetails.DisplayPigDetails(
                         pig.PigID,
-                        pig.TagNumber,
+                        pig.Name,
                         pig.Breed,
                         pig.Sex,
                         pig.Birthdate,
@@ -117,7 +117,7 @@ namespace SwineSyncc
                     PigDetails pigDetails = new PigDetails(_mainPanel);
                     pigDetails.DisplayPigDetails(
                         pig.PigID,
-                        pig.TagNumber,
+                        pig.Name,
                         pig.Breed,
                         pig.Sex,
                         pig.Birthdate,

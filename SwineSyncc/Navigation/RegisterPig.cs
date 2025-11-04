@@ -36,7 +36,7 @@ namespace SwineSyncc
 
         private void ApplyTextBoxHeight()
         {
-            UIStyle.BoxHeight(tagNumberTxt);
+            UIStyle.BoxHeight(pigNameTxt);
             UIStyle.BoxHeight(weightTxt);
             UIStyle.BoxHeight(dtPicker);
             UIStyle.BoxHeight(comboBreed);
@@ -45,7 +45,7 @@ namespace SwineSyncc
 
         private void savebtn_Click(object sender, EventArgs e)
         {
-            string tagNumber = tagNumberTxt.Text;
+            string name = pigNameTxt.Text.Trim();
             string breed = comboBreed.Text;
             string sex = "";
           
@@ -67,12 +67,12 @@ namespace SwineSyncc
 
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
-                string query = @"INSERT INTO Pigs (TagNumber, Birthdate, Breed, Sex, Weight, Status)
-                                 VALUES (@TagNumber, @Birthdate, @Breed, @Sex, @Weight, @Status)";
+                string query = @"INSERT INTO Pigs (Name, Birthdate, Breed, Sex, Weight, Status)
+                                 VALUES (@Name, @Birthdate, @Breed, @Sex, @Weight, @Status)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@TagNumber", tagNumber);
+                    cmd.Parameters.AddWithValue("@Name", name);
                     cmd.Parameters.AddWithValue("@Birthdate", birthdate);
                     cmd.Parameters.AddWithValue("@Breed", breed);
                     cmd.Parameters.AddWithValue("@Sex", sex);
@@ -91,7 +91,7 @@ namespace SwineSyncc
 
                             _parentPigManagement.RefreshPigList();
                          
-                            tagNumberTxt.Clear();
+                            pigNameTxt.Clear();
                             weightTxt.Clear();
                             comboBreed.SelectedIndex = -1;
                             comboStatus.SelectedIndex = -1;
@@ -121,7 +121,7 @@ namespace SwineSyncc
 
         private void clearbtn_Click_1(object sender, EventArgs e)
         {
-            tagNumberTxt.Clear();
+            pigNameTxt.Clear();
             weightTxt.Clear();
             comboBreed.SelectedIndex = -1;
             comboStatus.SelectedIndex = -1;

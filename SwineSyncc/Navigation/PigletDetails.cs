@@ -29,7 +29,7 @@ namespace SwineSyncc.Navigation
 
                 // include MotherPigID in SELECT so we can assign it to _motherPigId
                 string query = @"SELECT p.PigletID, p.TagNumber, p.Breed, p.Sex, p.Birthdate, 
-                                        p.Weight, p.Status, m.TagNumber AS MotherTag, m.PigID AS MotherPigID
+                                        p.Weight, p.Status, m.Name AS MotherTag, m.PigID AS MotherPigID
                                  FROM Piglets p
                                  JOIN Pigs m ON p.MotherPigID = m.PigID
                                  WHERE p.PigletID = @id";

@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tagnumberlbl = new System.Windows.Forms.Label();
-            this.tagNumberTxt = new System.Windows.Forms.TextBox();
+            this.pignamelabel = new System.Windows.Forms.Label();
+            this.pigNameTxt = new System.Windows.Forms.TextBox();
             this.breedlbl = new System.Windows.Forms.Label();
             this.sexlbl = new System.Windows.Forms.Label();
             this.birthdatelbl = new System.Windows.Forms.Label();
@@ -43,33 +43,33 @@
             this.statuslbl = new System.Windows.Forms.Label();
             this.registerpiglbl = new System.Windows.Forms.Label();
             this.registerPigPanel = new System.Windows.Forms.Panel();
+            this.femaleRadioBtn = new System.Windows.Forms.RadioButton();
+            this.maleRadioBtn = new System.Windows.Forms.RadioButton();
             this.cancelbtn = new BorderRoundedButton();
             this.clearbtn = new BorderRoundedButton();
             this.savebtn = new RoundedButton();
-            this.maleRadioBtn = new System.Windows.Forms.RadioButton();
-            this.femaleRadioBtn = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.registerPigPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tagnumberlbl
+            // pignamelabel
             // 
-            this.tagnumberlbl.AutoSize = true;
-            this.tagnumberlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagnumberlbl.Location = new System.Drawing.Point(56, 178);
-            this.tagnumberlbl.Name = "tagnumberlbl";
-            this.tagnumberlbl.Size = new System.Drawing.Size(195, 41);
-            this.tagnumberlbl.TabIndex = 16;
-            this.tagnumberlbl.Text = "Tag number:";
+            this.pignamelabel.AutoSize = true;
+            this.pignamelabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pignamelabel.Location = new System.Drawing.Point(56, 178);
+            this.pignamelabel.Name = "pignamelabel";
+            this.pignamelabel.Size = new System.Drawing.Size(157, 41);
+            this.pignamelabel.TabIndex = 16;
+            this.pignamelabel.Text = "Pig name:";
             // 
-            // tagNumberTxt
+            // pigNameTxt
             // 
-            this.tagNumberTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagNumberTxt.Location = new System.Drawing.Point(64, 220);
-            this.tagNumberTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tagNumberTxt.Name = "tagNumberTxt";
-            this.tagNumberTxt.Size = new System.Drawing.Size(517, 37);
-            this.tagNumberTxt.TabIndex = 17;
+            this.pigNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pigNameTxt.Location = new System.Drawing.Point(64, 220);
+            this.pigNameTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pigNameTxt.Name = "pigNameTxt";
+            this.pigNameTxt.Size = new System.Drawing.Size(517, 37);
+            this.pigNameTxt.TabIndex = 17;
             // 
             // breedlbl
             // 
@@ -187,8 +187,8 @@
             this.registerPigPanel.Controls.Add(this.birthdatelbl);
             this.registerPigPanel.Controls.Add(this.sexlbl);
             this.registerPigPanel.Controls.Add(this.breedlbl);
-            this.registerPigPanel.Controls.Add(this.tagNumberTxt);
-            this.registerPigPanel.Controls.Add(this.tagnumberlbl);
+            this.registerPigPanel.Controls.Add(this.pigNameTxt);
+            this.registerPigPanel.Controls.Add(this.pignamelabel);
             this.registerPigPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerPigPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.registerPigPanel.Location = new System.Drawing.Point(0, 0);
@@ -197,6 +197,30 @@
             this.registerPigPanel.Size = new System.Drawing.Size(1117, 1081);
             this.registerPigPanel.TabIndex = 0;
             this.registerPigPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.registerPigPanel_Paint);
+            // 
+            // femaleRadioBtn
+            // 
+            this.femaleRadioBtn.AutoSize = true;
+            this.femaleRadioBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.femaleRadioBtn.Location = new System.Drawing.Point(174, 487);
+            this.femaleRadioBtn.Name = "femaleRadioBtn";
+            this.femaleRadioBtn.Size = new System.Drawing.Size(127, 42);
+            this.femaleRadioBtn.TabIndex = 36;
+            this.femaleRadioBtn.TabStop = true;
+            this.femaleRadioBtn.Text = "Female";
+            this.femaleRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // maleRadioBtn
+            // 
+            this.maleRadioBtn.AutoSize = true;
+            this.maleRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maleRadioBtn.Location = new System.Drawing.Point(64, 491);
+            this.maleRadioBtn.Name = "maleRadioBtn";
+            this.maleRadioBtn.Size = new System.Drawing.Size(97, 36);
+            this.maleRadioBtn.TabIndex = 35;
+            this.maleRadioBtn.TabStop = true;
+            this.maleRadioBtn.Text = "Male";
+            this.maleRadioBtn.UseVisualStyleBackColor = true;
             // 
             // cancelbtn
             // 
@@ -249,30 +273,6 @@
             this.savebtn.UseVisualStyleBackColor = false;
             this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
-            // maleRadioBtn
-            // 
-            this.maleRadioBtn.AutoSize = true;
-            this.maleRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maleRadioBtn.Location = new System.Drawing.Point(64, 491);
-            this.maleRadioBtn.Name = "maleRadioBtn";
-            this.maleRadioBtn.Size = new System.Drawing.Size(97, 36);
-            this.maleRadioBtn.TabIndex = 35;
-            this.maleRadioBtn.TabStop = true;
-            this.maleRadioBtn.Text = "Male";
-            this.maleRadioBtn.UseVisualStyleBackColor = true;
-            // 
-            // femaleRadioBtn
-            // 
-            this.femaleRadioBtn.AutoSize = true;
-            this.femaleRadioBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.femaleRadioBtn.Location = new System.Drawing.Point(174, 487);
-            this.femaleRadioBtn.Name = "femaleRadioBtn";
-            this.femaleRadioBtn.Size = new System.Drawing.Size(127, 42);
-            this.femaleRadioBtn.TabIndex = 36;
-            this.femaleRadioBtn.TabStop = true;
-            this.femaleRadioBtn.Text = "Female";
-            this.femaleRadioBtn.UseVisualStyleBackColor = true;
-            // 
             // RegisterPig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -290,8 +290,8 @@
 
         #endregion
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Label tagnumberlbl;
-        private System.Windows.Forms.TextBox tagNumberTxt;
+        private System.Windows.Forms.Label pignamelabel;
+        private System.Windows.Forms.TextBox pigNameTxt;
         private System.Windows.Forms.Label breedlbl;
         private System.Windows.Forms.Label sexlbl;
         private System.Windows.Forms.Label birthdatelbl;

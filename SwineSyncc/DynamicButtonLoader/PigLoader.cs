@@ -28,18 +28,18 @@ namespace SwineSyncc
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
-                string query = "SELECT PigID, TagNumber FROM Pigs";
+                string query = "SELECT PigID, Name FROM Pigs";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
                     int pigId = Convert.ToInt32(reader["PigID"]);
-                    string tagNumber = reader["TagNumber"].ToString();
+                    string pigName = reader["Name"].ToString();
 
                     Button pigButton = new Button
                     {
-                        Text = tagNumber,
+                        Text = pigName,
                         Width = 120,
                         Height = 100,
                         Tag = pigId,

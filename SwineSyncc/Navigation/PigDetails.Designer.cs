@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pigDetailsPanel = new System.Windows.Forms.Panel();
+            this.flpCurrentPiglets = new System.Windows.Forms.FlowLayoutPanel();
+            this.addPigletBtn = new RoundedButton();
             this.currentPigletsLbl = new System.Windows.Forms.Label();
             this.rightLineLbl = new System.Windows.Forms.Label();
             this.leftLineLbl = new System.Windows.Forms.Label();
@@ -40,7 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.sexLbl = new System.Windows.Forms.Label();
             this.breedLbl = new System.Windows.Forms.Label();
-            this.tagNumberLbl = new System.Windows.Forms.Label();
+            this.lblpignamelabel = new System.Windows.Forms.Label();
             this.lblPig = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.btnBack = new RoundedButton();
             this.pigDetailsLbl = new System.Windows.Forms.Label();
             this.pigIdLbl = new System.Windows.Forms.Label();
-            this.addPigletBtn = new RoundedButton();
-            this.flpCurrentPiglets = new System.Windows.Forms.FlowLayoutPanel();
             this.pigDetailsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             this.pigDetailsPanel.Controls.Add(this.label5);
             this.pigDetailsPanel.Controls.Add(this.sexLbl);
             this.pigDetailsPanel.Controls.Add(this.breedLbl);
-            this.pigDetailsPanel.Controls.Add(this.tagNumberLbl);
+            this.pigDetailsPanel.Controls.Add(this.lblpignamelabel);
             this.pigDetailsPanel.Controls.Add(this.lblPig);
             this.pigDetailsPanel.Controls.Add(this.label3);
             this.pigDetailsPanel.Controls.Add(this.label2);
@@ -83,7 +83,32 @@
             this.pigDetailsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pigDetailsPanel.Name = "pigDetailsPanel";
             this.pigDetailsPanel.Size = new System.Drawing.Size(1269, 1081);
-            this.pigDetailsPanel.TabIndex = 0;            
+            this.pigDetailsPanel.TabIndex = 0;
+            // 
+            // flpCurrentPiglets
+            // 
+            this.flpCurrentPiglets.Location = new System.Drawing.Point(41, 401);
+            this.flpCurrentPiglets.Name = "flpCurrentPiglets";
+            this.flpCurrentPiglets.Size = new System.Drawing.Size(1142, 275);
+            this.flpCurrentPiglets.TabIndex = 52;
+            // 
+            // addPigletBtn
+            // 
+            this.addPigletBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.addPigletBtn.BorderRadious = 9;
+            this.addPigletBtn.FlatAppearance.BorderSize = 0;
+            this.addPigletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addPigletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPigletBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.addPigletBtn.Location = new System.Drawing.Point(745, 689);
+            this.addPigletBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.addPigletBtn.Name = "addPigletBtn";
+            this.addPigletBtn.Size = new System.Drawing.Size(213, 79);
+            this.addPigletBtn.TabIndex = 51;
+            this.addPigletBtn.Text = "Add piglet";
+            this.addPigletBtn.UseVisualStyleBackColor = false;
+            this.addPigletBtn.Visible = false;
+            this.addPigletBtn.Click += new System.EventHandler(this.addPigletBtn_Click);
             // 
             // currentPigletsLbl
             // 
@@ -210,16 +235,16 @@
             this.breedLbl.TabIndex = 37;
             this.breedLbl.Text = "Breed";
             // 
-            // tagNumberLbl
+            // lblpignamelabel
             // 
-            this.tagNumberLbl.AutoSize = true;
-            this.tagNumberLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagNumberLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.tagNumberLbl.Location = new System.Drawing.Point(339, 190);
-            this.tagNumberLbl.Name = "tagNumberLbl";
-            this.tagNumberLbl.Size = new System.Drawing.Size(176, 41);
-            this.tagNumberLbl.TabIndex = 36;
-            this.tagNumberLbl.Text = "Tag number";
+            this.lblpignamelabel.AutoSize = true;
+            this.lblpignamelabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpignamelabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.lblpignamelabel.Location = new System.Drawing.Point(339, 190);
+            this.lblpignamelabel.Name = "lblpignamelabel";
+            this.lblpignamelabel.Size = new System.Drawing.Size(142, 41);
+            this.lblpignamelabel.TabIndex = 36;
+            this.lblpignamelabel.Text = "Pig name";
             // 
             // lblPig
             // 
@@ -261,9 +286,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.label1.Location = new System.Drawing.Point(119, 191);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 41);
+            this.label1.Size = new System.Drawing.Size(157, 41);
             this.label1.TabIndex = 32;
-            this.label1.Text = "Tag number:";
+            this.label1.Text = "Pig name:";
             // 
             // btnEdit
             // 
@@ -274,7 +299,7 @@
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.btnEdit.Location = new System.Drawing.Point(970, 281);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(213, 79);
             this.btnEdit.TabIndex = 46;
@@ -290,7 +315,7 @@
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.btnBack.Location = new System.Drawing.Point(970, 689);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(213, 79);
             this.btnBack.TabIndex = 45;
@@ -319,31 +344,6 @@
             this.pigIdLbl.Size = new System.Drawing.Size(112, 41);
             this.pigIdLbl.TabIndex = 31;
             this.pigIdLbl.Text = "Pig ID:";
-            // 
-            // addPigletBtn
-            // 
-            this.addPigletBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.addPigletBtn.BorderRadious = 9;
-            this.addPigletBtn.FlatAppearance.BorderSize = 0;
-            this.addPigletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addPigletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPigletBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.addPigletBtn.Location = new System.Drawing.Point(745, 689);
-            this.addPigletBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.addPigletBtn.Name = "addPigletBtn";
-            this.addPigletBtn.Size = new System.Drawing.Size(213, 79);
-            this.addPigletBtn.TabIndex = 51;
-            this.addPigletBtn.Text = "Add piglet";
-            this.addPigletBtn.UseVisualStyleBackColor = false;
-            this.addPigletBtn.Visible = false;
-            this.addPigletBtn.Click += new System.EventHandler(this.addPigletBtn_Click);
-            // 
-            // flpCurrentPiglets
-            // 
-            this.flpCurrentPiglets.Location = new System.Drawing.Point(41, 401);
-            this.flpCurrentPiglets.Name = "flpCurrentPiglets";
-            this.flpCurrentPiglets.Size = new System.Drawing.Size(1142, 275);
-            this.flpCurrentPiglets.TabIndex = 52;
             // 
             // PigDetails
             // 
@@ -375,7 +375,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label breedLbl;
-        private System.Windows.Forms.Label tagNumberLbl;
+        private System.Windows.Forms.Label lblpignamelabel;
         private System.Windows.Forms.Label lblPig;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

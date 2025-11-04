@@ -12,7 +12,7 @@ namespace SwineSyncc
         public event EventHandler RegisterPigClicked;
 
         private readonly Panel _mainPanel;
-        private bool _isDeleteMode = false; 
+        private bool _isDeleteMode = false;
         private List<int> _selectedPigIds = new List<int>();
 
         public PigManagement(Panel mainPanel)
@@ -25,25 +25,25 @@ namespace SwineSyncc
         }
 
         private void LoadPigButtons()
-        {          
+        {
             PigLoader loader = new PigLoader(flpPigs, OnPigSelected);
             loader.LoadPigs(_isDeleteMode, _selectedPigIds);
         }
 
         private void OnPigSelected(int pigId)
         {
-            
             if (_isDeleteMode) return;
 
             PigRepository repo = new PigRepository();
             Pig pig = repo.GetPigById(pigId);
 
             if (pig != null)
-            {                
+            {
                 PigDetails details = new PigDetails(_mainPanel);
+               
                 details.DisplayPigDetails(
                     pig.PigID,
-                    pig.TagNumber,
+                    pig.Name,        
                     pig.Breed,
                     pig.Sex,
                     pig.Birthdate,
@@ -73,7 +73,6 @@ namespace SwineSyncc
 
         private void btnDeletePig_Click(object sender, EventArgs e)
         {
-            
             if (!_isDeleteMode)
             {
                 _isDeleteMode = true;
@@ -81,12 +80,10 @@ namespace SwineSyncc
 
                 MessageBox.Show("Delete mode enabled. Select pigs to delete.");
                 btnDeletePig.Text = "Confirm Delete";
-                
                 LoadPigButtons();
             }
             else
             {
-               
                 if (_selectedPigIds.Count == 0)
                 {
                     MessageBox.Show("No pigs selected for deletion.");
@@ -114,14 +111,12 @@ namespace SwineSyncc
 
                     MessageBox.Show("Selected pigs have been moved to DeletedPigs table successfully!");
                 }
-             
+
                 _isDeleteMode = false;
                 _selectedPigIds.Clear();
                 btnDeletePig.Text = "Delete Mode";
-
                 LoadPigButtons();
             }
         }
-
     }
 }

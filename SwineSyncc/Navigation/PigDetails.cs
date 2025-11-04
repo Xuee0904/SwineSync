@@ -25,12 +25,12 @@ namespace SwineSyncc.Navigation
             this.Padding = new Padding(40);
         }
 
-        public void DisplayPigDetails(int id, string tag, string breed, string sex, DateTime birthdate, int weight, string status)
+        public void DisplayPigDetails(int id, string name, string breed, string sex, DateTime birthdate, int weight, string status)
         {
             _motherPigId = id;
 
             lblPig.Text = id.ToString();
-            tagNumberLbl.Text = tag;
+            lblpignamelabel.Text = name;
             breedLbl.Text = breed;
             sexLbl.Text = sex;
             birthDateLbl.Text = birthdate.ToShortDateString();
