@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwineSyncc.Navigation;
+using SwineSyncc.Data;
 
 namespace SwineSyncc
 {
@@ -53,5 +55,82 @@ namespace SwineSyncc
             }
             ShowUserControl(_pregnancyUC);
         }
+
+        public void LoadRegisterPiglet(int motherPigId)
+        {
+            RegisterPiglet registerPiglet = new RegisterPiglet(motherPigId);
+      
+            registerPiglet.CancelClicked += (s, e) =>
+            {
+                var repo = new PigRepository();
+                var pig = repo.GetPigById(motherPigId);
+                if (pig != null)
+                {
+                    PigDetails pigDetails = new PigDetails(_mainPanel);
+                    pigDetails.DisplayPigDetails(
+                        pig.PigID,
+                        pig.TagNumber,
+                        pig.Breed,
+                        pig.Sex,
+                        pig.Birthdate,
+                        pig.Weight,
+                        pig.Status
+                    );
+                    ShowUserControl(pigDetails);
+                }
+            };
+         
+            registerPiglet.SaveCompleted += (s, e) =>
+            {
+                var repo = new PigRepository();
+                var pig = repo.GetPigById(motherPigId);
+                if (pig != null)
+                {
+                    PigDetails pigDetails = new PigDetails(_mainPanel);
+                    pigDetails.DisplayPigDetails(
+                        pig.PigID,
+                        pig.TagNumber,
+                        pig.Breed,
+                        pig.Sex,
+                        pig.Birthdate,
+                        pig.Weight,
+                        pig.Status
+                    );
+                    ShowUserControl(pigDetails);
+                }
+            };
+
+            ShowUserControl(registerPiglet);
+        }
+
+        public void LoadPigletDetails(int pigletId)
+        {
+            PigletDetails pigletDetails = new PigletDetails(_mainPanel);
+          
+            pigletDetails.BackClicked += (s, motherPigId) =>
+            {
+                var repo = new PigRepository();
+                var pig = repo.GetPigById(motherPigId);
+
+                if (pig != null)
+                {
+                    PigDetails pigDetails = new PigDetails(_mainPanel);
+                    pigDetails.DisplayPigDetails(
+                        pig.PigID,
+                        pig.TagNumber,
+                        pig.Breed,
+                        pig.Sex,
+                        pig.Birthdate,
+                        pig.Weight,
+                        pig.Status
+                    );
+                    ShowUserControl(pigDetails);
+                }
+            };
+
+            pigletDetails.DisplayPigletDetails(pigletId);
+            ShowUserControl(pigletDetails);
+        }
+
     }
 }

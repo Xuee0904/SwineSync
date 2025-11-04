@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-using SwineSyncc.Data; 
+using SwineSyncc.Data;
 
 namespace SwineSyncc
 {
@@ -11,7 +11,7 @@ namespace SwineSyncc
     {
         private readonly FlowLayoutPanel _panel;
         private readonly Action<int> _onPigClicked;
-      
+
         public PigLoader(FlowLayoutPanel panel, Action<int> onPigClicked = null)
         {
             _panel = panel;

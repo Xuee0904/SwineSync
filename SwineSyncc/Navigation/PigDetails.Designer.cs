@@ -83,8 +83,7 @@
             this.pigDetailsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pigDetailsPanel.Name = "pigDetailsPanel";
             this.pigDetailsPanel.Size = new System.Drawing.Size(1269, 1081);
-            this.pigDetailsPanel.TabIndex = 0;
-            this.pigDetailsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pigDetailsPanel.TabIndex = 0;            
             // 
             // currentPigletsLbl
             // 

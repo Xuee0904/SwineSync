@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="DatabaseConnection\DBConnection.cs" />
     <Compile Include="Data\PigRepository.cs" />
+    <Compile Include="DynamicButtonLoader\PigletLoader.cs" />
     <Compile Include="DynamicButtonLoader\PigLoader.cs" />
     <Compile Include="Login\Form1.cs">
       <SubType>Form</SubType>
@@ -82,6 +83,12 @@
     </Compile>
     <Compile Include="Navigation\PigDetails.Designer.cs">
       <DependentUpon>PigDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\PigletDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\PigletDetails.Designer.cs">
+      <DependentUpon>PigletDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\PigManagement.cs">
       <SubType>UserControl</SubType>
@@ -109,6 +116,12 @@
     <Compile Include="CustomUIElements\RoundedPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Navigation\RegisterPiglet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\RegisterPiglet.Designer.cs">
+      <DependentUpon>RegisterPiglet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Styles\RoundedPanelStyle.cs" />
     <Compile Include="Styles\UIStyle.cs" />
     <Compile Include="UserControlManager.cs" />
@@ -123,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\PigDetails.resx">
       <DependentUpon>PigDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\PigletDetails.resx">
+      <DependentUpon>PigletDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\PigManagement.resx">
       <DependentUpon>PigManagement.cs</DependentUpon>
@@ -141,6 +157,9 @@
     </Compile>
     <EmbeddedResource Include="Navigation\RegisterPig.resx">
       <DependentUpon>RegisterPig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\RegisterPiglet.resx">
+      <DependentUpon>RegisterPiglet.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
