@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigationPanel));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button3 = new System.Windows.Forms.Button();
             this.pigManagementBtn = new System.Windows.Forms.Button();
             this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelPigSubMenu.SuspendLayout();
             this.SuspendLayout();
@@ -61,12 +61,30 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(385, 1000);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(289, 812);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(389, 1000);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(292, 812);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(273, 84);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "LOGO";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // pigManagementBtn
             // 
@@ -78,9 +96,10 @@
             this.pigManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pigManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pigManagementBtn.ForeColor = System.Drawing.Color.White;
-            this.pigManagementBtn.Location = new System.Drawing.Point(3, 112);
+            this.pigManagementBtn.Location = new System.Drawing.Point(2, 90);
+            this.pigManagementBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pigManagementBtn.Name = "pigManagementBtn";
-            this.pigManagementBtn.Size = new System.Drawing.Size(364, 103);
+            this.pigManagementBtn.Size = new System.Drawing.Size(273, 84);
             this.pigManagementBtn.TabIndex = 2;
             this.pigManagementBtn.Text = "Pig management";
             this.pigManagementBtn.UseVisualStyleBackColor = false;
@@ -90,15 +109,16 @@
             // 
             this.panelPigSubMenu.AutoSize = true;
             this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelPigSubMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelPigSubMenu.BackgroundImage")));
-            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelPigSubMenu.Controls.Add(this.button5);
             this.panelPigSubMenu.Controls.Add(this.pregnancyBtn);
             this.panelPigSubMenu.Controls.Add(this.button2);
             this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 221);
+            this.panelPigSubMenu.Location = new System.Drawing.Point(2, 178);
+            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelPigSubMenu.Name = "panelPigSubMenu";
-            this.panelPigSubMenu.Size = new System.Drawing.Size(367, 244);
+            this.panelPigSubMenu.Size = new System.Drawing.Size(275, 198);
             this.panelPigSubMenu.TabIndex = 5;
             this.panelPigSubMenu.Visible = false;
             // 
@@ -112,9 +132,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(81, 164);
+            this.button5.Location = new System.Drawing.Point(61, 133);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(283, 77);
+            this.button5.Size = new System.Drawing.Size(212, 63);
             this.button5.TabIndex = 8;
             this.button5.Text = "Health records";
             this.button5.UseVisualStyleBackColor = false;
@@ -129,9 +150,10 @@
             this.pregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pregnancyBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pregnancyBtn.ForeColor = System.Drawing.Color.White;
-            this.pregnancyBtn.Location = new System.Drawing.Point(81, 83);
+            this.pregnancyBtn.Location = new System.Drawing.Point(61, 67);
+            this.pregnancyBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pregnancyBtn.Name = "pregnancyBtn";
-            this.pregnancyBtn.Size = new System.Drawing.Size(283, 77);
+            this.pregnancyBtn.Size = new System.Drawing.Size(212, 63);
             this.pregnancyBtn.TabIndex = 7;
             this.pregnancyBtn.Text = "Pregnancy records";
             this.pregnancyBtn.UseVisualStyleBackColor = false;
@@ -147,9 +169,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(81, 0);
+            this.button2.Location = new System.Drawing.Point(61, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(283, 77);
+            this.button2.Size = new System.Drawing.Size(212, 63);
             this.button2.TabIndex = 6;
             this.button2.Text = "Breeding  records";
             this.button2.UseVisualStyleBackColor = false;
@@ -164,9 +187,10 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(3, 471);
+            this.button6.Location = new System.Drawing.Point(2, 380);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(364, 103);
+            this.button6.Size = new System.Drawing.Size(273, 84);
             this.button6.TabIndex = 6;
             this.button6.Text = "Inventory";
             this.button6.UseVisualStyleBackColor = false;
@@ -181,9 +205,10 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(3, 580);
+            this.button7.Location = new System.Drawing.Point(2, 468);
+            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(364, 103);
+            this.button7.Size = new System.Drawing.Size(273, 84);
             this.button7.TabIndex = 7;
             this.button7.Text = "Transactions";
             this.button7.UseVisualStyleBackColor = false;
@@ -198,9 +223,10 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(3, 689);
+            this.button8.Location = new System.Drawing.Point(2, 556);
+            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(364, 103);
+            this.button8.Size = new System.Drawing.Size(273, 84);
             this.button8.TabIndex = 8;
             this.button8.Text = "Analytics";
             this.button8.UseVisualStyleBackColor = false;
@@ -215,9 +241,10 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(3, 798);
+            this.button9.Location = new System.Drawing.Point(2, 644);
+            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(364, 103);
+            this.button9.Size = new System.Drawing.Size(273, 84);
             this.button9.TabIndex = 9;
             this.button9.Text = "User management";
             this.button9.UseVisualStyleBackColor = false;
@@ -232,36 +259,22 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(3, 907);
+            this.button10.Location = new System.Drawing.Point(2, 732);
+            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(364, 103);
+            this.button10.Size = new System.Drawing.Size(273, 84);
             this.button10.TabIndex = 10;
             this.button10.Text = "Reminders";
             this.button10.UseVisualStyleBackColor = false;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(364, 103);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "LOGO";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // NavigationPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "NavigationPanel";
-            this.Size = new System.Drawing.Size(389, 1000);
+            this.Size = new System.Drawing.Size(292, 812);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panelPigSubMenu.ResumeLayout(false);
