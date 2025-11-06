@@ -1,9 +1,10 @@
-﻿using System;
+﻿using SwineSyncc.Data;
+using SwineSyncc.Login;
+using System;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using SwineSyncc.Data;
-using SwineSyncc.Login;
 
 namespace SwineSyncc
 {
@@ -14,16 +15,17 @@ namespace SwineSyncc
             InitializeComponent();          
         }
 
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
        
 
         private void logInBtn_Click_1(object sender, EventArgs e)
         {
-            string username = usernameRichTxt.Text.Trim();
-            string password = passwordRichTxt.Text.Trim();
+            string username = usernameTxt.Text.Trim();
+            string password = passwordTxt.Text.Trim();
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
