@@ -38,8 +38,7 @@ namespace SwineSyncc.Navigation
             statusLbl.Text = status;
 
             if (sex.Equals("Female", StringComparison.OrdinalIgnoreCase))
-            {
-                // 🟩 show controls for female pigs (can have piglets)
+            {               
                 currentPigletsLbl.Visible = true;
                 rightLineLbl.Visible = true;
                 leftLineLbl.Visible = true;
@@ -50,7 +49,6 @@ namespace SwineSyncc.Navigation
             }
             else
             {
-                // 🟥 hide piglet related controls for male pigs
                 currentPigletsLbl.Visible = false;
                 rightLineLbl.Visible = false;
                 leftLineLbl.Visible = false;

@@ -21,58 +21,60 @@ namespace SwineSyncc
         public void LoadPigs(bool isDeleteMode = false, List<int> selectedPigIds = null)
         {
             _panel.Controls.Clear();
+
             if (selectedPigIds == null)
                 selectedPigIds = new List<int>();
-
 
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
                 string query = "SELECT PigID, Name FROM Pigs";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                SqlDataReader reader = cmd.ExecuteReader();
 
-                while (reader.Read())
+                // wrap SqlDataReader in using to prevent connection leaks
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    int pigId = Convert.ToInt32(reader["PigID"]);
-                    string pigName = reader["Name"].ToString();
-
-                    Button pigButton = new Button
+                    while (reader.Read())
                     {
-                        Text = pigName,
-                        Width = 120,
-                        Height = 100,
-                        Tag = pigId,
-                        Margin = new Padding(10),
-                        BackColor = selectedPigIds.Contains(pigId) ? Color.Red : Color.White,
-                        Font = new Font("Segoe UI", 10, FontStyle.Bold)
-                    };
+                        int pigId = Convert.ToInt32(reader["PigID"]);
+                        string pigName = reader["Name"].ToString();
 
-                    pigButton.Click += (s, e) =>
-                    {
-                        if (isDeleteMode)
+                        Button pigButton = new Button
                         {
-                            if (selectedPigIds.Contains(pigId))
+                            Text = pigName,
+                            Width = 120,
+                            Height = 100,
+                            Tag = pigId,
+                            Margin = new Padding(10),
+                            BackColor = selectedPigIds.Contains(pigId) ? Color.Red : Color.White,
+                            Font = new Font("Segoe UI", 10, FontStyle.Bold)
+                        };
+                      
+                        pigButton.Click += (s, e) =>
+                        {
+                            if (isDeleteMode)
                             {
-                                selectedPigIds.Remove(pigId);
-                                pigButton.BackColor = Color.White;
+                                if (selectedPigIds.Contains(pigId))
+                                {
+                                    selectedPigIds.Remove(pigId);
+                                    pigButton.BackColor = Color.White;
+                                }
+                                else
+                                {
+                                    selectedPigIds.Add(pigId);
+                                    pigButton.BackColor = Color.Red;
+                                }
                             }
                             else
                             {
-                                selectedPigIds.Add(pigId);
-                                pigButton.BackColor = Color.Red;
+                                _onPigClicked?.Invoke(pigId);
                             }
-                        }
-                        else
-                        {
-                            _onPigClicked?.Invoke(pigId);
-                        }
-                    };
+                        };
 
-                    _panel.Controls.Add(pigButton);
+                        _panel.Controls.Add(pigButton);
+                    }
                 }
             }
         }
-
     }
 }

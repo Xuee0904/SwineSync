@@ -5,26 +5,30 @@ namespace SwineSyncc.Data
 {
     public sealed class DBConnection
     {
-        private static readonly Lazy<DBConnection> _instance =
+        // singleton instance
+        private static readonly Lazy<DBConnection> InstanceHolder =
             new Lazy<DBConnection>(() => new DBConnection());
-
-        private readonly string _connectionString =
-            //ADRIAN SERVER
+       
+        private readonly string connectionString =
+            // ADRIAN SERVER
             //"Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
 
-            //CEDRIC SERVER
-            "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";   
+            // CEDRIC SERVER
+            "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
 
-            //RUSSEL SERVER
-            //"Data Source=LAPTOP-VBK2CP8T\\SQLEXPRESS01;Initial Catalog=SwineSync;Integrated Security=True;";
+        // RUSSEL SERVER
+        //"Data Source=LAPTOP-VBK2CP8T\\SQLEXPRESS01;Initial Catalog=SwineSync;Integrated Security=True;";
 
+        private DBConnection()
+        {
+        }
 
-        private DBConnection() { }
+        // public access to singleton instance
+        public static DBConnection Instance => InstanceHolder.Value;
        
-        public static DBConnection Instance => _instance.Value;
         public SqlConnection GetConnection()
         {
-            return new SqlConnection(_connectionString);
+            return new SqlConnection(connectionString);
         }
     }
 }

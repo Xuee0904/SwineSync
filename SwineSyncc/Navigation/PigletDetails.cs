@@ -27,39 +27,46 @@ namespace SwineSyncc.Navigation
             {
                 conn.Open();
 
-                // include MotherPigID in SELECT so we can assign it to _motherPigId
-                string query = @"SELECT p.PigletID, p.TagNumber, p.Breed, p.Sex, p.Birthdate, 
-                                        p.Weight, p.Status, m.Name AS MotherTag, m.PigID AS MotherPigID
-                                 FROM Piglets p
-                                 JOIN Pigs m ON p.MotherPigID = m.PigID
-                                 WHERE p.PigletID = @id";
+                string query = @"
+                    SELECT p.PigletID, p.TagNumber, p.Breed, p.Sex, p.Birthdate,
+                           p.Weight, p.Status, 
+                           m.Name AS MotherTag, 
+                           m.PigID AS MotherPigID
+                    FROM Piglets p
+                    JOIN Pigs m ON p.MotherPigID = m.PigID
+                    WHERE p.PigletID = @id";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@id", pigletId);
 
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
+                    using (SqlDataReader reader = cmd.ExecuteReader()) // will auto-close
                     {
-                        // store the MotherPigID so btnBack knows where to go
-                        _motherPigId = Convert.ToInt32(reader["MotherPigID"]);
+                        if (reader.Read())
+                        {
+                            _motherPigId = reader.GetInt32(reader.GetOrdinal("MotherPigID"));
 
-                        motherTagLbl.Text = reader["MotherTag"].ToString();
-                        lblTag.Text = reader["TagNumber"].ToString();
-                        lblBreed.Text = reader["Breed"].ToString();
-                        lblSex.Text = reader["Sex"].ToString();
-                        lblBirthDate.Text = Convert.ToDateTime(reader["Birthdate"]).ToShortDateString();
-                        lblWeight.Text = reader["Weight"].ToString();
-                        lblStatus.Text = reader["Status"].ToString();
+                            motherTagLbl.Text = reader["MotherTag"].ToString();
+                            lblTag.Text = reader["TagNumber"].ToString();
+                            lblBreed.Text = reader["Breed"].ToString();
+                            lblSex.Text = reader["Sex"].ToString();
+                            lblBirthDate.Text = Convert.ToDateTime(reader["Birthdate"]).ToShortDateString();
+                            lblWeight.Text = reader["Weight"].ToString();
+                            lblStatus.Text = reader["Status"].ToString();
+                        }
                     }
                 }
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
-        {          
+        {
             BackClicked?.Invoke(this, _motherPigId);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

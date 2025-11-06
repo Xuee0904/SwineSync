@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.pigletDetailsPanel = new System.Windows.Forms.Panel();
-            this.pigIdLbl = new System.Windows.Forms.Label();
-            this.btnBack = new RoundedButton();
-            this.btnEdit = new RoundedButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.motherTagLbl = new System.Windows.Forms.Label();
-            this.lblTag = new System.Windows.Forms.Label();
-            this.lblBreed = new System.Windows.Forms.Label();
-            this.lblSex = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblBirthDate = new System.Windows.Forms.Label();
-            this.lblWeight = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.lblWeight = new System.Windows.Forms.Label();
+            this.lblBirthDate = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblSex = new System.Windows.Forms.Label();
+            this.lblBreed = new System.Windows.Forms.Label();
+            this.lblTag = new System.Windows.Forms.Label();
+            this.motherTagLbl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnEdit = new RoundedButton();
+            this.btnBack = new RoundedButton();
             this.pigDetailsLbl = new System.Windows.Forms.Label();
+            this.pigIdLbl = new System.Windows.Forms.Label();
             this.pigletDetailsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,16 +74,165 @@
             this.pigletDetailsPanel.Size = new System.Drawing.Size(1269, 1081);
             this.pigletDetailsPanel.TabIndex = 0;
             // 
-            // pigIdLbl
+            // lblStatus
             // 
-            this.pigIdLbl.AutoSize = true;
-            this.pigIdLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pigIdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.pigIdLbl.Location = new System.Drawing.Point(124, 132);
-            this.pigIdLbl.Name = "pigIdLbl";
-            this.pigIdLbl.Size = new System.Drawing.Size(186, 41);
-            this.pigIdLbl.TabIndex = 54;
-            this.pigIdLbl.Text = "Mother pig:";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.lblStatus.Location = new System.Drawing.Point(865, 268);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(98, 41);
+            this.lblStatus.TabIndex = 67;
+            this.lblStatus.Text = "Status";
+            // 
+            // lblWeight
+            // 
+            this.lblWeight.AutoSize = true;
+            this.lblWeight.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.lblWeight.Location = new System.Drawing.Point(865, 204);
+            this.lblWeight.Name = "lblWeight";
+            this.lblWeight.Size = new System.Drawing.Size(172, 41);
+            this.lblWeight.TabIndex = 66;
+            this.lblWeight.Text = "Weight (kg)";
+            // 
+            // lblBirthDate
+            // 
+            this.lblBirthDate.AutoSize = true;
+            this.lblBirthDate.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBirthDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.lblBirthDate.Location = new System.Drawing.Point(865, 132);
+            this.lblBirthDate.Name = "lblBirthDate";
+            this.lblBirthDate.Size = new System.Drawing.Size(146, 41);
+            this.lblBirthDate.TabIndex = 65;
+            this.lblBirthDate.Text = "Birth date";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label7.Location = new System.Drawing.Point(648, 268);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(113, 41);
+            this.label7.TabIndex = 64;
+            this.label7.Text = "Status:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label6.Location = new System.Drawing.Point(648, 204);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(195, 41);
+            this.label6.TabIndex = 63;
+            this.label6.Text = "Weight (kg):";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label5.Location = new System.Drawing.Point(648, 132);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(168, 41);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Birth date:";
+            // 
+            // lblSex
+            // 
+            this.lblSex.AutoSize = true;
+            this.lblSex.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.lblSex.Location = new System.Drawing.Point(340, 330);
+            this.lblSex.Name = "lblSex";
+            this.lblSex.Size = new System.Drawing.Size(64, 41);
+            this.lblSex.TabIndex = 61;
+            this.lblSex.Text = "Sex";
+            // 
+            // lblBreed
+            // 
+            this.lblBreed.AutoSize = true;
+            this.lblBreed.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.lblBreed.Location = new System.Drawing.Point(344, 267);
+            this.lblBreed.Name = "lblBreed";
+            this.lblBreed.Size = new System.Drawing.Size(95, 41);
+            this.lblBreed.TabIndex = 60;
+            this.lblBreed.Text = "Breed";
+            // 
+            // lblTag
+            // 
+            this.lblTag.AutoSize = true;
+            this.lblTag.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.lblTag.Location = new System.Drawing.Point(344, 203);
+            this.lblTag.Name = "lblTag";
+            this.lblTag.Size = new System.Drawing.Size(176, 41);
+            this.lblTag.TabIndex = 59;
+            this.lblTag.Text = "Tag number";
+            // 
+            // motherTagLbl
+            // 
+            this.motherTagLbl.AutoSize = true;
+            this.motherTagLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.motherTagLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.motherTagLbl.Location = new System.Drawing.Point(344, 132);
+            this.motherTagLbl.Name = "motherTagLbl";
+            this.motherTagLbl.Size = new System.Drawing.Size(167, 41);
+            this.motherTagLbl.TabIndex = 58;
+            this.motherTagLbl.Text = "Mother pig";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label3.Location = new System.Drawing.Point(124, 330);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 41);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "Sex:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label2.Location = new System.Drawing.Point(124, 268);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 41);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Breed:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label1.Location = new System.Drawing.Point(124, 204);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(195, 41);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Tag number:";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.btnEdit.BorderRadious = 9;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.btnEdit.Location = new System.Drawing.Point(731, 677);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(213, 79);
+            this.btnEdit.TabIndex = 69;
+            this.btnEdit.Text = "Edit details";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnBack
             // 
@@ -102,165 +251,6 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.btnEdit.BorderRadious = 9;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.btnEdit.Location = new System.Drawing.Point(731, 677);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(213, 79);
-            this.btnEdit.TabIndex = 69;
-            this.btnEdit.Text = "Edit details";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(124, 204);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 41);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "Tag number:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label2.Location = new System.Drawing.Point(124, 268);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 41);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Breed:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label3.Location = new System.Drawing.Point(124, 330);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 41);
-            this.label3.TabIndex = 57;
-            this.label3.Text = "Sex:";
-            // 
-            // motherTagLbl
-            // 
-            this.motherTagLbl.AutoSize = true;
-            this.motherTagLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.motherTagLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.motherTagLbl.Location = new System.Drawing.Point(344, 132);
-            this.motherTagLbl.Name = "motherTagLbl";
-            this.motherTagLbl.Size = new System.Drawing.Size(167, 41);
-            this.motherTagLbl.TabIndex = 58;
-            this.motherTagLbl.Text = "Mother pig";
-            // 
-            // lblTag
-            // 
-            this.lblTag.AutoSize = true;
-            this.lblTag.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblTag.Location = new System.Drawing.Point(344, 203);
-            this.lblTag.Name = "lblTag";
-            this.lblTag.Size = new System.Drawing.Size(176, 41);
-            this.lblTag.TabIndex = 59;
-            this.lblTag.Text = "Tag number";
-            // 
-            // lblBreed
-            // 
-            this.lblBreed.AutoSize = true;
-            this.lblBreed.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblBreed.Location = new System.Drawing.Point(344, 267);
-            this.lblBreed.Name = "lblBreed";
-            this.lblBreed.Size = new System.Drawing.Size(95, 41);
-            this.lblBreed.TabIndex = 60;
-            this.lblBreed.Text = "Breed";
-            // 
-            // lblSex
-            // 
-            this.lblSex.AutoSize = true;
-            this.lblSex.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblSex.Location = new System.Drawing.Point(340, 330);
-            this.lblSex.Name = "lblSex";
-            this.lblSex.Size = new System.Drawing.Size(64, 41);
-            this.lblSex.TabIndex = 61;
-            this.lblSex.Text = "Sex";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label5.Location = new System.Drawing.Point(648, 132);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 41);
-            this.label5.TabIndex = 62;
-            this.label5.Text = "Birth date:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label6.Location = new System.Drawing.Point(648, 204);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(195, 41);
-            this.label6.TabIndex = 63;
-            this.label6.Text = "Weight (kg):";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label7.Location = new System.Drawing.Point(648, 268);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 41);
-            this.label7.TabIndex = 64;
-            this.label7.Text = "Status:";
-            // 
-            // lblBirthDate
-            // 
-            this.lblBirthDate.AutoSize = true;
-            this.lblBirthDate.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBirthDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblBirthDate.Location = new System.Drawing.Point(865, 132);
-            this.lblBirthDate.Name = "lblBirthDate";
-            this.lblBirthDate.Size = new System.Drawing.Size(146, 41);
-            this.lblBirthDate.TabIndex = 65;
-            this.lblBirthDate.Text = "Birth date";
-            // 
-            // lblWeight
-            // 
-            this.lblWeight.AutoSize = true;
-            this.lblWeight.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblWeight.Location = new System.Drawing.Point(865, 204);
-            this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(172, 41);
-            this.lblWeight.TabIndex = 66;
-            this.lblWeight.Text = "Weight (kg)";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblStatus.Location = new System.Drawing.Point(865, 268);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(98, 41);
-            this.lblStatus.TabIndex = 67;
-            this.lblStatus.Text = "Status";
-            // 
             // pigDetailsLbl
             // 
             this.pigDetailsLbl.AutoSize = true;
@@ -271,6 +261,17 @@
             this.pigDetailsLbl.Size = new System.Drawing.Size(269, 54);
             this.pigDetailsLbl.TabIndex = 53;
             this.pigDetailsLbl.Text = "Piglet details";
+            // 
+            // pigIdLbl
+            // 
+            this.pigIdLbl.AutoSize = true;
+            this.pigIdLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pigIdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.pigIdLbl.Location = new System.Drawing.Point(124, 132);
+            this.pigIdLbl.Name = "pigIdLbl";
+            this.pigIdLbl.Size = new System.Drawing.Size(186, 41);
+            this.pigIdLbl.TabIndex = 54;
+            this.pigIdLbl.Text = "Mother pig:";
             // 
             // PigletDetails
             // 
