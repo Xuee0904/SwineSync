@@ -38,6 +38,9 @@ namespace SwineSyncc
             PregnancyRecordsClicked?.Invoke(this, EventArgs.Empty);
         }
 
-        
+        private void userManagementBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

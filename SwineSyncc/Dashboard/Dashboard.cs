@@ -25,6 +25,7 @@ namespace SwineSyncc
 
             navigationPanel.pigManagementBtn.Click += (s, e) => ucManager.LoadPigManagement();
             navigationPanel.PregnancyRecordsClicked += (s, e) => ucManager.LoadPregnancyRecords();
+            
 
         }
     

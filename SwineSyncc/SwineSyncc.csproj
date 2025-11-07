@@ -102,6 +102,12 @@
     <Compile Include="Navigation\PregnancyReccords.Designer.cs">
       <DependentUpon>PregnancyReccords.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\UserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\UserManagement.Designer.cs">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Navigation\RegisterPig.cs">
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\PregnancyReccords.resx">
       <DependentUpon>PregnancyReccords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UserManagement.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
