@@ -130,7 +130,7 @@
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.Location = new System.Drawing.Point(61, 133);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
@@ -148,7 +148,7 @@
             this.pregnancyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.pregnancyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.pregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pregnancyBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pregnancyBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pregnancyBtn.ForeColor = System.Drawing.Color.White;
             this.pregnancyBtn.Location = new System.Drawing.Point(61, 67);
             this.pregnancyBtn.Margin = new System.Windows.Forms.Padding(2);
@@ -167,7 +167,7 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(61, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
