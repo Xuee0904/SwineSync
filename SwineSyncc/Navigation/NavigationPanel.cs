@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SwineSyncc.Navigation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,9 +39,6 @@ namespace SwineSyncc
             PregnancyRecordsClicked?.Invoke(this, EventArgs.Empty);
         }
 
-        private void userManagementBtn_Click(object sender, EventArgs e)
-        {
-            
-        }
+
     }
 }

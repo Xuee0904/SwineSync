@@ -14,6 +14,7 @@ namespace SwineSyncc
         private Panel _mainPanel;
         private PigManagement _pigUC;
         private PregnancyReccords _pregnancyUC;
+        private UserManagement _userManagementUC;
 
         public UserControlManager(Panel mainPanel)
         {
@@ -27,6 +28,7 @@ namespace SwineSyncc
             _mainPanel.Controls.Add(uc);
         }
 
+
         public void LoadPigManagement()
         {
             if (_pigUC == null)
@@ -36,6 +38,7 @@ namespace SwineSyncc
             }
             ShowUserControl(_pigUC);
         }
+
 
         public void LoadRegisterPig()
         {
@@ -47,6 +50,7 @@ namespace SwineSyncc
             ShowUserControl(registerPig);
         }
 
+
         public void LoadPregnancyRecords()
         {
             if (_pregnancyUC == null)
@@ -55,6 +59,7 @@ namespace SwineSyncc
             }
             ShowUserControl(_pregnancyUC);
         }
+
 
         public void LoadRegisterPiglet(int motherPigId)
         {
@@ -103,6 +108,7 @@ namespace SwineSyncc
             ShowUserControl(registerPiglet);
         }
 
+
         public void LoadPigletDetails(int pigletId)
         {
             PigletDetails pigletDetails = new PigletDetails(_mainPanel);
@@ -132,5 +138,14 @@ namespace SwineSyncc
             ShowUserControl(pigletDetails);
         }
 
+
+        public void LoadUserManagement()
+        {
+            if (_userManagementUC == null)
+            {
+                _userManagementUC = new UserManagement();
+            }
+            ShowUserControl(_userManagementUC);
+        }
     }
 }

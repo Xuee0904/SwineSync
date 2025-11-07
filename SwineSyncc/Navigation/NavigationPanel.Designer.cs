@@ -248,7 +248,6 @@
             this.userManagementBtn.TabIndex = 9;
             this.userManagementBtn.Text = "User management";
             this.userManagementBtn.UseVisualStyleBackColor = false;
-            this.userManagementBtn.Click += new System.EventHandler(this.userManagementBtn_Click);
             // 
             // button10
             // 
@@ -294,8 +293,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button userManagementBtn;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button userManagementBtn;
     }
 }
