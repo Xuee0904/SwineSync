@@ -38,14 +38,26 @@ namespace SwineSyncc.Data
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
-                string selectQuery = "SELECT PigID, Name, Breed, Sex, Birthdate, Weight, Status FROM Pigs WHERE PigID = @id";
-                SqlCommand selectCmd = new SqlCommand(selectQuery, conn);
-                selectCmd.Parameters.AddWithValue("@id", pigId);
+                SqlTransaction transaction = conn.BeginTransaction();
 
-                SqlDataReader reader = selectCmd.ExecuteReader();
-
-                if (reader.Read())
+                try
                 {
+                    // load pig inside the transaction
+                    string selectQuery = @"SELECT PigID, Name, Breed, Sex, Birthdate, Weight, Status
+                                           FROM Pigs WHERE PigID = @id";
+
+                    SqlCommand selectCmd = new SqlCommand(selectQuery, conn, transaction);
+                    selectCmd.Parameters.AddWithValue("@id", pigId);
+
+                    SqlDataReader reader = selectCmd.ExecuteReader();
+
+                    if (!reader.Read())
+                    {
+                        reader.Close();
+                        transaction.Rollback();
+                        return;
+                    }
+
                     int PigID = (int)reader["PigID"];
                     string Name = reader["Name"].ToString();
                     string Breed = reader["Breed"].ToString();
@@ -55,11 +67,14 @@ namespace SwineSyncc.Data
                     string Status = reader["Status"].ToString();
 
                     reader.Close();
-
+                  
                     string insertQuery = @"
-                        INSERT INTO DeletedPigs (PigID, Name, Breed, Sex, Birthdate, Weight, Status)
-                        VALUES (@PigID, @Name, @Breed, @Sex, @Birthdate, @Weight, @Status)";
-                    SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
+                        INSERT INTO DeletedPigs 
+                        (PigID, Name, Breed, Sex, Birthdate, Weight, Status, DeletedDate)
+                        VALUES 
+                        (@PigID, @Name, @Breed, @Sex, @Birthdate, @Weight, @Status, GETDATE())";
+
+                    SqlCommand insertCmd = new SqlCommand(insertQuery, conn, transaction);
                     insertCmd.Parameters.AddWithValue("@PigID", PigID);
                     insertCmd.Parameters.AddWithValue("@Name", Name);
                     insertCmd.Parameters.AddWithValue("@Breed", Breed);
@@ -67,16 +82,20 @@ namespace SwineSyncc.Data
                     insertCmd.Parameters.AddWithValue("@Birthdate", Birthdate);
                     insertCmd.Parameters.AddWithValue("@Weight", Weight);
                     insertCmd.Parameters.AddWithValue("@Status", Status);
-                    insertCmd.ExecuteNonQuery();
 
+                    insertCmd.ExecuteNonQuery();
+                  
                     string deleteQuery = "DELETE FROM Pigs WHERE PigID = @id";
-                    SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn);
+                    SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn, transaction);
                     deleteCmd.Parameters.AddWithValue("@id", pigId);
                     deleteCmd.ExecuteNonQuery();
+
+                    transaction.Commit();
                 }
-                else
+                catch
                 {
-                    reader.Close();
+                    transaction.Rollback();
+                    throw;
                 }
             }
         }
