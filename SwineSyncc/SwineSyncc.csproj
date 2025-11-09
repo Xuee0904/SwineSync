@@ -73,10 +73,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Session.cs" />
-    <Compile Include="Navigation\AddUser.cs">
+    <Compile Include="Navigation\User Management\AddUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\AddUser.Designer.cs">
+    <Compile Include="Navigation\User Management\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\NavigationPanel.cs">
@@ -109,10 +109,10 @@
     <Compile Include="Navigation\PregnancyReccords.Designer.cs">
       <DependentUpon>PregnancyReccords.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\UserManagement.cs">
+    <Compile Include="Navigation\User Management\UserManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\UserManagement.Designer.cs">
+    <Compile Include="Navigation\User Management\UserManagement.Designer.cs">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -144,7 +144,7 @@
     <EmbeddedResource Include="Login\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\AddUser.resx">
+    <EmbeddedResource Include="Navigation\User Management\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\NavigationPanel.resx">
@@ -162,7 +162,7 @@
     <EmbeddedResource Include="Navigation\PregnancyReccords.resx">
       <DependentUpon>PregnancyReccords.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\UserManagement.resx">
+    <EmbeddedResource Include="Navigation\User Management\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
