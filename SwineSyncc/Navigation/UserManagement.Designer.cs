@@ -199,6 +199,7 @@
             this.addAccountBtn.TabIndex = 26;
             this.addAccountBtn.Text = "Add account";
             this.addAccountBtn.UseVisualStyleBackColor = false;
+            this.addAccountBtn.Click += new System.EventHandler(this.addAccountBtn_Click);
             // 
             // UserManagement
             // 

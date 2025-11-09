@@ -13,11 +13,16 @@ namespace SwineSyncc.Navigation
     public partial class UserManagement : UserControl
     {
 
+        public event EventHandler AddUserClicked;
+
         public UserManagement()
         {
             InitializeComponent();
     }
 
-
+        private void addAccountBtn_Click(object sender, EventArgs e)
+        {
+            AddUserClicked?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

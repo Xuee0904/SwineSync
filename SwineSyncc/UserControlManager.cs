@@ -144,8 +144,18 @@ namespace SwineSyncc
             if (_userManagementUC == null)
             {
                 _userManagementUC = new UserManagement();
+
+                _userManagementUC.AddUserClicked += (s, e) => LoadAddUser();
             }
             ShowUserControl(_userManagementUC);
+        }
+
+
+        public void LoadAddUser()
+        {
+            AddUser addUser = new AddUser();
+
+            ShowUserControl(addUser);
         }
     }
 }
