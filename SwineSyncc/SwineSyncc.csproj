@@ -73,6 +73,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Session.cs" />
+    <Compile Include="Navigation\AddUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\NavigationPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\NavigationPanel.resx">
       <DependentUpon>NavigationPanel.cs</DependentUpon>
