@@ -155,6 +155,8 @@ namespace SwineSyncc
         {
             AddUser addUser = new AddUser();
 
+            addUser.CancelClicked += (s, e) => ShowUserControl(_userManagementUC);
+
             ShowUserControl(addUser);
         }
     }

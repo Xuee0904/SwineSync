@@ -12,6 +12,9 @@ namespace SwineSyncc.Navigation
 {
     public partial class AddUser : UserControl
     {
+
+        public event EventHandler CancelClicked;
+
         public AddUser()
         {
             InitializeComponent();
@@ -27,6 +30,11 @@ namespace SwineSyncc.Navigation
         private void savebtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cancelbtn_Click(object sender, EventArgs e)
+        {
+            CancelClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }
