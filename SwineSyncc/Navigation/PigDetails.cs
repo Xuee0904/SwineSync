@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic; // ✅ ADDED for List<int>
+using System.Collections.Generic; 
 using System.Windows.Forms;
 using SwineSyncc.Data;
 using SwineSyncc.DynamicButtonLoader;
@@ -12,11 +12,9 @@ namespace SwineSyncc.Navigation
         private UserControlManager _controlManager;
 
         private int _motherPigId;
-
-        // ✅ NEW: Delete mode enabled/disabled
+      
         private bool _isDeleteMode = false;
-
-        // ✅ NEW: Stores selected piglet IDs while in delete mode
+   
         private List<int> _selectedPigletIds = new List<int>();
 
 
@@ -47,20 +45,19 @@ namespace SwineSyncc.Navigation
             statusLbl.Text = status;
 
             if (sex.Equals("Female", StringComparison.OrdinalIgnoreCase))
-            {
-                // ✅ SHOW piglet-related UI for female pigs
+            {               
                 currentPigletsLbl.Visible = true;
                 rightLineLbl.Visible = true;
                 leftLineLbl.Visible = true;
                 addPigletBtn.Visible = true;
                 flpCurrentPiglets.Visible = true;
-                deletePigletBtn.Visible = true;   // ✅ NEW delete button enabled
+                deletePigletBtn.Visible = true;  
 
                 LoadPiglets();
             }
             else
             {
-                // ✅ HIDE piglet-related UI for males
+                
                 currentPigletsLbl.Visible = false;
                 rightLineLbl.Visible = false;
                 leftLineLbl.Visible = false;
@@ -69,8 +66,7 @@ namespace SwineSyncc.Navigation
                 deletePigletBtn.Visible = false;
             }
         }
-
-        // ✅ UPDATED: Supports delete mode + selected list
+        
         private void LoadPiglets()
         {
             var loader = new PigletLoader(
@@ -79,13 +75,13 @@ namespace SwineSyncc.Navigation
                 OnPigletSelected
             );
 
-            // ✅ PASS delete mode + selected piglet IDs
+            
             loader.LoadPiglets(_isDeleteMode, _selectedPigletIds);
         }
 
         private void OnPigletSelected(int pigletId)
         {
-            // ✅ If in delete mode, do not open piglet details
+           
             if (_isDeleteMode)
                 return;
 

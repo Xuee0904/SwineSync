@@ -107,7 +107,7 @@ namespace SwineSyncc
                     foreach (int id in _selectedPigIds)
                     {
                         // prevent deleting mother pigs with piglets                    
-                        if (repo.HasPiglets(id))   // <-- NEW CHECK
+                        if (repo.HasPiglets(id))   
                         {
                             MessageBox.Show(
                                 $"Pig ID {id} cannot be deleted because she still has piglets.\n" +
@@ -116,7 +116,7 @@ namespace SwineSyncc
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning
                             );
-                            continue; // skip deletion for this pig
+                            continue; 
                         }                        
                         repo.SafeDeletePig(id);
                     }
