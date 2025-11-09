@@ -60,7 +60,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(944, 792);
+            this.panel1.Size = new System.Drawing.Size(952, 878);
             this.panel1.TabIndex = 0;
             // 
             // flpAssistant
@@ -163,7 +163,7 @@
             this.deleteAccountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAccountBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteAccountBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.deleteAccountBtn.Location = new System.Drawing.Point(429, 630);
+            this.deleteAccountBtn.Location = new System.Drawing.Point(416, 620);
             this.deleteAccountBtn.Name = "deleteAccountBtn";
             this.deleteAccountBtn.Size = new System.Drawing.Size(160, 64);
             this.deleteAccountBtn.TabIndex = 28;
@@ -178,7 +178,7 @@
             this.editAccountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editAccountBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editAccountBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.editAccountBtn.Location = new System.Drawing.Point(595, 630);
+            this.editAccountBtn.Location = new System.Drawing.Point(582, 620);
             this.editAccountBtn.Name = "editAccountBtn";
             this.editAccountBtn.Size = new System.Drawing.Size(160, 64);
             this.editAccountBtn.TabIndex = 27;
@@ -193,7 +193,7 @@
             this.addAccountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addAccountBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addAccountBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.addAccountBtn.Location = new System.Drawing.Point(761, 630);
+            this.addAccountBtn.Location = new System.Drawing.Point(748, 620);
             this.addAccountBtn.Name = "addAccountBtn";
             this.addAccountBtn.Size = new System.Drawing.Size(160, 64);
             this.addAccountBtn.TabIndex = 26;
@@ -206,7 +206,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "UserManagement";
-            this.Size = new System.Drawing.Size(944, 792);
+            this.Size = new System.Drawing.Size(952, 878);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
