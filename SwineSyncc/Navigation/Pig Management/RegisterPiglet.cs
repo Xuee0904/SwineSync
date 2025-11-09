@@ -20,7 +20,10 @@ namespace SwineSyncc
            
             this.Dock = DockStyle.Fill;
             this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(registerPigletPanel, 20);
+            
             this.BackColor = Color.WhiteSmoke;
+            registerPigletPanel.BackColor = Color.FromArgb(217, 221, 220);
 
             comboBreed.Items.Add("Large White");
             comboBreed.Items.Add("Landrace");

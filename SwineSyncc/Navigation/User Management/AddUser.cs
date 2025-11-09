@@ -15,6 +15,18 @@ namespace SwineSyncc.Navigation
         public AddUser()
         {
             InitializeComponent();
+
+            this.Dock = DockStyle.Fill;
+            this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(addUserPanel, 20);
+
+            this.BackColor = Color.WhiteSmoke;
+            addUserPanel.BackColor = Color.FromArgb(217, 221, 220);
+        }
+
+        private void savebtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

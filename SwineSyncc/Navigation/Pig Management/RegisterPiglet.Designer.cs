@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.registerPigletPanel = new System.Windows.Forms.Panel();
             this.femaleRadioBtn = new System.Windows.Forms.RadioButton();
             this.maleRadioBtn = new System.Windows.Forms.RadioButton();
             this.cancelbtn = new BorderRoundedButton();
@@ -46,33 +46,33 @@
             this.breedlbl = new System.Windows.Forms.Label();
             this.tagNumberTxt = new System.Windows.Forms.TextBox();
             this.tagnumberlbl = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.registerPigletPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // registerPigletPanel
             // 
-            this.panel1.Controls.Add(this.femaleRadioBtn);
-            this.panel1.Controls.Add(this.maleRadioBtn);
-            this.panel1.Controls.Add(this.cancelbtn);
-            this.panel1.Controls.Add(this.clearbtn);
-            this.panel1.Controls.Add(this.savebtn);
-            this.panel1.Controls.Add(this.registerpiglbl);
-            this.panel1.Controls.Add(this.statuslbl);
-            this.panel1.Controls.Add(this.comboStatus);
-            this.panel1.Controls.Add(this.comboBreed);
-            this.panel1.Controls.Add(this.weightTxt);
-            this.panel1.Controls.Add(this.weightlbl);
-            this.panel1.Controls.Add(this.dtPicker);
-            this.panel1.Controls.Add(this.birthdatelbl);
-            this.panel1.Controls.Add(this.sexlbl);
-            this.panel1.Controls.Add(this.breedlbl);
-            this.panel1.Controls.Add(this.tagNumberTxt);
-            this.panel1.Controls.Add(this.tagnumberlbl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1117, 1081);
-            this.panel1.TabIndex = 0;
+            this.registerPigletPanel.Controls.Add(this.femaleRadioBtn);
+            this.registerPigletPanel.Controls.Add(this.maleRadioBtn);
+            this.registerPigletPanel.Controls.Add(this.cancelbtn);
+            this.registerPigletPanel.Controls.Add(this.clearbtn);
+            this.registerPigletPanel.Controls.Add(this.savebtn);
+            this.registerPigletPanel.Controls.Add(this.registerpiglbl);
+            this.registerPigletPanel.Controls.Add(this.statuslbl);
+            this.registerPigletPanel.Controls.Add(this.comboStatus);
+            this.registerPigletPanel.Controls.Add(this.comboBreed);
+            this.registerPigletPanel.Controls.Add(this.weightTxt);
+            this.registerPigletPanel.Controls.Add(this.weightlbl);
+            this.registerPigletPanel.Controls.Add(this.dtPicker);
+            this.registerPigletPanel.Controls.Add(this.birthdatelbl);
+            this.registerPigletPanel.Controls.Add(this.sexlbl);
+            this.registerPigletPanel.Controls.Add(this.breedlbl);
+            this.registerPigletPanel.Controls.Add(this.tagNumberTxt);
+            this.registerPigletPanel.Controls.Add(this.tagnumberlbl);
+            this.registerPigletPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.registerPigletPanel.Location = new System.Drawing.Point(0, 0);
+            this.registerPigletPanel.Name = "registerPigletPanel";
+            this.registerPigletPanel.Size = new System.Drawing.Size(1117, 1081);
+            this.registerPigletPanel.TabIndex = 0;
             // 
             // femaleRadioBtn
             // 
@@ -270,18 +270,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.registerPigletPanel);
             this.Name = "RegisterPiglet";
             this.Size = new System.Drawing.Size(1117, 1081);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.registerPigletPanel.ResumeLayout(false);
+            this.registerPigletPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel registerPigletPanel;
         private System.Windows.Forms.RadioButton femaleRadioBtn;
         private System.Windows.Forms.RadioButton maleRadioBtn;
         private BorderRoundedButton cancelbtn;
