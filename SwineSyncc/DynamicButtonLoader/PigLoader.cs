@@ -9,18 +9,23 @@ namespace SwineSyncc
 {
     public class PigLoader
     {
-        private readonly FlowLayoutPanel _panel;
-        private readonly Action<int> _onPigClicked;
+        
+        private readonly FlowLayoutPanel _femalePanel;
+        private readonly FlowLayoutPanel _malePanel;
 
-        public PigLoader(FlowLayoutPanel panel, Action<int> onPigClicked = null)
+        private readonly Action<int> _onPigClicked;
+        
+        public PigLoader(FlowLayoutPanel femalePanel, FlowLayoutPanel malePanel, Action<int> onPigClicked = null)
         {
-            _panel = panel;
+            _femalePanel = femalePanel;
+            _malePanel = malePanel;
             _onPigClicked = onPigClicked;
         }
 
         public void LoadPigs(bool isDeleteMode = false, List<int> selectedPigIds = null)
-        {
-            _panel.Controls.Clear();
+        {           
+            _femalePanel.Controls.Clear();
+            _malePanel.Controls.Clear();
 
             if (selectedPigIds == null)
                 selectedPigIds = new List<int>();
@@ -28,16 +33,25 @@ namespace SwineSyncc
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
-                string query = "SELECT PigID, Name FROM Pigs";
+
+                string query = "SELECT PigID, Name, Sex FROM Pigs"; 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                // wrap SqlDataReader in using to prevent connection leaks
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         int pigId = Convert.ToInt32(reader["PigID"]);
                         string pigName = reader["Name"].ToString();
+                        string sex = reader["Sex"].ToString();
+
+                     
+                        Color buttonColor = sex.Equals("Female", StringComparison.OrdinalIgnoreCase)
+                                            ? Color.LightPink     
+                                            : Color.LightBlue;      
+                     
+                        if (selectedPigIds.Contains(pigId))
+                            buttonColor = Color.Red;
 
                         Button pigButton = new Button
                         {
@@ -46,10 +60,10 @@ namespace SwineSyncc
                             Height = 100,
                             Tag = pigId,
                             Margin = new Padding(10),
-                            BackColor = selectedPigIds.Contains(pigId) ? Color.Red : Color.White,
+                            BackColor = buttonColor,
                             Font = new Font("Segoe UI", 10, FontStyle.Bold)
                         };
-                      
+
                         pigButton.Click += (s, e) =>
                         {
                             if (isDeleteMode)
@@ -57,7 +71,9 @@ namespace SwineSyncc
                                 if (selectedPigIds.Contains(pigId))
                                 {
                                     selectedPigIds.Remove(pigId);
-                                    pigButton.BackColor = Color.White;
+                                    pigButton.BackColor = sex.Equals("Female", StringComparison.OrdinalIgnoreCase)
+                                        ? Color.LightPink
+                                        : Color.LightBlue;
                                 }
                                 else
                                 {
@@ -70,8 +86,11 @@ namespace SwineSyncc
                                 _onPigClicked?.Invoke(pigId);
                             }
                         };
-
-                        _panel.Controls.Add(pigButton);
+                     
+                        if (sex.Equals("Female", StringComparison.OrdinalIgnoreCase))
+                            _femalePanel.Controls.Add(pigButton);
+                        else
+                            _malePanel.Controls.Add(pigButton);
                     }
                 }
             }

@@ -12,7 +12,9 @@ namespace SwineSyncc
         public event EventHandler RegisterPigClicked;
 
         private readonly Panel _mainPanel;
+      
         private bool _isDeleteMode = false;
+       
         private List<int> _selectedPigIds = new List<int>();
 
         public PigManagement(Panel mainPanel)
@@ -20,19 +22,19 @@ namespace SwineSyncc
             InitializeComponent();
             _mainPanel = mainPanel;
             this.Dock = DockStyle.Fill;
-
+            
             LoadPigButtons();
         }
-
+       
         private void LoadPigButtons()
-        {
-            PigLoader loader = new PigLoader(flpPigs, OnPigSelected);
+        {          
+            PigLoader loader = new PigLoader(flpFemalePigs, flpMalePigs, OnPigSelected);
             loader.LoadPigs(_isDeleteMode, _selectedPigIds);
         }
-
+       
         private void OnPigSelected(int pigId)
         {
-            if (_isDeleteMode) return;
+            if (_isDeleteMode) return; 
 
             PigRepository repo = new PigRepository();
             Pig pig = repo.GetPigById(pigId);
@@ -40,7 +42,7 @@ namespace SwineSyncc
             if (pig != null)
             {
                 PigDetails details = new PigDetails(_mainPanel);
-
+              
                 details.DisplayPigDetails(
                     pig.PigID,
                     pig.Name,
@@ -60,7 +62,7 @@ namespace SwineSyncc
                 MessageBox.Show("Pig not found.");
             }
         }
-
+      
         public void RefreshPigList()
         {
             LoadPigButtons();
@@ -70,9 +72,10 @@ namespace SwineSyncc
         {
             RegisterPigClicked?.Invoke(this, EventArgs.Empty);
         }
-
+  
         private void btnDeletePig_Click(object sender, EventArgs e)
         {
+            
             if (!_isDeleteMode)
             {
                 _isDeleteMode = true;
@@ -80,10 +83,11 @@ namespace SwineSyncc
 
                 MessageBox.Show("Delete mode enabled. Select pigs to delete.");
                 btnDeletePig.Text = "Confirm Delete";
-                LoadPigButtons();
+
+                LoadPigButtons(); 
             }
             else
-            {
+            {               
                 if (_selectedPigIds.Count == 0)
                 {
                     MessageBox.Show("No pigs selected for deletion.");
@@ -92,7 +96,7 @@ namespace SwineSyncc
                     LoadPigButtons();
                     return;
                 }
-
+          
                 var confirm = MessageBox.Show(
                     $"Are you sure you want to delete {_selectedPigIds.Count} selected pig(s)?",
                     "Confirm Deletion",
@@ -100,25 +104,26 @@ namespace SwineSyncc
                     MessageBoxIcon.Warning
                 );
 
+               
                 if (confirm == DialogResult.Yes)
                 {
                     PigRepository repo = new PigRepository();
 
-                    int deletedCount = 0;
-                    int skippedCount = 0;
+                    int deletedCount = 0;  
+                    int skippedCount = 0;  
 
                     foreach (int id in _selectedPigIds)
-                    {
+                    {                  
                         if (repo.HasPiglets(id))
                         {
-                            skippedCount++;   
+                            skippedCount++;
                             continue;
                         }
 
+                
                         repo.SafeDeletePig(id);
                         deletedCount++;
                     }
-                    // conditional messaging
                     if (deletedCount > 0 && skippedCount == 0)
                     {
                         MessageBox.Show("Selected pigs have been deleted successfully!");
@@ -127,7 +132,7 @@ namespace SwineSyncc
                     {
                         MessageBox.Show(
                             $"Deleted {deletedCount} pig(s). " +
-                            $"{skippedCount} pig(s) were skipped because they still have piglets."
+                            $"{skippedCount} pig(s) were skipped because they have piglets."
                         );
                     }
                     else if (deletedCount == 0 && skippedCount > 0)
@@ -135,13 +140,13 @@ namespace SwineSyncc
                         MessageBox.Show("No pigs were deleted because they still have piglets.");
                     }
                 }
-
+        
                 _isDeleteMode = false;
                 _selectedPigIds.Clear();
                 btnDeletePig.Text = "Delete Mode";
-                LoadPigButtons();
+
+                LoadPigButtons(); 
             }
         }
-
     }
 }
