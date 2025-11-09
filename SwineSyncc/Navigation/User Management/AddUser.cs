@@ -36,5 +36,13 @@ namespace SwineSyncc.Navigation
         {
             CancelClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            usernameTxt.Clear();
+            passwordTxt.Clear();
+            adminRadioBtn.Checked = false;
+            assistantRadioBtn.Checked = false;
+        }
     }
 }

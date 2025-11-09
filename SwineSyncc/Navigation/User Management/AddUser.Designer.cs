@@ -35,9 +35,9 @@
             this.assistantRadioBtn = new System.Windows.Forms.RadioButton();
             this.adminRadioBtn = new System.Windows.Forms.RadioButton();
             this.sexlbl = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.passwordTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pigNameTxt = new System.Windows.Forms.TextBox();
+            this.usernameTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.addUserPanel.SuspendLayout();
@@ -51,9 +51,9 @@
             this.addUserPanel.Controls.Add(this.assistantRadioBtn);
             this.addUserPanel.Controls.Add(this.adminRadioBtn);
             this.addUserPanel.Controls.Add(this.sexlbl);
-            this.addUserPanel.Controls.Add(this.textBox1);
+            this.addUserPanel.Controls.Add(this.passwordTxt);
             this.addUserPanel.Controls.Add(this.label3);
-            this.addUserPanel.Controls.Add(this.pigNameTxt);
+            this.addUserPanel.Controls.Add(this.usernameTxt);
             this.addUserPanel.Controls.Add(this.label2);
             this.addUserPanel.Controls.Add(this.label1);
             this.addUserPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -94,6 +94,7 @@
             this.clearbtn.TabIndex = 41;
             this.clearbtn.Text = "Clear";
             this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // savebtn
             // 
@@ -104,7 +105,7 @@
             this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.savebtn.Location = new System.Drawing.Point(722, 409);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.savebtn.Margin = new System.Windows.Forms.Padding(2);
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(126, 45);
             this.savebtn.TabIndex = 40;
@@ -118,7 +119,7 @@
             this.assistantRadioBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assistantRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.assistantRadioBtn.Location = new System.Drawing.Point(145, 274);
-            this.assistantRadioBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.assistantRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.assistantRadioBtn.Name = "assistantRadioBtn";
             this.assistantRadioBtn.Size = new System.Drawing.Size(114, 34);
             this.assistantRadioBtn.TabIndex = 39;
@@ -132,7 +133,7 @@
             this.adminRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.adminRadioBtn.Location = new System.Drawing.Point(48, 277);
-            this.adminRadioBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.adminRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.adminRadioBtn.Name = "adminRadioBtn";
             this.adminRadioBtn.Size = new System.Drawing.Size(93, 30);
             this.adminRadioBtn.TabIndex = 38;
@@ -152,14 +153,14 @@
             this.sexlbl.TabIndex = 37;
             this.sexlbl.Text = "Role:";
             // 
-            // textBox1
+            // passwordTxt
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(459, 180);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(389, 31);
-            this.textBox1.TabIndex = 34;
+            this.passwordTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTxt.Location = new System.Drawing.Point(459, 180);
+            this.passwordTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.passwordTxt.Name = "passwordTxt";
+            this.passwordTxt.Size = new System.Drawing.Size(389, 31);
+            this.passwordTxt.TabIndex = 34;
             // 
             // label3
             // 
@@ -173,14 +174,14 @@
             this.label3.TabIndex = 33;
             this.label3.Text = "Password:";
             // 
-            // pigNameTxt
+            // usernameTxt
             // 
-            this.pigNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pigNameTxt.Location = new System.Drawing.Point(48, 179);
-            this.pigNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pigNameTxt.Name = "pigNameTxt";
-            this.pigNameTxt.Size = new System.Drawing.Size(389, 31);
-            this.pigNameTxt.TabIndex = 32;
+            this.usernameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTxt.Location = new System.Drawing.Point(48, 179);
+            this.usernameTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.usernameTxt.Name = "usernameTxt";
+            this.usernameTxt.Size = new System.Drawing.Size(389, 31);
+            this.usernameTxt.TabIndex = 32;
             // 
             // label2
             // 
@@ -223,9 +224,9 @@
 
         private System.Windows.Forms.Panel addUserPanel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox pigNameTxt;
+        private System.Windows.Forms.TextBox usernameTxt;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox passwordTxt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton assistantRadioBtn;
         private System.Windows.Forms.RadioButton adminRadioBtn;
