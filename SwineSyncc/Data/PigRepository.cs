@@ -33,6 +33,24 @@ namespace SwineSyncc.Data
             return null;
         }
 
+        public bool HasPiglets(int pigId)
+        {
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                conn.Open();
+
+                string query = "SELECT COUNT(*) FROM Piglets WHERE MotherPigID = @id";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", pigId);
+
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
+
+
+
         public void SafeDeletePig(int pigId)
         {
             using (SqlConnection conn = DBConnection.Instance.GetConnection())

@@ -40,10 +40,10 @@ namespace SwineSyncc
             if (pig != null)
             {
                 PigDetails details = new PigDetails(_mainPanel);
-               
+
                 details.DisplayPigDetails(
                     pig.PigID,
-                    pig.Name,        
+                    pig.Name,
                     pig.Breed,
                     pig.Sex,
                     pig.Birthdate,
@@ -106,10 +106,22 @@ namespace SwineSyncc
 
                     foreach (int id in _selectedPigIds)
                     {
+                        // prevent deleting mother pigs with piglets                    
+                        if (repo.HasPiglets(id))   // <-- NEW CHECK
+                        {
+                            MessageBox.Show(
+                                $"Pig ID {id} cannot be deleted because she still has piglets.\n" +
+                                $"Delete or reassign the piglets first.",
+                                "Deletion Blocked",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning
+                            );
+                            continue; // skip deletion for this pig
+                        }                        
                         repo.SafeDeletePig(id);
                     }
 
-                    MessageBox.Show("Selected pigs have been moved to DeletedPigs table successfully!");
+                    MessageBox.Show("Selected pigs have been processed. (Mother pigs with piglets were protected)");
                 }
 
                 _isDeleteMode = false;
