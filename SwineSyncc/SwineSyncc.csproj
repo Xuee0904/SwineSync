@@ -55,6 +55,9 @@
     <Compile Include="CustomUIElements\BorderRoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomUIElements\IconRoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Dashboard\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
