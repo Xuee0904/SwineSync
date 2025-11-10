@@ -79,6 +79,12 @@
     <Compile Include="Navigation\Pig Management\EditPig.Designer.cs">
       <DependentUpon>EditPig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\Pig Management\EditPiglet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\Pig Management\EditPiglet.Designer.cs">
+      <DependentUpon>EditPiglet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\User Management\AddUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\EditPig.resx">
       <DependentUpon>EditPig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\Pig Management\EditPiglet.resx">
+      <DependentUpon>EditPiglet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\User Management\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>

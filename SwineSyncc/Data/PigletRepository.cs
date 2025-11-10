@@ -41,7 +41,36 @@ namespace SwineSyncc.Data
             return null;
         }
 
-        // get all piglets for a mother
+        public void UpdatePiglet(int pigletId, string tagNumber, string breed, string sex, DateTime birthdate, int weight, string status)
+        {
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                conn.Open();
+
+                string query = @"
+            UPDATE Piglets
+            SET TagNumber = @TagNumber,
+                Breed = @Breed,
+                Sex = @Sex,
+                Birthdate = @Birthdate,
+                Weight = @Weight,
+                Status = @Status
+            WHERE PigletID = @PigletID";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@PigletID", pigletId);
+                cmd.Parameters.AddWithValue("@TagNumber", tagNumber);
+                cmd.Parameters.AddWithValue("@Breed", breed);
+                cmd.Parameters.AddWithValue("@Sex", sex);
+                cmd.Parameters.AddWithValue("@Birthdate", birthdate);
+                cmd.Parameters.AddWithValue("@Weight", weight);
+                cmd.Parameters.AddWithValue("@Status", status);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
         public List<Piglet> GetPigletsByMotherId(int motherId)
         {
             List<Piglet> list = new List<Piglet>();
@@ -78,8 +107,7 @@ namespace SwineSyncc.Data
 
             return list;
         }
-
-        // SAFE DELETE PIGLET        
+    
         public void SafeDeletePiglet(int pigletId)
         {
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
@@ -156,7 +184,6 @@ namespace SwineSyncc.Data
         }
     }
 
-    // piglet model
     public class Piglet
     {
         public int PigletID { get; set; }

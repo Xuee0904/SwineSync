@@ -2,13 +2,16 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using SwineSyncc.Data;
+using SwineSyncc.Navigation.Pig_Management;
 
 namespace SwineSyncc.Navigation
 {
     public partial class PigletDetails : UserControl
     {
         private Panel _mainPanel;
-        private int _motherPigId;   // stores the mother pig ID for back navigation
+        private int _motherPigId;
+        private int _currentPigletId;
+
         public event EventHandler<int> BackClicked;
 
         public PigletDetails(Panel mainPanel)
@@ -23,6 +26,8 @@ namespace SwineSyncc.Navigation
 
         public void DisplayPigletDetails(int pigletId)
         {
+            _currentPigletId = pigletId;
+
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
@@ -66,7 +71,21 @@ namespace SwineSyncc.Navigation
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-           
+            PigletRepository repo = new PigletRepository();
+            Piglet piglet = repo.GetPigletById(_currentPigletId);
+
+            if (piglet == null)
+            {
+                MessageBox.Show("Error: Piglet not found.");
+                return;
+            }
+          
+            var editScreen = new EditPiglet(_mainPanel);
+            editScreen.LoadPigletData(piglet);
+          
+            _mainPanel.Controls.Clear();
+            _mainPanel.Controls.Add(editScreen);
+            editScreen.Dock = DockStyle.Fill;
         }
     }
 }
