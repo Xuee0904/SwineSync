@@ -14,6 +14,32 @@ namespace SwineSyncc.Navigation.Pig_Management
         {
             InitializeComponent();
             _mainPanel = mainPanel;
+
+            editPigletBreed.Items.Add("Large White");
+            editPigletBreed.Items.Add("Landrace");
+            editPigletBreed.Items.Add("Duroc");
+            editPigletBreed.Items.Add("Pietrain");
+            editPigletBreed.Items.Add("Hampshire");
+            editPigletBreed.Items.Add("Berkshire");
+            editPigletBreed.Items.Add("Tamworth");
+            editPigletBreed.Items.Add("Chester White");
+            editPigletBreed.Items.Add("Yorkshire");
+            editPigletBreed.Items.Add("Hereford");
+            editPigletBreed.Items.Add("Mangalitsa");
+            editPigletBreed.Items.Add("Kunekune");
+            editPigletBreed.Items.Add("Pot-bellied Pig");
+
+
+            editPigletStatus.Items.Add("Alive");
+            editPigletStatus.Items.Add("For Breeding");
+            editPigletStatus.Items.Add("Gestating (Pregnant)");
+            editPigletStatus.Items.Add("Lactating");
+            editPigletStatus.Items.Add("Weaned");
+            editPigletStatus.Items.Add("Sold");
+            editPigletStatus.Items.Add("Slaughtered");
+            editPigletStatus.Items.Add("Dead");
+            editPigletStatus.Items.Add("Sick");
+            editPigletStatus.Items.Add("Quarantined");
         }
 
         public void LoadPigletData(Piglet piglet)

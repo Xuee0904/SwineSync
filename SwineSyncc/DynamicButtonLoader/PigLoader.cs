@@ -57,13 +57,13 @@ namespace SwineSyncc
                         {
                             Text = pigName,
                             Width = 120,  
-                            Height = 90,  
+                            Height = 120,  
                             Tag = pigId,
                             Margin = new Padding(10),
                             BackColor = buttonColor,
                             Font = new Font("Segoe UI", 10, FontStyle.Bold),                           
-                            Image = Properties.Resources.PigIcon,                         
-                            ImageAlign = ContentAlignment.TopCenter,                         
+                            Image = Properties.Resources.PigIcon,
+                            ImageAlign = ContentAlignment.MiddleCenter,
                             TextImageRelation = TextImageRelation.ImageAboveText,                          
                             TextAlign = ContentAlignment.BottomCenter
                         };
