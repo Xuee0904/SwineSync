@@ -56,12 +56,16 @@ namespace SwineSyncc
                         Button pigButton = new Button
                         {
                             Text = pigName,
-                            Width = 120,
-                            Height = 100,
+                            Width = 120,  
+                            Height = 90,  
                             Tag = pigId,
                             Margin = new Padding(10),
                             BackColor = buttonColor,
-                            Font = new Font("Segoe UI", 10, FontStyle.Bold)
+                            Font = new Font("Segoe UI", 10, FontStyle.Bold),                           
+                            Image = Properties.Resources.PigIcon,                         
+                            ImageAlign = ContentAlignment.TopCenter,                         
+                            TextImageRelation = TextImageRelation.ImageAboveText,                          
+                            TextAlign = ContentAlignment.BottomCenter
                         };
 
                         pigButton.Click += (s, e) =>
@@ -72,8 +76,8 @@ namespace SwineSyncc
                                 {
                                     selectedPigIds.Remove(pigId);
                                     pigButton.BackColor = sex.Equals("Female", StringComparison.OrdinalIgnoreCase)
-                                        ? Color.LightPink
-                                        : Color.LightBlue;
+                                        ? Color.Pink
+                                        : Color.RoyalBlue;
                                 }
                                 else
                                 {
