@@ -33,6 +33,36 @@ namespace SwineSyncc.Data
             return null;
         }
 
+        public void UpdatePig(int pigId, string name, string breed, string sex, DateTime birthdate, int weight, string status)
+        {
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                conn.Open();
+
+                string query = @"
+            UPDATE Pigs
+            SET Name = @Name,
+                Breed = @Breed,
+                Sex = @Sex,
+                Birthdate = @Birthdate,
+                Weight = @Weight,
+                Status = @Status
+            WHERE PigID = @PigID";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@PigID", pigId);
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Breed", breed);
+                cmd.Parameters.AddWithValue("@Sex", sex);
+                cmd.Parameters.AddWithValue("@Birthdate", birthdate);
+                cmd.Parameters.AddWithValue("@Weight", weight);
+                cmd.Parameters.AddWithValue("@Status", status);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
         public bool HasPiglets(int pigId)
         {
             using (SqlConnection conn = DBConnection.Instance.GetConnection())

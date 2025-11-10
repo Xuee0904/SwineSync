@@ -73,6 +73,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Session.cs" />
+    <Compile Include="Navigation\Pig Management\EditPig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\Pig Management\EditPig.Designer.cs">
+      <DependentUpon>EditPig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\User Management\AddUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\Pig Management\EditPig.resx">
+      <DependentUpon>EditPig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\User Management\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>

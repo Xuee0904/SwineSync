@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pigDetailsPanel = new System.Windows.Forms.Panel();
+            this.deletePigletBtn = new RoundedButton();
             this.flpCurrentPiglets = new System.Windows.Forms.FlowLayoutPanel();
             this.addPigletBtn = new RoundedButton();
             this.currentPigletsLbl = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.btnBack = new RoundedButton();
             this.pigDetailsLbl = new System.Windows.Forms.Label();
             this.pigIdLbl = new System.Windows.Forms.Label();
-            this.deletePigletBtn = new RoundedButton();
             this.pigDetailsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,24 @@
             this.pigDetailsPanel.Name = "pigDetailsPanel";
             this.pigDetailsPanel.Size = new System.Drawing.Size(1269, 1081);
             this.pigDetailsPanel.TabIndex = 0;
+            // 
+            // deletePigletBtn
+            // 
+            this.deletePigletBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.deletePigletBtn.BorderRadious = 9;
+            this.deletePigletBtn.FlatAppearance.BorderSize = 0;
+            this.deletePigletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletePigletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletePigletBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.deletePigletBtn.Location = new System.Drawing.Point(515, 689);
+            this.deletePigletBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deletePigletBtn.Name = "deletePigletBtn";
+            this.deletePigletBtn.Size = new System.Drawing.Size(213, 79);
+            this.deletePigletBtn.TabIndex = 53;
+            this.deletePigletBtn.Text = "Delete piglet";
+            this.deletePigletBtn.UseVisualStyleBackColor = false;
+            this.deletePigletBtn.Visible = false;
+            this.deletePigletBtn.Click += new System.EventHandler(this.deletePigletBtn_Click);
             // 
             // flpCurrentPiglets
             // 
@@ -307,6 +325,7 @@
             this.btnEdit.TabIndex = 46;
             this.btnEdit.Text = "Edit details";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnBack
             // 
@@ -346,24 +365,6 @@
             this.pigIdLbl.Size = new System.Drawing.Size(112, 41);
             this.pigIdLbl.TabIndex = 31;
             this.pigIdLbl.Text = "Pig ID:";
-            // 
-            // deletePigletBtn
-            // 
-            this.deletePigletBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.deletePigletBtn.BorderRadious = 9;
-            this.deletePigletBtn.FlatAppearance.BorderSize = 0;
-            this.deletePigletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deletePigletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deletePigletBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.deletePigletBtn.Location = new System.Drawing.Point(515, 689);
-            this.deletePigletBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.deletePigletBtn.Name = "deletePigletBtn";
-            this.deletePigletBtn.Size = new System.Drawing.Size(213, 79);
-            this.deletePigletBtn.TabIndex = 53;
-            this.deletePigletBtn.Text = "Delete piglet";
-            this.deletePigletBtn.UseVisualStyleBackColor = false;
-            this.deletePigletBtn.Visible = false;
-            this.deletePigletBtn.Click += new System.EventHandler(this.deletePigletBtn_Click);
             // 
             // PigDetails
             // 

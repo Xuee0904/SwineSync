@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using SwineSyncc.Data;
 using SwineSyncc.DynamicButtonLoader;
+using SwineSyncc.Navigation.Pig_Management;
 
 namespace SwineSyncc.Navigation
 {
@@ -148,5 +149,17 @@ namespace SwineSyncc.Navigation
             }
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            PigRepository repo = new PigRepository();
+            Pig pig = repo.GetPigById(_motherPigId);
+
+            EditPig edit = new EditPig(_mainPanel);
+            edit.LoadPigData(pig);
+
+            _mainPanel.Controls.Clear();
+            _mainPanel.Controls.Add(edit);
+            edit.Dock = DockStyle.Fill;
+        }
     }
 }
