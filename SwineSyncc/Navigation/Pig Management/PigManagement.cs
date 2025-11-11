@@ -72,10 +72,11 @@ namespace SwineSyncc
         {
             RegisterPigClicked?.Invoke(this, EventArgs.Empty);
         }
-  
-        private void btnDeletePig_Click(object sender, EventArgs e)
+
+
+        private void btnDeletePig_Click_1(object sender, EventArgs e)
         {
-            
+
             if (!_isDeleteMode)
             {
                 _isDeleteMode = true;
@@ -84,10 +85,10 @@ namespace SwineSyncc
                 MessageBox.Show("Delete mode enabled. Select pigs to delete.");
                 btnDeletePig.Text = "Confirm Delete";
 
-                LoadPigButtons(); 
+                LoadPigButtons();
             }
             else
-            {               
+            {
                 if (_selectedPigIds.Count == 0)
                 {
                     MessageBox.Show("No pigs selected for deletion.");
@@ -96,7 +97,7 @@ namespace SwineSyncc
                     LoadPigButtons();
                     return;
                 }
-          
+
                 var confirm = MessageBox.Show(
                     $"Are you sure you want to delete {_selectedPigIds.Count} selected pig(s)?",
                     "Confirm Deletion",
@@ -104,23 +105,23 @@ namespace SwineSyncc
                     MessageBoxIcon.Warning
                 );
 
-               
+
                 if (confirm == DialogResult.Yes)
                 {
                     PigRepository repo = new PigRepository();
 
-                    int deletedCount = 0;  
-                    int skippedCount = 0;  
+                    int deletedCount = 0;
+                    int skippedCount = 0;
 
                     foreach (int id in _selectedPigIds)
-                    {                  
+                    {
                         if (repo.HasPiglets(id))
                         {
                             skippedCount++;
                             continue;
                         }
 
-                
+
                         repo.SafeDeletePig(id);
                         deletedCount++;
                     }
@@ -140,15 +141,14 @@ namespace SwineSyncc
                         MessageBox.Show("No pigs were deleted because they still have piglets.");
                     }
                 }
-        
+
                 _isDeleteMode = false;
                 _selectedPigIds.Clear();
                 btnDeletePig.Text = "Delete Mode";
 
-                LoadPigButtons(); 
+                LoadPigButtons();
             }
-        }
 
-      
+        }
     }
 }

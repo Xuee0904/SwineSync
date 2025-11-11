@@ -94,7 +94,7 @@ public class BorderRoundedButton : Button
             this.Font,
             rect,
             this.ForeColor,
-            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak
         );
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PigManagement));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flpMalePigs = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -38,8 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flpFemalePigs = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.iconRoundedButton1 = new IconRoundedButton();
-            this.btnDeletePig = new RoundedButton();
+            this.btnDeletePig = new IconRoundedButton();
             this.btnRegisterPig = new RoundedButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.panel1.Controls.Add(this.iconRoundedButton1);
+            this.panel1.Controls.Add(this.btnDeletePig);
             this.panel1.Controls.Add(this.flpMalePigs);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label6);
@@ -55,13 +55,12 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.btnDeletePig);
             this.panel1.Controls.Add(this.btnRegisterPig);
             this.panel1.Controls.Add(this.flpFemalePigs);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(952, 878);
             this.panel1.TabIndex = 0;
@@ -69,7 +68,7 @@
             // flpMalePigs
             // 
             this.flpMalePigs.Location = new System.Drawing.Point(30, 382);
-            this.flpMalePigs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpMalePigs.Margin = new System.Windows.Forms.Padding(2);
             this.flpMalePigs.Name = "flpMalePigs";
             this.flpMalePigs.Size = new System.Drawing.Size(898, 202);
             this.flpMalePigs.TabIndex = 20;
@@ -140,7 +139,7 @@
             // 
             this.flpFemalePigs.AutoScroll = true;
             this.flpFemalePigs.Location = new System.Drawing.Point(30, 129);
-            this.flpFemalePigs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpFemalePigs.Margin = new System.Windows.Forms.Padding(2);
             this.flpFemalePigs.Name = "flpFemalePigs";
             this.flpFemalePigs.Size = new System.Drawing.Size(898, 202);
             this.flpFemalePigs.TabIndex = 10;
@@ -157,37 +156,22 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Pig management";
             // 
-            // iconRoundedButton1
-            // 
-            this.iconRoundedButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.iconRoundedButton1.BorderRadious = 9;
-            this.iconRoundedButton1.FlatAppearance.BorderSize = 0;
-            this.iconRoundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconRoundedButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconRoundedButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.iconRoundedButton1.Image = global::SwineSyncc.Properties.Resources.PigIcon;
-            this.iconRoundedButton1.Location = new System.Drawing.Point(707, 704);
-            this.iconRoundedButton1.Name = "iconRoundedButton1";
-            this.iconRoundedButton1.Size = new System.Drawing.Size(201, 75);
-            this.iconRoundedButton1.TabIndex = 21;
-            this.iconRoundedButton1.Text = "Add pig";
-            this.iconRoundedButton1.UseVisualStyleBackColor = false;
-            // 
             // btnDeletePig
             // 
             this.btnDeletePig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.btnDeletePig.BorderRadious = 9;
             this.btnDeletePig.FlatAppearance.BorderSize = 0;
             this.btnDeletePig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeletePig.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletePig.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletePig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.btnDeletePig.Location = new System.Drawing.Point(572, 620);
+            this.btnDeletePig.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletePig.Image")));
+            this.btnDeletePig.Location = new System.Drawing.Point(551, 620);
             this.btnDeletePig.Name = "btnDeletePig";
-            this.btnDeletePig.Size = new System.Drawing.Size(160, 64);
-            this.btnDeletePig.TabIndex = 13;
+            this.btnDeletePig.Size = new System.Drawing.Size(191, 64);
+            this.btnDeletePig.TabIndex = 21;
             this.btnDeletePig.Text = "Delete pig";
             this.btnDeletePig.UseVisualStyleBackColor = false;
-            this.btnDeletePig.Click += new System.EventHandler(this.btnDeletePig_Click);
+            this.btnDeletePig.Click += new System.EventHandler(this.btnDeletePig_Click_1);
             // 
             // btnRegisterPig
             // 
@@ -210,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PigManagement";
             this.Size = new System.Drawing.Size(952, 878);
             this.panel1.ResumeLayout(false);
@@ -225,7 +209,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flpFemalePigs;
         private RoundedButton btnRegisterPig;
-        private RoundedButton btnDeletePig;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -233,6 +216,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private IconRoundedButton iconRoundedButton1;
+        private IconRoundedButton btnDeletePig;
     }
 }

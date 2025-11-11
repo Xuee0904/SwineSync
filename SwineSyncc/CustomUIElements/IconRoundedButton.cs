@@ -81,7 +81,7 @@ public class IconRoundedButton : Button
             textRect,
             this.ForeColor,
 
-            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis
+            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis | TextFormatFlags.WordBreak
         );
 
 
