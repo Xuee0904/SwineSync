@@ -47,9 +47,9 @@ namespace SwineSyncc
 
                      
                         Color buttonColor = sex.Equals("Female", StringComparison.OrdinalIgnoreCase)
-                                            ? Color.LightPink     
-                                            : Color.LightBlue;      
-                     
+                                            ? Color.FromArgb(210, 140, 70)
+                                            : Color.FromArgb(180, 110, 50);
+
                         if (selectedPigIds.Contains(pigId))
                             buttonColor = Color.Red;
 

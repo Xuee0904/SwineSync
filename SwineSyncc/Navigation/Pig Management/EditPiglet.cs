@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using SwineSyncc.Data;
+using System.Drawing;
 
 namespace SwineSyncc.Navigation.Pig_Management
 {
@@ -14,6 +15,14 @@ namespace SwineSyncc.Navigation.Pig_Management
         {
             InitializeComponent();
             _mainPanel = mainPanel;
+
+
+            this.Dock = DockStyle.Fill;
+            this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(editPigletPanel, 20);
+
+            this.BackColor = Color.WhiteSmoke;
+            editPigletPanel.BackColor = Color.FromArgb(217, 221, 220);
 
             editPigletBreed.Items.Add("Large White");
             editPigletBreed.Items.Add("Landrace");

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.editPigletPanel = new System.Windows.Forms.Panel();
             this.editPigletRbFemale = new System.Windows.Forms.RadioButton();
             this.editPigletRbMale = new System.Windows.Forms.RadioButton();
             this.editPigletCancel = new BorderRoundedButton();
@@ -46,33 +46,33 @@
             this.breedlbl = new System.Windows.Forms.Label();
             this.editTnPiglet = new System.Windows.Forms.TextBox();
             this.tagnumberlbl = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.editPigletPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // editPigletPanel
             // 
-            this.panel1.Controls.Add(this.editPigletRbFemale);
-            this.panel1.Controls.Add(this.editPigletRbMale);
-            this.panel1.Controls.Add(this.editPigletCancel);
-            this.panel1.Controls.Add(this.editPigletClear);
-            this.panel1.Controls.Add(this.editPigletSave);
-            this.panel1.Controls.Add(this.registerpiglbl);
-            this.panel1.Controls.Add(this.statuslbl);
-            this.panel1.Controls.Add(this.editPigletStatus);
-            this.panel1.Controls.Add(this.editPigletBreed);
-            this.panel1.Controls.Add(this.editPigletWeight);
-            this.panel1.Controls.Add(this.weightlbl);
-            this.panel1.Controls.Add(this.editPigletDt);
-            this.panel1.Controls.Add(this.birthdatelbl);
-            this.panel1.Controls.Add(this.sexlbl);
-            this.panel1.Controls.Add(this.breedlbl);
-            this.panel1.Controls.Add(this.editTnPiglet);
-            this.panel1.Controls.Add(this.tagnumberlbl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1117, 1081);
-            this.panel1.TabIndex = 0;
+            this.editPigletPanel.Controls.Add(this.editPigletRbFemale);
+            this.editPigletPanel.Controls.Add(this.editPigletRbMale);
+            this.editPigletPanel.Controls.Add(this.editPigletCancel);
+            this.editPigletPanel.Controls.Add(this.editPigletClear);
+            this.editPigletPanel.Controls.Add(this.editPigletSave);
+            this.editPigletPanel.Controls.Add(this.registerpiglbl);
+            this.editPigletPanel.Controls.Add(this.statuslbl);
+            this.editPigletPanel.Controls.Add(this.editPigletStatus);
+            this.editPigletPanel.Controls.Add(this.editPigletBreed);
+            this.editPigletPanel.Controls.Add(this.editPigletWeight);
+            this.editPigletPanel.Controls.Add(this.weightlbl);
+            this.editPigletPanel.Controls.Add(this.editPigletDt);
+            this.editPigletPanel.Controls.Add(this.birthdatelbl);
+            this.editPigletPanel.Controls.Add(this.sexlbl);
+            this.editPigletPanel.Controls.Add(this.breedlbl);
+            this.editPigletPanel.Controls.Add(this.editTnPiglet);
+            this.editPigletPanel.Controls.Add(this.tagnumberlbl);
+            this.editPigletPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editPigletPanel.Location = new System.Drawing.Point(0, 0);
+            this.editPigletPanel.Name = "editPigletPanel";
+            this.editPigletPanel.Size = new System.Drawing.Size(1117, 1081);
+            this.editPigletPanel.TabIndex = 0;
             // 
             // editPigletRbFemale
             // 
@@ -271,18 +271,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.editPigletPanel);
             this.Name = "EditPiglet";
             this.Size = new System.Drawing.Size(1117, 1081);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.editPigletPanel.ResumeLayout(false);
+            this.editPigletPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel editPigletPanel;
         private System.Windows.Forms.RadioButton editPigletRbFemale;
         private System.Windows.Forms.RadioButton editPigletRbMale;
         private BorderRoundedButton editPigletCancel;
