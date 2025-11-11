@@ -55,6 +55,9 @@
     <Compile Include="CustomUIElements\BorderRoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomUIElements\Gradient_RoundedFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomUIElements\Gradient_RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
