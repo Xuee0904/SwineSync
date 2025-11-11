@@ -130,6 +130,12 @@
     <Compile Include="Navigation\PregnancyReccords.Designer.cs">
       <DependentUpon>PregnancyReccords.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\User Management\UserDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\User Management\UserDetails.Designer.cs">
+      <DependentUpon>UserDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\User Management\UserManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\PregnancyReccords.resx">
       <DependentUpon>PregnancyReccords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\User Management\UserDetails.resx">
+      <DependentUpon>UserDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\User Management\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
