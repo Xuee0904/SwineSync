@@ -73,8 +73,10 @@
     <Compile Include="DatabaseConnection\DBConnection.cs" />
     <Compile Include="Data\PigletRepository.cs" />
     <Compile Include="Data\PigRepository.cs" />
+    <Compile Include="Data\UserRepository.cs" />
     <Compile Include="DynamicButtonLoader\PigletLoader.cs" />
     <Compile Include="DynamicButtonLoader\PigLoader.cs" />
+    <Compile Include="DynamicButtonLoader\UserLoader.cs" />
     <Compile Include="Login\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +237,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
