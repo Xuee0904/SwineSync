@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -18,14 +19,16 @@ namespace SwineSyncc.DynamicButtonLoader
             _flpAssistant = flpAssistant;
             _onUserSelected = onUserSelected;
         }
-
-        public void LoadUsers()
+     
+        public void LoadUsers(bool isDeleteMode = false, List<int> selectedUserIds = null)
         {
             _flpAdmin.Controls.Clear();
             _flpAssistant.Controls.Clear();
-
-            _flpAdmin.Enabled = true;
-            _flpAssistant.Enabled = true;
+        
+            if (selectedUserIds == null)
+            {
+                selectedUserIds = new List<int>();
+            }
 
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
@@ -52,19 +55,32 @@ namespace SwineSyncc.DynamicButtonLoader
                             Image = Properties.Resources.UserIcon,
                             ImageAlign = ContentAlignment.MiddleCenter,
                             TextImageRelation = TextImageRelation.ImageAboveText,
-                            BackColor = Color.White,
-                            ForeColor = Color.Black,
-                            FlatStyle = FlatStyle.Standard
+                            FlatStyle = FlatStyle.Standard,
+                            ForeColor = Color.Black
                         };
 
+                        if (isDeleteMode)
+                        {
+                            if (selectedUserIds.Contains(id))
+                            {
+                                btn.BackColor = Color.IndianRed; 
+                            }
+                            else
+                            {
+                                btn.BackColor = Color.LightGray; 
+                            }
+                        }
+                        else
+                        {
+                            btn.BackColor = Color.White; 
+                        }
+                        
                         btn.Click += (s, e) =>
                         {
                             _onUserSelected?.Invoke(id);
                         };
 
-                        btn.BringToFront();
-
-                        if (role == "Admin")
+                        if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                             _flpAdmin.Controls.Add(btn);
                         else
                             _flpAssistant.Controls.Add(btn);

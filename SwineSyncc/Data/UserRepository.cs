@@ -98,6 +98,67 @@ namespace SwineSyncc.Data
 
             return users;
         }
+
+        public void SafeDeleteUser(int userId)
+        {
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+
+                try
+                {
+                    // 1️⃣ Fetch the user to be deleted
+                    string selectQuery = @"SELECT UserID, Username, Password, Role 
+                                   FROM Users WHERE UserID = @UserID";
+                    SqlCommand selectCmd = new SqlCommand(selectQuery, conn, transaction);
+                    selectCmd.Parameters.AddWithValue("@UserID", userId);
+
+                    SqlDataReader reader = selectCmd.ExecuteReader();
+
+                    if (!reader.Read())
+                    {
+                        reader.Close();
+                        transaction.Rollback();
+                        return;
+                    }
+
+                    int id = (int)reader["UserID"];
+                    string username = reader["Username"].ToString();
+                    string password = reader["Password"].ToString();
+                    string role = reader["Role"].ToString();
+
+                    reader.Close();
+
+                    // 2️⃣ Insert into DeletedUsers
+                    string insertQuery = @"INSERT INTO DeletedUsers 
+                                   (UserID, Username, Password, Role, DeletedDate)
+                                   VALUES (@UserID, @Username, @Password, @Role, GETDATE())";
+                    SqlCommand insertCmd = new SqlCommand(insertQuery, conn, transaction);
+                    insertCmd.Parameters.AddWithValue("@UserID", id);
+                    insertCmd.Parameters.AddWithValue("@Username", username);
+                    insertCmd.Parameters.AddWithValue("@Password", password);
+                    insertCmd.Parameters.AddWithValue("@Role", role);
+
+                    insertCmd.ExecuteNonQuery();
+
+                    // 3️⃣ Delete from Users
+                    string deleteQuery = "DELETE FROM Users WHERE UserID = @UserID";
+                    SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn, transaction);
+                    deleteCmd.Parameters.AddWithValue("@UserID", userId);
+                    deleteCmd.ExecuteNonQuery();
+
+                    // 4️⃣ Commit
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
     }
 
     public class User
