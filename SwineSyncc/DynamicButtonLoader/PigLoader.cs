@@ -45,13 +45,12 @@ namespace SwineSyncc
                         string pigName = reader["Name"].ToString();
                         string sex = reader["Sex"].ToString();
 
-                     
-                        Color buttonColor = sex.Equals("Female", StringComparison.OrdinalIgnoreCase)
-                                            ? Color.FromArgb(210, 140, 70)
-                                            : Color.FromArgb(180, 110, 50);
 
-                        if (selectedPigIds.Contains(pigId))
-                            buttonColor = Color.Red;
+                        Color defaultColor = sex.Equals("Female", StringComparison.OrdinalIgnoreCase)
+                           ? Color.FromArgb(210, 140, 70)
+                           : Color.FromArgb(180, 110, 50);
+
+                        Color buttonColor = selectedPigIds.Contains(pigId) ? Color.Red : defaultColor;
 
                         Button pigButton = new Button
                         {
@@ -75,9 +74,7 @@ namespace SwineSyncc
                                 if (selectedPigIds.Contains(pigId))
                                 {
                                     selectedPigIds.Remove(pigId);
-                                    pigButton.BackColor = sex.Equals("Female", StringComparison.OrdinalIgnoreCase)
-                                        ? Color.Pink
-                                        : Color.RoyalBlue;
+                                    pigButton.BackColor = defaultColor;
                                 }
                                 else
                                 {

@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.userDetailsPanel = new System.Windows.Forms.Panel();
+            this.userDetailsBackBtn = new RoundedButton();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -36,25 +37,43 @@
             this.labellabel = new System.Windows.Forms.Label();
             this.detailsuser = new System.Windows.Forms.Label();
             this.user = new System.Windows.Forms.Label();
-            this.userDetailsBackBtn = new RoundedButton();
-            this.panel1.SuspendLayout();
+            this.editAccBtn = new RoundedButton();
+            this.userDetailsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // userDetailsPanel
             // 
-            this.panel1.Controls.Add(this.userDetailsBackBtn);
-            this.panel1.Controls.Add(this.lblRole);
-            this.panel1.Controls.Add(this.lblPassword);
-            this.panel1.Controls.Add(this.lblUsername);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.labellabel);
-            this.panel1.Controls.Add(this.detailsuser);
-            this.panel1.Controls.Add(this.user);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1117, 1081);
-            this.panel1.TabIndex = 0;
+            this.userDetailsPanel.Controls.Add(this.editAccBtn);
+            this.userDetailsPanel.Controls.Add(this.userDetailsBackBtn);
+            this.userDetailsPanel.Controls.Add(this.lblRole);
+            this.userDetailsPanel.Controls.Add(this.lblPassword);
+            this.userDetailsPanel.Controls.Add(this.lblUsername);
+            this.userDetailsPanel.Controls.Add(this.label2);
+            this.userDetailsPanel.Controls.Add(this.labellabel);
+            this.userDetailsPanel.Controls.Add(this.detailsuser);
+            this.userDetailsPanel.Controls.Add(this.user);
+            this.userDetailsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userDetailsPanel.Location = new System.Drawing.Point(0, 0);
+            this.userDetailsPanel.Name = "userDetailsPanel";
+            this.userDetailsPanel.Size = new System.Drawing.Size(1117, 1081);
+            this.userDetailsPanel.TabIndex = 0;
+            // 
+            // userDetailsBackBtn
+            // 
+            this.userDetailsBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.userDetailsBackBtn.BorderRadious = 9;
+            this.userDetailsBackBtn.FlatAppearance.BorderSize = 0;
+            this.userDetailsBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userDetailsBackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userDetailsBackBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.userDetailsBackBtn.Location = new System.Drawing.Point(800, 689);
+            this.userDetailsBackBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.userDetailsBackBtn.Name = "userDetailsBackBtn";
+            this.userDetailsBackBtn.Size = new System.Drawing.Size(213, 79);
+            this.userDetailsBackBtn.TabIndex = 69;
+            this.userDetailsBackBtn.Text = "< Back";
+            this.userDetailsBackBtn.UseVisualStyleBackColor = false;
+            this.userDetailsBackBtn.Click += new System.EventHandler(this.userDetailsBackBtn_Click);
             // 
             // lblRole
             // 
@@ -133,39 +152,39 @@
             this.user.TabIndex = 39;
             this.user.Text = "Username:";
             // 
-            // userDetailsBackBtn
+            // editAccBtn
             // 
-            this.userDetailsBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.userDetailsBackBtn.BorderRadious = 9;
-            this.userDetailsBackBtn.FlatAppearance.BorderSize = 0;
-            this.userDetailsBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.userDetailsBackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userDetailsBackBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.userDetailsBackBtn.Location = new System.Drawing.Point(689, 493);
-            this.userDetailsBackBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.userDetailsBackBtn.Name = "userDetailsBackBtn";
-            this.userDetailsBackBtn.Size = new System.Drawing.Size(213, 79);
-            this.userDetailsBackBtn.TabIndex = 69;
-            this.userDetailsBackBtn.Text = "< Back";
-            this.userDetailsBackBtn.UseVisualStyleBackColor = false;
-            this.userDetailsBackBtn.Click += new System.EventHandler(this.userDetailsBackBtn_Click);
+            this.editAccBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.editAccBtn.BorderRadious = 9;
+            this.editAccBtn.FlatAppearance.BorderSize = 0;
+            this.editAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editAccBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.editAccBtn.Location = new System.Drawing.Point(557, 689);
+            this.editAccBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.editAccBtn.Name = "editAccBtn";
+            this.editAccBtn.Size = new System.Drawing.Size(213, 79);
+            this.editAccBtn.TabIndex = 70;
+            this.editAccBtn.Text = "Edit account";
+            this.editAccBtn.UseVisualStyleBackColor = false;
+            this.editAccBtn.Click += new System.EventHandler(this.editAccBtn_Click);
             // 
             // UserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.userDetailsPanel);
             this.Name = "UserDetails";
             this.Size = new System.Drawing.Size(1117, 1081);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.userDetailsPanel.ResumeLayout(false);
+            this.userDetailsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel userDetailsPanel;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
@@ -174,5 +193,6 @@
         private System.Windows.Forms.Label detailsuser;
         private System.Windows.Forms.Label user;
         private RoundedButton userDetailsBackBtn;
+        private RoundedButton editAccBtn;
     }
 }

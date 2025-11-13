@@ -73,6 +73,7 @@
             this.editPigletPanel.Name = "editPigletPanel";
             this.editPigletPanel.Size = new System.Drawing.Size(1117, 1081);
             this.editPigletPanel.TabIndex = 0;
+            this.editPigletPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.editPigletPanel_Paint);
             // 
             // editPigletRbFemale
             // 

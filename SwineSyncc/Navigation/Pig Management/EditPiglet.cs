@@ -148,5 +148,10 @@ namespace SwineSyncc.Navigation.Pig_Management
             editPigletWeight.Clear();
             editPigletStatus.SelectedIndex = -1;
         }
+
+        private void editPigletPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
