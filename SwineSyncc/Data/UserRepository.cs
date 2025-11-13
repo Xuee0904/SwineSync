@@ -99,6 +99,32 @@ namespace SwineSyncc.Data
             return users;
         }
 
+        public void UpdateUserById(int userId, string newUsername, string newPassword, string newRole)
+        {
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                conn.Open();
+
+                string query = @"
+            UPDATE Users
+            SET Username = @Username,
+                Password = @Password,
+                Role = @Role
+            WHERE UserID = @UserID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Username", newUsername);
+                    cmd.Parameters.AddWithValue("@Password", newPassword);
+                    cmd.Parameters.AddWithValue("@Role", newRole);
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
         public void SafeDeleteUser(int userId)
         {
             using (SqlConnection conn = DBConnection.Instance.GetConnection())

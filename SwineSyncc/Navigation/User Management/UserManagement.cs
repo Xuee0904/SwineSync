@@ -14,7 +14,9 @@ namespace SwineSyncc.Navigation
 
         private readonly Panel _mainPanel;
         private bool _isDeleteMode = false; 
-        private readonly List<int> _selectedUserIds = new List<int>(); 
+        private readonly List<int> _selectedUserIds = new List<int>();
+        private int _currentSelectedUserId = -1;
+
 
         public UserManagement(Panel mainPanel)
         {
@@ -49,14 +51,17 @@ namespace SwineSyncc.Navigation
                 LoadUserButtons(); 
                 return;
             }
-       
+
+            _currentSelectedUserId = userId; 
             UserRepository repo = new UserRepository();
             User user = repo.GetUserById(userId);
+
 
             if (user != null)
             {
                 UserDetails userDetails = new UserDetails(_mainPanel);
-                userDetails.DisplayUserDetails(user.Username, user.Password, user.Role);
+                userDetails.DisplayUserDetails(user.UserID, user.Username, user.Password, user.Role);
+
 
                 userDetails.BackClicked += (s, e) =>
                 {

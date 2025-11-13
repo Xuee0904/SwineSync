@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.userDetailsPanel = new System.Windows.Forms.Panel();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.btnCancel = new RoundedButton();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
             this.editAccBtn = new RoundedButton();
             this.userDetailsBackBtn = new RoundedButton();
             this.lblRole = new System.Windows.Forms.Label();
@@ -43,6 +47,10 @@
             // 
             // userDetailsPanel
             // 
+            this.userDetailsPanel.Controls.Add(this.txtPassword);
+            this.userDetailsPanel.Controls.Add(this.txtUsername);
+            this.userDetailsPanel.Controls.Add(this.btnCancel);
+            this.userDetailsPanel.Controls.Add(this.cmbRole);
             this.userDetailsPanel.Controls.Add(this.editAccBtn);
             this.userDetailsPanel.Controls.Add(this.userDetailsBackBtn);
             this.userDetailsPanel.Controls.Add(this.lblRole);
@@ -57,6 +65,49 @@
             this.userDetailsPanel.Name = "userDetailsPanel";
             this.userDetailsPanel.Size = new System.Drawing.Size(1117, 1081);
             this.userDetailsPanel.TabIndex = 0;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(363, 300);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(135, 22);
+            this.txtPassword.TabIndex = 76;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(363, 182);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(135, 22);
+            this.txtUsername.TabIndex = 75;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.btnCancel.BorderRadious = 9;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.btnCancel.Location = new System.Drawing.Point(323, 689);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(213, 79);
+            this.btnCancel.TabIndex = 74;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // cmbRole
+            // 
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Items.AddRange(new object[] {
+            "Admin",
+            "Assistant"});
+            this.cmbRole.Location = new System.Drawing.Point(363, 423);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(135, 24);
+            this.cmbRole.TabIndex = 73;
+            this.cmbRole.Visible = false;
             // 
             // editAccBtn
             // 
@@ -194,5 +245,9 @@
         private System.Windows.Forms.Label user;
         private RoundedButton userDetailsBackBtn;
         private RoundedButton editAccBtn;
+        private System.Windows.Forms.ComboBox cmbRole;
+        private RoundedButton btnCancel;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtUsername;
     }
 }
