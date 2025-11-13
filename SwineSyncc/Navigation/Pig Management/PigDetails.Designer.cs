@@ -107,6 +107,7 @@
             // 
             // flpCurrentPiglets
             // 
+            this.flpCurrentPiglets.AutoScroll = true;
             this.flpCurrentPiglets.Location = new System.Drawing.Point(41, 401);
             this.flpCurrentPiglets.Name = "flpCurrentPiglets";
             this.flpCurrentPiglets.Size = new System.Drawing.Size(1142, 275);

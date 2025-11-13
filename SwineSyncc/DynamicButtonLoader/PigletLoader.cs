@@ -47,23 +47,27 @@ namespace SwineSyncc.DynamicButtonLoader
                         {
                             int pigletId = reader.GetInt32(0);
                             string tagNumber = reader.GetString(1);
-                          
-                            Color normalColor = Color.LightPink;
-                            Color selectedColor = Color.Red;
-                          
+
+                            Color normalColor = Color.FromArgb(180, 140, 100);  
+                            Color selectedColor = Color.FromArgb(140, 100, 60); 
+
                             Button pigletButton = new Button
                             {
                                 Text = tagNumber,
                                 Tag = pigletId,
-                                Width = 110,
-                                Height = 50,
+                                Width = 100,
+                                Height = 100,
                                 Margin = new Padding(6),
                                 BackColor = selectedIds.Contains(pigletId)
                                             ? selectedColor
                                             : normalColor,
                                 FlatStyle = FlatStyle.Flat,
                                 Font = new Font("Segoe UI", 9, FontStyle.Bold),
-                                Cursor = Cursors.Hand
+                                Cursor = Cursors.Hand,
+                                Image = Properties.Resources.PigletIcon,
+                                ImageAlign = ContentAlignment.MiddleCenter,
+                                TextImageRelation = TextImageRelation.ImageAboveText,
+                                TextAlign = ContentAlignment.BottomCenter
                             };
 
                             pigletButton.Click += (s, e) =>
@@ -78,7 +82,7 @@ namespace SwineSyncc.DynamicButtonLoader
                                     else
                                     {
                                         selectedIds.Add(pigletId);
-                                        pigletButton.BackColor = selectedColor;
+                                        pigletButton.BackColor = Color.Red;
                                     }
                                 }
                                 else

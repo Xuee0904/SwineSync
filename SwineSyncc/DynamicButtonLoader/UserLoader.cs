@@ -55,6 +55,7 @@ namespace SwineSyncc.DynamicButtonLoader
                             Image = Properties.Resources.UserIcon,
                             ImageAlign = ContentAlignment.MiddleCenter,
                             TextImageRelation = TextImageRelation.ImageAboveText,
+                            TextAlign = ContentAlignment.BottomCenter,
                             FlatStyle = FlatStyle.Standard,
                             ForeColor = Color.Black
                         };
