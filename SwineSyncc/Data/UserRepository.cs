@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using SwineSyncc.Login; 
 
 namespace SwineSyncc.Data
 {
@@ -105,12 +106,29 @@ namespace SwineSyncc.Data
             {
                 conn.Open();
 
+                // 6️⃣ Prevent SELF role changes
+                if (userId == Session.UserID)
+                {
+                    string currentRoleQuery = "SELECT Role FROM Users WHERE UserID = @UserID";
+
+                    using (SqlCommand getRoleCmd = new SqlCommand(currentRoleQuery, conn))
+                    {
+                        getRoleCmd.Parameters.AddWithValue("@UserID", userId);
+                        string currentRole = getRoleCmd.ExecuteScalar().ToString();
+
+                        if (currentRole != newRole)
+                        {
+                            throw new Exception("You cannot change your own role.");
+                        }
+                    }
+                }
+
                 string query = @"
-            UPDATE Users
-            SET Username = @Username,
-                Password = @Password,
-                Role = @Role
-            WHERE UserID = @UserID";
+                    UPDATE Users
+                    SET Username = @Username,
+                        Password = @Password,
+                        Role = @Role
+                    WHERE UserID = @UserID";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -124,7 +142,6 @@ namespace SwineSyncc.Data
             }
         }
 
-
         public void SafeDeleteUser(int userId)
         {
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
@@ -133,10 +150,12 @@ namespace SwineSyncc.Data
                 SqlTransaction transaction = conn.BeginTransaction();
 
                 try
-                {
-                    // 1️⃣ Fetch the user to be deleted
+                {                   
+                    if (userId == Session.UserID)
+                        throw new Exception("You cannot delete your own account while logged in.");
+
                     string selectQuery = @"SELECT UserID, Username, Password, Role 
-                                   FROM Users WHERE UserID = @UserID";
+                                           FROM Users WHERE UserID = @UserID";
                     SqlCommand selectCmd = new SqlCommand(selectQuery, conn, transaction);
                     selectCmd.Parameters.AddWithValue("@UserID", userId);
 
@@ -155,11 +174,10 @@ namespace SwineSyncc.Data
                     string role = reader["Role"].ToString();
 
                     reader.Close();
-
-                    // 2️⃣ Insert into DeletedUsers
+                  
                     string insertQuery = @"INSERT INTO DeletedUsers 
-                                   (UserID, Username, Password, Role, DeletedDate)
-                                   VALUES (@UserID, @Username, @Password, @Role, GETDATE())";
+                                    (UserID, Username, Password, Role, DeletedDate)
+                                    VALUES (@UserID, @Username, @Password, @Role, GETDATE())";
                     SqlCommand insertCmd = new SqlCommand(insertQuery, conn, transaction);
                     insertCmd.Parameters.AddWithValue("@UserID", id);
                     insertCmd.Parameters.AddWithValue("@Username", username);
@@ -167,14 +185,12 @@ namespace SwineSyncc.Data
                     insertCmd.Parameters.AddWithValue("@Role", role);
 
                     insertCmd.ExecuteNonQuery();
-
-                    // 3️⃣ Delete from Users
+                   
                     string deleteQuery = "DELETE FROM Users WHERE UserID = @UserID";
                     SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn, transaction);
                     deleteCmd.Parameters.AddWithValue("@UserID", userId);
                     deleteCmd.ExecuteNonQuery();
 
-                    // 4️⃣ Commit
                     transaction.Commit();
                 }
                 catch
@@ -184,7 +200,6 @@ namespace SwineSyncc.Data
                 }
             }
         }
-
     }
 
     public class User

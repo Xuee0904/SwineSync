@@ -1,26 +1,19 @@
 ﻿using SwineSyncc.Data;
 using SwineSyncc.Login;
 using System;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace SwineSyncc
 {
     public partial class Form1 : Form
     {
+        private readonly UserRepository _userRepo;
+
         public Form1()
         {
-            InitializeComponent();          
+            InitializeComponent();
+            _userRepo = new UserRepository();
         }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-       
 
         private void logInBtn_Click_1(object sender, EventArgs e)
         {
@@ -29,51 +22,45 @@ namespace SwineSyncc
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please enter both username and password.", "Missing Info",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter both username and password.",
+                                "Missing Info",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
 
-            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            User user = _userRepo.GetUserByUsername(username);
+
+            if (user == null)
             {
-                string query = "SELECT UserID, Username, Role FROM Users WHERE Username = @u AND Password = @p";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@u", username);
-                    cmd.Parameters.AddWithValue("@p", password);
-
-                    try
-                    {
-                        conn.Open();
-                        SqlDataReader reader = cmd.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            Session.UserID = (int)reader["UserID"];
-                            Session.Username = reader["Username"].ToString();
-                            Session.Role = reader["Role"].ToString();
-
-                            MessageBox.Show($"Welcome {Session.Username}! You are logged in as {Session.Role}.",
-                                            "Login Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            Dashboard dashboard = new Dashboard();
-                            dashboard.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid username or password.", "Login Failed",
-                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "Database Error",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                MessageBox.Show("Invalid username or password.",
+                                "Login Failed",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
             }
+          
+            if (user.Password != password)
+            {
+                MessageBox.Show("Invalid username or password.",
+                                "Login Failed",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+         
+            Session.UserID = user.UserID;
+            Session.Username = user.Username;
+            Session.Role = user.Role;
+
+            MessageBox.Show($"Welcome {Session.Username}! You are logged in as {Session.Role}.",
+                            "Login Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Hide();
         }
     }
 }
