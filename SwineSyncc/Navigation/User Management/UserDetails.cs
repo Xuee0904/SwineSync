@@ -11,7 +11,9 @@ namespace SwineSyncc.Navigation.User_Management
         private int _userId = -1;
         private bool _isEditMode = false;
 
-        
+        public event EventHandler UserUpdated;
+
+
         private string _originalUsername;
         private string _originalPassword;
         private string _originalRole;
@@ -91,6 +93,7 @@ namespace SwineSyncc.Navigation.User_Management
                 ExitEditMode();
 
                 MessageBox.Show("User updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UserUpdated?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {

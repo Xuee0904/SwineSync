@@ -63,6 +63,11 @@ namespace SwineSyncc.Navigation
                 userDetails.DisplayUserDetails(user.UserID, user.Username, user.Password, user.Role);
 
 
+                userDetails.UserUpdated += (s, e) =>
+                {
+                    RefreshUserList(); // reload Admin / Assistant panels
+                };
+
                 userDetails.BackClicked += (s, e) =>
                 {
                     _mainPanel.Controls.Clear();
