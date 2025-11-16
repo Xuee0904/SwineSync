@@ -68,16 +68,18 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(363, 300);
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(360, 283);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(135, 22);
+            this.txtPassword.Size = new System.Drawing.Size(261, 47);
             this.txtPassword.TabIndex = 76;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(363, 182);
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(360, 165);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(135, 22);
+            this.txtUsername.Size = new System.Drawing.Size(261, 47);
             this.txtUsername.TabIndex = 75;
             // 
             // btnCancel
@@ -99,13 +101,14 @@
             // 
             // cmbRole
             // 
+            this.cmbRole.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRole.FormattingEnabled = true;
             this.cmbRole.Items.AddRange(new object[] {
             "Admin",
             "Assistant"});
-            this.cmbRole.Location = new System.Drawing.Point(363, 423);
+            this.cmbRole.Location = new System.Drawing.Point(360, 403);
             this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(135, 24);
+            this.cmbRole.Size = new System.Drawing.Size(261, 49);
             this.cmbRole.TabIndex = 73;
             this.cmbRole.Visible = false;
             // 
