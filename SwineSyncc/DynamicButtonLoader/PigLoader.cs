@@ -55,8 +55,8 @@ namespace SwineSyncc
                         Button pigButton = new Button
                         {
                             Text = pigName,
-                            Width = 120,  
-                            Height = 120,  
+                            Width = 90,  
+                            Height = 90,  
                             Tag = pigId,
                             Margin = new Padding(10),
                             BackColor = buttonColor,
