@@ -1,68 +1,48 @@
-﻿using System;
+﻿using SwineSyncc.Data;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using SwineSyncc.Data;
 
-namespace SwineSyncc
+namespace SwineSyncc.Navigation.Pig_Management
 {
-    public partial class RegisterPig : UserControl
+    public partial class AddBoar : UserControl
     {
+
         public event EventHandler CancelClicked;
-        private PigManagement _parentPigManagement;
         public event EventHandler SaveCompleted;
 
-        public RegisterPig(PigManagement pigManagement)
+        private PigManagement _parentPigManagement;
+
+        public AddBoar()
         {
             InitializeComponent();
 
-            _parentPigManagement = pigManagement;
             this.Dock = DockStyle.Fill;
-            this.Padding = new Padding(40);
-            RoundedPanelStyle.ApplyRoundedCorners(registerPigPanel, 20);
+            this.Padding = new Padding(15);
+            RoundedPanelStyle.ApplyRoundedCorners(addBoarPanel, 15);
 
             this.BackColor = Color.WhiteSmoke;
-            registerPigPanel.BackColor = Color.FromArgb(217, 221, 220);
-            ApplyTextBoxHeight();
-
-            comboBreed.Items.Add("Large White");
-            comboBreed.Items.Add("Landrace");
-            comboBreed.Items.Add("Duroc");
-            comboBreed.Items.Add("Pietrain");
-            comboBreed.Items.Add("Hampshire");
-            comboBreed.Items.Add("Berkshire");
-            comboBreed.Items.Add("Tamworth");
-            comboBreed.Items.Add("Chester White");
-            comboBreed.Items.Add("Yorkshire");
-            comboBreed.Items.Add("Hereford");
-            comboBreed.Items.Add("Mangalitsa");
-            comboBreed.Items.Add("Kunekune");
-            comboBreed.Items.Add("Pot-bellied Pig");
-
-
-            comboStatus.Items.Add("Alive");
-            comboStatus.Items.Add("For Breeding");
-            comboStatus.Items.Add("Gestating (Pregnant)");
-            comboStatus.Items.Add("Lactating");
-            comboStatus.Items.Add("Weaned");
-            comboStatus.Items.Add("Sold");
-            comboStatus.Items.Add("Slaughtered");
-            comboStatus.Items.Add("Dead");
-            comboStatus.Items.Add("Sick");
-            comboStatus.Items.Add("Quarantined");
+            addBoarPanel.BackColor = Color.FromArgb(217, 221, 220);
         }
 
-        private void ApplyTextBoxHeight()
+        private void ClearFields()
         {
-            UIStyle.BoxHeight(pigNameTxt);
-            UIStyle.BoxHeight(weightTxt);
-            UIStyle.BoxHeight(dtPicker);
-            UIStyle.BoxHeight(comboBreed);
-            UIStyle.BoxHeight(comboStatus);
+            pigNameTxt.Clear();
+            weightTxt.Clear();
+            comboBreed.SelectedIndex = -1;
+            comboStatus.SelectedIndex = -1;
+            dtPicker.Value = DateTime.Now;
         }
 
         private void savebtn_Click(object sender, EventArgs e)
-        {           
+        {
             if (string.IsNullOrWhiteSpace(pigNameTxt.Text))
             {
                 MessageBox.Show("Please enter a pig name.", "Missing Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -72,12 +52,6 @@ namespace SwineSyncc
             if (comboBreed.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a breed.", "Missing Breed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!maleRadioBtn.Checked && !femaleRadioBtn.Checked)
-            {
-                MessageBox.Show("Please select a sex.", "Missing Sex", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -100,10 +74,10 @@ namespace SwineSyncc
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             string name = pigNameTxt.Text.Trim();
             string breed = comboBreed.Text;
-            string sex = maleRadioBtn.Checked ? "Male" : "Female";
+            string sex = "Male";
             string status = comboStatus.Text;
             DateTime birthdate = dtPicker.Value;
 
@@ -131,7 +105,7 @@ namespace SwineSyncc
                             MessageBox.Show("🐷 Pig registered successfully!", "Success",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            _parentPigManagement.RefreshPigList();
+                            _parentPigManagement?.RefreshPigList();
 
                             ClearFields();
                             SaveCompleted?.Invoke(this, EventArgs.Empty);
@@ -151,30 +125,14 @@ namespace SwineSyncc
             }
         }
 
-        private void ClearFields()
-        {
-            pigNameTxt.Clear();
-            weightTxt.Clear();
-            comboBreed.SelectedIndex = -1;
-            comboStatus.SelectedIndex = -1;
-            dtPicker.Value = DateTime.Now;
-            maleRadioBtn.Checked = false;
-            femaleRadioBtn.Checked = false;
-        }
-
-
         private void cancelbtn_Click(object sender, EventArgs e)
         {
             CancelClicked?.Invoke(this, EventArgs.Empty);
         }
 
-        private void clearbtn_Click_1(object sender, EventArgs e)
+        private void clearbtn_Click(object sender, EventArgs e)
         {
-           ClearFields();
-        }
-
-        private void registerPigPanel_Paint(object sender, PaintEventArgs e)
-        {
+            ClearFields();
         }
     }
 }

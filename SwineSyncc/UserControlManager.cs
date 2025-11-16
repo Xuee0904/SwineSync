@@ -1,7 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using SwineSyncc.Data;
 using SwineSyncc.Navigation;
-using SwineSyncc.Data;
+using SwineSyncc.Navigation.Pig_Management;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace SwineSyncc
 {
@@ -29,22 +31,108 @@ namespace SwineSyncc
             if (_pigUC == null)
             {
                 _pigUC = new PigManagement(_mainPanel);
-                _pigUC.RegisterPigClicked += (s, e) => LoadRegisterPig();
+                _pigUC.RegisterPigClicked += (s, e) => LoadAddPig();
             }
             ShowUserControl(_pigUC);
         }
 
-        public void LoadRegisterPig()
+        public void LoadAddPig()
         {
-            RegisterPig registerPig = new RegisterPig(_pigUC);
+            AddPig addPig = new AddPig();
 
-            registerPig.CancelClicked += (s, e) => ShowUserControl(_pigUC);
-            registerPig.SaveCompleted += (s, e) => ShowUserControl(_pigUC);
+            addPig.SowAddRequest += (s, e) => LoadAddSowInAddPig(addPig.FormsPanel);
+            addPig.BoarAddRequest += (s, e) => LoadAddBoarInAddPig(addPig.FormsPanel);
+            addPig.PigletAddRequest += (s, e) => LoadAddPigletInAddPig(addPig.FormsPanel);
 
-            ShowUserControl(registerPig);
+            addPig.BackClicked += (s, e) => ShowUserControl(_pigUC);
+
+            ShowUserControl(addPig);
         }
 
-   
+        public void LoadAddSowInAddPig(Panel formsPanel)
+        {
+            AddSow addSow = new AddSow();
+
+            addSow.SaveCompleted += (s, e) =>
+            {
+                _pigUC.RefreshPigList();
+
+                ShowUserControl(_pigUC);
+            };
+
+            addSow.CancelClicked += (s, e) =>
+            {
+                ShowUserControl(_pigUC);
+            };
+
+            formsPanel.Controls.Clear();
+
+            addSow.Dock = DockStyle.Fill;
+            addSow.Padding = new Padding(15);
+
+
+            formsPanel.Controls.Add(addSow);
+        }
+
+        public void LoadAddBoarInAddPig(Panel formsPanel)
+        {
+            AddBoar addBoar = new AddBoar();
+
+            addBoar.SaveCompleted += (s, e) =>
+            {
+                _pigUC.RefreshPigList();
+
+                ShowUserControl(_pigUC);
+            };
+
+            addBoar.CancelClicked += (s, e) =>
+            {
+                ShowUserControl(_pigUC);
+            };
+
+            formsPanel.Controls.Clear();
+
+            addBoar.Dock = DockStyle.Fill;
+            addBoar.Padding = new Padding(15);
+
+            formsPanel.Controls.Add(addBoar);
+        }
+
+        public void LoadAddPigletInAddPig(Panel formsPanel)
+        {
+
+            AddPiglet addPiglet = new AddPiglet();
+
+            addPiglet.SaveCompleted += (s, e) =>
+            {
+                _pigUC?.RefreshPigList();
+                ShowUserControl(_pigUC);
+            };
+
+            addPiglet.CancelClicked += (s, e) =>
+            {
+                ShowUserControl(_pigUC);
+            };
+
+            formsPanel.Controls.Clear();
+
+            addPiglet.Dock = DockStyle.Fill;
+            addPiglet.Padding = new Padding(10);
+            formsPanel.Controls.Add(addPiglet);
+        }
+
+
+        /* public void LoadRegisterPig()
+         {
+             RegisterPig registerPig = new RegisterPig(_pigUC);
+
+             registerPig.CancelClicked += (s, e) => ShowUserControl(_pigUC);
+             registerPig.SaveCompleted += (s, e) => ShowUserControl(_pigUC);
+
+             ShowUserControl(registerPig);
+         }*/
+
+
         public void LoadPregnancyRecords()
         {
             if (_pregnancyUC == null)

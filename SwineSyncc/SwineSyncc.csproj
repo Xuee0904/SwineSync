@@ -84,6 +84,22 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Session.cs" />
+    <Compile Include="Navigation\Pig Management\AddBoar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\Pig Management\AddBoar.Designer.cs">
+      <DependentUpon>AddBoar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\Pig Management\AddPig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\Pig Management\AddPig.Designer.cs">
+      <DependentUpon>AddPig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\Pig Management\AddPiglet.cs" />
+    <Compile Include="Navigation\Pig Management\AddPiglet.Designer.cs">
+      <DependentUpon>AddPiglet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\Pig Management\EditPig.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,11 +162,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Navigation\Pig Management\RegisterPig.cs">
+    <Compile Include="Navigation\Pig Management\AddSow.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\Pig Management\RegisterPig.Designer.cs">
-      <DependentUpon>RegisterPig.cs</DependentUpon>
+    <Compile Include="Navigation\Pig Management\AddSow.Designer.cs">
+      <DependentUpon>AddSow.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomUIElements\RoundedButton.cs">
       <SubType>Component</SubType>
@@ -172,6 +188,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\Pig Management\AddBoar.resx">
+      <DependentUpon>AddBoar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\Pig Management\AddPig.resx">
+      <DependentUpon>AddPig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\Pig Management\AddPiglet.resx">
+      <DependentUpon>AddPiglet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\EditPig.resx">
       <DependentUpon>EditPig.cs</DependentUpon>
@@ -213,8 +238,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Navigation\Pig Management\RegisterPig.resx">
-      <DependentUpon>RegisterPig.cs</DependentUpon>
+    <EmbeddedResource Include="Navigation\Pig Management\AddSow.resx">
+      <DependentUpon>AddSow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\RegisterPiglet.resx">
       <DependentUpon>RegisterPiglet.cs</DependentUpon>
