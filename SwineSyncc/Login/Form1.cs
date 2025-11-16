@@ -7,6 +7,7 @@ namespace SwineSyncc
 {
     public partial class Form1 : Form
     {
+        private bool passwordVisible = false;
         private readonly UserRepository _userRepo;
 
         public Form1()
@@ -61,6 +62,22 @@ namespace SwineSyncc
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
             this.Hide();
+        }
+
+        private void eyeIcon_Click(object sender, EventArgs e)
+        {
+            if (passwordVisible)
+            {              
+                passwordTxt.UseSystemPasswordChar = true;
+                eyeIcon.Image = Properties.Resources.eye_closed; 
+                passwordVisible = false;
+            }
+            else
+            {
+                passwordTxt.UseSystemPasswordChar = false;
+                eyeIcon.Image = Properties.Resources.eye_open; 
+                passwordVisible = true;
+            }
         }
     }
 }
