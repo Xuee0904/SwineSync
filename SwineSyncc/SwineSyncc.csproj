@@ -233,9 +233,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PigIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Plus.png" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PigletIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PigIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -55,8 +55,8 @@ namespace SwineSyncc.DynamicButtonLoader
                             {
                                 Text = tagNumber,
                                 Tag = pigletId,
-                                Width = 100,
-                                Height = 100,
+                                Width = 90,
+                                Height = 90,
                                 Margin = new Padding(6),
                                 BackColor = selectedIds.Contains(pigletId)
                                             ? selectedColor
