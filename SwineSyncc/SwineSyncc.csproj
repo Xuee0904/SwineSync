@@ -112,6 +112,12 @@
     <Compile Include="Navigation\Pig Management\EditPiglet.Designer.cs">
       <DependentUpon>EditPiglet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\SwineSyncTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\SwineSyncTable.Designer.cs">
+      <DependentUpon>SwineSyncTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\User Management\AddUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\EditPiglet.resx">
       <DependentUpon>EditPiglet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\SwineSyncTable.resx">
+      <DependentUpon>SwineSyncTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\User Management\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>

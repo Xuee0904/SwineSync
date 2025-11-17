@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwineSyncc.Navigation;
 
 namespace SwineSyncc
 {
@@ -25,7 +26,9 @@ namespace SwineSyncc
 
         private void PregnancyReccords_Load(object sender, EventArgs e)
         {
-
+            SwineSyncTable displayTable = new SwineSyncTable();
+            displayTable.Dock = DockStyle.Fill;
+            pnlPregnancyRecords.Controls.Add(displayTable);
         }
 
         private void addPregnancyBtn_Click(object sender, EventArgs e)
