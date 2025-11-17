@@ -21,14 +21,11 @@ namespace SwineSyncc.Navigation
         }
 
         CheckBox headerCheckBox = new CheckBox();
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
+
 
         private void AddHeaderCheckBox()
         {
-            headerCheckBox.Size = new Size(15, 15);
+            headerCheckBox.Size = new Size(40, 40);
             headerCheckBox.BackColor = Color.Transparent;
 
             headerCheckBox.CheckedChanged += HeaderCheckBox_CheckedChanged;
@@ -73,17 +70,39 @@ namespace SwineSyncc.Navigation
                 dataGridView1.DataSource = dt;
             }
 
+            // Insert the checkbox column first
             DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
             chk.HeaderText = "";  // leaves the header empty
             chk.Name = "Select";
-            chk.Width = 15;
+            chk.Width = 40;
             chk.ReadOnly = false;
             chk.TrueValue = true;
             chk.FalseValue = false;
 
             dataGridView1.Columns.Insert(0, chk);
 
+            // Align all columns to middle center and disable sorting
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                if (col.Name != "Select") col.Width = 205#cfc1a7#cfc1a7#cfc1a7; // keeps the checkbox small
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            // Optional auto wrap for long text
+            dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
+
+            dataGridView1.ClearSelection();
+            dataGridView1.CurrentCell = null;
+
+            // Add header checkbox **after column exists**
             AddHeaderCheckBox();
         }
+
+
     }
 }
