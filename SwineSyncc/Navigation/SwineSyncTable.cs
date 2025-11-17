@@ -86,7 +86,7 @@ namespace SwineSyncc.Navigation
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
                 col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                if (col.Name != "Select") col.Width = 205#cfc1a7#cfc1a7#cfc1a7; // keeps the checkbox small
+                if (col.Name != "Select") col.Width = 205;// keeps the checkbox small
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
