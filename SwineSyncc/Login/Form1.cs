@@ -14,6 +14,7 @@ namespace SwineSyncc
         {
             InitializeComponent();
             _userRepo = new UserRepository();
+            this.AcceptButton = logInBtn;
         }
 
         private void logInBtn_Click_1(object sender, EventArgs e)
