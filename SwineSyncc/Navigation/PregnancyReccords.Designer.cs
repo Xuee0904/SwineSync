@@ -48,8 +48,9 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 878);
+            this.panel1.Size = new System.Drawing.Size(1003, 720);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnlPregnancyRecords
             // 
@@ -59,9 +60,9 @@
             this.pnlPregnancyRecords.GradientAngle = 90F;
             this.pnlPregnancyRecords.GradientBottomColor = System.Drawing.Color.CadetBlue;
             this.pnlPregnancyRecords.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.pnlPregnancyRecords.Location = new System.Drawing.Point(22, 103);
+            this.pnlPregnancyRecords.Location = new System.Drawing.Point(38, 98);
             this.pnlPregnancyRecords.Name = "pnlPregnancyRecords";
-            this.pnlPregnancyRecords.Size = new System.Drawing.Size(730, 344);
+            this.pnlPregnancyRecords.Size = new System.Drawing.Size(921, 479);
             this.pnlPregnancyRecords.TabIndex = 13;
             // 
             // deletePregnancyBtn
@@ -73,13 +74,14 @@
             this.deletePregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deletePregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletePregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.deletePregnancyBtn.Location = new System.Drawing.Point(314, 494);
+            this.deletePregnancyBtn.Location = new System.Drawing.Point(521, 626);
             this.deletePregnancyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.deletePregnancyBtn.Name = "deletePregnancyBtn";
             this.deletePregnancyBtn.Size = new System.Drawing.Size(138, 45);
             this.deletePregnancyBtn.TabIndex = 12;
             this.deletePregnancyBtn.Text = "Delete pregnancy";
             this.deletePregnancyBtn.UseVisualStyleBackColor = true;
+            this.deletePregnancyBtn.Click += new System.EventHandler(this.deletePregnancyBtn_Click);
             // 
             // addPregnancyBtn
             // 
@@ -91,7 +93,7 @@
             this.addPregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addPregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addPregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.addPregnancyBtn.Location = new System.Drawing.Point(614, 494);
+            this.addPregnancyBtn.Location = new System.Drawing.Point(821, 626);
             this.addPregnancyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.addPregnancyBtn.Name = "addPregnancyBtn";
             this.addPregnancyBtn.Size = new System.Drawing.Size(138, 45);
@@ -109,21 +111,24 @@
             this.editPregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editPregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editPregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editPregnancyBtn.Location = new System.Drawing.Point(464, 494);
+            this.editPregnancyBtn.Location = new System.Drawing.Point(671, 626);
             this.editPregnancyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.editPregnancyBtn.Name = "editPregnancyBtn";
             this.editPregnancyBtn.Size = new System.Drawing.Size(138, 45);
             this.editPregnancyBtn.TabIndex = 10;
             this.editPregnancyBtn.Text = "Edit pregnancy";
             this.editPregnancyBtn.UseVisualStyleBackColor = true;
+            this.editPregnancyBtn.Click += new System.EventHandler(this.editPregnancyBtn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 21);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label1.Location = new System.Drawing.Point(35, 38);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.Size = new System.Drawing.Size(210, 25);
             this.label1.TabIndex = 8;
             this.label1.Text = "Pregnancy records";
             // 
@@ -134,7 +139,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PregnancyReccords";
-            this.Size = new System.Drawing.Size(803, 878);
+            this.Size = new System.Drawing.Size(1003, 720);
             this.Load += new System.EventHandler(this.PregnancyReccords_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

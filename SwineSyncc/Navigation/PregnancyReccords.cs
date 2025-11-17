@@ -16,7 +16,7 @@ namespace SwineSyncc
         public PregnancyReccords()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Right;
+            this.Dock = DockStyle.Fill;
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -34,6 +34,21 @@ namespace SwineSyncc
         private void addPregnancyBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void editPregnancyBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deletePregnancyBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+           
         }
     }
 }
