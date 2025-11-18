@@ -12,33 +12,7 @@ using System.Windows.Forms;
 
 namespace SwineSyncc.Navigation.Pig_Management
 {
-    public class MotherPig : UserControl
-    {
-        public int PigID { get; set; }
-        public string Name { get; set; }
-
-        public override string ToString()
-        {
-            return Name;
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // MotherPig
-            // 
-            this.Name = "MotherPig";
-            this.Load += new System.EventHandler(this.MotherPig_Load);
-            this.ResumeLayout(false);
-
-        }
-
-        private void MotherPig_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+    
     public partial class AddPiglet : UserControl
     {
         public event EventHandler SaveCompleted;
@@ -49,13 +23,24 @@ namespace SwineSyncc.Navigation.Pig_Management
             InitializeComponent();
 
             this.Dock = DockStyle.Fill;
-            this.Padding = new Padding(15);
-            RoundedPanelStyle.ApplyRoundedCorners(addPigletPanel, 15);
+            this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(addPigletPanel, 40);
 
             this.BackColor = Color.WhiteSmoke;
             addPigletPanel.BackColor = Color.FromArgb(217, 221, 220);
 
             LoadMotherPigCombo();
+        }
+
+        public class MotherPig
+        {
+            public int PigID { get; set; }
+            public string Name { get; set; }
+
+            public override string ToString()
+            {
+                return Name;
+            }
         }
 
         private void LoadMotherPigCombo()
@@ -83,7 +68,8 @@ namespace SwineSyncc.Navigation.Pig_Management
                         }
 
                         reader.Close();
-                    } catch (Exception ex)
+                    }
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Error laoding data: " + ex.Message);
                     }
@@ -205,5 +191,19 @@ namespace SwineSyncc.Navigation.Pig_Management
             ClearFields();
         }
 
+        private void cancelbtn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clearbtn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addPigletPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace SwineSyncc
 
             this.Dock = DockStyle.Fill;
             this.Padding = new Padding(40);
-            RoundedPanelStyle.ApplyRoundedCorners(registerPigPanel, 15);
+            RoundedPanelStyle.ApplyRoundedCorners(registerPigPanel, 40);
 
             this.BackColor = Color.WhiteSmoke;
             registerPigPanel.BackColor = Color.FromArgb(217, 221, 220);
