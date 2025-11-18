@@ -20,7 +20,7 @@ namespace SwineSyncc
            
             this.Dock = DockStyle.Fill;
             this.Padding = new Padding(40);
-            RoundedPanelStyle.ApplyRoundedCorners(registerPigletPanel, 20);
+            RoundedPanelStyle.ApplyRoundedCorners(registerPigletPanel, 15);
             
             this.BackColor = Color.WhiteSmoke;
             registerPigletPanel.BackColor = Color.FromArgb(217, 221, 220);
@@ -147,6 +147,11 @@ namespace SwineSyncc
         private void cancelbtn_Click(object sender, EventArgs e)
         {
             CancelClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void registerPigletPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

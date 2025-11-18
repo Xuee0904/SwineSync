@@ -96,7 +96,9 @@
     <Compile Include="Navigation\Pig Management\AddPig.Designer.cs">
       <DependentUpon>AddPig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\Pig Management\AddPiglet.cs" />
+    <Compile Include="Navigation\Pig Management\AddPiglet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Navigation\Pig Management\AddPiglet.Designer.cs">
       <DependentUpon>AddPiglet.cs</DependentUpon>
     </Compile>

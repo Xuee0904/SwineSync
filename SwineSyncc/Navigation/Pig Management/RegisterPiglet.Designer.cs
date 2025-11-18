@@ -71,8 +71,9 @@
             this.registerPigletPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerPigletPanel.Location = new System.Drawing.Point(0, 0);
             this.registerPigletPanel.Name = "registerPigletPanel";
-            this.registerPigletPanel.Size = new System.Drawing.Size(1117, 1081);
+            this.registerPigletPanel.Size = new System.Drawing.Size(1200, 645);
             this.registerPigletPanel.TabIndex = 0;
+            this.registerPigletPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.registerPigletPanel_Paint);
             // 
             // femaleRadioBtn
             // 
@@ -272,7 +273,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.registerPigletPanel);
             this.Name = "RegisterPiglet";
-            this.Size = new System.Drawing.Size(1117, 1081);
+            this.Size = new System.Drawing.Size(1200, 645);
             this.registerPigletPanel.ResumeLayout(false);
             this.registerPigletPanel.PerformLayout();
             this.ResumeLayout(false);

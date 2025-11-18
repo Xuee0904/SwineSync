@@ -25,7 +25,7 @@ namespace SwineSyncc.Navigation.Pig_Management
             InitializeComponent();
 
             this.Dock = DockStyle.Fill;
-            this.Padding = new Padding(15);
+            this.Padding = new Padding(40);
             RoundedPanelStyle.ApplyRoundedCorners(addBoarPanel, 15);
 
             this.BackColor = Color.WhiteSmoke;
@@ -133,6 +133,11 @@ namespace SwineSyncc.Navigation.Pig_Management
         private void clearbtn_Click(object sender, EventArgs e)
         {
             ClearFields();
+        }
+
+        private void addBoarPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

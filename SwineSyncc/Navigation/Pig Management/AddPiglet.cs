@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace SwineSyncc.Navigation.Pig_Management
 {
-    public class MotherPig
+    public class MotherPig : UserControl
     {
         public int PigID { get; set; }
         public string Name { get; set; }
@@ -22,6 +22,22 @@ namespace SwineSyncc.Navigation.Pig_Management
             return Name;
         }
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // MotherPig
+            // 
+            this.Name = "MotherPig";
+            this.Load += new System.EventHandler(this.MotherPig_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void MotherPig_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     public partial class AddPiglet : UserControl
     {
