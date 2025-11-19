@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwineSyncc.Login;
 
 namespace SwineSyncc
 {
@@ -27,8 +28,24 @@ namespace SwineSyncc
             navigationPanel.PregnancyRecordsClicked += (s, e) => ucManager.LoadPregnancyRecords();
             navigationPanel.userManagementBtn.Click += (s, e) => ucManager.LoadUserManagement();
 
+            ApplyAccessLevel();
+
         }
-    
+
+        private void ApplyAccessLevel()
+        {
+            if (Session.Role == "Assistant")
+            {           
+                navigationPanel.userManagementBtn.Enabled = false;
+                navigationPanel.userManagementBtn.Visible = false;            
+            }
+            else if (Session.Role == "Admin")
+            {
+                
+            }
+        }
+
+
         private void Dashboard_Load(object sender, EventArgs e)
         {
 

@@ -69,7 +69,7 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(360, 283);
+            this.txtPassword.Location = new System.Drawing.Point(360, 325);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(261, 47);
             this.txtPassword.TabIndex = 76;
@@ -77,7 +77,7 @@
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(360, 165);
+            this.txtUsername.Location = new System.Drawing.Point(359, 177);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(261, 47);
             this.txtUsername.TabIndex = 75;
@@ -106,7 +106,7 @@
             this.cmbRole.Items.AddRange(new object[] {
             "Admin",
             "Assistant"});
-            this.cmbRole.Location = new System.Drawing.Point(360, 403);
+            this.cmbRole.Location = new System.Drawing.Point(359, 484);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(261, 49);
             this.cmbRole.TabIndex = 73;
@@ -151,7 +151,7 @@
             this.lblRole.AutoSize = true;
             this.lblRole.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblRole.Location = new System.Drawing.Point(353, 406);
+            this.lblRole.Location = new System.Drawing.Point(352, 487);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(69, 41);
             this.lblRole.TabIndex = 44;
@@ -162,7 +162,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblPassword.Location = new System.Drawing.Point(353, 283);
+            this.lblPassword.Location = new System.Drawing.Point(353, 325);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(145, 41);
             this.lblPassword.TabIndex = 43;
@@ -173,7 +173,7 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblUsername.Location = new System.Drawing.Point(353, 165);
+            this.lblUsername.Location = new System.Drawing.Point(352, 177);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(148, 41);
             this.lblUsername.TabIndex = 42;
@@ -184,7 +184,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label2.Location = new System.Drawing.Point(133, 406);
+            this.label2.Location = new System.Drawing.Point(132, 487);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 41);
             this.label2.TabIndex = 41;
@@ -195,7 +195,7 @@
             this.labellabel.AutoSize = true;
             this.labellabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labellabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.labellabel.Location = new System.Drawing.Point(132, 283);
+            this.labellabel.Location = new System.Drawing.Point(132, 325);
             this.labellabel.Name = "labellabel";
             this.labellabel.Size = new System.Drawing.Size(158, 41);
             this.labellabel.TabIndex = 40;
@@ -217,7 +217,7 @@
             this.user.AutoSize = true;
             this.user.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.user.Location = new System.Drawing.Point(133, 165);
+            this.user.Location = new System.Drawing.Point(132, 177);
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(166, 41);
             this.user.TabIndex = 39;
