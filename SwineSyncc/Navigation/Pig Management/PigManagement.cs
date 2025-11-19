@@ -87,7 +87,7 @@ namespace SwineSyncc
                 {
                     MessageBox.Show("No pigs selected for deletion.");
                     _isDeleteMode = false;
-                    btnDeletePig.Text = "Delete Mode";
+                    btnDeletePig.Text = "Delete pig";
                     LoadPigButtons();
                     return;
                 }
@@ -138,7 +138,7 @@ namespace SwineSyncc
 
                 _isDeleteMode = false;
                 _selectedPigIds.Clear();
-                btnDeletePig.Text = "Delete Mode";
+                btnDeletePig.Text = "Delete pig";
 
                 LoadPigButtons();
             }

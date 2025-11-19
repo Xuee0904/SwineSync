@@ -105,8 +105,7 @@ namespace SwineSyncc.Data
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
-
-                // 6️⃣ Prevent SELF role changes
+               
                 if (userId == Session.UserID)
                 {
                     string currentRoleQuery = "SELECT Role FROM Users WHERE UserID = @UserID";
