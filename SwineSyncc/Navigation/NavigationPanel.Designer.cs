@@ -41,8 +41,13 @@
             this.button8 = new System.Windows.Forms.Button();
             this.userManagementBtn = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelPigSubMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -50,6 +55,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.pigManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.panelPigSubMenu);
@@ -79,12 +85,14 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 2);
+            this.button3.Image = global::SwineSyncc.Properties.Resources.Mask_group__3_;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(3, 108);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(364, 103);
             this.button3.TabIndex = 4;
-            this.button3.Text = "Home";
+            this.button3.Text = "Dashboard";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // pigManagementBtn
@@ -99,7 +107,7 @@
             this.pigManagementBtn.ForeColor = System.Drawing.Color.White;
             this.pigManagementBtn.Image = ((System.Drawing.Image)(resources.GetObject("pigManagementBtn.Image")));
             this.pigManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pigManagementBtn.Location = new System.Drawing.Point(3, 109);
+            this.pigManagementBtn.Location = new System.Drawing.Point(3, 215);
             this.pigManagementBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pigManagementBtn.Name = "pigManagementBtn";
             this.pigManagementBtn.Size = new System.Drawing.Size(364, 103);
@@ -118,7 +126,7 @@
             this.panelPigSubMenu.Controls.Add(this.pregnancyBtn);
             this.panelPigSubMenu.Controls.Add(this.button2);
             this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 216);
+            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 322);
             this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPigSubMenu.Name = "panelPigSubMenu";
             this.panelPigSubMenu.Size = new System.Drawing.Size(383, 244);
@@ -192,7 +200,7 @@
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(3, 464);
+            this.button6.Location = new System.Drawing.Point(3, 570);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(339, 103);
@@ -212,7 +220,7 @@
             this.button7.ForeColor = System.Drawing.Color.White;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(3, 571);
+            this.button7.Location = new System.Drawing.Point(3, 677);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(364, 103);
@@ -232,7 +240,7 @@
             this.button8.ForeColor = System.Drawing.Color.White;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(3, 678);
+            this.button8.Location = new System.Drawing.Point(3, 784);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(361, 103);
@@ -252,7 +260,7 @@
             this.userManagementBtn.ForeColor = System.Drawing.Color.White;
             this.userManagementBtn.Image = ((System.Drawing.Image)(resources.GetObject("userManagementBtn.Image")));
             this.userManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userManagementBtn.Location = new System.Drawing.Point(3, 785);
+            this.userManagementBtn.Location = new System.Drawing.Point(3, 891);
             this.userManagementBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userManagementBtn.Name = "userManagementBtn";
             this.userManagementBtn.Size = new System.Drawing.Size(383, 103);
@@ -272,13 +280,44 @@
             this.button10.ForeColor = System.Drawing.Color.White;
             this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(3, 892);
+            this.button10.Location = new System.Drawing.Point(3, 998);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(364, 103);
             this.button10.TabIndex = 10;
             this.button10.Text = "Reminders";
             this.button10.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SwineSyncc.Properties.Resources.Rectangle_16_2x1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(19, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(87, 87);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(361, 100);
+            this.panel1.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(134, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 38);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "SwineSync";
             // 
             // NavigationPanel
             // 
@@ -291,6 +330,9 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panelPigSubMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -309,5 +351,8 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button3;
         public System.Windows.Forms.Button userManagementBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label3;
     }
 }

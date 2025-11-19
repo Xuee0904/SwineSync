@@ -286,5 +286,23 @@
   <ItemGroup>
     <None Include="Resources\eye_closed.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mask group %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 16%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 16%402x1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Swinesync%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-11-19 182248.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-11-19 1822481.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
