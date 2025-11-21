@@ -111,6 +111,7 @@
             this.dashboardBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.dashboardBtn.BorderRadious = 9;
             this.dashboardBtn.BorderThickness = 3;
+            this.dashboardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboardBtn.FlatAppearance.BorderSize = 0;
             this.dashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dashboardBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
@@ -129,6 +130,7 @@
             this.pigManagementBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.pigManagementBtn.BorderRadious = 9;
             this.pigManagementBtn.BorderThickness = 3;
+            this.pigManagementBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pigManagementBtn.FlatAppearance.BorderSize = 0;
             this.pigManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pigManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
@@ -163,6 +165,7 @@
             this.healthRecordsBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.healthRecordsBtn.BorderRadious = 9;
             this.healthRecordsBtn.BorderThickness = 3;
+            this.healthRecordsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.healthRecordsBtn.FlatAppearance.BorderSize = 0;
             this.healthRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.healthRecordsBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
@@ -179,6 +182,7 @@
             this.pregnancyRecordsBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.pregnancyRecordsBtn.BorderRadious = 9;
             this.pregnancyRecordsBtn.BorderThickness = 3;
+            this.pregnancyRecordsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pregnancyRecordsBtn.FlatAppearance.BorderSize = 0;
             this.pregnancyRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pregnancyRecordsBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
@@ -196,6 +200,7 @@
             this.breedingRecordsBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.breedingRecordsBtn.BorderRadious = 9;
             this.breedingRecordsBtn.BorderThickness = 3;
+            this.breedingRecordsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.breedingRecordsBtn.FlatAppearance.BorderSize = 0;
             this.breedingRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.breedingRecordsBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
@@ -213,6 +218,7 @@
             this.inventoryBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.inventoryBtn.BorderRadious = 9;
             this.inventoryBtn.BorderThickness = 3;
+            this.inventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.inventoryBtn.FlatAppearance.BorderSize = 0;
             this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inventoryBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
@@ -230,6 +236,7 @@
             this.transactionBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.transactionBtn.BorderRadious = 9;
             this.transactionBtn.BorderThickness = 3;
+            this.transactionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.transactionBtn.FlatAppearance.BorderSize = 0;
             this.transactionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
@@ -247,6 +254,7 @@
             this.analyticsBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.analyticsBtn.BorderRadious = 9;
             this.analyticsBtn.BorderThickness = 3;
+            this.analyticsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.analyticsBtn.FlatAppearance.BorderSize = 0;
             this.analyticsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.analyticsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
@@ -264,6 +272,7 @@
             this.userManagementBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.userManagementBtn.BorderRadious = 9;
             this.userManagementBtn.BorderThickness = 3;
+            this.userManagementBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.userManagementBtn.FlatAppearance.BorderSize = 0;
             this.userManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
@@ -282,6 +291,7 @@
             this.remindersBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.remindersBtn.BorderRadious = 9;
             this.remindersBtn.BorderThickness = 3;
+            this.remindersBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.remindersBtn.FlatAppearance.BorderSize = 0;
             this.remindersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remindersBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
