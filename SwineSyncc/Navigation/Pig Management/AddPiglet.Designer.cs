@@ -143,7 +143,7 @@
             this.cancelbtn.TabIndex = 67;
             this.cancelbtn.Text = "Cancel";
             this.cancelbtn.UseVisualStyleBackColor = true;
-            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click_1);
+            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click);
             // 
             // clearbtn
             // 
@@ -161,7 +161,7 @@
             this.clearbtn.TabIndex = 66;
             this.clearbtn.Text = "Clear";
             this.clearbtn.UseVisualStyleBackColor = true;
-            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click_1);
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // savebtn
             // 

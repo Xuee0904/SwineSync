@@ -143,6 +143,17 @@ namespace SwineSyncc
             }
         }
 
+        private void ClearFields()
+        {
+            tagNumberTxt.Clear();
+            weightTxt.Clear();
+            comboBreed.SelectedIndex = -1;
+            comboStatus.SelectedIndex = -1;
+            dtPicker.Value = DateTime.Now;
+            maleRadioBtn.Checked = false;
+            femaleRadioBtn.Checked = false;
+        }
+
 
         private void cancelbtn_Click(object sender, EventArgs e)
         {
@@ -152,6 +163,11 @@ namespace SwineSyncc
         private void registerPigletPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
     }
 }

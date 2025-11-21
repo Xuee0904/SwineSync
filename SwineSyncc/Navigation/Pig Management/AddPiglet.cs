@@ -179,6 +179,11 @@ namespace SwineSyncc.Navigation.Pig_Management
             dtPicker.Value = DateTime.Now;
             maleRadioBtn.Checked = false;
             femaleRadioBtn.Checked = false;
+        }              
+
+        private void addPigletPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void cancelbtn_Click(object sender, EventArgs e)
@@ -189,21 +194,6 @@ namespace SwineSyncc.Navigation.Pig_Management
         private void clearbtn_Click(object sender, EventArgs e)
         {
             ClearFields();
-        }
-
-        private void cancelbtn_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void clearbtn_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addPigletPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
