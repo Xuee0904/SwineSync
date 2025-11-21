@@ -24,9 +24,9 @@ namespace SwineSyncc
 
             ucManager = new UserControlManager(mainPanel);
 
-            navigationPanel.pigManagementBtn.Click += (s, e) => ucManager.LoadPigManagement();
+            navigationPanel.PigManagementClicked += (s, e) => ucManager.LoadPigManagement();
             navigationPanel.PregnancyRecordsClicked += (s, e) => ucManager.LoadPregnancyRecords();
-            navigationPanel.userManagementBtn.Click += (s, e) => ucManager.LoadUserManagement();
+            navigationPanel.UserManagementClicked += (s, e) => ucManager.LoadUserManagement();
 
             ApplyAccessLevel();
 
@@ -35,9 +35,8 @@ namespace SwineSyncc
         private void ApplyAccessLevel()
         {
             if (Session.Role == "Assistant")
-            {           
-                navigationPanel.userManagementBtn.Enabled = false;
-                navigationPanel.userManagementBtn.Visible = false;            
+            {
+                navigationPanel.HideUserManagementButton();
             }
             else if (Session.Role == "Admin")
             {

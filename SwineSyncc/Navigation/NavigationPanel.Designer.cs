@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigationPanel));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.pigManagementBtn = new System.Windows.Forms.Button();
-            this.panelPigSubMenu = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.pregnancyBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.userManagementBtn = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dashboardBtn = new BorderRoundedButton();
+            this.pigManagementBtn = new BorderRoundedButton();
+            this.panelPigSubMenu = new System.Windows.Forms.Panel();
+            this.healthRecordsBtn = new BorderRoundedButton();
+            this.pregnancyRecordsBtn = new BorderRoundedButton();
+            this.breedingRecordsBtn = new BorderRoundedButton();
+            this.inventoryBtn = new BorderRoundedButton();
+            this.transactionBtn = new BorderRoundedButton();
+            this.analyticsBtn = new BorderRoundedButton();
+            this.userManagementBtn = new BorderRoundedButton();
+            this.remindersBtn = new BorderRoundedButton();
             this.flowLayoutPanel1.SuspendLayout();
-            this.panelPigSubMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelPigSubMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -56,14 +56,14 @@
             this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
+            this.flowLayoutPanel1.Controls.Add(this.dashboardBtn);
             this.flowLayoutPanel1.Controls.Add(this.pigManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.panelPigSubMenu);
-            this.flowLayoutPanel1.Controls.Add(this.button6);
-            this.flowLayoutPanel1.Controls.Add(this.button7);
-            this.flowLayoutPanel1.Controls.Add(this.button8);
+            this.flowLayoutPanel1.Controls.Add(this.inventoryBtn);
+            this.flowLayoutPanel1.Controls.Add(this.transactionBtn);
+            this.flowLayoutPanel1.Controls.Add(this.analyticsBtn);
             this.flowLayoutPanel1.Controls.Add(this.userManagementBtn);
-            this.flowLayoutPanel1.Controls.Add(this.button10);
+            this.flowLayoutPanel1.Controls.Add(this.remindersBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -73,231 +73,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(389, 999);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::SwineSyncc.Properties.Resources.Mask_group__3_;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(3, 108);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(364, 103);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Dashboard";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // pigManagementBtn
-            // 
-            this.pigManagementBtn.BackColor = System.Drawing.Color.Transparent;
-            this.pigManagementBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pigManagementBtn.FlatAppearance.BorderSize = 0;
-            this.pigManagementBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.pigManagementBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.pigManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pigManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pigManagementBtn.ForeColor = System.Drawing.Color.White;
-            this.pigManagementBtn.Image = ((System.Drawing.Image)(resources.GetObject("pigManagementBtn.Image")));
-            this.pigManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pigManagementBtn.Location = new System.Drawing.Point(3, 215);
-            this.pigManagementBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pigManagementBtn.Name = "pigManagementBtn";
-            this.pigManagementBtn.Size = new System.Drawing.Size(364, 103);
-            this.pigManagementBtn.TabIndex = 2;
-            this.pigManagementBtn.Text = "Pig management";
-            this.pigManagementBtn.UseVisualStyleBackColor = false;
-            this.pigManagementBtn.Click += new System.EventHandler(this.pigManagementBtn_Click);
-            // 
-            // panelPigSubMenu
-            // 
-            this.panelPigSubMenu.AutoSize = true;
-            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
-            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelPigSubMenu.Controls.Add(this.button5);
-            this.panelPigSubMenu.Controls.Add(this.pregnancyBtn);
-            this.panelPigSubMenu.Controls.Add(this.button2);
-            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 322);
-            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelPigSubMenu.Name = "panelPigSubMenu";
-            this.panelPigSubMenu.Size = new System.Drawing.Size(383, 244);
-            this.panelPigSubMenu.TabIndex = 5;
-            this.panelPigSubMenu.Visible = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(81, 164);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(283, 78);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Health records";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // pregnancyBtn
-            // 
-            this.pregnancyBtn.BackColor = System.Drawing.Color.Transparent;
-            this.pregnancyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pregnancyBtn.FlatAppearance.BorderSize = 0;
-            this.pregnancyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.pregnancyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.pregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pregnancyBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pregnancyBtn.ForeColor = System.Drawing.Color.White;
-            this.pregnancyBtn.Location = new System.Drawing.Point(81, 82);
-            this.pregnancyBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pregnancyBtn.Name = "pregnancyBtn";
-            this.pregnancyBtn.Size = new System.Drawing.Size(283, 78);
-            this.pregnancyBtn.TabIndex = 7;
-            this.pregnancyBtn.Text = "Pregnancy records";
-            this.pregnancyBtn.UseVisualStyleBackColor = false;
-            this.pregnancyBtn.Click += new System.EventHandler(this.pregnancyBtn_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(81, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(283, 78);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Breeding  records";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(3, 570);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(339, 103);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Inventory";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.Transparent;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(3, 677);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(364, 103);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Transactions";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(3, 784);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(361, 103);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "Analytics";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // userManagementBtn
-            // 
-            this.userManagementBtn.BackColor = System.Drawing.Color.Transparent;
-            this.userManagementBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.userManagementBtn.FlatAppearance.BorderSize = 0;
-            this.userManagementBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.userManagementBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.userManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.userManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userManagementBtn.ForeColor = System.Drawing.Color.White;
-            this.userManagementBtn.Image = ((System.Drawing.Image)(resources.GetObject("userManagementBtn.Image")));
-            this.userManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userManagementBtn.Location = new System.Drawing.Point(3, 891);
-            this.userManagementBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userManagementBtn.Name = "userManagementBtn";
-            this.userManagementBtn.Size = new System.Drawing.Size(383, 103);
-            this.userManagementBtn.TabIndex = 9;
-            this.userManagementBtn.Text = "User management";
-            this.userManagementBtn.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.Transparent;
-            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(3, 998);
-            this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(364, 103);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Reminders";
-            this.button10.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::SwineSyncc.Properties.Resources.Rectangle_16_2x1;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(87, 87);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -319,6 +94,205 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "SwineSync";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SwineSyncc.Properties.Resources.Rectangle_16_2x1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(19, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(87, 87);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dashboardBtn
+            // 
+            this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.dashboardBtn.BorderRadious = 9;
+            this.dashboardBtn.BorderThickness = 3;
+            this.dashboardBtn.FlatAppearance.BorderSize = 0;
+            this.dashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dashboardBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.dashboardBtn.ForeColor = System.Drawing.Color.White;
+            this.dashboardBtn.Location = new System.Drawing.Point(3, 109);
+            this.dashboardBtn.Name = "dashboardBtn";
+            this.dashboardBtn.Size = new System.Drawing.Size(364, 103);
+            this.dashboardBtn.TabIndex = 17;
+            this.dashboardBtn.Text = "Dashboard";
+            this.dashboardBtn.UseVisualStyleBackColor = false;
+            this.dashboardBtn.Click += new System.EventHandler(this.dashboardBtn_Click);
+            // 
+            // pigManagementBtn
+            // 
+            this.pigManagementBtn.BackColor = System.Drawing.Color.Transparent;
+            this.pigManagementBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.pigManagementBtn.BorderRadious = 9;
+            this.pigManagementBtn.BorderThickness = 3;
+            this.pigManagementBtn.FlatAppearance.BorderSize = 0;
+            this.pigManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pigManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.pigManagementBtn.ForeColor = System.Drawing.Color.White;
+            this.pigManagementBtn.Location = new System.Drawing.Point(3, 218);
+            this.pigManagementBtn.Name = "pigManagementBtn";
+            this.pigManagementBtn.Size = new System.Drawing.Size(364, 103);
+            this.pigManagementBtn.TabIndex = 18;
+            this.pigManagementBtn.Text = "Pig management";
+            this.pigManagementBtn.UseVisualStyleBackColor = false;
+            this.pigManagementBtn.Click += new System.EventHandler(this.pigManagementBtn_Click);
+            // 
+            // panelPigSubMenu
+            // 
+            this.panelPigSubMenu.AutoSize = true;
+            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
+            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 326);
+            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelPigSubMenu.Name = "panelPigSubMenu";
+            this.panelPigSubMenu.Size = new System.Drawing.Size(364, 252);
+            this.panelPigSubMenu.TabIndex = 5;
+            this.panelPigSubMenu.Visible = false;
+            // 
+            // healthRecordsBtn
+            // 
+            this.healthRecordsBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.healthRecordsBtn.BorderRadious = 9;
+            this.healthRecordsBtn.BorderThickness = 3;
+            this.healthRecordsBtn.FlatAppearance.BorderSize = 0;
+            this.healthRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.healthRecordsBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.healthRecordsBtn.ForeColor = System.Drawing.Color.White;
+            this.healthRecordsBtn.Location = new System.Drawing.Point(78, 171);
+            this.healthRecordsBtn.Name = "healthRecordsBtn";
+            this.healthRecordsBtn.Size = new System.Drawing.Size(283, 78);
+            this.healthRecordsBtn.TabIndex = 11;
+            this.healthRecordsBtn.Text = "Health records";
+            this.healthRecordsBtn.UseVisualStyleBackColor = true;
+            // 
+            // pregnancyRecordsBtn
+            // 
+            this.pregnancyRecordsBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.pregnancyRecordsBtn.BorderRadious = 9;
+            this.pregnancyRecordsBtn.BorderThickness = 3;
+            this.pregnancyRecordsBtn.FlatAppearance.BorderSize = 0;
+            this.pregnancyRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pregnancyRecordsBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.pregnancyRecordsBtn.ForeColor = System.Drawing.Color.White;
+            this.pregnancyRecordsBtn.Location = new System.Drawing.Point(78, 87);
+            this.pregnancyRecordsBtn.Name = "pregnancyRecordsBtn";
+            this.pregnancyRecordsBtn.Size = new System.Drawing.Size(283, 78);
+            this.pregnancyRecordsBtn.TabIndex = 10;
+            this.pregnancyRecordsBtn.Text = "Pregnancy records";
+            this.pregnancyRecordsBtn.UseVisualStyleBackColor = true;
+            this.pregnancyRecordsBtn.Click += new System.EventHandler(this.pregnancyRecordsBtn_Click);
+            // 
+            // breedingRecordsBtn
+            // 
+            this.breedingRecordsBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.breedingRecordsBtn.BorderRadious = 9;
+            this.breedingRecordsBtn.BorderThickness = 3;
+            this.breedingRecordsBtn.FlatAppearance.BorderSize = 0;
+            this.breedingRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.breedingRecordsBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.breedingRecordsBtn.ForeColor = System.Drawing.Color.White;
+            this.breedingRecordsBtn.Location = new System.Drawing.Point(78, 3);
+            this.breedingRecordsBtn.Name = "breedingRecordsBtn";
+            this.breedingRecordsBtn.Size = new System.Drawing.Size(283, 78);
+            this.breedingRecordsBtn.TabIndex = 9;
+            this.breedingRecordsBtn.Text = "Breeding records";
+            this.breedingRecordsBtn.UseVisualStyleBackColor = true;
+            // 
+            // inventoryBtn
+            // 
+            this.inventoryBtn.BackColor = System.Drawing.Color.Transparent;
+            this.inventoryBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.inventoryBtn.BorderRadious = 9;
+            this.inventoryBtn.BorderThickness = 3;
+            this.inventoryBtn.FlatAppearance.BorderSize = 0;
+            this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventoryBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.inventoryBtn.ForeColor = System.Drawing.Color.White;
+            this.inventoryBtn.Location = new System.Drawing.Point(3, 583);
+            this.inventoryBtn.Name = "inventoryBtn";
+            this.inventoryBtn.Size = new System.Drawing.Size(364, 103);
+            this.inventoryBtn.TabIndex = 19;
+            this.inventoryBtn.Text = "Inventory";
+            this.inventoryBtn.UseVisualStyleBackColor = false;
+            // 
+            // transactionBtn
+            // 
+            this.transactionBtn.BackColor = System.Drawing.Color.Transparent;
+            this.transactionBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.transactionBtn.BorderRadious = 9;
+            this.transactionBtn.BorderThickness = 3;
+            this.transactionBtn.FlatAppearance.BorderSize = 0;
+            this.transactionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transactionBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.transactionBtn.ForeColor = System.Drawing.Color.White;
+            this.transactionBtn.Location = new System.Drawing.Point(3, 692);
+            this.transactionBtn.Name = "transactionBtn";
+            this.transactionBtn.Size = new System.Drawing.Size(364, 103);
+            this.transactionBtn.TabIndex = 20;
+            this.transactionBtn.Text = "Transactions";
+            this.transactionBtn.UseVisualStyleBackColor = false;
+            // 
+            // analyticsBtn
+            // 
+            this.analyticsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.analyticsBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.analyticsBtn.BorderRadious = 9;
+            this.analyticsBtn.BorderThickness = 3;
+            this.analyticsBtn.FlatAppearance.BorderSize = 0;
+            this.analyticsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.analyticsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.analyticsBtn.ForeColor = System.Drawing.Color.White;
+            this.analyticsBtn.Location = new System.Drawing.Point(3, 801);
+            this.analyticsBtn.Name = "analyticsBtn";
+            this.analyticsBtn.Size = new System.Drawing.Size(364, 103);
+            this.analyticsBtn.TabIndex = 21;
+            this.analyticsBtn.Text = "Analytics";
+            this.analyticsBtn.UseVisualStyleBackColor = false;
+            // 
+            // userManagementBtn
+            // 
+            this.userManagementBtn.BackColor = System.Drawing.Color.Transparent;
+            this.userManagementBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.userManagementBtn.BorderRadious = 9;
+            this.userManagementBtn.BorderThickness = 3;
+            this.userManagementBtn.FlatAppearance.BorderSize = 0;
+            this.userManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.userManagementBtn.ForeColor = System.Drawing.Color.White;
+            this.userManagementBtn.Location = new System.Drawing.Point(3, 910);
+            this.userManagementBtn.Name = "userManagementBtn";
+            this.userManagementBtn.Size = new System.Drawing.Size(364, 103);
+            this.userManagementBtn.TabIndex = 22;
+            this.userManagementBtn.Text = "User management";
+            this.userManagementBtn.UseVisualStyleBackColor = false;
+            this.userManagementBtn.Click += new System.EventHandler(this.userManagementBtn_Click);
+            // 
+            // remindersBtn
+            // 
+            this.remindersBtn.BackColor = System.Drawing.Color.Transparent;
+            this.remindersBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.remindersBtn.BorderRadious = 9;
+            this.remindersBtn.BorderThickness = 3;
+            this.remindersBtn.FlatAppearance.BorderSize = 0;
+            this.remindersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.remindersBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.remindersBtn.ForeColor = System.Drawing.Color.White;
+            this.remindersBtn.Location = new System.Drawing.Point(3, 1019);
+            this.remindersBtn.Name = "remindersBtn";
+            this.remindersBtn.Size = new System.Drawing.Size(364, 103);
+            this.remindersBtn.TabIndex = 23;
+            this.remindersBtn.Text = "Reminders";
+            this.remindersBtn.UseVisualStyleBackColor = false;
+            // 
             // NavigationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -329,10 +303,10 @@
             this.Size = new System.Drawing.Size(389, 999);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.panelPigSubMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelPigSubMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -340,19 +314,19 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        public System.Windows.Forms.Button pigManagementBtn;
         private System.Windows.Forms.Panel panelPigSubMenu;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button pregnancyBtn;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button3;
-        public System.Windows.Forms.Button userManagementBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
+        private BorderRoundedButton dashboardBtn;
+        private BorderRoundedButton pigManagementBtn;
+        private BorderRoundedButton breedingRecordsBtn;
+        private BorderRoundedButton pregnancyRecordsBtn;
+        private BorderRoundedButton healthRecordsBtn;
+        private BorderRoundedButton inventoryBtn;
+        private BorderRoundedButton transactionBtn;
+        private BorderRoundedButton analyticsBtn;
+        private BorderRoundedButton userManagementBtn;
+        private BorderRoundedButton remindersBtn;
     }
 }

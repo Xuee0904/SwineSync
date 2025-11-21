@@ -14,31 +14,38 @@ namespace SwineSyncc
     public partial class NavigationPanel : UserControl
     {
         public event EventHandler PregnancyRecordsClicked;
+        public event EventHandler UserManagementClicked;
+        public event EventHandler PigManagementClicked;
         public NavigationPanel()
         {
             InitializeComponent();
-        }
+        }                        
 
         private void pigManagementBtn_Click(object sender, EventArgs e)
         {
-            panelPigSubMenu.Visible = !panelPigSubMenu.Visible;           
+            panelPigSubMenu.Visible = !panelPigSubMenu.Visible;
+            PigManagementClicked?.Invoke(this, EventArgs.Empty);
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void dashboardBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void userManagementBtn_Click(object sender, EventArgs e)
         {
-
+            UserManagementClicked?.Invoke(this, EventArgs.Empty);
         }
 
-        private void pregnancyBtn_Click(object sender, EventArgs e)
+        public void HideUserManagementButton()
+        {
+            userManagementBtn.Visible = false;
+            userManagementBtn.Enabled = false;
+        }
+
+        private void pregnancyRecordsBtn_Click(object sender, EventArgs e)
         {
             PregnancyRecordsClicked?.Invoke(this, EventArgs.Empty);
         }
-
-
     }
 }
