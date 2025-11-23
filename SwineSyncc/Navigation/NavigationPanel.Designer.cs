@@ -33,9 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.dashboardBtn = new IconRoundedButton();
             this.pigManagementBtn = new IconRoundedButton();
+            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.healthRecordsBtn = new IconRoundedButton();
             this.pregnancyRecordsBtn = new IconRoundedButton();
             this.breedingRecordsBtn = new IconRoundedButton();
@@ -105,6 +105,43 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // dashboardBtn
+            // 
+            this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.BorderRadious = 9;
+            this.dashboardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dashboardBtn.FlatAppearance.BorderSize = 0;
+            this.dashboardBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dashboardBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.dashboardBtn.ForeColor = System.Drawing.Color.White;
+            this.dashboardBtn.Location = new System.Drawing.Point(3, 109);
+            this.dashboardBtn.Name = "dashboardBtn";
+            this.dashboardBtn.Size = new System.Drawing.Size(364, 103);
+            this.dashboardBtn.TabIndex = 24;
+            this.dashboardBtn.Text = "Dashboard";
+            this.dashboardBtn.UseVisualStyleBackColor = false;
+            // 
+            // pigManagementBtn
+            // 
+            this.pigManagementBtn.BackColor = System.Drawing.Color.Transparent;
+            this.pigManagementBtn.BorderRadious = 9;
+            this.pigManagementBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pigManagementBtn.FlatAppearance.BorderSize = 0;
+            this.pigManagementBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pigManagementBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pigManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pigManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.pigManagementBtn.ForeColor = System.Drawing.Color.White;
+            this.pigManagementBtn.Location = new System.Drawing.Point(3, 218);
+            this.pigManagementBtn.Name = "pigManagementBtn";
+            this.pigManagementBtn.Size = new System.Drawing.Size(364, 103);
+            this.pigManagementBtn.TabIndex = 26;
+            this.pigManagementBtn.Text = "Pig management";
+            this.pigManagementBtn.UseVisualStyleBackColor = false;
+            this.pigManagementBtn.Click += new System.EventHandler(this.pigManagementBtn_Click);
+            // 
             // panelPigSubMenu
             // 
             this.panelPigSubMenu.AutoSize = true;
@@ -122,45 +159,14 @@
             this.panelPigSubMenu.TabIndex = 5;
             this.panelPigSubMenu.Visible = false;
             // 
-            // dashboardBtn
-            // 
-            this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
-            this.dashboardBtn.BorderRadious = 9;
-            this.dashboardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dashboardBtn.FlatAppearance.BorderSize = 0;
-            this.dashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dashboardBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
-            this.dashboardBtn.ForeColor = System.Drawing.Color.White;
-            this.dashboardBtn.Location = new System.Drawing.Point(3, 109);
-            this.dashboardBtn.Name = "dashboardBtn";
-            this.dashboardBtn.Size = new System.Drawing.Size(364, 103);
-            this.dashboardBtn.TabIndex = 24;
-            this.dashboardBtn.Text = "Dashboard";
-            this.dashboardBtn.UseVisualStyleBackColor = false;
-            // 
-            // pigManagementBtn
-            // 
-            this.pigManagementBtn.BackColor = System.Drawing.Color.Transparent;
-            this.pigManagementBtn.BorderRadious = 9;
-            this.pigManagementBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pigManagementBtn.FlatAppearance.BorderSize = 0;
-            this.pigManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pigManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
-            this.pigManagementBtn.ForeColor = System.Drawing.Color.White;
-            this.pigManagementBtn.Location = new System.Drawing.Point(3, 218);
-            this.pigManagementBtn.Name = "pigManagementBtn";
-            this.pigManagementBtn.Size = new System.Drawing.Size(364, 103);
-            this.pigManagementBtn.TabIndex = 26;
-            this.pigManagementBtn.Text = "Pig management";
-            this.pigManagementBtn.UseVisualStyleBackColor = false;
-            this.pigManagementBtn.Click += new System.EventHandler(this.pigManagementBtn_Click);
-            // 
             // healthRecordsBtn
             // 
             this.healthRecordsBtn.BackColor = System.Drawing.Color.Transparent;
             this.healthRecordsBtn.BorderRadious = 9;
             this.healthRecordsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.healthRecordsBtn.FlatAppearance.BorderSize = 0;
+            this.healthRecordsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.healthRecordsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.healthRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.healthRecordsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.healthRecordsBtn.ForeColor = System.Drawing.Color.White;
@@ -178,6 +184,8 @@
             this.pregnancyRecordsBtn.BorderRadious = 9;
             this.pregnancyRecordsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pregnancyRecordsBtn.FlatAppearance.BorderSize = 0;
+            this.pregnancyRecordsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pregnancyRecordsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.pregnancyRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pregnancyRecordsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.pregnancyRecordsBtn.ForeColor = System.Drawing.Color.White;
@@ -195,6 +203,8 @@
             this.breedingRecordsBtn.BorderRadious = 9;
             this.breedingRecordsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.breedingRecordsBtn.FlatAppearance.BorderSize = 0;
+            this.breedingRecordsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.breedingRecordsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.breedingRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.breedingRecordsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.breedingRecordsBtn.ForeColor = System.Drawing.Color.White;
@@ -212,6 +222,8 @@
             this.inventoryBtn.BorderRadious = 9;
             this.inventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.inventoryBtn.FlatAppearance.BorderSize = 0;
+            this.inventoryBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.inventoryBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inventoryBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.inventoryBtn.ForeColor = System.Drawing.Color.White;
@@ -229,6 +241,8 @@
             this.transactionsBtn.BorderRadious = 9;
             this.transactionsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.transactionsBtn.FlatAppearance.BorderSize = 0;
+            this.transactionsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.transactionsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.transactionsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.transactionsBtn.ForeColor = System.Drawing.Color.White;
@@ -246,6 +260,8 @@
             this.analyticsBtn.BorderRadious = 9;
             this.analyticsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.analyticsBtn.FlatAppearance.BorderSize = 0;
+            this.analyticsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.analyticsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.analyticsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.analyticsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.analyticsBtn.ForeColor = System.Drawing.Color.White;
@@ -263,6 +279,8 @@
             this.userManagementBtn.BorderRadious = 9;
             this.userManagementBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.userManagementBtn.FlatAppearance.BorderSize = 0;
+            this.userManagementBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.userManagementBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.userManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.userManagementBtn.ForeColor = System.Drawing.Color.White;
@@ -280,6 +298,8 @@
             this.remindersBtn.BorderRadious = 9;
             this.remindersBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.remindersBtn.FlatAppearance.BorderSize = 0;
+            this.remindersBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.remindersBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.remindersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remindersBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.remindersBtn.ForeColor = System.Drawing.Color.White;
