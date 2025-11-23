@@ -16,12 +16,34 @@ namespace SwineSyncc
         public event EventHandler PregnancyRecordsClicked;
         public event EventHandler UserManagementClicked;
         public event EventHandler PigManagementClicked;
+
+        private Button activeButton = null;
+        private Color activeColor = Color.FromArgb(59, 44, 29);   // dark brown
+        private Color defaultColor = Color.Transparent; // normal button color
+
         public NavigationPanel()
         {
             InitializeComponent();
-        }                        
+        }
 
-        
+        private void SetActiveButton(Button clickedButton)
+        {
+            if (activeButton != null)
+            {
+                activeButton.BackColor = defaultColor;
+                activeButton.FlatAppearance.MouseOverBackColor = defaultColor;
+                activeButton.FlatAppearance.MouseDownBackColor = defaultColor;
+            }
+
+            activeButton = clickedButton;
+
+            activeButton.BackColor = activeColor;  // click color
+            activeButton.FlatAppearance.MouseOverBackColor = activeColor;
+            activeButton.FlatAppearance.MouseDownBackColor = activeColor;
+        }
+
+
+
 
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
@@ -36,12 +58,14 @@ namespace SwineSyncc
 
         private void pigManagementBtn_Click(object sender, EventArgs e)
         {
+            SetActiveButton(pigManagementBtn);
             panelPigSubMenu.Visible = !panelPigSubMenu.Visible;
             PigManagementClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void pregnancyRecordsBtn_Click(object sender, EventArgs e)
         {
+            SetActiveButton(pregnancyRecordsBtn);
             PregnancyRecordsClicked?.Invoke(this, EventArgs.Empty);
         }      
 
@@ -77,7 +101,13 @@ namespace SwineSyncc
 
         private void userManagementBtn_Click(object sender, EventArgs e)
         {
+            SetActiveButton(userManagementBtn);
             UserManagementClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void dashboardBtn_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

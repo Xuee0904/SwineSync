@@ -122,6 +122,7 @@
             this.dashboardBtn.TabIndex = 24;
             this.dashboardBtn.Text = "Dashboard";
             this.dashboardBtn.UseVisualStyleBackColor = false;
+            this.dashboardBtn.Click += new System.EventHandler(this.dashboardBtn_Click_1);
             // 
             // pigManagementBtn
             // 
