@@ -33,9 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.dashboardBtn = new IconRoundedButton();
             this.pigManagementBtn = new IconRoundedButton();
-            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.healthRecordsBtn = new IconRoundedButton();
             this.pregnancyRecordsBtn = new IconRoundedButton();
             this.breedingRecordsBtn = new IconRoundedButton();
@@ -70,7 +70,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(385, 999);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(389, 999);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(392, 999);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -105,6 +105,23 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // panelPigSubMenu
+            // 
+            this.panelPigSubMenu.AutoSize = true;
+            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
+            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 326);
+            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelPigSubMenu.Name = "panelPigSubMenu";
+            this.panelPigSubMenu.Size = new System.Drawing.Size(364, 241);
+            this.panelPigSubMenu.TabIndex = 5;
+            this.panelPigSubMenu.Visible = false;
+            // 
             // dashboardBtn
             // 
             this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
@@ -137,23 +154,6 @@
             this.pigManagementBtn.Text = "Pig management";
             this.pigManagementBtn.UseVisualStyleBackColor = false;
             this.pigManagementBtn.Click += new System.EventHandler(this.pigManagementBtn_Click);
-            // 
-            // panelPigSubMenu
-            // 
-            this.panelPigSubMenu.AutoSize = true;
-            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
-            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
-            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 326);
-            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelPigSubMenu.Name = "panelPigSubMenu";
-            this.panelPigSubMenu.Size = new System.Drawing.Size(364, 241);
-            this.panelPigSubMenu.TabIndex = 5;
-            this.panelPigSubMenu.Visible = false;
             // 
             // healthRecordsBtn
             // 
@@ -298,7 +298,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "NavigationPanel";
-            this.Size = new System.Drawing.Size(389, 999);
+            this.Size = new System.Drawing.Size(392, 999);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
