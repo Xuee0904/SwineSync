@@ -329,5 +329,12 @@
   <ItemGroup>
     <None Include="Resources\Screenshot 2025-11-19 1822481.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unselected_checkbox.png" />
+    <None Include="Resources\selected_checkbox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selected_checkbox.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

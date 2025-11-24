@@ -163,9 +163,29 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap selected_checkbox {
+            get {
+                object obj = ResourceManager.GetObject("selected_checkbox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Swinesync_2x {
             get {
                 object obj = ResourceManager.GetObject("Swinesync@2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unselected_checkbox {
+            get {
+                object obj = ResourceManager.GetObject("unselected_checkbox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

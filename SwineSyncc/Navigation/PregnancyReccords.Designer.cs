@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlPregnancyRecords = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.deletePregnancyBtn = new BorderRoundedButton();
             this.addPregnancyBtn = new BorderRoundedButton();
             this.editPregnancyBtn = new BorderRoundedButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,22 +52,10 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(35, 38);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 31);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Pregnancy records";
-            // 
             // pnlPregnancyRecords
             // 
             this.pnlPregnancyRecords.BackColor = System.Drawing.Color.White;
-            this.pnlPregnancyRecords.BorderRadius = 20;
+            this.pnlPregnancyRecords.BorderRadius = 12;
             this.pnlPregnancyRecords.ForeColor = System.Drawing.Color.Black;
             this.pnlPregnancyRecords.GradientAngle = 90F;
             this.pnlPregnancyRecords.GradientBottomColor = System.Drawing.Color.CadetBlue;
@@ -131,6 +119,18 @@
             this.editPregnancyBtn.Text = "Edit pregnancy";
             this.editPregnancyBtn.UseVisualStyleBackColor = true;
             this.editPregnancyBtn.Click += new System.EventHandler(this.editPregnancyBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label1.Location = new System.Drawing.Point(35, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(259, 31);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Pregnancy records";
             // 
             // PregnancyReccords
             // 
