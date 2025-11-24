@@ -103,6 +103,11 @@ namespace SwineSyncc
 
                         if (result > 0)
                         {
+                            ActivityLogger.Log(
+                                "Register Sow",
+                                $"Sow added | Name: {name}, Breed: {breed}, Birthdate: {birthdate.ToShortDateString()}, Weight: {weight}, Status: {status}"
+                             );
+
                             MessageBox.Show("🐷 Pig registered successfully!", "Success",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 

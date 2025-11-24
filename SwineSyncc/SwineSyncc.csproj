@@ -83,6 +83,7 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnection\DBConnection.cs" />
+    <Compile Include="Data\ActivityLogger.cs" />
     <Compile Include="Data\PigletRepository.cs" />
     <Compile Include="Data\PigRepository.cs" />
     <Compile Include="Data\UserRepository.cs" />

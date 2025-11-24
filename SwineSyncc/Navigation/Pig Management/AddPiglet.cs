@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SwineSyncc.Navigation.Pig_Management
 {
@@ -152,6 +153,11 @@ namespace SwineSyncc.Navigation.Pig_Management
 
                         if (result > 0)
                         {
+                            ActivityLogger.Log(
+                                action: "Register Piglet",
+                                description: $"Piglet added | Tag Number: {tagNumber}, Breed: {breed}, Birthdate: {birthdate:yyyy-MM-dd}, Sex: {sex}, Weight: {weight}kg, Status: {status}, Mother Pig ID: {motherPigId}"
+                            );
+
                             MessageBox.Show("🐷 Piglet registered successfully!", "Success",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -70,6 +70,11 @@ namespace SwineSyncc.Navigation.Pig_Management
                 editPigletStatus.Text
             );
 
+            ActivityLogger.Log(
+                "Edit Piglet",
+                $"Piglet updated | ID: {_pigletId}, Tag: {editTnPiglet.Text}, Breed: {editPigletBreed.Text}, Sex: {sex}, Birthdate: {editPigletDt.Value:yyyy-MM-dd}, Weight: {weight}kg, Status: {editPigletStatus.Text}, Mother ID: {_motherPigId}"
+            );
+
             MessageBox.Show("Piglet updated successfully!");
          
             var pigRepo = new PigRepository();

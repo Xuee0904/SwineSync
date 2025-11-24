@@ -105,6 +105,11 @@ namespace SwineSyncc.Navigation.Pig_Management
                 editComboStatus.Text
             );
 
+            ActivityLogger.Log(
+                action: "Edit Pig",
+                description: $"Pig updated | ID: {_pigId}, Name: {editNameTxt.Text}, Breed: {editComboBreed.Text}, Sex: {sex}, Birthdate: {editDtPicker.Value:yyyy-MM-dd}, Weight: {weight}kg, Status: {editComboStatus.Text}"
+            );
+
             MessageBox.Show("Pig updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
           
             Pig updatedPig = repo.GetPigById(_pigId);

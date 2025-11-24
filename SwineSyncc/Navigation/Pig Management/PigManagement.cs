@@ -118,6 +118,11 @@ namespace SwineSyncc
 
                         repo.SafeDeletePig(id);
                         deletedCount++;
+
+                        ActivityLogger.Log(
+                            "Delete Pig",
+                            $"Pig deleted | PigID: {id}"
+                        );
                     }
                     if (deletedCount > 0 && skippedCount == 0)
                     {
