@@ -33,20 +33,20 @@ namespace SwineSyncc
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.roundedPictureBox1 = new RoundedPictureBox();
             this.LoginLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.borderRoundedButton1 = new BorderRoundedButton();
-            this.logInBtn = new RoundedButton();
-            this.usernameTxt = new System.Windows.Forms.TextBox();
-            this.passwordTxt = new System.Windows.Forms.TextBox();
-            this.roundedPictureBox3 = new RoundedPictureBox();
             this.eyeIcon = new System.Windows.Forms.PictureBox();
+            this.logInBtn = new RoundedButton();
+            this.borderRoundedButton1 = new BorderRoundedButton();
+            this.roundedPictureBox1 = new RoundedPictureBox();
+            this.roundedPictureBox3 = new RoundedPictureBox();
+            this.passwordTxt = new System.Windows.Forms.TextBox();
+            this.usernameTxt = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.eyeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eyeIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,18 +72,6 @@ namespace SwineSyncc
             this.label2.Size = new System.Drawing.Size(237, 59);
             this.label2.TabIndex = 2;
             this.label2.Text = "SwineSync";
-            // 
-            // roundedPictureBox1
-            // 
-            this.roundedPictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roundedPictureBox1.BackgroundImage")));
-            this.roundedPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.roundedPictureBox1.Location = new System.Drawing.Point(100, 282);
-            this.roundedPictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.roundedPictureBox1.Name = "roundedPictureBox1";
-            this.roundedPictureBox1.Size = new System.Drawing.Size(267, 246);
-            this.roundedPictureBox1.TabIndex = 1;
-            this.roundedPictureBox1.TabStop = false;
             // 
             // LoginLabel
             // 
@@ -126,22 +114,18 @@ namespace SwineSyncc
             this.label5.TabIndex = 15;
             this.label5.Text = "__________________________________________________________________";
             // 
-            // borderRoundedButton1
+            // eyeIcon
             // 
-            this.borderRoundedButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.borderRoundedButton1.BorderRadious = 9;
-            this.borderRoundedButton1.BorderThickness = 3;
-            this.borderRoundedButton1.FlatAppearance.BorderSize = 0;
-            this.borderRoundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.borderRoundedButton1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold);
-            this.borderRoundedButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(42)))), ((int)(((byte)(28)))));
-            this.borderRoundedButton1.Location = new System.Drawing.Point(527, 676);
-            this.borderRoundedButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.borderRoundedButton1.Name = "borderRoundedButton1";
-            this.borderRoundedButton1.Size = new System.Drawing.Size(829, 78);
-            this.borderRoundedButton1.TabIndex = 16;
-            this.borderRoundedButton1.Text = "CREATE ACCOUNT";
-            this.borderRoundedButton1.UseVisualStyleBackColor = true;
+            this.eyeIcon.BackColor = System.Drawing.SystemColors.Window;
+            this.eyeIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.eyeIcon.Image = global::SwineSyncc.Properties.Resources.eye_closed;
+            this.eyeIcon.Location = new System.Drawing.Point(1320, 364);
+            this.eyeIcon.Name = "eyeIcon";
+            this.eyeIcon.Size = new System.Drawing.Size(34, 30);
+            this.eyeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eyeIcon.TabIndex = 23;
+            this.eyeIcon.TabStop = false;
+            this.eyeIcon.Click += new System.EventHandler(this.eyeIcon_Click);
             // 
             // logInBtn
             // 
@@ -161,16 +145,43 @@ namespace SwineSyncc
             this.logInBtn.UseVisualStyleBackColor = false;
             this.logInBtn.Click += new System.EventHandler(this.logInBtn_Click_1);
             // 
-            // usernameTxt
+            // borderRoundedButton1
             // 
-            this.usernameTxt.BackColor = System.Drawing.SystemColors.Window;
-            this.usernameTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.usernameTxt.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTxt.Location = new System.Drawing.Point(524, 250);
-            this.usernameTxt.Margin = new System.Windows.Forms.Padding(4);
-            this.usernameTxt.Name = "usernameTxt";
-            this.usernameTxt.Size = new System.Drawing.Size(830, 32);
-            this.usernameTxt.TabIndex = 19;
+            this.borderRoundedButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.borderRoundedButton1.BorderRadious = 9;
+            this.borderRoundedButton1.BorderThickness = 3;
+            this.borderRoundedButton1.FlatAppearance.BorderSize = 0;
+            this.borderRoundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.borderRoundedButton1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold);
+            this.borderRoundedButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(42)))), ((int)(((byte)(28)))));
+            this.borderRoundedButton1.Location = new System.Drawing.Point(527, 676);
+            this.borderRoundedButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.borderRoundedButton1.Name = "borderRoundedButton1";
+            this.borderRoundedButton1.Size = new System.Drawing.Size(829, 78);
+            this.borderRoundedButton1.TabIndex = 16;
+            this.borderRoundedButton1.Text = "CREATE ACCOUNT";
+            this.borderRoundedButton1.UseVisualStyleBackColor = true;
+            // 
+            // roundedPictureBox1
+            // 
+            this.roundedPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roundedPictureBox1.BackgroundImage")));
+            this.roundedPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.roundedPictureBox1.Location = new System.Drawing.Point(100, 282);
+            this.roundedPictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.roundedPictureBox1.Name = "roundedPictureBox1";
+            this.roundedPictureBox1.Size = new System.Drawing.Size(267, 246);
+            this.roundedPictureBox1.TabIndex = 1;
+            this.roundedPictureBox1.TabStop = false;
+            // 
+            // roundedPictureBox3
+            // 
+            this.roundedPictureBox3.Location = new System.Drawing.Point(465, -2);
+            this.roundedPictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.roundedPictureBox3.Name = "roundedPictureBox3";
+            this.roundedPictureBox3.Size = new System.Drawing.Size(989, 842);
+            this.roundedPictureBox3.TabIndex = 22;
+            this.roundedPictureBox3.TabStop = false;
             // 
             // passwordTxt
             // 
@@ -184,27 +195,16 @@ namespace SwineSyncc
             this.passwordTxt.TabIndex = 20;
             this.passwordTxt.UseSystemPasswordChar = true;
             // 
-            // roundedPictureBox3
+            // usernameTxt
             // 
-            this.roundedPictureBox3.Location = new System.Drawing.Point(465, -2);
-            this.roundedPictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.roundedPictureBox3.Name = "roundedPictureBox3";
-            this.roundedPictureBox3.Size = new System.Drawing.Size(989, 842);
-            this.roundedPictureBox3.TabIndex = 22;
-            this.roundedPictureBox3.TabStop = false;
-            // 
-            // eyeIcon
-            // 
-            this.eyeIcon.BackColor = System.Drawing.SystemColors.Window;
-            this.eyeIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.eyeIcon.Image = global::SwineSyncc.Properties.Resources.eye_closed;
-            this.eyeIcon.Location = new System.Drawing.Point(1320, 364);
-            this.eyeIcon.Name = "eyeIcon";
-            this.eyeIcon.Size = new System.Drawing.Size(34, 30);
-            this.eyeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.eyeIcon.TabIndex = 23;
-            this.eyeIcon.TabStop = false;
-            this.eyeIcon.Click += new System.EventHandler(this.eyeIcon_Click);
+            this.usernameTxt.BackColor = System.Drawing.SystemColors.Window;
+            this.usernameTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameTxt.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTxt.Location = new System.Drawing.Point(524, 250);
+            this.usernameTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.usernameTxt.Name = "usernameTxt";
+            this.usernameTxt.Size = new System.Drawing.Size(830, 32);
+            this.usernameTxt.TabIndex = 19;
             // 
             // Form1
             // 
@@ -234,9 +234,9 @@ namespace SwineSyncc
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.eyeIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eyeIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,10 +253,10 @@ namespace SwineSyncc
         private System.Windows.Forms.Label label5;
         private BorderRoundedButton borderRoundedButton1;
         private RoundedButton logInBtn;
-        private System.Windows.Forms.TextBox usernameTxt;
-        private System.Windows.Forms.TextBox passwordTxt;
         private RoundedPictureBox roundedPictureBox3;
         private System.Windows.Forms.PictureBox eyeIcon;
+        private System.Windows.Forms.TextBox passwordTxt;
+        private System.Windows.Forms.TextBox usernameTxt;
     }
 }
 

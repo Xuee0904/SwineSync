@@ -67,6 +67,12 @@
     <Compile Include="CustomUIElements\ButtonGroup\SaveButtonGroup.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomUIElements\CustomTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomUIElements\CustomTextBox.Designer.cs">
+      <DependentUpon>CustomTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomUIElements\Gradient_RoundedFlowLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     <Compile Include="UserControlManager.cs" />
     <EmbeddedResource Include="CustomUIElements\ButtonGroup\ButtonGroup.resx">
       <DependentUpon>ButtonGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomUIElements\CustomTextBox.resx">
+      <DependentUpon>CustomTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

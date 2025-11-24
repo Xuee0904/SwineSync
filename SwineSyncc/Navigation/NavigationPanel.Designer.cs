@@ -41,7 +41,6 @@
             this.breedingRecordsBtn = new IconRoundedButton();
             this.inventoryBtn = new IconRoundedButton();
             this.transactionsBtn = new IconRoundedButton();
-            this.analyticsBtn = new IconRoundedButton();
             this.userManagementBtn = new IconRoundedButton();
             this.remindersBtn = new IconRoundedButton();
             this.flowLayoutPanel1.SuspendLayout();
@@ -61,7 +60,6 @@
             this.flowLayoutPanel1.Controls.Add(this.panelPigSubMenu);
             this.flowLayoutPanel1.Controls.Add(this.inventoryBtn);
             this.flowLayoutPanel1.Controls.Add(this.transactionsBtn);
-            this.flowLayoutPanel1.Controls.Add(this.analyticsBtn);
             this.flowLayoutPanel1.Controls.Add(this.userManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.remindersBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -255,25 +253,6 @@
             this.transactionsBtn.UseVisualStyleBackColor = false;
             this.transactionsBtn.Click += new System.EventHandler(this.transactionsBtn_Click);
             // 
-            // analyticsBtn
-            // 
-            this.analyticsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.analyticsBtn.BorderRadious = 9;
-            this.analyticsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.analyticsBtn.FlatAppearance.BorderSize = 0;
-            this.analyticsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.analyticsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.analyticsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.analyticsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
-            this.analyticsBtn.ForeColor = System.Drawing.Color.White;
-            this.analyticsBtn.Location = new System.Drawing.Point(3, 649);
-            this.analyticsBtn.Name = "analyticsBtn";
-            this.analyticsBtn.Size = new System.Drawing.Size(364, 71);
-            this.analyticsBtn.TabIndex = 29;
-            this.analyticsBtn.Text = "Analytics";
-            this.analyticsBtn.UseVisualStyleBackColor = false;
-            this.analyticsBtn.Click += new System.EventHandler(this.analyticsBtn_Click);
-            // 
             // userManagementBtn
             // 
             this.userManagementBtn.BackColor = System.Drawing.Color.Transparent;
@@ -285,7 +264,7 @@
             this.userManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.userManagementBtn.ForeColor = System.Drawing.Color.White;
-            this.userManagementBtn.Location = new System.Drawing.Point(3, 726);
+            this.userManagementBtn.Location = new System.Drawing.Point(3, 649);
             this.userManagementBtn.Name = "userManagementBtn";
             this.userManagementBtn.Size = new System.Drawing.Size(364, 71);
             this.userManagementBtn.TabIndex = 30;
@@ -304,7 +283,7 @@
             this.remindersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remindersBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.remindersBtn.ForeColor = System.Drawing.Color.White;
-            this.remindersBtn.Location = new System.Drawing.Point(3, 803);
+            this.remindersBtn.Location = new System.Drawing.Point(3, 726);
             this.remindersBtn.Name = "remindersBtn";
             this.remindersBtn.Size = new System.Drawing.Size(364, 71);
             this.remindersBtn.TabIndex = 31;
@@ -344,7 +323,6 @@
         private IconRoundedButton healthRecordsBtn;
         private IconRoundedButton inventoryBtn;
         private IconRoundedButton transactionsBtn;
-        private IconRoundedButton analyticsBtn;
         private IconRoundedButton userManagementBtn;
         private IconRoundedButton remindersBtn;
     }

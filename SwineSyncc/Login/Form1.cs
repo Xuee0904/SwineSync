@@ -68,8 +68,8 @@ namespace SwineSyncc
         private void eyeIcon_Click(object sender, EventArgs e)
         {
             if (passwordVisible)
-            {              
-                passwordTxt.UseSystemPasswordChar = true;
+            {
+                usernameTxt.UseSystemPasswordChar = true;
                 eyeIcon.Image = Properties.Resources.eye_closed; 
                 passwordVisible = false;
             }
