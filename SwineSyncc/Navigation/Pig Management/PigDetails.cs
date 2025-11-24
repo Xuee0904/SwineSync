@@ -161,5 +161,10 @@ namespace SwineSyncc.Navigation
             _mainPanel.Controls.Add(edit);
             edit.Dock = DockStyle.Fill;
         }
+
+        private void pigDetailsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

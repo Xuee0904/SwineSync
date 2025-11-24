@@ -86,6 +86,7 @@
             this.pigDetailsPanel.Name = "pigDetailsPanel";
             this.pigDetailsPanel.Size = new System.Drawing.Size(1269, 1081);
             this.pigDetailsPanel.TabIndex = 0;
+            this.pigDetailsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.pigDetailsPanel_Paint);
             // 
             // deletePigletBtn
             // 

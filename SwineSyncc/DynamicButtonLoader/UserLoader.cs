@@ -11,15 +11,18 @@ namespace SwineSyncc.DynamicButtonLoader
     {
         private readonly FlowLayoutPanel _flpAdmin;
         private readonly FlowLayoutPanel _flpAssistant;
-        private readonly Action<int> _onUserSelected;
+        private readonly Action<int, string, string, string> _onUserSelected;
 
-        public UserLoader(FlowLayoutPanel flpAdmin, FlowLayoutPanel flpAssistant, Action<int> onUserSelected)
+        public UserLoader(
+            FlowLayoutPanel flpAdmin,
+            FlowLayoutPanel flpAssistant,
+            Action<int, string, string, string> onUserSelected)
         {
             _flpAdmin = flpAdmin;
             _flpAssistant = flpAssistant;
             _onUserSelected = onUserSelected;
         }
-     
+
         public void LoadUsers(bool isDeleteMode = false, List<int> selectedUserIds = null)
         {
             _flpAdmin.Controls.Clear();
@@ -33,7 +36,7 @@ namespace SwineSyncc.DynamicButtonLoader
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
                 conn.Open();
-                string query = "SELECT UserID, Username, Role FROM Users";
+                string query = "SELECT UserID, Username, Password, Role FROM Users";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -42,7 +45,8 @@ namespace SwineSyncc.DynamicButtonLoader
                     {
                         int id = reader.GetInt32(0);
                         string username = reader.GetString(1);
-                        string role = reader.GetString(2);
+                        string password = reader.GetString(2);
+                        string role = reader.GetString(3);
 
                         Button btn = new Button
                         {
@@ -78,7 +82,7 @@ namespace SwineSyncc.DynamicButtonLoader
                         
                         btn.Click += (s, e) =>
                         {
-                            _onUserSelected?.Invoke(id);
+                            _onUserSelected?.Invoke(id, username, password, role);
                         };
 
                         if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))

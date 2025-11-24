@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using SwineSyncc.Data;
 using SwineSyncc.DynamicButtonLoader;
 using SwineSyncc.Navigation.User_Management;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SwineSyncc.Navigation
 {
@@ -39,7 +40,7 @@ namespace SwineSyncc.Navigation
             LoadUserButtons();
         }
      
-        private void OnUserSelected(int userId)
+        private void OnUserSelected(int userId, string username, string password, string role)
         {
             if (_isDeleteMode)
             {              

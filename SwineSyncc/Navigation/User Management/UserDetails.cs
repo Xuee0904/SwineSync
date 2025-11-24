@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using SwineSyncc.Data;
@@ -24,7 +25,10 @@ namespace SwineSyncc.Navigation.User_Management
         {
             InitializeComponent();
             _mainPanel = mainPanel;
-        
+            RoundedPanelStyle.ApplyRoundedCorners(userDetailsPanel, 20);
+            userDetailsPanel.BackColor = System.Drawing.Color.FromArgb(217, 221, 220);
+            this.Padding = new Padding(40);
+
             this.Dock = DockStyle.Fill;
 
             btnCancel.Visible = false;
@@ -52,7 +56,21 @@ namespace SwineSyncc.Navigation.User_Management
             txtUsername.Text = username;
             txtPassword.Text = password;
             cmbRole.SelectedItem = role;
+
+            LoadUserActivityLog();
         }
+
+        private void LoadUserActivityLog()
+        {
+            if (_userId <= 0)
+                return;
+
+            DataTable logs = ActivityLogger.GetLogsByUser(_userId);
+            dgvActivityLog.DataSource = logs;
+           
+            dgvActivityLog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
 
         private void userDetailsBackBtn_Click(object sender, EventArgs e)
         {        
@@ -138,6 +156,11 @@ namespace SwineSyncc.Navigation.User_Management
             cmbRole.SelectedItem = _originalRole;
 
             ExitEditMode();
+        }
+
+        private void userDetailsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
