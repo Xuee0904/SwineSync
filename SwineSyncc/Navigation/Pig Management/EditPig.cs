@@ -20,33 +20,7 @@ namespace SwineSyncc.Navigation.Pig_Management
             RoundedPanelStyle.ApplyRoundedCorners(editPigPanel, 20);
 
             this.BackColor = Color.WhiteSmoke;
-            editPigPanel.BackColor = Color.FromArgb(217, 221, 220);
-
-            editComboBreed.Items.Add("Large White");
-            editComboBreed.Items.Add("Landrace");
-            editComboBreed.Items.Add("Duroc");
-            editComboBreed.Items.Add("Pietrain");
-            editComboBreed.Items.Add("Hampshire");
-            editComboBreed.Items.Add("Berkshire");
-            editComboBreed.Items.Add("Tamworth");
-            editComboBreed.Items.Add("Chester White");
-            editComboBreed.Items.Add("Yorkshire");
-            editComboBreed.Items.Add("Hereford");
-            editComboBreed.Items.Add("Mangalitsa");
-            editComboBreed.Items.Add("Kunekune");
-            editComboBreed.Items.Add("Pot-bellied Pig");
-
-
-            editComboStatus.Items.Add("Alive");
-            editComboStatus.Items.Add("For Breeding");
-            editComboStatus.Items.Add("Gestating (Pregnant)");
-            editComboStatus.Items.Add("Lactating");
-            editComboStatus.Items.Add("Weaned");
-            editComboStatus.Items.Add("Sold");
-            editComboStatus.Items.Add("Slaughtered");
-            editComboStatus.Items.Add("Dead");
-            editComboStatus.Items.Add("Sick");
-            editComboStatus.Items.Add("Quarantined");
+            editPigPanel.BackColor = Color.FromArgb(217, 221, 220);                     
         }
 
         public void LoadPigData(Pig pig)
@@ -181,6 +155,11 @@ namespace SwineSyncc.Navigation.Pig_Management
             editDtPicker.Value = DateTime.Now;
             editWeightTxt.Clear();
             editComboStatus.SelectedIndex = -1;
+        }
+
+        private void editComboStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

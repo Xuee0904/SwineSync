@@ -139,12 +139,10 @@
             this.comboStatus.Items.AddRange(new object[] {
             "Alive",
             "For Breeding",
-            "Gestating (Pregnant)",
-            "Lactating",
             "Weaned",
             "Sold",
             "Slaughtered",
-            "Dead",
+            "Deceased",
             "Sick",
             "Quarantined"});
             this.comboStatus.Location = new System.Drawing.Point(53, 354);
@@ -164,8 +162,8 @@
             "Hampshire",
             "Hereford",
             "Kunekune",
-            "Large White",
             "Landrace",
+            "Large White",
             "Mangalista",
             "Pietrain",
             "Pot-bellied Pig",

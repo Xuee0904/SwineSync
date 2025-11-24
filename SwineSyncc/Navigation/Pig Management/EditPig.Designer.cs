@@ -31,9 +31,6 @@
             this.editPigPanel = new System.Windows.Forms.Panel();
             this.editRbFemale = new System.Windows.Forms.RadioButton();
             this.editRbMale = new System.Windows.Forms.RadioButton();
-            this.editCancelBtn = new BorderRoundedButton();
-            this.editClearBtn = new BorderRoundedButton();
-            this.editSaveBtn = new RoundedButton();
             this.registerpiglbl = new System.Windows.Forms.Label();
             this.statuslbl = new System.Windows.Forms.Label();
             this.editComboStatus = new System.Windows.Forms.ComboBox();
@@ -46,6 +43,9 @@
             this.breedlbl = new System.Windows.Forms.Label();
             this.editNameTxt = new System.Windows.Forms.TextBox();
             this.pignamelabel = new System.Windows.Forms.Label();
+            this.editCancelBtn = new BorderRoundedButton();
+            this.editClearBtn = new BorderRoundedButton();
+            this.editSaveBtn = new RoundedButton();
             this.editPigPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,57 +100,6 @@
             this.editRbMale.Text = "Male";
             this.editRbMale.UseVisualStyleBackColor = true;
             // 
-            // editCancelBtn
-            // 
-            this.editCancelBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editCancelBtn.BorderRadious = 9;
-            this.editCancelBtn.BorderThickness = 3;
-            this.editCancelBtn.FlatAppearance.BorderSize = 0;
-            this.editCancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editCancelBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editCancelBtn.Location = new System.Drawing.Point(760, 604);
-            this.editCancelBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.editCancelBtn.Name = "editCancelBtn";
-            this.editCancelBtn.Size = new System.Drawing.Size(168, 55);
-            this.editCancelBtn.TabIndex = 51;
-            this.editCancelBtn.Text = "Cancel";
-            this.editCancelBtn.UseVisualStyleBackColor = true;
-            this.editCancelBtn.Click += new System.EventHandler(this.editCancelBtn_Click);
-            // 
-            // editClearBtn
-            // 
-            this.editClearBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editClearBtn.BorderRadious = 9;
-            this.editClearBtn.BorderThickness = 3;
-            this.editClearBtn.FlatAppearance.BorderSize = 0;
-            this.editClearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editClearBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editClearBtn.Location = new System.Drawing.Point(584, 604);
-            this.editClearBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.editClearBtn.Name = "editClearBtn";
-            this.editClearBtn.Size = new System.Drawing.Size(168, 55);
-            this.editClearBtn.TabIndex = 50;
-            this.editClearBtn.Text = "Clear";
-            this.editClearBtn.UseVisualStyleBackColor = true;
-            this.editClearBtn.Click += new System.EventHandler(this.editClearBtn_Click);
-            // 
-            // editSaveBtn
-            // 
-            this.editSaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editSaveBtn.BorderRadious = 9;
-            this.editSaveBtn.FlatAppearance.BorderSize = 0;
-            this.editSaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editSaveBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editSaveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.editSaveBtn.Location = new System.Drawing.Point(935, 604);
-            this.editSaveBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.editSaveBtn.Name = "editSaveBtn";
-            this.editSaveBtn.Size = new System.Drawing.Size(168, 55);
-            this.editSaveBtn.TabIndex = 49;
-            this.editSaveBtn.Text = "Save";
-            this.editSaveBtn.UseVisualStyleBackColor = false;
-            this.editSaveBtn.Click += new System.EventHandler(this.editSaveBtn_Click);
-            // 
             // registerpiglbl
             // 
             this.registerpiglbl.AutoSize = true;
@@ -176,16 +125,41 @@
             // 
             this.editComboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editComboStatus.FormattingEnabled = true;
+            this.editComboStatus.Items.AddRange(new object[] {
+            "Alive",
+            "For Breeding",
+            "Gestating (Pregnant)",
+            "Lactating",
+            "Sold",
+            "Slaughtered",
+            "Dead",
+            "Sick",
+            "Quarantined"});
             this.editComboStatus.Location = new System.Drawing.Point(584, 441);
             this.editComboStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editComboStatus.Name = "editComboStatus";
             this.editComboStatus.Size = new System.Drawing.Size(517, 38);
             this.editComboStatus.TabIndex = 46;
+            this.editComboStatus.SelectedIndexChanged += new System.EventHandler(this.editComboStatus_SelectedIndexChanged);
             // 
             // editComboBreed
             // 
             this.editComboBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editComboBreed.FormattingEnabled = true;
+            this.editComboBreed.Items.AddRange(new object[] {
+            "Berkshire",
+            "Chester White",
+            "Duroc",
+            "Hampshire",
+            "Hereford",
+            "Kunekune",
+            "Landrace",
+            "Large White",
+            "Mangalista",
+            "Pietrain",
+            "Pot-bellied Pig",
+            "Tamworth",
+            "Yorkshire"});
             this.editComboBreed.Location = new System.Drawing.Point(36, 309);
             this.editComboBreed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editComboBreed.Name = "editComboBreed";
@@ -268,6 +242,57 @@
             this.pignamelabel.Size = new System.Drawing.Size(157, 41);
             this.pignamelabel.TabIndex = 37;
             this.pignamelabel.Text = "Pig name:";
+            // 
+            // editCancelBtn
+            // 
+            this.editCancelBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.editCancelBtn.BorderRadious = 9;
+            this.editCancelBtn.BorderThickness = 3;
+            this.editCancelBtn.FlatAppearance.BorderSize = 0;
+            this.editCancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editCancelBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editCancelBtn.Location = new System.Drawing.Point(760, 604);
+            this.editCancelBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.editCancelBtn.Name = "editCancelBtn";
+            this.editCancelBtn.Size = new System.Drawing.Size(168, 55);
+            this.editCancelBtn.TabIndex = 51;
+            this.editCancelBtn.Text = "Cancel";
+            this.editCancelBtn.UseVisualStyleBackColor = true;
+            this.editCancelBtn.Click += new System.EventHandler(this.editCancelBtn_Click);
+            // 
+            // editClearBtn
+            // 
+            this.editClearBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.editClearBtn.BorderRadious = 9;
+            this.editClearBtn.BorderThickness = 3;
+            this.editClearBtn.FlatAppearance.BorderSize = 0;
+            this.editClearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editClearBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editClearBtn.Location = new System.Drawing.Point(584, 604);
+            this.editClearBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.editClearBtn.Name = "editClearBtn";
+            this.editClearBtn.Size = new System.Drawing.Size(168, 55);
+            this.editClearBtn.TabIndex = 50;
+            this.editClearBtn.Text = "Clear";
+            this.editClearBtn.UseVisualStyleBackColor = true;
+            this.editClearBtn.Click += new System.EventHandler(this.editClearBtn_Click);
+            // 
+            // editSaveBtn
+            // 
+            this.editSaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.editSaveBtn.BorderRadious = 9;
+            this.editSaveBtn.FlatAppearance.BorderSize = 0;
+            this.editSaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editSaveBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editSaveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.editSaveBtn.Location = new System.Drawing.Point(935, 604);
+            this.editSaveBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.editSaveBtn.Name = "editSaveBtn";
+            this.editSaveBtn.Size = new System.Drawing.Size(168, 55);
+            this.editSaveBtn.TabIndex = 49;
+            this.editSaveBtn.Text = "Save";
+            this.editSaveBtn.UseVisualStyleBackColor = false;
+            this.editSaveBtn.Click += new System.EventHandler(this.editSaveBtn_Click);
             // 
             // EditPig
             // 

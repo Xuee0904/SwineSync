@@ -175,6 +175,17 @@
             // 
             this.editPigletStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editPigletStatus.FormattingEnabled = true;
+            this.editPigletStatus.Items.AddRange(new object[] {
+            "Alive",
+            "Suckling",
+            "Weaned",
+            "Grower",
+            "Finisher",
+            "Sold",
+            "Slaughtered",
+            "Deceased",
+            "Sick",
+            "Quarantined"});
             this.editPigletStatus.Location = new System.Drawing.Point(590, 447);
             this.editPigletStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigletStatus.Name = "editPigletStatus";
@@ -185,6 +196,20 @@
             // 
             this.editPigletBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editPigletBreed.FormattingEnabled = true;
+            this.editPigletBreed.Items.AddRange(new object[] {
+            "Berkshire",
+            "Chester White",
+            "Duroc",
+            "Hampshire",
+            "Hereford",
+            "Kunekune",
+            "Landrace",
+            "Large White",
+            "Mangalista",
+            "Pietrain",
+            "Pot-bellied Pig",
+            "Tamworth",
+            "Yorkshire"});
             this.editPigletBreed.Location = new System.Drawing.Point(42, 315);
             this.editPigletBreed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigletBreed.Name = "editPigletBreed";

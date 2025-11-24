@@ -175,6 +175,26 @@
             // 
             this.comboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.FormattingEnabled = true;
+            this.comboStatus.Items.AddRange(new object[] {
+            "Alive",
+            "",
+            "Suckling",
+            "",
+            "Weaned",
+            "",
+            "Grower",
+            "",
+            "Finisher",
+            "",
+            "Sold",
+            "",
+            "Slaughtered",
+            "",
+            "Deceased",
+            "",
+            "Sick",
+            "",
+            "Quarantined"});
             this.comboStatus.Location = new System.Drawing.Point(617, 468);
             this.comboStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboStatus.Name = "comboStatus";
@@ -185,6 +205,20 @@
             // 
             this.comboBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBreed.FormattingEnabled = true;
+            this.comboBreed.Items.AddRange(new object[] {
+            "Berkshire",
+            "Chester White",
+            "Duroc",
+            "Hampshire",
+            "Hereford",
+            "Kunekune",
+            "Landrace",
+            "Large White",
+            "Mangalista",
+            "Pietrain",
+            "Pot-bellied Pig",
+            "Tamworth",
+            "Yorkshire"});
             this.comboBreed.Location = new System.Drawing.Point(69, 336);
             this.comboBreed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBreed.Name = "comboBreed";

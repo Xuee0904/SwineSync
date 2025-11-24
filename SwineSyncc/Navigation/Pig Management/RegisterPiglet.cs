@@ -23,34 +23,7 @@ namespace SwineSyncc
             RoundedPanelStyle.ApplyRoundedCorners(registerPigletPanel, 15);
             
             this.BackColor = Color.WhiteSmoke;
-            registerPigletPanel.BackColor = Color.FromArgb(217, 221, 220);
-
-            comboBreed.Items.Add("Large White");
-            comboBreed.Items.Add("Landrace");
-            comboBreed.Items.Add("Duroc");
-            comboBreed.Items.Add("Pietrain");
-            comboBreed.Items.Add("Hampshire");
-            comboBreed.Items.Add("Berkshire");
-            comboBreed.Items.Add("Tamworth");
-            comboBreed.Items.Add("Chester White");
-            comboBreed.Items.Add("Yorkshire");
-            comboBreed.Items.Add("Hereford");
-            comboBreed.Items.Add("Mangalitsa");
-            comboBreed.Items.Add("Kunekune");
-            comboBreed.Items.Add("Pot-bellied Pig");
-
-
-            comboStatus.Items.Add("Alive");
-            comboStatus.Items.Add("For Breeding");
-            comboStatus.Items.Add("Gestating (Pregnant)");
-            comboStatus.Items.Add("Lactating");
-            comboStatus.Items.Add("Weaned");
-            comboStatus.Items.Add("Sold");
-            comboStatus.Items.Add("Slaughtered");
-            comboStatus.Items.Add("Dead");
-            comboStatus.Items.Add("Sick");
-            comboStatus.Items.Add("Quarantined");
-
+            registerPigletPanel.BackColor = Color.FromArgb(217, 221, 220);          
         }
 
         private void savebtn_Click(object sender, EventArgs e)
