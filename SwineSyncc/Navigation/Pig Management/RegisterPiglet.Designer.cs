@@ -177,23 +177,14 @@
             this.comboStatus.FormattingEnabled = true;
             this.comboStatus.Items.AddRange(new object[] {
             "Alive",
-            "",
             "Suckling",
-            "",
             "Weaned",
-            "",
             "Grower",
-            "",
             "Finisher",
-            "",
             "Sold",
-            "",
             "Slaughtered",
-            "",
             "Deceased",
-            "",
             "Sick",
-            "",
             "Quarantined"});
             this.comboStatus.Location = new System.Drawing.Point(617, 468);
             this.comboStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
