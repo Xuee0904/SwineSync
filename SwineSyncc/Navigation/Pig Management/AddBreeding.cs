@@ -112,6 +112,15 @@ namespace SwineSyncc.Navigation.Pig_Management
             }
         }
 
+        private void ClearFields()
+        {
+            comboSow.SelectedIndex = -1;
+            comboBoar.SelectedIndex = -1;
+            dtBreeding.Value = DateTime.Now;
+            comboMethod.SelectedIndex = -1;
+            comboResult.SelectedIndex = -1;
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -124,7 +133,7 @@ namespace SwineSyncc.Navigation.Pig_Management
 
         private void clearbtn_Click(object sender, EventArgs e)
         {
-
+            ClearFields();
         }
 
         private void savebtn_Click(object sender, EventArgs e)
