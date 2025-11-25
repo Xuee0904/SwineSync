@@ -148,10 +148,19 @@ namespace SwineSyncc
             if (_breedingUC == null)
             {
                 _breedingUC = new BreedingRecords();
+
+                _breedingUC.AddBreedingRecordClicked += (s, e) => LoadAddBreeding();
             }
             ShowUserControl(_breedingUC);
         }
-    
+
+        public void LoadAddBreeding()
+        {
+            AddBreeding addBreeding = new AddBreeding();
+ 
+            ShowUserControl(addBreeding);
+        }
+
         public void LoadRegisterPiglet(int motherPigId)
         {
             RegisterPiglet registerPiglet = new RegisterPiglet(motherPigId);

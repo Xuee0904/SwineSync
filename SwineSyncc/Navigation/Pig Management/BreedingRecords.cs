@@ -12,6 +12,9 @@ namespace SwineSyncc.Navigation.Pig_Management
 {
     public partial class BreedingRecords : UserControl
     {
+
+        public event EventHandler AddBreedingRecordClicked;
+
         public BreedingRecords()
         {
             InitializeComponent();
@@ -23,6 +26,11 @@ namespace SwineSyncc.Navigation.Pig_Management
             displayTable.SetTableQuery("BreedingRecords");
             displayTable.Dock = DockStyle.Fill;
             pnlPregnancyRecords.Controls.Add(displayTable);
+        }
+
+        private void addBreedingBtn_Click(object sender, EventArgs e)
+        {
+            AddBreedingRecordClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

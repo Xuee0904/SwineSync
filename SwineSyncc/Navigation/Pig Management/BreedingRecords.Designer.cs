@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlPregnancyRecords = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.deletePregnancyBtn = new BorderRoundedButton();
-            this.addPregnancyBtn = new BorderRoundedButton();
+            this.addBreedingBtn = new BorderRoundedButton();
             this.editPregnancyBtn = new BorderRoundedButton();
             this.lblBreedingRecords = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -41,7 +41,7 @@
             // 
             this.panel1.Controls.Add(this.pnlPregnancyRecords);
             this.panel1.Controls.Add(this.deletePregnancyBtn);
-            this.panel1.Controls.Add(this.addPregnancyBtn);
+            this.panel1.Controls.Add(this.addBreedingBtn);
             this.panel1.Controls.Add(this.editPregnancyBtn);
             this.panel1.Controls.Add(this.lblBreedingRecords);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -80,23 +80,24 @@
             this.deletePregnancyBtn.Text = "Delete breeding";
             this.deletePregnancyBtn.UseVisualStyleBackColor = true;
             // 
-            // addPregnancyBtn
+            // addBreedingBtn
             // 
-            this.addPregnancyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.addPregnancyBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.addPregnancyBtn.BorderRadious = 9;
-            this.addPregnancyBtn.BorderThickness = 3;
-            this.addPregnancyBtn.FlatAppearance.BorderSize = 0;
-            this.addPregnancyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addPregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.addPregnancyBtn.Location = new System.Drawing.Point(821, 626);
-            this.addPregnancyBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.addPregnancyBtn.Name = "addPregnancyBtn";
-            this.addPregnancyBtn.Size = new System.Drawing.Size(138, 45);
-            this.addPregnancyBtn.TabIndex = 16;
-            this.addPregnancyBtn.Text = "Add breeding";
-            this.addPregnancyBtn.UseVisualStyleBackColor = false;
+            this.addBreedingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.addBreedingBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.addBreedingBtn.BorderRadious = 9;
+            this.addBreedingBtn.BorderThickness = 3;
+            this.addBreedingBtn.FlatAppearance.BorderSize = 0;
+            this.addBreedingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addBreedingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBreedingBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.addBreedingBtn.Location = new System.Drawing.Point(821, 626);
+            this.addBreedingBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.addBreedingBtn.Name = "addBreedingBtn";
+            this.addBreedingBtn.Size = new System.Drawing.Size(138, 45);
+            this.addBreedingBtn.TabIndex = 16;
+            this.addBreedingBtn.Text = "Add breeding";
+            this.addBreedingBtn.UseVisualStyleBackColor = false;
+            this.addBreedingBtn.Click += new System.EventHandler(this.addBreedingBtn_Click);
             // 
             // editPregnancyBtn
             // 
@@ -146,7 +147,7 @@
         private System.Windows.Forms.Panel panel1;
         private CustomUIElements.Gradient_RoundedPanel pnlPregnancyRecords;
         private BorderRoundedButton deletePregnancyBtn;
-        private BorderRoundedButton addPregnancyBtn;
+        private BorderRoundedButton addBreedingBtn;
         private BorderRoundedButton editPregnancyBtn;
         private System.Windows.Forms.Label lblBreedingRecords;
     }
