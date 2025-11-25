@@ -15,6 +15,10 @@ namespace SwineSyncc.Navigation.Pig_Management
 {
     public partial class AddBreeding : UserControl
     {
+
+        public event EventHandler SaveCompleted;
+        public event EventHandler CancelClicked;
+
         public AddBreeding()
         {
             InitializeComponent();
@@ -128,7 +132,7 @@ namespace SwineSyncc.Navigation.Pig_Management
 
         private void cancelbtn_Click(object sender, EventArgs e)
         {
-
+            CancelClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void clearbtn_Click(object sender, EventArgs e)

@@ -157,7 +157,9 @@ namespace SwineSyncc
         public void LoadAddBreeding()
         {
             AddBreeding addBreeding = new AddBreeding();
- 
+
+            addBreeding.CancelClicked += (s, e) => ShowUserControl(_breedingUC);
+
             ShowUserControl(addBreeding);
         }
 
