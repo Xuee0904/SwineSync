@@ -193,12 +193,15 @@ namespace SwineSyncc.Navigation
                 DataGridViewColumn checkCol = dataGridView1.Columns.Contains("CheckCol") ? dataGridView1.Columns["CheckCol"] : null;
                 var dataCols = visibleCols.Where(c => c != checkCol).ToList();
 
-                // Compute available width (client width minus row header and vertical scrollbar)
+                // Compute available width (client width minus row header)
                 int clientWidth = dataGridView1.ClientSize.Width;
                 int leftOffset = dataGridView1.RowHeadersVisible ? dataGridView1.RowHeadersWidth : 0;
                 clientWidth -= leftOffset;
 
-                bool vScrollVisible = dataGridView1.Controls.OfType<VScrollBar>().Any(v => v.Visible);
+                // If vertical scrollbar will be visible, subtract its width.
+                // Use a conservative check: if the vertical scrollbar control is visible OR rows exceed client height.
+                bool vScrollVisible = dataGridView1.Controls.OfType<VScrollBar>().Any(v => v.Visible)
+                                      || (dataGridView1.Rows.Count * dataGridView1.RowTemplate.Height) > dataGridView1.ClientSize.Height;
                 if (vScrollVisible) clientWidth -= SystemInformation.VerticalScrollBarWidth;
 
                 const int totalHorizontalPadding = 8;
@@ -207,10 +210,10 @@ namespace SwineSyncc.Navigation
 
                 const int maxAutoColumns = 7;
                 const int fixedColumnWidth = 140;
-                const int minColumnWidth = 100; // raise min to avoid squashed headers
+                const int minColumnWidth = 100; // keep your preferred minimum
                 const int checkboxWidth = 36;
 
-                // Ensure checkbox column fixed width
+                // Ensure checkbox column fixed width and not part of Fill distribution
                 if (checkCol != null)
                 {
                     checkCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -231,28 +234,44 @@ namespace SwineSyncc.Navigation
                         int availableForData = clientWidth - (checkCol != null ? checkCol.Width : 0);
                         availableForData = Math.Max(0, availableForData);
 
-                        // Compute base width and ensure minimum
+                        // Compute base width (respect minimum)
                         int baseWidth = Math.Max(minColumnWidth, availableForData / dataCols.Count);
 
-                        foreach (var col in dataCols)
+                        // Assign base width to all but the last column
+                        for (int i = 0; i < dataCols.Count; i++)
                         {
+                            var col = dataCols[i];
                             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                             col.MinimumWidth = Math.Max(minColumnWidth, col.MinimumWidth);
+
+                            // For now set width to baseWidth; we'll let the last column absorb remainder
                             col.Width = baseWidth;
                         }
 
-                        // If used width is less than clientWidth, expand the last data column to absorb remainder
+                        // Compute used width and remainder
                         int used = dataCols.Sum(c => c.Width) + (checkCol != null ? checkCol.Width : 0);
                         int remainder = clientWidth - used;
+
                         if (remainder > 0)
                         {
-                            dataCols.Last().Width += remainder;
+                            // Give remainder to the last data column but also set it to Fill so it absorbs any tiny future gaps
+                            var last = dataCols.Last();
+                            last.Width = Math.Max(last.MinimumWidth, last.Width + remainder);
+                            last.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                         else if (remainder < 0)
                         {
-                            // If we overshot (rare), shrink last column but not below minimum
-                            int shrink = Math.Min(dataCols.Last().Width - dataCols.Last().MinimumWidth, -remainder);
-                            if (shrink > 0) dataCols.Last().Width -= shrink;
+                            // If we overshot, shrink the last column but not below minimum
+                            var last = dataCols.Last();
+                            int shrink = Math.Min(last.Width - last.MinimumWidth, -remainder);
+                            if (shrink > 0) last.Width -= shrink;
+                            // Ensure last column can still fill any tiny remaining gap
+                            last.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        }
+                        else
+                        {
+                            // Exactly fits: still set last column to Fill so it absorbs any small future changes
+                            dataCols.Last().AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                     }
                     else
@@ -264,12 +283,19 @@ namespace SwineSyncc.Navigation
                             col.Width = Math.Max(fixedColumnWidth, minColumnWidth);
                         }
 
-                        // If total width still less than clientWidth, expand the last data column
+                        // If total width still less than clientWidth, expand the last data column and set it to Fill
                         int used = dataCols.Sum(c => c.Width) + (checkCol != null ? checkCol.Width : 0);
                         int remainder = clientWidth - used;
                         if (remainder > 0 && dataCols.Count > 0)
                         {
-                            dataCols.Last().Width += remainder;
+                            var last = dataCols.Last();
+                            last.Width = Math.Max(last.MinimumWidth, last.Width + remainder);
+                            last.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        }
+                        else if (dataCols.Count > 0)
+                        {
+                            // Ensure last column is Fill to absorb tiny gaps
+                            dataCols.Last().AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                     }
                 }
@@ -287,7 +313,7 @@ namespace SwineSyncc.Navigation
                     checkCol.HeaderCell.Style.Padding = new Padding(4, 0, 4, 0);
                 }
 
-                // Schedule a small refresh after the event stack unwinds to avoid reentry
+                // Small refresh after the event stack unwinds to avoid reentry
                 dataGridView1.BeginInvoke((Action)(() => dataGridView1.Invalidate()));
             }
             catch (Exception ex)
@@ -299,6 +325,7 @@ namespace SwineSyncc.Navigation
                 _isAdjustingColumns = false;
             }
         }
+
 
 
         #endregion
