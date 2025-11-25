@@ -156,6 +156,12 @@ namespace SwineSyncc.Navigation
                     foreach (int id in _selectedPigletIds)
                     {
                         repo.SafeDeletePiglet(id);
+
+                        ActivityLogger.Log(
+                            "Delete Piglet",
+                            $"Piglet ID {id} from Mother Pig ID {_motherPigId} was deleted."
+                        );
+
                     }
 
                     MessageBox.Show("Piglet deletion successful!");

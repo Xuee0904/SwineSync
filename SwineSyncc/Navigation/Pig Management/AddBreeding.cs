@@ -181,7 +181,9 @@ namespace SwineSyncc.Navigation.Pig_Management
             }
         }
 
+        private void comboSow_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
