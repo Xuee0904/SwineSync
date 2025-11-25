@@ -50,11 +50,12 @@ namespace SwineSyncc.Navigation.User_Management
             _originalRole = role;
 
             lblUsername.Text = username;
-            lblPassword.Text = password;
+            lblPassword.Text = "********";
             lblRole.Text = role;
 
             txtUsername.Text = username;
             txtPassword.Text = password;
+            txtPassword.PasswordChar = '*';
             cmbRole.SelectedItem = role;
 
             LoadUserActivityLog();
@@ -109,7 +110,7 @@ namespace SwineSyncc.Navigation.User_Management
                 _originalRole = newRole;
 
                 lblUsername.Text = newUsername;
-                lblPassword.Text = newPassword;
+                lblPassword.Text = "********";
                 lblRole.Text = newRole;
 
                 ExitEditMode();
@@ -135,6 +136,7 @@ namespace SwineSyncc.Navigation.User_Management
 
             txtUsername.Visible = true;
             txtPassword.Visible = true;
+            txtPassword.PasswordChar = '*';
             cmbRole.Visible = true;
         }
 
@@ -147,6 +149,8 @@ namespace SwineSyncc.Navigation.User_Management
             lblUsername.Visible = true;
             lblPassword.Visible = true;
             lblRole.Visible = true;
+
+            lblPassword.Text = "********";
 
             txtUsername.Visible = false;
             txtPassword.Visible = false;
