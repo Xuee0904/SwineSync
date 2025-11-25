@@ -5,9 +5,10 @@ using System.Windows.Forms;
 
 public class BorderRoundedButton : Button
 {
+
     private int borderRadious = 9; // Default radius
     private Color borderColor = ColorTranslator.FromHtml("#58483C"); // Border color
-    private int borderThickness = 2; // Border thickness
+    private int borderThickness = 3; // Border thickness
 
     public int BorderRadious
     {
@@ -33,64 +34,30 @@ public class BorderRoundedButton : Button
         this.FlatAppearance.BorderSize = 0;
     }
 
-    // New method to get a GraphicsPath with specific rounded corners
-    private GraphicsPath GetSpecificRoundedPath(Rectangle rect, int radius, bool topLeft, bool topRight, bool bottomRight, bool bottomLeft)
+    private GraphicsPath GetRoundedPath(Rectangle rect, int radius)
     {
         GraphicsPath path = new GraphicsPath();
 
-        // Clamp radius to prevent drawing issues if it's too large
         if (radius > rect.Width / 2) radius = rect.Width / 2;
         if (radius > rect.Height / 2) radius = rect.Height / 2;
 
         int diameter = radius * 2;
         Rectangle arc = new Rectangle(rect.Location, new Size(diameter, diameter));
 
-        // Top Left Corner
-        if (topLeft)
-        {
-            path.AddArc(arc, 180, 90);
-        }
-        else
-        {
-            path.AddLine(rect.Left, rect.Top + diameter, rect.Left, rect.Top);
-            path.AddLine(rect.Left, rect.Top, rect.Left + diameter, rect.Top);
-        }
+        // Top Left
+        path.AddArc(arc, 180, 90);
 
-        // Top Right Corner
+        // Top Right
         arc.X = rect.Right - diameter;
-        if (topRight)
-        {
-            path.AddArc(arc, 270, 90);
-        }
-        else
-        {
-            path.AddLine(rect.Right - diameter, rect.Top, rect.Right, rect.Top);
-            path.AddLine(rect.Right, rect.Top, rect.Right, rect.Top + diameter);
-        }
+        path.AddArc(arc, 270, 90);
 
-        // Bottom Right Corner
+        // Bottom Right
         arc.Y = rect.Bottom - diameter;
-        if (bottomRight)
-        {
-            path.AddArc(arc, 0, 90);
-        }
-        else
-        {
-            path.AddLine(rect.Right, rect.Bottom - diameter, rect.Right, rect.Bottom);
-            path.AddLine(rect.Right, rect.Bottom, rect.Right - diameter, rect.Bottom);
-        }
+        path.AddArc(arc, 0, 90);
 
-        // Bottom Left Corner
+        // Bottom Left
         arc.X = rect.Left;
-        if (bottomLeft)
-        {
-            path.AddArc(arc, 90, 90);
-        }
-        else
-        {
-            path.AddLine(rect.Left + diameter, rect.Bottom, rect.Left, rect.Bottom);
-            path.AddLine(rect.Left, rect.Bottom, rect.Left, rect.Bottom - diameter);
-        }
+        path.AddArc(arc, 90, 90);
 
         path.CloseFigure();
         return path;
@@ -102,8 +69,7 @@ public class BorderRoundedButton : Button
         pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
         Rectangle rect = this.ClientRectangle;
 
-        // Use the new method to round ONLY the top-left and bottom-left corners
-        using (GraphicsPath buttonPath = GetSpecificRoundedPath(rect, borderRadious, true, false, false, true))
+        using (GraphicsPath buttonPath = GetRoundedPath(rect, borderRadious))
         {
             this.Region = new Region(buttonPath);
 
@@ -114,18 +80,17 @@ public class BorderRoundedButton : Button
 
             Rectangle borderRect = rect;
 
-            // Inflat the border rectangle inwards by half the border thickness
             borderRect.Inflate(-borderThickness / 2, -borderThickness / 2);
 
-            // Use the new method for the border as well
-            using (GraphicsPath borderPath = GetSpecificRoundedPath(borderRect, borderRadious, true, false, false, true))
+            using (GraphicsPath borderPath = GetRoundedPath(borderRect, borderRadious))
+
             using (Pen borderPen = new Pen(borderColor, borderThickness))
             {
                 pevent.Graphics.DrawPath(borderPen, borderPath);
             }
         }
 
-        // Draw the text
+
         TextRenderer.DrawText(
             pevent.Graphics,
             this.Text,
@@ -134,5 +99,7 @@ public class BorderRoundedButton : Button
             this.ForeColor,
             TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak
         );
+
+
     }
 }
