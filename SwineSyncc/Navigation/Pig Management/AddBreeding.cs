@@ -65,7 +65,7 @@ namespace SwineSyncc.Navigation.Pig_Management
 
                         while (reader.Read())
                         {
-                            comboSow.Items.Add(new MotherPig
+                            comboSow.Items.Add(new SowName
                             {
                                 PigID = reader.GetInt32(reader.GetOrdinal("PigID")),
                                 Name = reader["Name"].ToString()
@@ -76,7 +76,7 @@ namespace SwineSyncc.Navigation.Pig_Management
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error laoding data: " + ex.Message);
+                        MessageBox.Show("Error lding data: " + ex.Message);
                     }
                 }
             }
@@ -99,7 +99,7 @@ namespace SwineSyncc.Navigation.Pig_Management
 
                         while (reader.Read())
                         {
-                            comboBoar.Items.Add(new MotherPig
+                            comboBoar.Items.Add(new BoarName
                             {
                                 PigID = reader.GetInt32(reader.GetOrdinal("PigID")),
                                 Name = reader["Name"].ToString()
@@ -110,7 +110,7 @@ namespace SwineSyncc.Navigation.Pig_Management
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error laoding data: " + ex.Message);
+                        MessageBox.Show("Error loading data: " + ex.Message);
                     }
                 }
             }
@@ -142,7 +142,46 @@ namespace SwineSyncc.Navigation.Pig_Management
 
         private void savebtn_Click(object sender, EventArgs e)
         {
+            SowName selectedSow = comboSow.SelectedItem as SowName;
+            BoarName selectedBoar = comboBoar.SelectedItem as BoarName;
+            int sowPigId = selectedSow.PigID;
+            int boarPigId = selectedBoar.PigID;
+            string method = comboMethod.SelectedItem.ToString();
+            string result = comboResult.SelectedItem.ToString();
+            DateTime breedingDate = dtBreeding.Value;
 
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                string query = @"INSERT INTO BreedingRecords (SowID, BoarID, BreedingDate, BreedingMethod, Result)
+                         VALUES (@SowPigID, @BoarPigID, @BreedingDate, @Method, @Result)";
+                
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                   cmd.Parameters.AddWithValue("@SowPigID", sowPigId);
+                   cmd.Parameters.AddWithValue("@BoarPigID", boarPigId);
+                   cmd.Parameters.AddWithValue("@BreedingDate", breedingDate);
+                   cmd.Parameters.AddWithValue("@Method", method);
+                   cmd.Parameters.AddWithValue("@Result", result);
+
+                    try
+                    {
+                        conn.Open();
+                        int resultExec = cmd.ExecuteNonQuery();
+
+                        ClearFields();
+
+                        SaveCompleted?.Invoke(this, EventArgs.Empty);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Database Error: " + ex.Message, "Error",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
+
+
+
     }
 }
