@@ -442,19 +442,75 @@ namespace SwineSyncc.Navigation
                 Image headerImg = headerState == true ? checkedThumb : (headerState == false ? uncheckedThumb : (indeterminateThumb ?? uncheckedThumb));
                 if (headerImg == null) return;
 
+                // Paint background/borders first
                 e.PaintBackground(e.CellBounds, true);
 
-                var pad = imgCol.HeaderCell?.Style?.Padding ?? Padding.Empty;
-                int padLeft = pad.Left, padRight = pad.Right, padTop = pad.Top, padBottom = pad.Bottom;
+                // Determine the target horizontal center by sampling a visible data cell in the same column.
+                // This ensures header image lines up exactly with the cell images even when scrolling.
+                int sampleRowIndex = -1;
+                // Prefer the first displayed row; fall back to first non-new row
+                if (dataGridView1.FirstDisplayedScrollingRowIndex >= 0)
+                    sampleRowIndex = dataGridView1.FirstDisplayedScrollingRowIndex;
+                if (sampleRowIndex < 0 || sampleRowIndex >= dataGridView1.Rows.Count || dataGridView1.Rows[sampleRowIndex].IsNewRow)
+                {
+                    for (int r = 0; r < dataGridView1.Rows.Count; r++)
+                    {
+                        if (!dataGridView1.Rows[r].IsNewRow)
+                        {
+                            sampleRowIndex = r;
+                            break;
+                        }
+                    }
+                }
 
-                int availW = Math.Max(0, e.CellBounds.Width - (padLeft + padRight) - 4);
+                Rectangle cellRect = Rectangle.Empty;
+                if (sampleRowIndex >= 0)
+                {
+                    // GetCellDisplayRectangle returns coordinates relative to the grid; header e.CellBounds is in same coordinate space
+                    cellRect = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, sampleRowIndex, true);
+                }
+
+                // Use cell padding for horizontal alignment if available
+                var cellPad = imgCol.DefaultCellStyle?.Padding ?? Padding.Empty;
+                int padLeft = cellPad.Left;
+                int padRight = cellPad.Right;
+
+                // Compute available area inside header cell for the image (respect header padding too)
+                var headerPad = imgCol.HeaderCell?.Style?.Padding ?? Padding.Empty;
+                int padTop = Math.Max(cellPad.Top, headerPad.Top);
+                int padBottom = Math.Max(cellPad.Bottom, headerPad.Bottom);
+
+                int availW = Math.Max(0, e.CellBounds.Width - (headerPad.Left + headerPad.Right) - 4);
                 int availH = Math.Max(0, e.CellBounds.Height - (padTop + padBottom) - 4);
 
                 int imgW = Math.Min(headerImg.Width, availW);
                 int imgH = Math.Min(headerImg.Height, availH);
 
-                int x = e.CellBounds.X + padLeft + (availW - imgW) / 2;
-                int y = e.CellBounds.Y + padTop + (availH - imgH) / 2;
+                int x;
+                if (cellRect != Rectangle.Empty && cellRect.Width > 0)
+                {
+                    // Compute the center of the image area inside the sample cell (respecting cell padding)
+                    int cellContentLeft = cellRect.X + padLeft;
+                    int cellContentWidth = Math.Max(0, cellRect.Width - (padLeft + padRight));
+                    int cellCenterX = cellContentLeft + cellContentWidth / 2;
+
+                    // Place header image so its center matches the cell center
+                    x = cellCenterX - (imgW / 2);
+
+                    // Clamp to header bounds so image doesn't draw outside header cell
+                    int minX = e.CellBounds.X + headerPad.Left + 2;
+                    int maxX = e.CellBounds.Right - headerPad.Right - imgW - 2;
+                    if (x < minX) x = minX;
+                    if (x > maxX) x = maxX;
+                }
+                else
+                {
+                    // Fallback: center inside header cell
+                    x = e.CellBounds.X + headerPad.Left + (Math.Max(0, e.CellBounds.Width - (headerPad.Left + headerPad.Right) - imgW) / 2);
+                }
+
+                // Vertical: center within the header cell
+                int y = e.CellBounds.Y + (e.CellBounds.Height - imgH) / 2;
 
                 var g = e.Graphics;
                 var oldMode = g.InterpolationMode;
@@ -470,6 +526,8 @@ namespace SwineSyncc.Navigation
                 // Let default painting proceed if something went wrong
             }
         }
+
+
 
         private void UpdateHeaderImageState()
         {
