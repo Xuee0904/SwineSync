@@ -83,6 +83,16 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap failed_message {
+            get {
+                object obj = ResourceManager.GetObject("failed_message", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Mask_group__3_ {
             get {
                 object obj = ResourceManager.GetObject("Mask group (3)", resourceCulture);
@@ -166,6 +176,16 @@ namespace SwineSyncc.Properties {
         internal static System.Drawing.Bitmap selected_checkbox {
             get {
                 object obj = ResourceManager.GetObject("selected_checkbox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap success_message {
+            get {
+                object obj = ResourceManager.GetObject("success_message", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

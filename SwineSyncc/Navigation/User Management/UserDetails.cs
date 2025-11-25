@@ -69,6 +69,10 @@ namespace SwineSyncc.Navigation.User_Management
             dgvActivityLog.DataSource = logs;
            
             dgvActivityLog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvActivityLog.RowHeadersVisible = false;
+            dgvActivityLog.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dgvActivityLog.RowTemplate.Height = 40;
+            dgvActivityLog.AllowUserToResizeRows = false;
         }
 
 
@@ -159,6 +163,11 @@ namespace SwineSyncc.Navigation.User_Management
         }
 
         private void userDetailsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void UserDetails_Load(object sender, EventArgs e)
         {
 
         }

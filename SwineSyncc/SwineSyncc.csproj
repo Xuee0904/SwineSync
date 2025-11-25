@@ -354,5 +354,11 @@
   <ItemGroup>
     <None Include="Resources\selected_checkbox.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success_message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\failed_message.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

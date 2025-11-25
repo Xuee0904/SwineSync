@@ -83,15 +83,15 @@ namespace SwineSyncc.Navigation
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
                 col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                col.Width = 125;
+                col.Width = 150;
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
             // Wrap handling: check actual column name(s)
-            if (dataGridView1.Columns.Contains("Note"))
+            if (dataGridView1.Columns.Contains("Result"))
             {
-                dataGridView1.Columns["Note"].DefaultCellStyle.WrapMode = DataGridViewTriState.False;
-                dataGridView1.Columns["Note"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dataGridView1.Columns["Result"].DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+                dataGridView1.Columns["Result"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             }
             else if (dataGridView1.Columns.Contains("Notes"))
             {
@@ -105,9 +105,7 @@ namespace SwineSyncc.Navigation
             dataGridView1.ClearSelection();
             dataGridView1.CurrentCell = null;
 
-            // Make header text not wrap and ensure header height fits the font
-            dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            
 
             // Compute a comfortable header height from header font
             using (var g = dataGridView1.CreateGraphics())
@@ -209,7 +207,7 @@ namespace SwineSyncc.Navigation
 
                 const int maxAutoColumns = 7;
                 const int fixedColumnWidth = 140;
-                const int minColumnWidth = 70; // raise min to avoid squashed headers
+                const int minColumnWidth = 100; // raise min to avoid squashed headers
                 const int checkboxWidth = 36;
 
                 // Ensure checkbox column fixed width
