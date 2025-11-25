@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlPregnancyRecords = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.deletePregnancyBtn = new BorderRoundedButton();
             this.addPregnancyBtn = new BorderRoundedButton();
             this.editPregnancyBtn = new BorderRoundedButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.customTextBox1 = new CustomControls.RJControls.CustomTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.customTextBox1);
             this.panel1.Controls.Add(this.pnlPregnancyRecords);
             this.panel1.Controls.Add(this.deletePregnancyBtn);
             this.panel1.Controls.Add(this.addPregnancyBtn);
@@ -50,6 +52,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1003, 720);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label1.Location = new System.Drawing.Point(35, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(259, 31);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Pregnancy records";
             // 
             // pnlPregnancyRecords
             // 
@@ -119,17 +133,28 @@
             this.editPregnancyBtn.UseVisualStyleBackColor = true;
             this.editPregnancyBtn.Click += new System.EventHandler(this.editPregnancyBtn_Click);
             // 
-            // label1
+            // customTextBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(35, 38);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 31);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Pregnancy records";
+            this.customTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(227)))));
+            this.customTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(104)))), ((int)(((byte)(87)))));
+            this.customTextBox1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.customTextBox1.BorderRadius = 0;
+            this.customTextBox1.BorderSize = 2;
+            this.customTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.customTextBox1.Location = new System.Drawing.Point(709, 38);
+            this.customTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.customTextBox1.Multiline = false;
+            this.customTextBox1.Name = "customTextBox1";
+            this.customTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.customTextBox1.PasswordChar = false;
+            this.customTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.customTextBox1.PlaceholderText = "";
+            this.customTextBox1.Size = new System.Drawing.Size(250, 31);
+            this.customTextBox1.TabIndex = 14;
+            this.customTextBox1.Texts = "";
+            this.customTextBox1.UnderlinedStyle = false;
+            this.customTextBox1._TextChanged += new System.EventHandler(this.customTextBox1__TextChanged);
             // 
             // PregnancyRecords
             // 
@@ -154,5 +179,6 @@
         private BorderRoundedButton editPregnancyBtn;
         private System.Windows.Forms.Label label1;
         private CustomUIElements.Gradient_RoundedPanel pnlPregnancyRecords;
+        private CustomControls.RJControls.CustomTextBox customTextBox1;
     }
 }

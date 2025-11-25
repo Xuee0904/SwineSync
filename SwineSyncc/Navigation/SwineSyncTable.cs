@@ -20,6 +20,7 @@ namespace SwineSyncc.Navigation
     {
         string connectionString;
         private string tableQuery;
+        private string filterQuery;
         // per-row animation guard
         private readonly System.Collections.Concurrent.ConcurrentDictionary<int, byte> _animatingRows
             = new System.Collections.Concurrent.ConcurrentDictionary<int, byte>();
@@ -41,6 +42,75 @@ namespace SwineSyncc.Navigation
             // Load data and configure UI once
             LoadTable();
         }
+
+        public void FilterData(string keyword)
+        {
+            if (keyword == null)
+                keyword = ""; // fallback to empty string
+
+            string query = GetSearchQuery(tableQuery);
+            if (string.IsNullOrWhiteSpace(query))
+                return;
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@kw", "%" + keyword + "%");
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable table = new DataTable();
+                        conn.Open();
+                        adapter.Fill(table);
+                        UpdateGrid(table);
+                    }
+                }
+            }
+        }
+
+        private string GetSearchQuery(string tableName)
+        {
+            string query = "";
+
+            if (string.IsNullOrWhiteSpace(tableName))
+                return query;
+
+            if (tableName == "PregnancyRecords")
+            {
+                query = @"
+            SELECT * FROM PregnancyRecords
+            WHERE PregnancyID LIKE @kw OR PregnantPigID LIKE @kw OR BreedingID LIKE @kw
+            OR ConfirmationDate LIKE @kw OR ExpectedFarrowingDate LIKE @kw";
+            }
+            else if (tableName == "BreedingRecords")
+            {
+                query = @"
+            SELECT * FROM BreedingRecords
+            WHERE BreedingID LIKE @kw OR SowID LIKE @kw OR BoarID LIKE @kw
+            OR BreedingMethod LIKE @kw OR ExpectedFarrowingDate LIKE @kw";
+            }
+
+            return query;
+        }
+
+        public void UpdateGrid(DataTable table)
+        {
+            if (table == null || table.Rows.Count == 0)
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear(); // optional: clears visual remnants
+                return;
+            }
+
+            dataGridView1.DataSource = table;
+            dataGridView1.Refresh(); // ensures visual update
+        }
+
+
+
+
+
 
         public void SetTableQuery(string tableName)
         {
