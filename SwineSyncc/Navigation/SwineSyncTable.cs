@@ -19,7 +19,7 @@ namespace SwineSyncc.Navigation
     public partial class SwineSyncTable : UserControl
     {
         string connectionString;
-
+        private string tableQuery;
         // per-row animation guard
         private readonly System.Collections.Concurrent.ConcurrentDictionary<int, byte> _animatingRows
             = new System.Collections.Concurrent.ConcurrentDictionary<int, byte>();
@@ -42,6 +42,16 @@ namespace SwineSyncc.Navigation
             LoadTable();
         }
 
+        public void SetTableQuery(string tableName)
+        {
+            this.tableQuery = "SELECT * FROM " + tableName;
+        }
+
+        public string GetTableQuery()
+        {
+            return this.tableQuery;
+        }
+
         #region Load and initialization
 
         public void LoadTable()
@@ -50,7 +60,7 @@ namespace SwineSyncc.Navigation
             DataTable table = new DataTable();
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
-                string query = "SELECT * FROM PregnancyRecords";
+                string query = GetTableQuery();
                 using (var adapter = new SqlDataAdapter(query, conn))
                 {
                     adapter.Fill(table);

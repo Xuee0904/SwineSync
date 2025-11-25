@@ -11,22 +11,18 @@ using SwineSyncc.Navigation;
 
 namespace SwineSyncc
 {
-    public partial class PregnancyReccords : UserControl
+    public partial class PregnancyRecords : UserControl
     {
-        public PregnancyReccords()
+        public PregnancyRecords()
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void PregnancyReccords_Load(object sender, EventArgs e)
         {
             SwineSyncTable displayTable = new SwineSyncTable();
+            displayTable.SetTableQuery("PregnancyRecords");
             displayTable.Dock = DockStyle.Fill;
             pnlPregnancyRecords.Controls.Add(displayTable);
         }
@@ -44,11 +40,6 @@ namespace SwineSyncc
         private void deletePregnancyBtn_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-           
         }
     }
 }

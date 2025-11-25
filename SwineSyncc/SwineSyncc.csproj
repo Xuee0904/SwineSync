@@ -127,6 +127,12 @@
     <Compile Include="Navigation\Pig Management\AddPiglet.Designer.cs">
       <DependentUpon>AddPiglet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\Pig Management\BreedingRecords.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\Pig Management\BreedingRecords.Designer.cs">
+      <DependentUpon>BreedingRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\Pig Management\EditPig.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,11 +181,11 @@
     <Compile Include="Navigation\Pig Management\PigManagement.Designer.cs">
       <DependentUpon>PigManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\PregnancyReccords.cs">
+    <Compile Include="Navigation\PregnancyRecords.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\PregnancyReccords.Designer.cs">
-      <DependentUpon>PregnancyReccords.cs</DependentUpon>
+    <Compile Include="Navigation\PregnancyRecords.Designer.cs">
+      <DependentUpon>PregnancyRecords.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\User Management\UserDetails.cs">
       <SubType>UserControl</SubType>
@@ -240,6 +246,9 @@
     <EmbeddedResource Include="Navigation\Pig Management\AddPiglet.resx">
       <DependentUpon>AddPiglet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\Pig Management\BreedingRecords.resx">
+      <DependentUpon>BreedingRecords.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\EditPig.resx">
       <DependentUpon>EditPig.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,8 +273,8 @@
     <EmbeddedResource Include="Navigation\Pig Management\PigManagement.resx">
       <DependentUpon>PigManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\PregnancyReccords.resx">
-      <DependentUpon>PregnancyReccords.cs</DependentUpon>
+    <EmbeddedResource Include="Navigation\PregnancyRecords.resx">
+      <DependentUpon>PregnancyRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\User Management\UserDetails.resx">
       <DependentUpon>UserDetails.cs</DependentUpon>

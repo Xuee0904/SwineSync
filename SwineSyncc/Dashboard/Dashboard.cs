@@ -27,6 +27,7 @@ namespace SwineSyncc
             navigationPanel.PigManagementClicked += (s, e) => ucManager.LoadPigManagement();
             navigationPanel.PregnancyRecordsClicked += (s, e) => ucManager.LoadPregnancyRecords();
             navigationPanel.UserManagementClicked += (s, e) => ucManager.LoadUserManagement();
+            navigationPanel.BreedingRecordsClicked += (s, e) => ucManager.LoadBreedingRecords();
 
             ApplyAccessLevel();
 

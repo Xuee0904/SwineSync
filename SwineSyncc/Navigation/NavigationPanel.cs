@@ -16,6 +16,7 @@ namespace SwineSyncc
         public event EventHandler PregnancyRecordsClicked;
         public event EventHandler UserManagementClicked;
         public event EventHandler PigManagementClicked;
+        public event EventHandler BreedingRecordsClicked;
 
         private Button activeButton = null;
         private Color activeColor = Color.FromArgb(59, 44, 29);   // dark brown
@@ -71,7 +72,8 @@ namespace SwineSyncc
 
         private void breedingRecordsBtn_Click(object sender, EventArgs e)
         {
-
+            SetActiveButton(breedingRecordsBtn);
+            BreedingRecordsClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void healthRecordsBtn_Click(object sender, EventArgs e)

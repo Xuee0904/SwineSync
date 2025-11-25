@@ -11,8 +11,9 @@ namespace SwineSyncc
     {
         private Panel _mainPanel;
         private PigManagement _pigUC;
-        private PregnancyReccords _pregnancyUC;
+        private PregnancyRecords _pregnancyUC;
         private UserManagement _userManagementUC;
+        private BreedingRecords _breedingUC;
 
         public UserControlManager(Panel mainPanel)
         {
@@ -137,9 +138,18 @@ namespace SwineSyncc
         {
             if (_pregnancyUC == null)
             {
-                _pregnancyUC = new PregnancyReccords();
+                _pregnancyUC = new PregnancyRecords();
             }
             ShowUserControl(_pregnancyUC);
+        }
+
+        public void LoadBreedingRecords()
+        {
+            if (_breedingUC == null)
+            {
+                _breedingUC = new BreedingRecords();
+            }
+            ShowUserControl(_breedingUC);
         }
     
         public void LoadRegisterPiglet(int motherPigId)

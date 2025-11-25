@@ -1,6 +1,6 @@
 ﻿namespace SwineSyncc
 {
-    partial class PregnancyReccords
+    partial class PregnancyRecords
     {
         /// <summary> 
         /// Required designer variable.
@@ -50,7 +50,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1003, 720);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnlPregnancyRecords
             // 
