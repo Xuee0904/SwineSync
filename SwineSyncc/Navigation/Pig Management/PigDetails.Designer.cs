@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.pigDetailsPanel = new System.Windows.Forms.Panel();
-            this.deletePigletBtn = new RoundedButton();
             this.flpCurrentPiglets = new System.Windows.Forms.FlowLayoutPanel();
-            this.addPigletBtn = new RoundedButton();
             this.currentPigletsLbl = new System.Windows.Forms.Label();
             this.rightLineLbl = new System.Windows.Forms.Label();
             this.leftLineLbl = new System.Windows.Forms.Label();
@@ -48,15 +46,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEdit = new RoundedButton();
-            this.btnBack = new RoundedButton();
             this.pigDetailsLbl = new System.Windows.Forms.Label();
             this.pigIdLbl = new System.Windows.Forms.Label();
+            this.editBtnMale = new RoundedButton();
+            this.deletePigletBtn = new RoundedButton();
+            this.addPigletBtn = new RoundedButton();
+            this.btnEdit = new RoundedButton();
+            this.btnBack = new RoundedButton();
             this.pigDetailsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // pigDetailsPanel
             // 
+            this.pigDetailsPanel.Controls.Add(this.editBtnMale);
             this.pigDetailsPanel.Controls.Add(this.deletePigletBtn);
             this.pigDetailsPanel.Controls.Add(this.flpCurrentPiglets);
             this.pigDetailsPanel.Controls.Add(this.addPigletBtn);
@@ -88,24 +90,6 @@
             this.pigDetailsPanel.TabIndex = 0;
             this.pigDetailsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.pigDetailsPanel_Paint);
             // 
-            // deletePigletBtn
-            // 
-            this.deletePigletBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.deletePigletBtn.BorderRadious = 9;
-            this.deletePigletBtn.FlatAppearance.BorderSize = 0;
-            this.deletePigletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deletePigletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deletePigletBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.deletePigletBtn.Location = new System.Drawing.Point(515, 689);
-            this.deletePigletBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.deletePigletBtn.Name = "deletePigletBtn";
-            this.deletePigletBtn.Size = new System.Drawing.Size(213, 79);
-            this.deletePigletBtn.TabIndex = 53;
-            this.deletePigletBtn.Text = "Delete piglet";
-            this.deletePigletBtn.UseVisualStyleBackColor = false;
-            this.deletePigletBtn.Visible = false;
-            this.deletePigletBtn.Click += new System.EventHandler(this.deletePigletBtn_Click);
-            // 
             // flpCurrentPiglets
             // 
             this.flpCurrentPiglets.AutoScroll = true;
@@ -113,24 +97,6 @@
             this.flpCurrentPiglets.Name = "flpCurrentPiglets";
             this.flpCurrentPiglets.Size = new System.Drawing.Size(1142, 275);
             this.flpCurrentPiglets.TabIndex = 52;
-            // 
-            // addPigletBtn
-            // 
-            this.addPigletBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.addPigletBtn.BorderRadious = 9;
-            this.addPigletBtn.FlatAppearance.BorderSize = 0;
-            this.addPigletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addPigletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPigletBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.addPigletBtn.Location = new System.Drawing.Point(745, 689);
-            this.addPigletBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.addPigletBtn.Name = "addPigletBtn";
-            this.addPigletBtn.Size = new System.Drawing.Size(213, 79);
-            this.addPigletBtn.TabIndex = 51;
-            this.addPigletBtn.Text = "Add piglet";
-            this.addPigletBtn.UseVisualStyleBackColor = false;
-            this.addPigletBtn.Visible = false;
-            this.addPigletBtn.Click += new System.EventHandler(this.addPigletBtn_Click);
             // 
             // currentPigletsLbl
             // 
@@ -312,6 +278,81 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Pig name:";
             // 
+            // pigDetailsLbl
+            // 
+            this.pigDetailsLbl.AutoSize = true;
+            this.pigDetailsLbl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pigDetailsLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.pigDetailsLbl.Location = new System.Drawing.Point(32, 34);
+            this.pigDetailsLbl.Name = "pigDetailsLbl";
+            this.pigDetailsLbl.Size = new System.Drawing.Size(220, 54);
+            this.pigDetailsLbl.TabIndex = 30;
+            this.pigDetailsLbl.Text = "Pig details";
+            // 
+            // pigIdLbl
+            // 
+            this.pigIdLbl.AutoSize = true;
+            this.pigIdLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pigIdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.pigIdLbl.Location = new System.Drawing.Point(119, 144);
+            this.pigIdLbl.Name = "pigIdLbl";
+            this.pigIdLbl.Size = new System.Drawing.Size(112, 41);
+            this.pigIdLbl.TabIndex = 31;
+            this.pigIdLbl.Text = "Pig ID:";
+            // 
+            // editBtnMale
+            // 
+            this.editBtnMale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.editBtnMale.BorderRadious = 9;
+            this.editBtnMale.FlatAppearance.BorderSize = 0;
+            this.editBtnMale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editBtnMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBtnMale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.editBtnMale.Location = new System.Drawing.Point(745, 689);
+            this.editBtnMale.Margin = new System.Windows.Forms.Padding(4);
+            this.editBtnMale.Name = "editBtnMale";
+            this.editBtnMale.Size = new System.Drawing.Size(213, 79);
+            this.editBtnMale.TabIndex = 54;
+            this.editBtnMale.Text = "Edit details";
+            this.editBtnMale.UseVisualStyleBackColor = false;
+            this.editBtnMale.Click += new System.EventHandler(this.editBtnMale_Click);
+            // 
+            // deletePigletBtn
+            // 
+            this.deletePigletBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.deletePigletBtn.BorderRadious = 9;
+            this.deletePigletBtn.FlatAppearance.BorderSize = 0;
+            this.deletePigletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletePigletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletePigletBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.deletePigletBtn.Location = new System.Drawing.Point(515, 689);
+            this.deletePigletBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deletePigletBtn.Name = "deletePigletBtn";
+            this.deletePigletBtn.Size = new System.Drawing.Size(213, 79);
+            this.deletePigletBtn.TabIndex = 53;
+            this.deletePigletBtn.Text = "Delete piglet";
+            this.deletePigletBtn.UseVisualStyleBackColor = false;
+            this.deletePigletBtn.Visible = false;
+            this.deletePigletBtn.Click += new System.EventHandler(this.deletePigletBtn_Click);
+            // 
+            // addPigletBtn
+            // 
+            this.addPigletBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.addPigletBtn.BorderRadious = 9;
+            this.addPigletBtn.FlatAppearance.BorderSize = 0;
+            this.addPigletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addPigletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPigletBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.addPigletBtn.Location = new System.Drawing.Point(745, 689);
+            this.addPigletBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.addPigletBtn.Name = "addPigletBtn";
+            this.addPigletBtn.Size = new System.Drawing.Size(213, 79);
+            this.addPigletBtn.TabIndex = 51;
+            this.addPigletBtn.Text = "Add piglet";
+            this.addPigletBtn.UseVisualStyleBackColor = false;
+            this.addPigletBtn.Visible = false;
+            this.addPigletBtn.Click += new System.EventHandler(this.addPigletBtn_Click);
+            // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
@@ -345,28 +386,6 @@
             this.btnBack.Text = "< Back";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // pigDetailsLbl
-            // 
-            this.pigDetailsLbl.AutoSize = true;
-            this.pigDetailsLbl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pigDetailsLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.pigDetailsLbl.Location = new System.Drawing.Point(32, 34);
-            this.pigDetailsLbl.Name = "pigDetailsLbl";
-            this.pigDetailsLbl.Size = new System.Drawing.Size(220, 54);
-            this.pigDetailsLbl.TabIndex = 30;
-            this.pigDetailsLbl.Text = "Pig details";
-            // 
-            // pigIdLbl
-            // 
-            this.pigIdLbl.AutoSize = true;
-            this.pigIdLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pigIdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.pigIdLbl.Location = new System.Drawing.Point(119, 144);
-            this.pigIdLbl.Name = "pigIdLbl";
-            this.pigIdLbl.Size = new System.Drawing.Size(112, 41);
-            this.pigIdLbl.TabIndex = 31;
-            this.pigIdLbl.Text = "Pig ID:";
             // 
             // PigDetails
             // 
@@ -409,5 +428,6 @@
         private RoundedButton addPigletBtn;
         private System.Windows.Forms.FlowLayoutPanel flpCurrentPiglets;
         private RoundedButton deletePigletBtn;
+        private RoundedButton editBtnMale;
     }
 }

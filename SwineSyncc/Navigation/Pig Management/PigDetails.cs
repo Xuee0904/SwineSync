@@ -52,7 +52,10 @@ namespace SwineSyncc.Navigation
                 leftLineLbl.Visible = true;
                 addPigletBtn.Visible = true;
                 flpCurrentPiglets.Visible = true;
-                deletePigletBtn.Visible = true;  
+                deletePigletBtn.Visible = true;
+
+                btnEdit.Visible = true;        
+                editBtnMale.Visible = false;   
 
                 LoadPiglets();
             }
@@ -65,6 +68,9 @@ namespace SwineSyncc.Navigation
                 addPigletBtn.Visible = false;
                 flpCurrentPiglets.Visible = false;
                 deletePigletBtn.Visible = false;
+
+                btnEdit.Visible = false;       
+                editBtnMale.Visible = true;    
             }
         }
         
@@ -88,6 +94,20 @@ namespace SwineSyncc.Navigation
 
             _controlManager.LoadPigletDetails(pigletId);
         }
+
+        private void OpenEditPig()
+        {
+            PigRepository repo = new PigRepository();
+            Pig pig = repo.GetPigById(_motherPigId);
+
+            EditPig edit = new EditPig(_mainPanel);
+            edit.LoadPigData(pig);
+
+            _mainPanel.Controls.Clear();
+            _mainPanel.Controls.Add(edit);
+            edit.Dock = DockStyle.Fill;
+        }
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -151,20 +171,17 @@ namespace SwineSyncc.Navigation
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            PigRepository repo = new PigRepository();
-            Pig pig = repo.GetPigById(_motherPigId);
-
-            EditPig edit = new EditPig(_mainPanel);
-            edit.LoadPigData(pig);
-
-            _mainPanel.Controls.Clear();
-            _mainPanel.Controls.Add(edit);
-            edit.Dock = DockStyle.Fill;
+            OpenEditPig();
         }
 
         private void pigDetailsPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void editBtnMale_Click(object sender, EventArgs e)
+        {
+            OpenEditPig();
         }
     }
 }
