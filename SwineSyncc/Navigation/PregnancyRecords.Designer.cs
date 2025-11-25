@@ -131,15 +131,15 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Pregnancy records";
             // 
-            // PregnancyReccords
+            // PregnancyRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "PregnancyReccords";
+            this.Name = "PregnancyRecords";
             this.Size = new System.Drawing.Size(1003, 720);
-            this.Load += new System.EventHandler(this.PregnancyReccords_Load);
+            this.Load += new System.EventHandler(this.PregnancyRecords_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

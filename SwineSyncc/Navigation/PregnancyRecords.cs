@@ -19,14 +19,6 @@ namespace SwineSyncc
             this.Dock = DockStyle.Fill;
         }
 
-        private void PregnancyReccords_Load(object sender, EventArgs e)
-        {
-            SwineSyncTable displayTable = new SwineSyncTable();
-            displayTable.SetTableQuery("PregnancyRecords");
-            displayTable.Dock = DockStyle.Fill;
-            pnlPregnancyRecords.Controls.Add(displayTable);
-        }
-
         private void addPregnancyBtn_Click(object sender, EventArgs e)
         {
 
@@ -40,6 +32,14 @@ namespace SwineSyncc
         private void deletePregnancyBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void PregnancyRecords_Load(object sender, EventArgs e)
+        {
+            SwineSyncTable displayTable = new SwineSyncTable();
+            displayTable.SetTableQuery("PregnancyRecords");
+            displayTable.Dock = DockStyle.Fill;
+            pnlPregnancyRecords.Controls.Add(displayTable);
         }
     }
 }
