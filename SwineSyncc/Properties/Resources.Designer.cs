@@ -63,6 +63,26 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dashboard__ {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard..", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dashboard_icons {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard icons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_closed {
             get {
                 object obj = ResourceManager.GetObject("eye_closed", resourceCulture);
@@ -93,9 +113,49 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Inventory_Icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Inventory Icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Mask_group__3_ {
             get {
                 object obj = ResourceManager.GetObject("Mask group (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mask_group__4_ {
+            get {
+                object obj = ResourceManager.GetObject("Mask group (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap notifications__1_ {
+            get {
+                object obj = ResourceManager.GetObject("notifications (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pig_Icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Pig Icon (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,6 +263,16 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Transaction_icon {
+            get {
+                object obj = ResourceManager.GetObject("Transaction icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap unselected_checkbox {
             get {
                 object obj = ResourceManager.GetObject("unselected_checkbox", resourceCulture);
@@ -213,9 +283,29 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap User_management2 {
+            get {
+                object obj = ResourceManager.GetObject("User management2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UserIcon {
             get {
                 object obj = ResourceManager.GetObject("UserIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserManagement {
+            get {
+                object obj = ResourceManager.GetObject("UserManagement", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

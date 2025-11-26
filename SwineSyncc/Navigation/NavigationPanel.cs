@@ -59,9 +59,7 @@ namespace SwineSyncc
 
         private void pigManagementBtn_Click(object sender, EventArgs e)
         {
-            SetActiveButton(pigManagementBtn);
-            panelPigSubMenu.Visible = !panelPigSubMenu.Visible;
-            PigManagementClicked?.Invoke(this, EventArgs.Empty);
+
         }
 
         private void pregnancyRecordsBtn_Click(object sender, EventArgs e)
@@ -106,10 +104,16 @@ namespace SwineSyncc
             SetActiveButton(userManagementBtn);
             UserManagementClicked?.Invoke(this, EventArgs.Empty);
         }
-
-        private void dashboardBtn_Click_1(object sender, EventArgs e)
+        private void customButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void customButton2_Click(object sender, EventArgs e)
+        {
+            SetActiveButton(pigManagementBtn);
+            panelPigSubMenu.Visible = !panelPigSubMenu.Visible;
+            PigManagementClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

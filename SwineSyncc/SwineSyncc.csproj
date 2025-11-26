@@ -67,6 +67,9 @@
     <Compile Include="CustomUIElements\ButtonGroup\SaveButtonGroup.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomUIElements\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomUIElements\CustomTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -359,6 +362,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\failed_message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard icons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard...png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pig Icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inventory Icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transaction icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mask group %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserManagement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User management2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notifications %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

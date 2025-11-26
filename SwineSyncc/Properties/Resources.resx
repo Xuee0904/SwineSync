@@ -118,26 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Rectangle 16@2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rectangle 16@2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Swinesync@2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Swinesync@2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Rectangle 16@2x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rectangle 16@2x1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="failed_message" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\failed_message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="success_message" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\success_message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye_closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye_closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Inventory Icon (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inventory Icon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PigletIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PigletIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="UserManagement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserManagement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PigIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PigIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Screenshot 2025-11-19 182248" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Screenshot 2025-11-19 182248.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Mask group (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mask group (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eye_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye_open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,25 +142,55 @@
   <data name="UserIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UserIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Swinesync@2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Swinesync@2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Mask group (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mask group (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Screenshot 2025-11-19 1822481" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Screenshot 2025-11-19 1822481.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Rectangle 16@2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rectangle 16@2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="selected_checkbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\selected_checkbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Transaction icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Transaction icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Screenshot 2025-11-19 1822481" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screenshot 2025-11-19 1822481.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PigletIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PigletIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mask group (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mask group (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pig Icon (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pig Icon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Screenshot 2025-11-19 182248" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screenshot 2025-11-19 182248.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="User management2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\User management2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye_closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye_closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dashboard icons" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dashboard icons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rectangle 16@2x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rectangle 16@2x1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dashboard.." type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dashboard...png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="unselected_checkbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unselected_checkbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="failed_message" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\failed_message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PigIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PigIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="success_message" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\success_message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="notifications (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notifications (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
