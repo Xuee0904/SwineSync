@@ -92,6 +92,8 @@
             // 
             this.dgvActivityLog.AllowUserToAddRows = false;
             this.dgvActivityLog.AllowUserToDeleteRows = false;
+            this.dgvActivityLog.AllowUserToResizeColumns = false;
+            this.dgvActivityLog.AllowUserToResizeRows = false;
             this.dgvActivityLog.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvActivityLog.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;

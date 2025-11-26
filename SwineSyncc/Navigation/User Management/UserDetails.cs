@@ -23,7 +23,8 @@ namespace SwineSyncc.Navigation.User_Management
 
         public UserDetails(Panel mainPanel)
         {
-            InitializeComponent();
+            InitializeComponent();          
+
             _mainPanel = mainPanel;
             RoundedPanelStyle.ApplyRoundedCorners(userDetailsPanel, 20);
             userDetailsPanel.BackColor = System.Drawing.Color.FromArgb(217, 221, 220);
@@ -68,12 +69,13 @@ namespace SwineSyncc.Navigation.User_Management
 
             DataTable logs = ActivityLogger.GetLogsByUser(_userId);
             dgvActivityLog.DataSource = logs;
-           
-            dgvActivityLog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvActivityLog.RowHeadersVisible = false;
-            dgvActivityLog.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            dgvActivityLog.RowTemplate.Height = 40;
-            dgvActivityLog.AllowUserToResizeRows = false;
+
+            if (dgvActivityLog.Columns.Contains("Description"))
+            {
+                dgvActivityLog.Columns["Description"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dgvActivityLog.Columns["Description"].Width = 700;
+            }
+                                                               
         }
 
 
