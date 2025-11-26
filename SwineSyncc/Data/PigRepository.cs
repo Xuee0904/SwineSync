@@ -79,6 +79,23 @@ namespace SwineSyncc.Data
             }
         }
 
+        public bool HasBreedingRecords(int pigId)
+        {
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                string query = @"SELECT COUNT(*) 
+                         FROM BreedingRecords 
+                         WHERE SowID = @PigID OR BoarID = @PigID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@PigID", pigId);
+                    conn.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
 
 
         public void SafeDeletePig(int pigId)
