@@ -199,7 +199,7 @@
             this.buttonGroup1.Name = "buttonGroup1";
             this.buttonGroup1.Size = new System.Drawing.Size(516, 55);
             this.buttonGroup1.TabIndex = 35;
-          
+            this.buttonGroup1.Load += new System.EventHandler(this.buttonGroup1_Load);
             // 
             // AddSow
             // 

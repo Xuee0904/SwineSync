@@ -110,7 +110,7 @@ namespace SwineSyncc
                         {
                             ActivityLogger.Log(
                                  "Register Sow",
-                                 $"Added new sow | Name: {name}, Breed: {breed}, Birthdate: {birthdate:MMM dd, yyyy}, Weight: {weight} kg, Status: {status}"
+                                 $"Boar Added | Name: {name}, Breed: {breed}, Birthdate: {birthdate:MMM dd, yyyy}, Weight: {weight} kg, Status: {status}"
                              );
 
                             MessageBox.Show("🐷 Pig registered successfully!", "Success",
@@ -155,6 +155,9 @@ namespace SwineSyncc
 
         }
 
-        
+        private void buttonGroup1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
