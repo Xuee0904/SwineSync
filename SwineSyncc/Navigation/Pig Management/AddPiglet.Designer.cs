@@ -80,6 +80,7 @@
             // 
             // motherPigCombo
             // 
+            this.motherPigCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.motherPigCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.motherPigCombo.FormattingEnabled = true;
             this.motherPigCombo.Location = new System.Drawing.Point(53, 97);
@@ -193,6 +194,7 @@
             // 
             // comboStatus
             // 
+            this.comboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.FormattingEnabled = true;
             this.comboStatus.Items.AddRange(new object[] {
@@ -214,6 +216,7 @@
             // 
             // comboBreed
             // 
+            this.comboBreed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBreed.FormattingEnabled = true;
             this.comboBreed.Items.AddRange(new object[] {

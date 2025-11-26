@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cancelbtn = new BorderRoundedButton();
-            this.clearbtn = new BorderRoundedButton();
-            this.savebtn = new RoundedButton();
             this.comboResult = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboMethod = new System.Windows.Forms.ComboBox();
@@ -42,6 +39,9 @@
             this.comboBoar = new System.Windows.Forms.ComboBox();
             this.breedlbl = new System.Windows.Forms.Label();
             this.pignamelabel = new System.Windows.Forms.Label();
+            this.cancelbtn = new BorderRoundedButton();
+            this.clearbtn = new BorderRoundedButton();
+            this.savebtn = new RoundedButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,67 +62,15 @@
             this.panel1.Controls.Add(this.pignamelabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 645);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // cancelbtn
-            // 
-            this.cancelbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.BorderRadious = 9;
-            this.cancelbtn.BorderThickness = 3;
-            this.cancelbtn.FlatAppearance.BorderSize = 0;
-            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.Location = new System.Drawing.Point(777, 492);
-            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(168, 55);
-            this.cancelbtn.TabIndex = 60;
-            this.cancelbtn.Text = "Cancel";
-            this.cancelbtn.UseVisualStyleBackColor = true;
-            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click);
-            // 
-            // clearbtn
-            // 
-            this.clearbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.BorderRadious = 9;
-            this.clearbtn.BorderThickness = 3;
-            this.clearbtn.FlatAppearance.BorderSize = 0;
-            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.Location = new System.Drawing.Point(601, 492);
-            this.clearbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(168, 55);
-            this.clearbtn.TabIndex = 59;
-            this.clearbtn.Text = "Clear";
-            this.clearbtn.UseVisualStyleBackColor = true;
-            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
-            // 
-            // savebtn
-            // 
-            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.savebtn.BorderRadious = 9;
-            this.savebtn.FlatAppearance.BorderSize = 0;
-            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.savebtn.Location = new System.Drawing.Point(952, 492);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(168, 55);
-            this.savebtn.TabIndex = 58;
-            this.savebtn.Text = "Save";
-            this.savebtn.UseVisualStyleBackColor = false;
-            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
-            // 
             // comboResult
             // 
+            this.comboResult.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboResult.FormattingEnabled = true;
             this.comboResult.Items.AddRange(new object[] {
@@ -147,6 +95,7 @@
             // 
             // comboMethod
             // 
+            this.comboMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboMethod.FormattingEnabled = true;
             this.comboMethod.Items.AddRange(new object[] {
@@ -191,6 +140,7 @@
             // 
             // comboSow
             // 
+            this.comboSow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSow.FormattingEnabled = true;
             this.comboSow.Items.AddRange(new object[] {
@@ -211,6 +161,7 @@
             // 
             // comboBoar
             // 
+            this.comboBoar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoar.FormattingEnabled = true;
             this.comboBoar.Items.AddRange(new object[] {
@@ -255,12 +206,65 @@
             this.pignamelabel.TabIndex = 45;
             this.pignamelabel.Text = "Sow name:";
             // 
+            // cancelbtn
+            // 
+            this.cancelbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.cancelbtn.BorderRadious = 9;
+            this.cancelbtn.BorderThickness = 3;
+            this.cancelbtn.FlatAppearance.BorderSize = 0;
+            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.cancelbtn.Location = new System.Drawing.Point(777, 492);
+            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.cancelbtn.Name = "cancelbtn";
+            this.cancelbtn.Size = new System.Drawing.Size(168, 55);
+            this.cancelbtn.TabIndex = 60;
+            this.cancelbtn.Text = "Cancel";
+            this.cancelbtn.UseVisualStyleBackColor = true;
+            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click);
+            // 
+            // clearbtn
+            // 
+            this.clearbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.clearbtn.BorderRadious = 9;
+            this.clearbtn.BorderThickness = 3;
+            this.clearbtn.FlatAppearance.BorderSize = 0;
+            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.clearbtn.Location = new System.Drawing.Point(601, 492);
+            this.clearbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(168, 55);
+            this.clearbtn.TabIndex = 59;
+            this.clearbtn.Text = "Clear";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
+            // 
+            // savebtn
+            // 
+            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.savebtn.BorderRadious = 9;
+            this.savebtn.FlatAppearance.BorderSize = 0;
+            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.savebtn.Location = new System.Drawing.Point(952, 492);
+            this.savebtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.savebtn.Name = "savebtn";
+            this.savebtn.Size = new System.Drawing.Size(168, 55);
+            this.savebtn.TabIndex = 58;
+            this.savebtn.Text = "Save";
+            this.savebtn.UseVisualStyleBackColor = false;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
+            // 
             // AddBreeding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddBreeding";
             this.Size = new System.Drawing.Size(1200, 645);
             this.panel1.ResumeLayout(false);

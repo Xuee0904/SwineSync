@@ -70,9 +70,9 @@
             this.editPigPanel.Controls.Add(this.pignamelabel);
             this.editPigPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editPigPanel.Location = new System.Drawing.Point(0, 0);
-            this.editPigPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editPigPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigPanel.Name = "editPigPanel";
-            this.editPigPanel.Size = new System.Drawing.Size(838, 878);
+            this.editPigPanel.Size = new System.Drawing.Size(1117, 1081);
             this.editPigPanel.TabIndex = 0;
             // 
             // editRbFemale
@@ -80,10 +80,10 @@
             this.editRbFemale.AutoSize = true;
             this.editRbFemale.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editRbFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editRbFemale.Location = new System.Drawing.Point(107, 361);
-            this.editRbFemale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editRbFemale.Location = new System.Drawing.Point(143, 444);
+            this.editRbFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editRbFemale.Name = "editRbFemale";
-            this.editRbFemale.Size = new System.Drawing.Size(97, 34);
+            this.editRbFemale.Size = new System.Drawing.Size(123, 41);
             this.editRbFemale.TabIndex = 53;
             this.editRbFemale.TabStop = true;
             this.editRbFemale.Text = "Female";
@@ -94,10 +94,10 @@
             this.editRbMale.AutoSize = true;
             this.editRbMale.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editRbMale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editRbMale.Location = new System.Drawing.Point(26, 361);
-            this.editRbMale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editRbMale.Location = new System.Drawing.Point(35, 444);
+            this.editRbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editRbMale.Name = "editRbMale";
-            this.editRbMale.Size = new System.Drawing.Size(77, 34);
+            this.editRbMale.Size = new System.Drawing.Size(97, 41);
             this.editRbMale.TabIndex = 52;
             this.editRbMale.TabStop = true;
             this.editRbMale.Text = "Male";
@@ -112,9 +112,10 @@
             this.editCancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editCancelBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editCancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editCancelBtn.Location = new System.Drawing.Point(570, 491);
+            this.editCancelBtn.Location = new System.Drawing.Point(760, 604);
+            this.editCancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editCancelBtn.Name = "editCancelBtn";
-            this.editCancelBtn.Size = new System.Drawing.Size(126, 45);
+            this.editCancelBtn.Size = new System.Drawing.Size(168, 55);
             this.editCancelBtn.TabIndex = 51;
             this.editCancelBtn.Text = "Cancel";
             this.editCancelBtn.UseVisualStyleBackColor = true;
@@ -129,9 +130,10 @@
             this.editClearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editClearBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editClearBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editClearBtn.Location = new System.Drawing.Point(438, 491);
+            this.editClearBtn.Location = new System.Drawing.Point(584, 604);
+            this.editClearBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editClearBtn.Name = "editClearBtn";
-            this.editClearBtn.Size = new System.Drawing.Size(126, 45);
+            this.editClearBtn.Size = new System.Drawing.Size(168, 55);
             this.editClearBtn.TabIndex = 50;
             this.editClearBtn.Text = "Clear";
             this.editClearBtn.UseVisualStyleBackColor = true;
@@ -145,10 +147,10 @@
             this.editSaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editSaveBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editSaveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.editSaveBtn.Location = new System.Drawing.Point(701, 491);
-            this.editSaveBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editSaveBtn.Location = new System.Drawing.Point(935, 604);
+            this.editSaveBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editSaveBtn.Name = "editSaveBtn";
-            this.editSaveBtn.Size = new System.Drawing.Size(126, 45);
+            this.editSaveBtn.Size = new System.Drawing.Size(168, 55);
             this.editSaveBtn.TabIndex = 49;
             this.editSaveBtn.Text = "Save";
             this.editSaveBtn.UseVisualStyleBackColor = false;
@@ -159,10 +161,9 @@
             this.registerpiglbl.AutoSize = true;
             this.registerpiglbl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerpiglbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.registerpiglbl.Location = new System.Drawing.Point(17, 19);
-            this.registerpiglbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.registerpiglbl.Location = new System.Drawing.Point(23, 23);
             this.registerpiglbl.Name = "registerpiglbl";
-            this.registerpiglbl.Size = new System.Drawing.Size(136, 45);
+            this.registerpiglbl.Size = new System.Drawing.Size(168, 54);
             this.registerpiglbl.TabIndex = 48;
             this.registerpiglbl.Text = "Edit pig";
             // 
@@ -171,15 +172,15 @@
             this.statuslbl.AutoSize = true;
             this.statuslbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statuslbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.statuslbl.Location = new System.Drawing.Point(432, 326);
-            this.statuslbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.statuslbl.Location = new System.Drawing.Point(576, 401);
             this.statuslbl.Name = "statuslbl";
-            this.statuslbl.Size = new System.Drawing.Size(90, 32);
+            this.statuslbl.Size = new System.Drawing.Size(113, 41);
             this.statuslbl.TabIndex = 47;
             this.statuslbl.Text = "Status:";
             // 
             // editComboStatus
             // 
+            this.editComboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.editComboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editComboStatus.FormattingEnabled = true;
             this.editComboStatus.Items.AddRange(new object[] {
@@ -192,15 +193,16 @@
             "Dead",
             "Sick",
             "Quarantined"});
-            this.editComboStatus.Location = new System.Drawing.Point(438, 358);
-            this.editComboStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editComboStatus.Location = new System.Drawing.Point(584, 441);
+            this.editComboStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editComboStatus.Name = "editComboStatus";
-            this.editComboStatus.Size = new System.Drawing.Size(389, 33);
+            this.editComboStatus.Size = new System.Drawing.Size(517, 38);
             this.editComboStatus.TabIndex = 46;
             this.editComboStatus.SelectedIndexChanged += new System.EventHandler(this.editComboStatus_SelectedIndexChanged);
             // 
             // editComboBreed
             // 
+            this.editComboBreed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.editComboBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editComboBreed.FormattingEnabled = true;
             this.editComboBreed.Items.AddRange(new object[] {
@@ -217,19 +219,19 @@
             "Pot-bellied Pig",
             "Tamworth",
             "Yorkshire"});
-            this.editComboBreed.Location = new System.Drawing.Point(27, 251);
-            this.editComboBreed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editComboBreed.Location = new System.Drawing.Point(36, 309);
+            this.editComboBreed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editComboBreed.Name = "editComboBreed";
-            this.editComboBreed.Size = new System.Drawing.Size(389, 33);
+            this.editComboBreed.Size = new System.Drawing.Size(517, 38);
             this.editComboBreed.TabIndex = 45;
             // 
             // editWeightTxt
             // 
             this.editWeightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editWeightTxt.Location = new System.Drawing.Point(438, 254);
-            this.editWeightTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editWeightTxt.Location = new System.Drawing.Point(584, 313);
+            this.editWeightTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editWeightTxt.Name = "editWeightTxt";
-            this.editWeightTxt.Size = new System.Drawing.Size(389, 31);
+            this.editWeightTxt.Size = new System.Drawing.Size(517, 37);
             this.editWeightTxt.TabIndex = 44;
             // 
             // weightlbl
@@ -237,20 +239,19 @@
             this.weightlbl.AutoSize = true;
             this.weightlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weightlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.weightlbl.Location = new System.Drawing.Point(432, 222);
-            this.weightlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.weightlbl.Location = new System.Drawing.Point(576, 273);
             this.weightlbl.Name = "weightlbl";
-            this.weightlbl.Size = new System.Drawing.Size(155, 32);
+            this.weightlbl.Size = new System.Drawing.Size(195, 41);
             this.weightlbl.TabIndex = 43;
             this.weightlbl.Text = "Weight (kg):";
             // 
             // editDtPicker
             // 
             this.editDtPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editDtPicker.Location = new System.Drawing.Point(438, 154);
-            this.editDtPicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editDtPicker.Location = new System.Drawing.Point(584, 190);
+            this.editDtPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editDtPicker.Name = "editDtPicker";
-            this.editDtPicker.Size = new System.Drawing.Size(389, 31);
+            this.editDtPicker.Size = new System.Drawing.Size(517, 37);
             this.editDtPicker.TabIndex = 42;
             // 
             // birthdatelbl
@@ -258,10 +259,9 @@
             this.birthdatelbl.AutoSize = true;
             this.birthdatelbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthdatelbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.birthdatelbl.Location = new System.Drawing.Point(432, 120);
-            this.birthdatelbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.birthdatelbl.Location = new System.Drawing.Point(576, 148);
             this.birthdatelbl.Name = "birthdatelbl";
-            this.birthdatelbl.Size = new System.Drawing.Size(134, 32);
+            this.birthdatelbl.Size = new System.Drawing.Size(168, 41);
             this.birthdatelbl.TabIndex = 41;
             this.birthdatelbl.Text = "Birth date:";
             // 
@@ -270,10 +270,9 @@
             this.sexlbl.AutoSize = true;
             this.sexlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sexlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.sexlbl.Location = new System.Drawing.Point(21, 325);
-            this.sexlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.sexlbl.Location = new System.Drawing.Point(28, 400);
             this.sexlbl.Name = "sexlbl";
-            this.sexlbl.Size = new System.Drawing.Size(60, 32);
+            this.sexlbl.Size = new System.Drawing.Size(76, 41);
             this.sexlbl.TabIndex = 40;
             this.sexlbl.Text = "Sex:";
             // 
@@ -282,20 +281,19 @@
             this.breedlbl.AutoSize = true;
             this.breedlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.breedlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.breedlbl.Location = new System.Drawing.Point(21, 221);
-            this.breedlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.breedlbl.Location = new System.Drawing.Point(28, 272);
             this.breedlbl.Name = "breedlbl";
-            this.breedlbl.Size = new System.Drawing.Size(87, 32);
+            this.breedlbl.Size = new System.Drawing.Size(108, 41);
             this.breedlbl.TabIndex = 39;
             this.breedlbl.Text = "Breed:";
             // 
             // editNameTxt
             // 
             this.editNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editNameTxt.Location = new System.Drawing.Point(27, 153);
-            this.editNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editNameTxt.Location = new System.Drawing.Point(36, 188);
+            this.editNameTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editNameTxt.Name = "editNameTxt";
-            this.editNameTxt.Size = new System.Drawing.Size(389, 31);
+            this.editNameTxt.Size = new System.Drawing.Size(517, 37);
             this.editNameTxt.TabIndex = 38;
             // 
             // pignamelabel
@@ -303,21 +301,20 @@
             this.pignamelabel.AutoSize = true;
             this.pignamelabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pignamelabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.pignamelabel.Location = new System.Drawing.Point(21, 119);
-            this.pignamelabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pignamelabel.Location = new System.Drawing.Point(28, 146);
             this.pignamelabel.Name = "pignamelabel";
-            this.pignamelabel.Size = new System.Drawing.Size(128, 32);
+            this.pignamelabel.Size = new System.Drawing.Size(157, 41);
             this.pignamelabel.TabIndex = 37;
             this.pignamelabel.Text = "Pig name:";
             // 
             // EditPig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.editPigPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EditPig";
-            this.Size = new System.Drawing.Size(838, 878);
+            this.Size = new System.Drawing.Size(1117, 1081);
             this.editPigPanel.ResumeLayout(false);
             this.editPigPanel.PerformLayout();
             this.ResumeLayout(false);
