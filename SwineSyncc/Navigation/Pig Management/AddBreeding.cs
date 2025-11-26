@@ -23,6 +23,13 @@ namespace SwineSyncc.Navigation.Pig_Management
         {
             InitializeComponent();
 
+            this.Dock = DockStyle.Fill;
+            this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(addBreedingPanel, 40);
+
+            this.BackColor = Color.WhiteSmoke;
+            addBreedingPanel.BackColor = Color.FromArgb(217, 221, 220);
+
             LoadBoarNameCombo();
             LoadSowNameCombo();
         }
@@ -241,6 +248,22 @@ namespace SwineSyncc.Navigation.Pig_Management
                     {
                         conn.Open();
                         cmd.ExecuteNonQuery();
+                      
+                        MessageBox.Show(
+                            "Breeding record has been successfully saved!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        string logDescription;
+
+                        if (method == "Artificial insemination(AI)")
+                            logDescription = $"AI breeding record added for Sow ID {sowPigId}.";
+                        else
+                            logDescription = $"Natural breeding record added for Sow ID {sowPigId} and Boar ID {boarValue}.";
+
+                        ActivityLogger.Log("Breeding Registration", logDescription);
 
                         ClearFields();
                         SaveCompleted?.Invoke(this, EventArgs.Empty);
