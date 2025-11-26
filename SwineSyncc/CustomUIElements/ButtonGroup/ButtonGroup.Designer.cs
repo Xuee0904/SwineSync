@@ -55,7 +55,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.BackColor = System.Drawing.Color.Transparent;
+            this.clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.clearButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clearButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.clearButton.FlatAppearance.BorderSize = 2;
@@ -69,10 +69,11 @@
             this.clearButton.TabIndex = 0;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.BackColor = System.Drawing.Color.Transparent;
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.cancelButton.BorderRadious = 9;
             this.cancelButton.BorderThickness = 2;
@@ -88,6 +89,7 @@
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // saveButton
             // 
@@ -105,6 +107,7 @@
             this.saveButton.TabIndex = 2;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // ButtonGroup
             // 

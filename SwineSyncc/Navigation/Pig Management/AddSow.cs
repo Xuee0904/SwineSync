@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using SwineSyncc.CustomUIElements.ButtonGroup;
 using SwineSyncc.Data;
 
 namespace SwineSyncc
@@ -22,6 +23,10 @@ namespace SwineSyncc
 
             this.BackColor = Color.WhiteSmoke;
             registerPigPanel.BackColor = Color.FromArgb(217, 221, 220);
+
+            buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
+            buttonGroup1.ClearClicked += (s, e) => ClearFields();
+            buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
         }
 
         /*public AddSow(PigManagement pigManagement)
@@ -42,7 +47,7 @@ namespace SwineSyncc
             UIStyle.BoxHeight(comboStatus);
         }*/
 
-        private void savebtn_Click(object sender, EventArgs e)
+        private void SaveHandler(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(pigNameTxt.Text))
             {
@@ -140,18 +145,12 @@ namespace SwineSyncc
             dtPicker.Value = DateTime.Now;
         }
 
-
-        private void cancelbtn_Click(object sender, EventArgs e)
-        {
-            CancelClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void clearbtn_Click_1(object sender, EventArgs e)
-        {
-            ClearFields();
-        }
-
         private void registerPigPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void savebtn_Click(object sender, EventArgs e)
         {
 
         }
