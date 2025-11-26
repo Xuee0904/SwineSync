@@ -125,6 +125,27 @@ namespace SwineSyncc.Navigation.Pig_Management
             comboResult.SelectedIndex = -1;
         }
 
+        private void comboMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboMethod.SelectedItem == null)
+                return;
+
+            string method = comboMethod.SelectedItem.ToString();
+
+            if (method == "Artificial insemination(AI)")
+            {
+                comboBoar.Enabled = false;           // Disable boar selection
+                comboBoar.SelectedIndex = -1;        // Clear selected boar
+                comboBoar.BackColor = Color.LightGray; // Make UI clearer
+            }
+            else
+            {
+                comboBoar.Enabled = true;            // Re-enable boar selection
+                comboBoar.BackColor = Color.White;
+            }
+        }
+
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -141,41 +162,97 @@ namespace SwineSyncc.Navigation.Pig_Management
         }
 
         private void savebtn_Click(object sender, EventArgs e)
-        {
+        {         
+            if (comboSow.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a sow.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboSow.Focus();
+                return;
+            }
+
+            if (comboMethod.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a breeding method.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboMethod.Focus();
+                return;
+            }
+
+            string method = comboMethod.SelectedItem.ToString();
+
+            if (method == "Natural" && comboBoar.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a boar for natural breeding.",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBoar.Focus();
+                return;
+            }
+
+            if (comboResult.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the breeding result.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboResult.Focus();
+                return;
+            }
+
+            if (dtBreeding.Value > DateTime.Now)
+            {
+                MessageBox.Show("Breeding date cannot be a future date.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtBreeding.Focus();
+                return;
+            }
+
             SowName selectedSow = comboSow.SelectedItem as SowName;
             BoarName selectedBoar = comboBoar.SelectedItem as BoarName;
+
             int sowPigId = selectedSow.PigID;
-            int boarPigId = selectedBoar.PigID;
-            string method = comboMethod.SelectedItem.ToString();
+            object boarValue;
+
+            if (method == "Artificial insemination(AI)")
+            {
+                boarValue = DBNull.Value;
+            }
+            else
+            {
+                boarValue = selectedBoar.PigID;
+            }
+
             string result = comboResult.SelectedItem.ToString();
             DateTime breedingDate = dtBreeding.Value;
 
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
-                string query = @"INSERT INTO BreedingRecords (SowID, BoarID, BreedingDate, BreedingMethod, Result)
-                         VALUES (@SowPigID, @BoarPigID, @BreedingDate, @Method, @Result)";
-                
+                string query = @"INSERT INTO BreedingRecords 
+                        (SowID, BoarID, BreedingDate, BreedingMethod, Result)
+                        VALUES (@SowPigID, @BoarPigID, @BreedingDate, @Method, @Result)";
+
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                   cmd.Parameters.AddWithValue("@SowPigID", sowPigId);
-                   cmd.Parameters.AddWithValue("@BoarPigID", boarPigId);
-                   cmd.Parameters.AddWithValue("@BreedingDate", breedingDate);
-                   cmd.Parameters.AddWithValue("@Method", method);
-                   cmd.Parameters.AddWithValue("@Result", result);
+                    cmd.Parameters.AddWithValue("@SowPigID", sowPigId);
+                    cmd.Parameters.AddWithValue("@BoarPigID", boarValue);
+                    cmd.Parameters.AddWithValue("@BreedingDate", breedingDate);
+                    cmd.Parameters.AddWithValue("@Method", method);
+                    cmd.Parameters.AddWithValue("@Result", result);
 
                     try
                     {
                         conn.Open();
-                        int resultExec = cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
 
                         ClearFields();
-
                         SaveCompleted?.Invoke(this, EventArgs.Empty);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Database Error: " + ex.Message, "Error",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(
+                            "Database Error: " + ex.Message,
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
                     }
                 }
             }
