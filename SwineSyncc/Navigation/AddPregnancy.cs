@@ -16,6 +16,7 @@ namespace SwineSyncc.Navigation
     {
 
         private DataTable pregnantSowData = new DataTable();
+        private int gestationDays = 114;
 
         public AddPregnancy()
         {
@@ -75,8 +76,10 @@ namespace SwineSyncc.Navigation
             pregnantSowData.Columns.Add("SowID", typeof(int));
             pregnantSowData.Columns.Add("Name", typeof(string));
             pregnantSowData.Columns.Add("BreedingID", typeof(int));
+            pregnantSowData.Columns.Add("BreedingDate", typeof(DateTime));
 
-            string query = @"SELECT P.PigID AS SowID, P.Name AS Name, B.BreedingID FROM Pigs AS P INNER JOIN BreedingRecords AS B ON P.PigID = B.SowID 
+            string query = @"SELECT P.PigID AS SowID, P.Name AS Name, B.BreedingID, B.BreedingDate FROM Pigs AS P
+                            INNER JOIN BreedingRecords AS B ON P.PigID = B.SowID 
                             WHERE B.Result = 'Success' ORDER BY P.Name, B.BreedingID;";
 
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
@@ -108,6 +111,17 @@ namespace SwineSyncc.Navigation
         {
             if (comboPregnantSow.SelectedIndex != -1)
             {
+                DataRowView currentRow = (DataRowView)comboBreedingID.SelectedItem;
+
+                if (currentRow != null)
+                {
+                    DateTime breedingDate = (DateTime)currentRow["BreedingDate"];
+
+                    DateTime expectedFarrowingDate = breedingDate.AddDays(gestationDays);
+
+                    dtExpected.Value = expectedFarrowingDate;
+                }
+
                 comboBreedingID.SelectedIndexChanged -= comboBreedingID_SelectedIndexChanged;
 
                 comboBreedingID.SelectedIndex = comboPregnantSow.SelectedIndex;
@@ -120,6 +134,18 @@ namespace SwineSyncc.Navigation
         {
             if (comboBreedingID.SelectedIndex != -1)
             {
+
+                DataRowView currentRow = (DataRowView)comboBreedingID.SelectedItem;
+
+                if (currentRow != null)
+                {
+                    DateTime breedingDate = (DateTime)currentRow["BreedingDate"];
+
+                    DateTime expectedFarrowingDate = breedingDate.AddDays(gestationDays);
+
+                    dtExpected.Value = expectedFarrowingDate;
+                }
+
                 comboPregnantSow.SelectedIndexChanged -= comboPregnantSow_SelectedIndexChanged;
 
                 comboPregnantSow.SelectedIndex = comboBreedingID.SelectedIndex;

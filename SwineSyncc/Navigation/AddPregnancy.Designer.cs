@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.addPregnancyPanel = new System.Windows.Forms.Panel();
-            this.cancelbtn = new BorderRoundedButton();
-            this.clearbtn = new BorderRoundedButton();
-            this.savebtn = new RoundedButton();
             this.comboBreedingID = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dtConfirmation = new System.Windows.Forms.DateTimePicker();
@@ -41,6 +38,9 @@
             this.comboPregnantSow = new System.Windows.Forms.ComboBox();
             this.pregnantlbl = new System.Windows.Forms.Label();
             this.addbreedinglabel = new System.Windows.Forms.Label();
+            this.cancelbtn = new BorderRoundedButton();
+            this.clearbtn = new BorderRoundedButton();
+            this.savebtn = new RoundedButton();
             this.addPregnancyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,54 +64,6 @@
             this.addPregnancyPanel.Name = "addPregnancyPanel";
             this.addPregnancyPanel.Size = new System.Drawing.Size(900, 524);
             this.addPregnancyPanel.TabIndex = 0;
-            // 
-            // cancelbtn
-            // 
-            this.cancelbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.BorderRadious = 9;
-            this.cancelbtn.BorderThickness = 3;
-            this.cancelbtn.FlatAppearance.BorderSize = 0;
-            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.Location = new System.Drawing.Point(620, 434);
-            this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(126, 45);
-            this.cancelbtn.TabIndex = 75;
-            this.cancelbtn.Text = "Cancel";
-            this.cancelbtn.UseVisualStyleBackColor = true;
-            // 
-            // clearbtn
-            // 
-            this.clearbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.BorderRadious = 9;
-            this.clearbtn.BorderThickness = 3;
-            this.clearbtn.FlatAppearance.BorderSize = 0;
-            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.Location = new System.Drawing.Point(488, 434);
-            this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(126, 45);
-            this.clearbtn.TabIndex = 74;
-            this.clearbtn.Text = "Clear";
-            this.clearbtn.UseVisualStyleBackColor = true;
-            // 
-            // savebtn
-            // 
-            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.savebtn.BorderRadious = 9;
-            this.savebtn.FlatAppearance.BorderSize = 0;
-            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.savebtn.Location = new System.Drawing.Point(752, 434);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(2);
-            this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(126, 45);
-            this.savebtn.TabIndex = 73;
-            this.savebtn.Text = "Save";
-            this.savebtn.UseVisualStyleBackColor = false;
             // 
             // comboBreedingID
             // 
@@ -172,9 +124,9 @@
             this.label2.Location = new System.Drawing.Point(485, 269);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(230, 32);
+            this.label2.Size = new System.Drawing.Size(319, 32);
             this.label2.TabIndex = 67;
-            this.label2.Text = "Confirmation date:";
+            this.label2.Text = "Confirmed farrowing date:";
             // 
             // label1
             // 
@@ -232,6 +184,54 @@
             this.addbreedinglabel.Size = new System.Drawing.Size(249, 45);
             this.addbreedinglabel.TabIndex = 62;
             this.addbreedinglabel.Text = "Add pregnancy";
+            // 
+            // cancelbtn
+            // 
+            this.cancelbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.cancelbtn.BorderRadious = 9;
+            this.cancelbtn.BorderThickness = 3;
+            this.cancelbtn.FlatAppearance.BorderSize = 0;
+            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.cancelbtn.Location = new System.Drawing.Point(620, 434);
+            this.cancelbtn.Name = "cancelbtn";
+            this.cancelbtn.Size = new System.Drawing.Size(126, 45);
+            this.cancelbtn.TabIndex = 75;
+            this.cancelbtn.Text = "Cancel";
+            this.cancelbtn.UseVisualStyleBackColor = true;
+            // 
+            // clearbtn
+            // 
+            this.clearbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.clearbtn.BorderRadious = 9;
+            this.clearbtn.BorderThickness = 3;
+            this.clearbtn.FlatAppearance.BorderSize = 0;
+            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.clearbtn.Location = new System.Drawing.Point(488, 434);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(126, 45);
+            this.clearbtn.TabIndex = 74;
+            this.clearbtn.Text = "Clear";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            // 
+            // savebtn
+            // 
+            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.savebtn.BorderRadious = 9;
+            this.savebtn.FlatAppearance.BorderSize = 0;
+            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.savebtn.Location = new System.Drawing.Point(752, 434);
+            this.savebtn.Margin = new System.Windows.Forms.Padding(2);
+            this.savebtn.Name = "savebtn";
+            this.savebtn.Size = new System.Drawing.Size(126, 45);
+            this.savebtn.TabIndex = 73;
+            this.savebtn.Text = "Save";
+            this.savebtn.UseVisualStyleBackColor = false;
             // 
             // AddPregnancy
             // 
