@@ -74,6 +74,7 @@
             this.editPigPanel.Name = "editPigPanel";
             this.editPigPanel.Size = new System.Drawing.Size(1117, 1081);
             this.editPigPanel.TabIndex = 0;
+            this.editPigPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.editPigPanel_Paint);
             // 
             // editRbFemale
             // 
@@ -113,7 +114,7 @@
             this.editCancelBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editCancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.editCancelBtn.Location = new System.Drawing.Point(760, 604);
-            this.editCancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editCancelBtn.Margin = new System.Windows.Forms.Padding(4);
             this.editCancelBtn.Name = "editCancelBtn";
             this.editCancelBtn.Size = new System.Drawing.Size(168, 55);
             this.editCancelBtn.TabIndex = 51;
@@ -131,7 +132,7 @@
             this.editClearBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editClearBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.editClearBtn.Location = new System.Drawing.Point(584, 604);
-            this.editClearBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editClearBtn.Margin = new System.Windows.Forms.Padding(4);
             this.editClearBtn.Name = "editClearBtn";
             this.editClearBtn.Size = new System.Drawing.Size(168, 55);
             this.editClearBtn.TabIndex = 50;

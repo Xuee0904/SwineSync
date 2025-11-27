@@ -77,6 +77,13 @@ namespace SwineSyncc.Navigation.Pig_Management
                 return;
             }
 
+            if (weight > 300)
+            {
+                MessageBox.Show("Weight limit exceeded. A pig cannot weigh more than 300 kg.",
+                                "Weight Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (weight <= 0)
             {
                 MessageBox.Show("Weight must be greater than 0.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -163,6 +170,11 @@ namespace SwineSyncc.Navigation.Pig_Management
         }
 
         private void editComboStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editPigPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

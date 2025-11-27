@@ -99,9 +99,9 @@ namespace SwineSyncc
                 return;
             }
 
-            if (weight > 400)
+            if (weight > 300)
             {
-                MessageBox.Show("Weight limit exceeded. A Sow cannot weigh more than 400 kg.",
+                MessageBox.Show("Weight limit exceeded. A Sow cannot weigh more than 300 kg.",
                                 "Weight Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
