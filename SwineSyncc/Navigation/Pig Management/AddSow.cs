@@ -180,7 +180,7 @@ namespace SwineSyncc
                                  $"Sow Added | Name: {name}, Breed: {breed}, Birthdate: {birthdate:MMM dd, yyyy}, Weight: {weight} kg, Status: {status}"
                              );
 
-                            MessageBox.Show("🐷 Pig registered successfully!", "Success",
+                            MessageBox.Show("🐷 Pig added successfully!", "Success",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             _parentPigManagement?.RefreshPigList();

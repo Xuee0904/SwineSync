@@ -178,7 +178,7 @@ namespace SwineSyncc.Navigation.Pig_Management
                                 $"Boar added | Name: {name}, Breed: {breed}, Birthdate: {birthdate.ToShortDateString()}, Weight: {weight}, Status: {status}"
                              );
 
-                            MessageBox.Show("🐷 Pig registered successfully!", "Success",
+                            MessageBox.Show("🐷 Pig added successfully!", "Success",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             _parentPigManagement?.RefreshPigList();

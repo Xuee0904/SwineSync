@@ -132,7 +132,7 @@ namespace SwineSyncc.Navigation.Pig_Management
 
             if (!maleRadioBtn.Checked && !femaleRadioBtn.Checked)
             {
-                MessageBox.Show("Please select a sex.", "Validation Error",
+                MessageBox.Show("Please select a gender.", "Validation Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -230,7 +230,7 @@ namespace SwineSyncc.Navigation.Pig_Management
                             );
 
 
-                            MessageBox.Show("🐷 Piglet registered successfully!", "Success",
+                            MessageBox.Show("🐷 Piglet added successfully!", "Success",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             ClearFields();
