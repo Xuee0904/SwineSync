@@ -33,6 +33,8 @@ namespace SwineSyncc
 
         private void LoadComboBreed()
         {
+            comboBreed.Items.Clear();
+
             string query = "SELECT BreedName FROM PigBreed ORDER BY BreedName ASC";
 
             using (SqlConnection conn = DBConnection.Instance.GetConnection())

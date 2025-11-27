@@ -122,20 +122,6 @@
             this.comboBreed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBreed.FormattingEnabled = true;
-            this.comboBreed.Items.AddRange(new object[] {
-            "Berkshire",
-            "Chester White",
-            "Duroc",
-            "Hampshire",
-            "Hereford",
-            "Kunekune",
-            "Landrace",
-            "Large White",
-            "Mangalista",
-            "Pietrain",
-            "Pot-bellied Pig",
-            "Tamworth",
-            "Yorkshire"});
             this.comboBreed.Location = new System.Drawing.Point(40, 177);
             this.comboBreed.Margin = new System.Windows.Forms.Padding(2);
             this.comboBreed.Name = "comboBreed";
