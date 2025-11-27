@@ -17,6 +17,7 @@ namespace SwineSyncc
     public partial class PregnancyRecords : UserControl
     {
         SwineSyncTable displayTable;
+        public event EventHandler AddPregnancyRecordClicked;
         public PregnancyRecords()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace SwineSyncc
 
         private void addPregnancyBtn_Click(object sender, EventArgs e)
         {
-
+            AddPregnancyRecordClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void editPregnancyBtn_Click(object sender, EventArgs e)
