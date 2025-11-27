@@ -55,12 +55,6 @@ namespace SwineSyncc
                 return;
             }
 
-            if (comboBreed.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select a breed.", "Missing Breed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             if (comboStatus.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a status.", "Missing Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -88,8 +82,32 @@ namespace SwineSyncc
                 return;
             }
 
+            string breed = string.Empty;
+
+            if (comboBreed.SelectedItem?.ToString() == "Other")
+            {
+                breed = comboBreed.Text.Trim();
+                if (string.IsNullOrWhiteSpace(breed) || breed.Equals("Other", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Please specify the breed.", "Missing Breed Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            else if (comboBreed.SelectedIndex != -1)
+            {
+                breed = comboBreed.SelectedItem.ToString();
+            }
+            else if (!string.IsNullOrWhiteSpace(comboBreed.Text))
+            {
+                breed = comboBreed.Text.Trim();
+            }
+            else
+            {
+                MessageBox.Show("Please select or enter a breed.", "Missing Breed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string name = pigNameTxt.Text.Trim();
-            string breed = comboBreed.Text;
             string sex = "Female";
             string status = comboStatus.Text;
             DateTime birthdate = dtPicker.Value;
@@ -157,7 +175,7 @@ namespace SwineSyncc
 
         }
 
-        private void savebtn_Click(object sender, EventArgs e)
+        /*private void savebtn_Click(object sender, EventArgs e)
         {
 
         }
@@ -165,6 +183,25 @@ namespace SwineSyncc
         private void buttonGroup1_Load(object sender, EventArgs e)
         {
 
+        }*/
+
+        private void comboBreed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            string selectedItem = comboBox.SelectedItem?.ToString();
+
+            if (selectedItem == "Other")
+            {
+                comboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                comboBox.Text = string.Empty;
+                comboBox.Focus();
+            }
+            else
+            {
+                comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
         }
+
+
     }
 }

@@ -61,7 +61,7 @@
             // 
             this.pigNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pigNameTxt.Location = new System.Drawing.Point(40, 79);
-            this.pigNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pigNameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.pigNameTxt.Name = "pigNameTxt";
             this.pigNameTxt.Size = new System.Drawing.Size(389, 31);
             this.pigNameTxt.TabIndex = 17;
@@ -92,7 +92,7 @@
             // 
             this.dtPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtPicker.Location = new System.Drawing.Point(451, 80);
-            this.dtPicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtPicker.Margin = new System.Windows.Forms.Padding(2);
             this.dtPicker.Name = "dtPicker";
             this.dtPicker.Size = new System.Drawing.Size(389, 31);
             this.dtPicker.TabIndex = 23;
@@ -112,7 +112,7 @@
             // 
             this.weightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weightTxt.Location = new System.Drawing.Point(451, 177);
-            this.weightTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.weightTxt.Margin = new System.Windows.Forms.Padding(2);
             this.weightTxt.Name = "weightTxt";
             this.weightTxt.Size = new System.Drawing.Size(389, 31);
             this.weightTxt.TabIndex = 25;
@@ -135,12 +135,14 @@
             "Pietrain",
             "Pot-bellied Pig",
             "Tamworth",
-            "Yorkshire"});
+            "Yorkshire",
+            "Other"});
             this.comboBreed.Location = new System.Drawing.Point(40, 177);
-            this.comboBreed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBreed.Margin = new System.Windows.Forms.Padding(2);
             this.comboBreed.Name = "comboBreed";
             this.comboBreed.Size = new System.Drawing.Size(389, 33);
             this.comboBreed.TabIndex = 26;
+            this.comboBreed.SelectedIndexChanged += new System.EventHandler(this.comboBreed_SelectedIndexChanged);
             // 
             // comboStatus
             // 
@@ -159,7 +161,7 @@
             "Sick",
             "Quarantined"});
             this.comboStatus.Location = new System.Drawing.Point(40, 288);
-            this.comboStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboStatus.Margin = new System.Windows.Forms.Padding(2);
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(389, 33);
             this.comboStatus.TabIndex = 27;
@@ -191,7 +193,7 @@
             this.registerPigPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerPigPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.registerPigPanel.Location = new System.Drawing.Point(0, 0);
-            this.registerPigPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.registerPigPanel.Margin = new System.Windows.Forms.Padding(2);
             this.registerPigPanel.Name = "registerPigPanel";
             this.registerPigPanel.Size = new System.Drawing.Size(900, 524);
             this.registerPigPanel.TabIndex = 0;
@@ -204,14 +206,13 @@
             this.buttonGroup1.Name = "buttonGroup1";
             this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
             this.buttonGroup1.TabIndex = 35;
-            this.buttonGroup1.Load += new System.EventHandler(this.buttonGroup1_Load);
             // 
             // AddSow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.registerPigPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddSow";
             this.Size = new System.Drawing.Size(900, 524);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
