@@ -142,6 +142,13 @@ namespace SwineSyncc.Navigation.Pig_Management
                 return;
             }
 
+            if (weight > 300)
+            {
+                MessageBox.Show("Weight limit exceeded. A piglet cannot weigh more than 300 kg.",
+                                "Weight Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (comboStatus.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a status.", "Validation Error",
