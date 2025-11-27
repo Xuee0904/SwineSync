@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.editPigPanel = new System.Windows.Forms.Panel();
-            this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.editRbFemale = new System.Windows.Forms.RadioButton();
             this.editRbMale = new System.Windows.Forms.RadioButton();
             this.registerpiglbl = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.breedlbl = new System.Windows.Forms.Label();
             this.editNameTxt = new System.Windows.Forms.TextBox();
             this.pignamelabel = new System.Windows.Forms.Label();
+            this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.editPigPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,14 +71,6 @@
             this.editPigPanel.Size = new System.Drawing.Size(838, 878);
             this.editPigPanel.TabIndex = 0;
             this.editPigPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.editPigPanel_Paint);
-            // 
-            // buttonGroup1
-            // 
-            this.buttonGroup1.Location = new System.Drawing.Point(438, 491);
-            this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonGroup1.Name = "buttonGroup1";
-            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
-            this.buttonGroup1.TabIndex = 54;
             // 
             // editRbFemale
             // 
@@ -230,9 +222,9 @@
             this.sexlbl.Location = new System.Drawing.Point(21, 325);
             this.sexlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sexlbl.Name = "sexlbl";
-            this.sexlbl.Size = new System.Drawing.Size(60, 32);
+            this.sexlbl.Size = new System.Drawing.Size(105, 32);
             this.sexlbl.TabIndex = 40;
-            this.sexlbl.Text = "Sex:";
+            this.sexlbl.Text = "Gender:";
             // 
             // breedlbl
             // 
@@ -266,6 +258,14 @@
             this.pignamelabel.Size = new System.Drawing.Size(128, 32);
             this.pignamelabel.TabIndex = 37;
             this.pignamelabel.Text = "Pig name:";
+            // 
+            // buttonGroup1
+            // 
+            this.buttonGroup1.Location = new System.Drawing.Point(438, 491);
+            this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonGroup1.Name = "buttonGroup1";
+            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
+            this.buttonGroup1.TabIndex = 54;
             // 
             // EditPig
             // 

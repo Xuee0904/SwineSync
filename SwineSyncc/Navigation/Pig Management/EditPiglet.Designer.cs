@@ -230,9 +230,9 @@
             this.sexlbl.Location = new System.Drawing.Point(26, 331);
             this.sexlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sexlbl.Name = "sexlbl";
-            this.sexlbl.Size = new System.Drawing.Size(60, 32);
+            this.sexlbl.Size = new System.Drawing.Size(105, 32);
             this.sexlbl.TabIndex = 57;
-            this.sexlbl.Text = "Sex:";
+            this.sexlbl.Text = "Gender:";
             // 
             // breedlbl
             // 

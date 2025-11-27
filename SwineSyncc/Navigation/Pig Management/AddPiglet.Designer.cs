@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.addPigletPanel = new System.Windows.Forms.Panel();
+            this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.motherPigCombo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.femaleRadioBtn = new System.Windows.Forms.RadioButton();
@@ -44,7 +45,6 @@
             this.breedlbl = new System.Windows.Forms.Label();
             this.tagNumberTxt = new System.Windows.Forms.TextBox();
             this.tagnumberlbl = new System.Windows.Forms.Label();
-            this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.addPigletPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +72,14 @@
             this.addPigletPanel.Size = new System.Drawing.Size(900, 524);
             this.addPigletPanel.TabIndex = 0;
             this.addPigletPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.addPigletPanel_Paint);
+            // 
+            // buttonGroup1
+            // 
+            this.buttonGroup1.Location = new System.Drawing.Point(451, 390);
+            this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonGroup1.Name = "buttonGroup1";
+            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
+            this.buttonGroup1.TabIndex = 73;
             // 
             // motherPigCombo
             // 
@@ -234,9 +242,9 @@
             this.sexlbl.Location = new System.Drawing.Point(34, 355);
             this.sexlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sexlbl.Name = "sexlbl";
-            this.sexlbl.Size = new System.Drawing.Size(60, 32);
+            this.sexlbl.Size = new System.Drawing.Size(105, 32);
             this.sexlbl.TabIndex = 57;
-            this.sexlbl.Text = "Sex:";
+            this.sexlbl.Text = "Gender:";
             // 
             // breedlbl
             // 
@@ -270,14 +278,6 @@
             this.tagnumberlbl.Size = new System.Drawing.Size(159, 32);
             this.tagnumberlbl.TabIndex = 54;
             this.tagnumberlbl.Text = "Tag number:";
-            // 
-            // buttonGroup1
-            // 
-            this.buttonGroup1.Location = new System.Drawing.Point(451, 390);
-            this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonGroup1.Name = "buttonGroup1";
-            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
-            this.buttonGroup1.TabIndex = 73;
             // 
             // AddPiglet
             // 
