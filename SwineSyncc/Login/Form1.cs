@@ -35,7 +35,7 @@ namespace SwineSyncc
 
             if (user == null)
             {
-                MessageBox.Show("Invalid username or password.",
+                MessageBox.Show("Incorrect username or password.",
                                 "Login Failed",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
@@ -44,7 +44,7 @@ namespace SwineSyncc
           
             if (user.Password != password)
             {
-                MessageBox.Show("Invalid username or password.",
+                MessageBox.Show("Incorrect username or password.",
                                 "Login Failed",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
@@ -80,5 +80,6 @@ namespace SwineSyncc
                 passwordVisible = true;
             }
         }
+
     }
 }
