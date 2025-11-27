@@ -30,6 +30,10 @@ namespace SwineSyncc.Navigation
 
             this.BackColor = Color.WhiteSmoke;
             addUserPanel.BackColor = Color.FromArgb(217, 221, 220);
+
+            buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
+            buttonGroup1.ClearClicked += (s, e) => ClearFields();
+            buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
         }
 
         private void ClearFields()
@@ -40,7 +44,7 @@ namespace SwineSyncc.Navigation
             assistantRadioBtn.Checked = false;
         }
 
-        private void savebtn_Click(object sender, EventArgs e)
+        private void SaveHandler(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(usernameTxt.Text))
             {
@@ -105,14 +109,5 @@ namespace SwineSyncc.Navigation
             }
         }
 
-        private void cancelbtn_Click(object sender, EventArgs e)
-        {
-            CancelClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void clearbtn_Click(object sender, EventArgs e)
-        {
-            ClearFields();
-        }
     }
 }

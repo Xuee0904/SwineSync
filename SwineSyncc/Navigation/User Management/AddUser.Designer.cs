@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.addUserPanel = new System.Windows.Forms.Panel();
-            this.cancelbtn = new BorderRoundedButton();
-            this.clearbtn = new BorderRoundedButton();
-            this.savebtn = new RoundedButton();
             this.assistantRadioBtn = new System.Windows.Forms.RadioButton();
             this.adminRadioBtn = new System.Windows.Forms.RadioButton();
             this.sexlbl = new System.Windows.Forms.Label();
@@ -40,14 +37,13 @@
             this.usernameTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.addUserPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // addUserPanel
             // 
-            this.addUserPanel.Controls.Add(this.cancelbtn);
-            this.addUserPanel.Controls.Add(this.clearbtn);
-            this.addUserPanel.Controls.Add(this.savebtn);
+            this.addUserPanel.Controls.Add(this.buttonGroup1);
             this.addUserPanel.Controls.Add(this.assistantRadioBtn);
             this.addUserPanel.Controls.Add(this.adminRadioBtn);
             this.addUserPanel.Controls.Add(this.sexlbl);
@@ -61,57 +57,6 @@
             this.addUserPanel.Name = "addUserPanel";
             this.addUserPanel.Size = new System.Drawing.Size(838, 878);
             this.addUserPanel.TabIndex = 0;
-            // 
-            // cancelbtn
-            // 
-            this.cancelbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.BorderRadious = 9;
-            this.cancelbtn.BorderThickness = 3;
-            this.cancelbtn.FlatAppearance.BorderSize = 0;
-            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.Location = new System.Drawing.Point(591, 409);
-            this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(126, 45);
-            this.cancelbtn.TabIndex = 42;
-            this.cancelbtn.Text = "Cancel";
-            this.cancelbtn.UseVisualStyleBackColor = true;
-            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click);
-            // 
-            // clearbtn
-            // 
-            this.clearbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.BorderRadious = 9;
-            this.clearbtn.BorderThickness = 3;
-            this.clearbtn.FlatAppearance.BorderSize = 0;
-            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.Location = new System.Drawing.Point(459, 409);
-            this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(126, 45);
-            this.clearbtn.TabIndex = 41;
-            this.clearbtn.Text = "Clear";
-            this.clearbtn.UseVisualStyleBackColor = true;
-            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
-            // 
-            // savebtn
-            // 
-            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.savebtn.BorderRadious = 9;
-            this.savebtn.FlatAppearance.BorderSize = 0;
-            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.savebtn.Location = new System.Drawing.Point(722, 409);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(2);
-            this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(126, 45);
-            this.savebtn.TabIndex = 40;
-            this.savebtn.Text = "Save";
-            this.savebtn.UseVisualStyleBackColor = false;
-            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // assistantRadioBtn
             // 
@@ -207,6 +152,14 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Add user";
             // 
+            // buttonGroup1
+            // 
+            this.buttonGroup1.Location = new System.Drawing.Point(459, 409);
+            this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonGroup1.Name = "buttonGroup1";
+            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
+            this.buttonGroup1.TabIndex = 43;
+            // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,8 +184,6 @@
         private System.Windows.Forms.RadioButton assistantRadioBtn;
         private System.Windows.Forms.RadioButton adminRadioBtn;
         private System.Windows.Forms.Label sexlbl;
-        private BorderRoundedButton cancelbtn;
-        private BorderRoundedButton clearbtn;
-        private RoundedButton savebtn;
+        private CustomUIElements.ButtonGroup.ButtonGroup buttonGroup1;
     }
 }
