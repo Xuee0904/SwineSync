@@ -56,6 +56,7 @@ namespace SwineSyncc.DynamicButtonLoader
                             Margin = new Padding(10),
                             Tag = id,
                             Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                            Cursor = Cursors.Hand,
                             Image = Properties.Resources.UserIcon,
                             ImageAlign = ContentAlignment.MiddleCenter,
                             TextImageRelation = TextImageRelation.ImageAboveText,
