@@ -135,8 +135,7 @@
             "Pietrain",
             "Pot-bellied Pig",
             "Tamworth",
-            "Yorkshire",
-            "Other"});
+            "Yorkshire"});
             this.comboBreed.Location = new System.Drawing.Point(40, 177);
             this.comboBreed.Margin = new System.Windows.Forms.Padding(2);
             this.comboBreed.Name = "comboBreed";

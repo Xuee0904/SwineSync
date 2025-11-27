@@ -27,6 +27,37 @@ namespace SwineSyncc
             buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
             buttonGroup1.ClearClicked += (s, e) => ClearFields();
             buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
+
+            LoadComboBreed();
+        }
+
+        private void LoadComboBreed()
+        {
+            string query = "SELECT BreedName FROM PigBreed ORDER BY BreedName ASC";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            comboBreed.Items.Add(reader["BreedName"].ToString());
+                        }
+                    }
+
+                    comboBreed.Items.Add("Other");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading breed list: " + ex.Message, "Database Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         /*public AddSow(PigManagement pigManagement)
@@ -107,6 +138,15 @@ namespace SwineSyncc
                 return;
             }
 
+            if (!BreedExists(breed))
+            {
+                if (!InsertNewBreed(breed))
+                {
+                    MessageBox.Show($"Failed to save the new breed: {breed}. Pig registration canceled.", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             string name = pigNameTxt.Text.Trim();
             string sex = "Female";
             string status = comboStatus.Text;
@@ -157,6 +197,53 @@ namespace SwineSyncc
                         MessageBox.Show("Database Error: " + ex.Message,
                                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+            }
+        }
+
+        private bool BreedExists(string breedName)
+        {
+            string query = "SELECT COUNT(1) FROM PigBreed WHERE BreedName = @BreedName";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@BreedName", breedName);
+                try
+                {
+                    conn.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error checking breed existence: {ex.Message}");
+                    return true;
+                }
+            }
+        }
+
+        private bool InsertNewBreed(string breedName)
+        {
+            string query = "INSERT INTO PigBreed (BreedName) VALUES (@BreedName)";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@BreedName", breedName);
+                try
+                {
+                    conn.Open();
+                    int result = cmd.ExecuteNonQuery();
+
+                    ActivityLogger.Log("New Breed Added", $"New breed '{breedName}' inserted into PigBreed table.");
+
+                    return result > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error inserting new breed: {ex.Message}");
+                    return false;
                 }
             }
         }
