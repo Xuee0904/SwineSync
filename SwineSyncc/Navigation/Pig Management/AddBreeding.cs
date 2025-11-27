@@ -259,9 +259,16 @@ namespace SwineSyncc.Navigation.Pig_Management
                         string logDescription;
 
                         if (method == "Artificial insemination(AI)")
-                            logDescription = $"AI breeding record added for Sow ID {sowPigId}.";
+                        {
+                            logDescription =
+                                $"Breeding Added | Method: AI | Sow: {selectedSow.Name}";
+                        }
                         else
-                            logDescription = $"Natural breeding record added for Sow ID {sowPigId} and Boar ID {boarValue}.";
+                        {
+                            logDescription =
+                                $"Breeding Added | Method: Natural | Sow: {selectedSow.Name}, Boar: {selectedBoar.Name}";
+                        }
+
 
                         ActivityLogger.Log("Breeding Registration", logDescription);
 

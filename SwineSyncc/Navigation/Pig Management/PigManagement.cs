@@ -108,7 +108,13 @@ namespace SwineSyncc
             int breedingBlockedCount = 0;
 
             foreach (int id in _selectedPigIds)
-            {              
+            {           
+                Pig pigToDelete = repo.GetPigById(id);   
+                        
+                if (pigToDelete == null)
+                    continue;
+
+
                 if (repo.HasPiglets(id))
                 {
                     pigletBlockedCount++;
@@ -124,39 +130,50 @@ namespace SwineSyncc
                 repo.SafeDeletePig(id);
                 deletedCount++;
 
-                ActivityLogger.Log(
-                    "Delete Pig",
-                    $"Pig deleted | PigID: {id}"
-                );
-            }
-          
-            if (deletedCount > 0)
-            {
-             MessageBox.Show(
-                  $"Successfully deleted {deletedCount} pig(s).\n\n" +
-                  "Some pigs could not be deleted:\n" +
-                  $"{pigletBlockedCount} pig(s) have existing piglets.\n" +
-                  $"{breedingBlockedCount} pig(s) are part of breeding records.",
-                  "Deletion Summary",
-                  MessageBoxButtons.OK,
-                  MessageBoxIcon.Information
-              );
+                        ActivityLogger.Log(
+                            "Delete Pig",
+                            $"Pig deleted | Name: {pigToDelete.Name}, Breed: {pigToDelete.Breed}, Sex: {pigToDelete.Sex}"
+                        );
+
                     }
-            else
-            {
-             MessageBox.Show(
-                "No pigs were deleted.\n\n" +
-                "Reasons:\n" +
-                $"{pigletBlockedCount} pig(s) have existing piglets.\n" +
-                $"{breedingBlockedCount} pig(s) are part of breeding records.",
-                "Deletion Failed",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning
-            );
+                  
+                    string summaryMessage = "";
+
+                    if (deletedCount > 0)
+                    {
+                        summaryMessage += $"Successfully deleted {deletedCount} pig(s).\n\n";
+                     
+                        if (pigletBlockedCount > 0 || breedingBlockedCount > 0)
+                        {
+                            summaryMessage += "Some pigs could not be deleted:\n";
+
+                            if (pigletBlockedCount > 0)
+                                summaryMessage += $"{pigletBlockedCount} pig(s) have existing piglets.\n";
+
+                            if (breedingBlockedCount > 0)
+                                summaryMessage += $"{breedingBlockedCount} pig(s) are part of breeding records.\n";
+                        }
+
+                        MessageBox.Show(summaryMessage, "Deletion Summary",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-        }
-      
-        _isDeleteMode = false;
+                    else
+                    {                     
+                        summaryMessage = "No pigs were deleted.\n\nReasons:\n";
+
+                        if (pigletBlockedCount > 0)
+                            summaryMessage += $"{pigletBlockedCount} pig(s) have existing piglets.\n";
+
+                        if (breedingBlockedCount > 0)
+                            summaryMessage += $"{breedingBlockedCount} pig(s) are part of breeding records.\n";
+
+                        MessageBox.Show(summaryMessage, "Deletion Failed",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                }
+
+                _isDeleteMode = false;
         _selectedPigIds.Clear();
         btnDeletePig.Text = "Delete pig";
 

@@ -155,14 +155,21 @@ namespace SwineSyncc.Navigation
 
                     foreach (int id in _selectedPigletIds)
                     {
+                        Piglet piglet = repo.GetPigletById(id);
+                        string tag = piglet != null ? piglet.TagNumber : "Unknown Tag";
+
                         repo.SafeDeletePiglet(id);
+                      
+                        PigRepository pigRepo = new PigRepository();
+                        Pig mother = pigRepo.GetPigById(_motherPigId);
+                        string motherName = mother != null ? mother.Name : "Unknown Mother";
 
                         ActivityLogger.Log(
                             "Delete Piglet",
-                            $"Piglet ID {id} from Mother Pig ID {_motherPigId} was deleted."
+                            $"Piglet '{tag}' (Mother: {motherName}) was deleted."
                         );
-
                     }
+
 
                     MessageBox.Show("Piglet deletion successful!");
                 }

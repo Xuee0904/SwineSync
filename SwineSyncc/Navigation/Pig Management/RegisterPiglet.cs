@@ -26,6 +26,15 @@ namespace SwineSyncc
             registerPigletPanel.BackColor = Color.FromArgb(217, 221, 220);          
         }
 
+        private string GetMotherPigName(int motherPigId)
+        {
+            PigRepository repo = new PigRepository();
+            Pig mother = repo.GetPigById(motherPigId);
+
+            return mother != null ? mother.Name : "Unknown Mother";
+        }
+
+
         private void savebtn_Click(object sender, EventArgs e)
         {           
             if (string.IsNullOrWhiteSpace(tagNumberTxt.Text))
@@ -92,6 +101,14 @@ namespace SwineSyncc
 
                         if (result > 0)
                         {
+                            string motherName = GetMotherPigName(_motherPigId);
+
+                            ActivityLogger.Log(
+                                "Add Piglet",
+                                $"Piglet Added | Tag: {tagNumber}, Breed: {breed}, Sex: {sex}, Mother: {motherName}"
+                            );
+
+
                             MessageBox.Show("🐷 Piglet registered successfully!", "Success",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 

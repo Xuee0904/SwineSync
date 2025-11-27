@@ -51,7 +51,6 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
@@ -283,6 +282,7 @@
             this.userManagementBtn.Text = "User management";
             this.userManagementBtn.TextColor = System.Drawing.Color.WhiteSmoke;
             this.userManagementBtn.UseVisualStyleBackColor = false;
+            this.userManagementBtn.Click += new System.EventHandler(this.userManagementBtn_Click);
             // 
             // remindersBtn
             // 
