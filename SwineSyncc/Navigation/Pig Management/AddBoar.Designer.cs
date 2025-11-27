@@ -132,7 +132,7 @@
             // weightTxt
             // 
             this.weightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightTxt.Location = new System.Drawing.Point(451, 183);
+            this.weightTxt.Location = new System.Drawing.Point(451, 177);
             this.weightTxt.Margin = new System.Windows.Forms.Padding(2);
             this.weightTxt.Name = "weightTxt";
             this.weightTxt.Size = new System.Drawing.Size(389, 31);
@@ -143,7 +143,7 @@
             this.weightlbl.AutoSize = true;
             this.weightlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weightlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.weightlbl.Location = new System.Drawing.Point(445, 148);
+            this.weightlbl.Location = new System.Drawing.Point(445, 143);
             this.weightlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.weightlbl.Name = "weightlbl";
             this.weightlbl.Size = new System.Drawing.Size(155, 32);
@@ -176,7 +176,7 @@
             this.breedlbl.AutoSize = true;
             this.breedlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.breedlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.breedlbl.Location = new System.Drawing.Point(34, 147);
+            this.breedlbl.Location = new System.Drawing.Point(34, 143);
             this.breedlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breedlbl.Name = "breedlbl";
             this.breedlbl.Size = new System.Drawing.Size(87, 32);
