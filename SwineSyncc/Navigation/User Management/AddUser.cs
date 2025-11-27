@@ -82,7 +82,7 @@ namespace SwineSyncc.Navigation
 
                         if (result > 0)
                         {
-                            MessageBox.Show("Account registered successfully!", "Success",
+                            MessageBox.Show("Account added successfully!", "Success",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                             
                             ClearFields();
@@ -90,7 +90,7 @@ namespace SwineSyncc.Navigation
                         }
                         else
                         {
-                            MessageBox.Show("Failed to register account.", "Error",
+                            MessageBox.Show("Failed to add account.", "Error",
                                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
