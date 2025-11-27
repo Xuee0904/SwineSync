@@ -1,7 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using SwineSyncc.Data;
+﻿using SwineSyncc.Data;
+using System;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace SwineSyncc.Navigation.Pig_Management
 {
@@ -20,7 +21,13 @@ namespace SwineSyncc.Navigation.Pig_Management
             RoundedPanelStyle.ApplyRoundedCorners(editPigPanel, 20);
 
             this.BackColor = Color.WhiteSmoke;
-            editPigPanel.BackColor = Color.FromArgb(217, 221, 220);                     
+            editPigPanel.BackColor = Color.FromArgb(217, 221, 220);
+
+            buttonGroup1.CancelClicked += (s, e) => CancelHandler(s, e);
+            buttonGroup1.ClearClicked += (s, e) => ClearFields();
+            buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
+
+            LoadComboBreed();
         }
 
         public void LoadPigData(Pig pig)
@@ -40,20 +47,44 @@ namespace SwineSyncc.Navigation.Pig_Management
             editComboStatus.Text = pig.Status;
         }
 
-        private void editSaveBtn_Click(object sender, EventArgs e)
+        private void LoadComboBreed()
+        {
+            editComboBreed.Items.Clear();
+
+            string query = "SELECT BreedName FROM PigBreed ORDER BY BreedName ASC";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            editComboBreed.Items.Add(reader["BreedName"].ToString());
+                        }
+                    }
+
+                    editComboBreed.Items.Add("Other");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading breed list: " + ex.Message, "Database Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void SaveHandler(object sender, EventArgs e)
         {         
           
             if (string.IsNullOrWhiteSpace(editNameTxt.Text))
             {
                 MessageBox.Show("Please enter the pig's name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 editNameTxt.Focus();
-                return;
-            }
-         
-            if (string.IsNullOrWhiteSpace(editComboBreed.Text))
-            {
-                MessageBox.Show("Please select a breed.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                editComboBreed.Focus();
                 return;
             }
           
@@ -100,12 +131,46 @@ namespace SwineSyncc.Navigation.Pig_Management
            
             string sex = editRbMale.Checked ? "Male" : "Female";
 
+            string breed = string.Empty;
+
+            if (editComboBreed.SelectedItem?.ToString() == "Other")
+            {
+                breed = editComboBreed.Text.Trim();
+                if (string.IsNullOrWhiteSpace(breed) || breed.Equals("Other", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Please specify the breed.", "Missing Breed Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            else if (editComboBreed.SelectedIndex != -1)
+            {
+                breed = editComboBreed.SelectedItem.ToString();
+            }
+            else if (!string.IsNullOrWhiteSpace(editComboBreed.Text))
+            {
+                breed = editComboBreed.Text.Trim();
+            }
+            else
+            {
+                MessageBox.Show("Please select or enter a breed.", "Missing Breed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!BreedExists(breed))
+            {
+                if (!InsertNewBreed(breed))
+                {
+                    MessageBox.Show($"Failed to save the new breed: {breed}. Pig registration canceled.", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             PigRepository repo = new PigRepository();
 
             repo.UpdatePig(
                 _pigId,
                 editNameTxt.Text,
-                editComboBreed.Text,
+                breed,
                 sex,
                 editDtPicker.Value,
                 weight,
@@ -137,7 +202,54 @@ namespace SwineSyncc.Navigation.Pig_Management
             pigDetails.Dock = DockStyle.Fill;
         }
 
-        private void editCancelBtn_Click(object sender, EventArgs e)
+        private bool BreedExists(string breedName)
+        {
+            string query = "SELECT COUNT(1) FROM PigBreed WHERE BreedName = @BreedName";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@BreedName", breedName);
+                try
+                {
+                    conn.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error checking breed existence: {ex.Message}");
+                    return true;
+                }
+            }
+        }
+
+        private bool InsertNewBreed(string breedName)
+        {
+            string query = "INSERT INTO PigBreed (BreedName) VALUES (@BreedName)";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@BreedName", breedName);
+                try
+                {
+                    conn.Open();
+                    int result = cmd.ExecuteNonQuery();
+
+                    ActivityLogger.Log("New breed added.", $"New breed '{breedName}' inserted into PigBreed table.");
+
+                    return result > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error inserting new breed: {ex.Message}");
+                    return false;
+                }
+            }
+        }
+
+        private void CancelHandler(object sender, EventArgs e)
         {
             PigRepository repo = new PigRepository();
             Pig pig = repo.GetPigById(_pigId);
@@ -158,7 +270,7 @@ namespace SwineSyncc.Navigation.Pig_Management
             pigDetails.Dock = DockStyle.Fill;
         }
 
-        private void editClearBtn_Click(object sender, EventArgs e)
+        private void ClearFields()
         {
             editNameTxt.Clear();
             editComboBreed.SelectedIndex = -1;
@@ -177,6 +289,23 @@ namespace SwineSyncc.Navigation.Pig_Management
         private void editPigPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void editComboBreed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            string selectedItem = comboBox.SelectedItem?.ToString();
+
+            if (selectedItem == "Other")
+            {
+                comboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                comboBox.Text = string.Empty;
+                comboBox.Focus();
+            }
+            else
+            {
+                comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
         }
     }
 }
