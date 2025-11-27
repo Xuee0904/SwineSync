@@ -106,6 +106,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Session.cs" />
+    <Compile Include="Navigation\AddPregnancy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\AddPregnancy.Designer.cs">
+      <DependentUpon>AddPregnancy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\Pig Management\AddBoar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\AddPregnancy.resx">
+      <DependentUpon>AddPregnancy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\AddBoar.resx">
       <DependentUpon>AddBoar.cs</DependentUpon>
