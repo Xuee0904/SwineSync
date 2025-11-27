@@ -112,10 +112,10 @@
     <Compile Include="Navigation\Pig Management\AddBoar.Designer.cs">
       <DependentUpon>AddBoar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\Pig Management\AddBreeding.cs">
+    <Compile Include="Navigation\BreedingRecords\AddBreeding.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\Pig Management\AddBreeding.Designer.cs">
+    <Compile Include="Navigation\BreedingRecords\AddBreeding.Designer.cs">
       <DependentUpon>AddBreeding.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\Pig Management\AddPig.cs">
@@ -130,10 +130,10 @@
     <Compile Include="Navigation\Pig Management\AddPiglet.Designer.cs">
       <DependentUpon>AddPiglet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\Pig Management\BreedingRecords.cs">
+    <Compile Include="Navigation\BreedingRecords\BreedingRecords.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\Pig Management\BreedingRecords.Designer.cs">
+    <Compile Include="Navigation\BreedingRecords\BreedingRecords.Designer.cs">
       <DependentUpon>BreedingRecords.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\Pig Management\EditPig.cs">
@@ -240,7 +240,7 @@
     <EmbeddedResource Include="Navigation\Pig Management\AddBoar.resx">
       <DependentUpon>AddBoar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\Pig Management\AddBreeding.resx">
+    <EmbeddedResource Include="Navigation\BreedingRecords\AddBreeding.resx">
       <DependentUpon>AddBreeding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\AddPig.resx">
@@ -249,7 +249,7 @@
     <EmbeddedResource Include="Navigation\Pig Management\AddPiglet.resx">
       <DependentUpon>AddPiglet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\Pig Management\BreedingRecords.resx">
+    <EmbeddedResource Include="Navigation\BreedingRecords\BreedingRecords.resx">
       <DependentUpon>BreedingRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\EditPig.resx">
