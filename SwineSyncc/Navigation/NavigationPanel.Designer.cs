@@ -109,7 +109,10 @@
             this.customButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.customButton1.BorderRadius = 0;
             this.customButton1.BorderSize = 0;
+            this.customButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.customButton1.FlatAppearance.BorderSize = 0;
+            this.customButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.customButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.customButton1.ForeColor = System.Drawing.Color.White;
@@ -131,7 +134,10 @@
             this.pigManagementBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.pigManagementBtn.BorderRadius = 0;
             this.pigManagementBtn.BorderSize = 0;
+            this.pigManagementBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pigManagementBtn.FlatAppearance.BorderSize = 0;
+            this.pigManagementBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pigManagementBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.pigManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pigManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.pigManagementBtn.ForeColor = System.Drawing.SystemColors.Window;
@@ -227,7 +233,10 @@
             this.inventoryBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.inventoryBtn.BorderRadius = 0;
             this.inventoryBtn.BorderSize = 0;
+            this.inventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.inventoryBtn.FlatAppearance.BorderSize = 0;
+            this.inventoryBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.inventoryBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inventoryBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.inventoryBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -248,7 +257,10 @@
             this.transactionsBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.transactionsBtn.BorderRadius = 0;
             this.transactionsBtn.BorderSize = 0;
+            this.transactionsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.transactionsBtn.FlatAppearance.BorderSize = 0;
+            this.transactionsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.transactionsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.transactionsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transactionsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.transactionsBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -269,7 +281,10 @@
             this.userManagementBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.userManagementBtn.BorderRadius = 0;
             this.userManagementBtn.BorderSize = 0;
+            this.userManagementBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.userManagementBtn.FlatAppearance.BorderSize = 0;
+            this.userManagementBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.userManagementBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.userManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userManagementBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.userManagementBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -291,7 +306,10 @@
             this.remindersBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.remindersBtn.BorderRadius = 0;
             this.remindersBtn.BorderSize = 0;
+            this.remindersBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.remindersBtn.FlatAppearance.BorderSize = 0;
+            this.remindersBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.remindersBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.remindersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remindersBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.remindersBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
