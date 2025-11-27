@@ -29,13 +29,12 @@ namespace SwineSyncc
 
         public void LoadPigManagement()
         {
-            if (_pigUC == null)
-            {
-                _pigUC = new PigManagement(_mainPanel);
-                _pigUC.RegisterPigClicked += (s, e) => LoadAddPig();
-            }
+            _pigUC = new PigManagement(_mainPanel);
+            _pigUC.RegisterPigClicked += (s, e) => LoadAddPig();
+
             ShowUserControl(_pigUC);
         }
+
 
         public void LoadAddPig()
         {
