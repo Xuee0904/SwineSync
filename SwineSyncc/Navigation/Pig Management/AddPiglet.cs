@@ -222,10 +222,13 @@ namespace SwineSyncc.Navigation.Pig_Management
 
                         if (result > 0)
                         {
+                            string motherName = selectedMotherPig.Name;
+
                             ActivityLogger.Log(
                                 action: "Register Piglet",
-                                description: $"Piglet added | Tag Number: {tagNumber}, Breed: {breed}, Birthdate: {birthdate:yyyy-MM-dd}, Sex: {sex}, Weight: {weight}kg, Status: {status}, Mother Pig ID: {motherPigId}"
+                                description: $"Piglet added | Tag Number: {tagNumber}, Breed: {breed}, Birthdate: {birthdate:yyyy-MM-dd}, Sex: {sex}, Weight: {weight}kg, Status: {status}, Mother: {motherName}"
                             );
+
 
                             MessageBox.Show("🐷 Piglet registered successfully!", "Success",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
