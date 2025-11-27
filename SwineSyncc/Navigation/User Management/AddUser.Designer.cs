@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.addUserPanel = new System.Windows.Forms.Panel();
+            this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.assistantRadioBtn = new System.Windows.Forms.RadioButton();
             this.adminRadioBtn = new System.Windows.Forms.RadioButton();
             this.sexlbl = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.usernameTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.addUserPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,12 +58,20 @@
             this.addUserPanel.Size = new System.Drawing.Size(838, 878);
             this.addUserPanel.TabIndex = 0;
             // 
+            // buttonGroup1
+            // 
+            this.buttonGroup1.Location = new System.Drawing.Point(459, 409);
+            this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonGroup1.Name = "buttonGroup1";
+            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
+            this.buttonGroup1.TabIndex = 43;
+            // 
             // assistantRadioBtn
             // 
             this.assistantRadioBtn.AutoSize = true;
-            this.assistantRadioBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assistantRadioBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assistantRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.assistantRadioBtn.Location = new System.Drawing.Point(145, 274);
+            this.assistantRadioBtn.Location = new System.Drawing.Point(144, 277);
             this.assistantRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.assistantRadioBtn.Name = "assistantRadioBtn";
             this.assistantRadioBtn.Size = new System.Drawing.Size(114, 34);
@@ -75,12 +83,12 @@
             // adminRadioBtn
             // 
             this.adminRadioBtn.AutoSize = true;
-            this.adminRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminRadioBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.adminRadioBtn.Location = new System.Drawing.Point(48, 277);
             this.adminRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.adminRadioBtn.Name = "adminRadioBtn";
-            this.adminRadioBtn.Size = new System.Drawing.Size(93, 30);
+            this.adminRadioBtn.Size = new System.Drawing.Size(92, 34);
             this.adminRadioBtn.TabIndex = 38;
             this.adminRadioBtn.TabStop = true;
             this.adminRadioBtn.Text = "Admin";
@@ -151,14 +159,6 @@
             this.label1.Size = new System.Drawing.Size(155, 45);
             this.label1.TabIndex = 30;
             this.label1.Text = "Add user";
-            // 
-            // buttonGroup1
-            // 
-            this.buttonGroup1.Location = new System.Drawing.Point(459, 409);
-            this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonGroup1.Name = "buttonGroup1";
-            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
-            this.buttonGroup1.TabIndex = 43;
             // 
             // AddUser
             // 
