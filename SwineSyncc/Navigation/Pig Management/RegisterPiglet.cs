@@ -23,7 +23,13 @@ namespace SwineSyncc
             RoundedPanelStyle.ApplyRoundedCorners(registerPigletPanel, 15);
             
             this.BackColor = Color.WhiteSmoke;
-            registerPigletPanel.BackColor = Color.FromArgb(217, 221, 220);          
+            registerPigletPanel.BackColor = Color.FromArgb(217, 221, 220);
+
+            buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
+            buttonGroup1.ClearClicked += (s, e) => ClearFields();
+            buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
+
+            LoadComboBreed();
         }
 
         private string GetMotherPigName(int motherPigId)
@@ -34,19 +40,41 @@ namespace SwineSyncc
             return mother != null ? mother.Name : "Unknown Mother";
         }
 
+        private void LoadComboBreed()
+        {
+            string query = "SELECT BreedName FROM PigBreed ORDER BY BreedName ASC";
 
-        private void savebtn_Click(object sender, EventArgs e)
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            comboBreed.Items.Add(reader["BreedName"].ToString());
+                        }
+                    }
+
+                    comboBreed.Items.Add("Other");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading breed list: " + ex.Message, "Database Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private void SaveHandler (object sender, EventArgs e)
         {           
             if (string.IsNullOrWhiteSpace(tagNumberTxt.Text))
             {
                 MessageBox.Show("Tag Number is required.", "Validation Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (comboBreed.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select a breed.", "Validation Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -79,8 +107,41 @@ namespace SwineSyncc
                 return;
             }
 
+            string breed = string.Empty;
+
+            if (comboBreed.SelectedItem?.ToString() == "Other")
+            {
+                breed = comboBreed.Text.Trim();
+                if (string.IsNullOrWhiteSpace(breed) || breed.Equals("Other", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Please specify the breed.", "Missing Breed Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            else if (comboBreed.SelectedIndex != -1)
+            {
+                breed = comboBreed.SelectedItem.ToString();
+            }
+            else if (!string.IsNullOrWhiteSpace(comboBreed.Text))
+            {
+                breed = comboBreed.Text.Trim();
+            }
+            else
+            {
+                MessageBox.Show("Please select or enter a breed.", "Missing Breed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!BreedExists(breed))
+            {
+                if (!InsertNewBreed(breed))
+                {
+                    MessageBox.Show($"Failed to save the new breed: {breed}. Pig registration canceled.", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             string tagNumber = tagNumberTxt.Text.Trim();
-            string breed = comboBreed.Text.Trim();
             string sex = maleRadioBtn.Checked ? "Male" : "Female";
             string status = comboStatus.Text.Trim();
             DateTime birthdate = dtPicker.Value;
@@ -151,20 +212,74 @@ namespace SwineSyncc
             femaleRadioBtn.Checked = false;
         }
 
-
-        private void cancelbtn_Click(object sender, EventArgs e)
+        private bool BreedExists(string breedName)
         {
-            CancelClicked?.Invoke(this, EventArgs.Empty);
+            string query = "SELECT COUNT(1) FROM PigBreed WHERE BreedName = @BreedName";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@BreedName", breedName);
+                try
+                {
+                    conn.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error checking breed existence: {ex.Message}");
+                    return true;
+                }
+            }
         }
+
+        private bool InsertNewBreed(string breedName)
+        {
+            string query = "INSERT INTO PigBreed (BreedName) VALUES (@BreedName)";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@BreedName", breedName);
+                try
+                {
+                    conn.Open();
+                    int result = cmd.ExecuteNonQuery();
+
+                    ActivityLogger.Log("New breed added.", $"New breed '{breedName}' inserted into PigBreed table.");
+
+                    return result > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error inserting new breed: {ex.Message}");
+                    return false;
+                }
+            }
+        }
+
 
         private void registerPigletPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void clearbtn_Click(object sender, EventArgs e)
+        private void comboBreed_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ClearFields();
+            ComboBox comboBox = (ComboBox)sender;
+            string selectedItem = comboBox.SelectedItem?.ToString();
+
+            if (selectedItem == "Other")
+            {
+                comboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                comboBox.Text = string.Empty;
+                comboBox.Focus();
+            }
+            else
+            {
+                comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
         }
     }
 }

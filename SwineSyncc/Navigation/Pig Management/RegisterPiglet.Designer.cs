@@ -31,9 +31,6 @@
             this.registerPigletPanel = new System.Windows.Forms.Panel();
             this.femaleRadioBtn = new System.Windows.Forms.RadioButton();
             this.maleRadioBtn = new System.Windows.Forms.RadioButton();
-            this.cancelbtn = new BorderRoundedButton();
-            this.clearbtn = new BorderRoundedButton();
-            this.savebtn = new RoundedButton();
             this.registerpiglbl = new System.Windows.Forms.Label();
             this.statuslbl = new System.Windows.Forms.Label();
             this.comboStatus = new System.Windows.Forms.ComboBox();
@@ -46,16 +43,15 @@
             this.breedlbl = new System.Windows.Forms.Label();
             this.tagNumberTxt = new System.Windows.Forms.TextBox();
             this.tagnumberlbl = new System.Windows.Forms.Label();
+            this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.registerPigletPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // registerPigletPanel
             // 
+            this.registerPigletPanel.Controls.Add(this.buttonGroup1);
             this.registerPigletPanel.Controls.Add(this.femaleRadioBtn);
             this.registerPigletPanel.Controls.Add(this.maleRadioBtn);
-            this.registerPigletPanel.Controls.Add(this.cancelbtn);
-            this.registerPigletPanel.Controls.Add(this.clearbtn);
-            this.registerPigletPanel.Controls.Add(this.savebtn);
             this.registerPigletPanel.Controls.Add(this.registerpiglbl);
             this.registerPigletPanel.Controls.Add(this.statuslbl);
             this.registerPigletPanel.Controls.Add(this.comboStatus);
@@ -70,18 +66,21 @@
             this.registerPigletPanel.Controls.Add(this.tagnumberlbl);
             this.registerPigletPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerPigletPanel.Location = new System.Drawing.Point(0, 0);
+            this.registerPigletPanel.Margin = new System.Windows.Forms.Padding(2);
             this.registerPigletPanel.Name = "registerPigletPanel";
-            this.registerPigletPanel.Size = new System.Drawing.Size(1200, 645);
+            this.registerPigletPanel.Size = new System.Drawing.Size(900, 590);
             this.registerPigletPanel.TabIndex = 0;
             this.registerPigletPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.registerPigletPanel_Paint);
             // 
             // femaleRadioBtn
             // 
             this.femaleRadioBtn.AutoSize = true;
-            this.femaleRadioBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.femaleRadioBtn.Location = new System.Drawing.Point(179, 482);
+            this.femaleRadioBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.femaleRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.femaleRadioBtn.Location = new System.Drawing.Point(133, 381);
+            this.femaleRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.femaleRadioBtn.Name = "femaleRadioBtn";
-            this.femaleRadioBtn.Size = new System.Drawing.Size(127, 42);
+            this.femaleRadioBtn.Size = new System.Drawing.Size(97, 34);
             this.femaleRadioBtn.TabIndex = 53;
             this.femaleRadioBtn.TabStop = true;
             this.femaleRadioBtn.Text = "Female";
@@ -90,84 +89,38 @@
             // maleRadioBtn
             // 
             this.maleRadioBtn.AutoSize = true;
-            this.maleRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maleRadioBtn.Location = new System.Drawing.Point(69, 486);
+            this.maleRadioBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maleRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.maleRadioBtn.Location = new System.Drawing.Point(52, 381);
+            this.maleRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.maleRadioBtn.Name = "maleRadioBtn";
-            this.maleRadioBtn.Size = new System.Drawing.Size(97, 36);
+            this.maleRadioBtn.Size = new System.Drawing.Size(77, 34);
             this.maleRadioBtn.TabIndex = 52;
             this.maleRadioBtn.TabStop = true;
             this.maleRadioBtn.Text = "Male";
             this.maleRadioBtn.UseVisualStyleBackColor = true;
-            // 
-            // cancelbtn
-            // 
-            this.cancelbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.BorderRadious = 9;
-            this.cancelbtn.BorderThickness = 3;
-            this.cancelbtn.FlatAppearance.BorderSize = 0;
-            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.Location = new System.Drawing.Point(793, 631);
-            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(168, 55);
-            this.cancelbtn.TabIndex = 51;
-            this.cancelbtn.Text = "Cancel";
-            this.cancelbtn.UseVisualStyleBackColor = true;
-            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click);
-            // 
-            // clearbtn
-            // 
-            this.clearbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.BorderRadious = 9;
-            this.clearbtn.BorderThickness = 3;
-            this.clearbtn.FlatAppearance.BorderSize = 0;
-            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearbtn.Location = new System.Drawing.Point(617, 631);
-            this.clearbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(168, 55);
-            this.clearbtn.TabIndex = 50;
-            this.clearbtn.Text = "Clear";
-            this.clearbtn.UseVisualStyleBackColor = true;
-            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
-            // 
-            // savebtn
-            // 
-            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.savebtn.BorderRadious = 9;
-            this.savebtn.FlatAppearance.BorderSize = 0;
-            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.savebtn.Location = new System.Drawing.Point(968, 631);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(168, 55);
-            this.savebtn.TabIndex = 49;
-            this.savebtn.Text = "Save";
-            this.savebtn.UseVisualStyleBackColor = false;
-            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // registerpiglbl
             // 
             this.registerpiglbl.AutoSize = true;
             this.registerpiglbl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerpiglbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.registerpiglbl.Location = new System.Drawing.Point(56, 50);
+            this.registerpiglbl.Location = new System.Drawing.Point(42, 41);
+            this.registerpiglbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.registerpiglbl.Name = "registerpiglbl";
-            this.registerpiglbl.Size = new System.Drawing.Size(299, 54);
+            this.registerpiglbl.Size = new System.Drawing.Size(179, 45);
             this.registerpiglbl.TabIndex = 48;
-            this.registerpiglbl.Text = "Register piglet";
+            this.registerpiglbl.Text = "Add piglet";
             // 
             // statuslbl
             // 
             this.statuslbl.AutoSize = true;
             this.statuslbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statuslbl.Location = new System.Drawing.Point(609, 428);
+            this.statuslbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.statuslbl.Location = new System.Drawing.Point(457, 348);
+            this.statuslbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.statuslbl.Name = "statuslbl";
-            this.statuslbl.Size = new System.Drawing.Size(113, 41);
+            this.statuslbl.Size = new System.Drawing.Size(90, 32);
             this.statuslbl.TabIndex = 47;
             this.statuslbl.Text = "Status:";
             // 
@@ -186,10 +139,10 @@
             "Deceased",
             "Sick",
             "Quarantined"});
-            this.comboStatus.Location = new System.Drawing.Point(617, 468);
-            this.comboStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboStatus.Location = new System.Drawing.Point(463, 380);
+            this.comboStatus.Margin = new System.Windows.Forms.Padding(2);
             this.comboStatus.Name = "comboStatus";
-            this.comboStatus.Size = new System.Drawing.Size(517, 38);
+            this.comboStatus.Size = new System.Drawing.Size(389, 33);
             this.comboStatus.TabIndex = 46;
             // 
             // comboBreed
@@ -210,47 +163,52 @@
             "Pot-bellied Pig",
             "Tamworth",
             "Yorkshire"});
-            this.comboBreed.Location = new System.Drawing.Point(69, 336);
-            this.comboBreed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBreed.Location = new System.Drawing.Point(52, 273);
+            this.comboBreed.Margin = new System.Windows.Forms.Padding(2);
             this.comboBreed.Name = "comboBreed";
-            this.comboBreed.Size = new System.Drawing.Size(517, 38);
+            this.comboBreed.Size = new System.Drawing.Size(389, 33);
             this.comboBreed.TabIndex = 45;
+            this.comboBreed.SelectedIndexChanged += new System.EventHandler(this.comboBreed_SelectedIndexChanged);
             // 
             // weightTxt
             // 
             this.weightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightTxt.Location = new System.Drawing.Point(617, 340);
-            this.weightTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.weightTxt.Location = new System.Drawing.Point(463, 276);
+            this.weightTxt.Margin = new System.Windows.Forms.Padding(2);
             this.weightTxt.Name = "weightTxt";
-            this.weightTxt.Size = new System.Drawing.Size(517, 37);
+            this.weightTxt.Size = new System.Drawing.Size(389, 31);
             this.weightTxt.TabIndex = 44;
             // 
             // weightlbl
             // 
             this.weightlbl.AutoSize = true;
             this.weightlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightlbl.Location = new System.Drawing.Point(609, 300);
+            this.weightlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.weightlbl.Location = new System.Drawing.Point(457, 244);
+            this.weightlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.weightlbl.Name = "weightlbl";
-            this.weightlbl.Size = new System.Drawing.Size(195, 41);
+            this.weightlbl.Size = new System.Drawing.Size(155, 32);
             this.weightlbl.TabIndex = 43;
             this.weightlbl.Text = "Weight (kg):";
             // 
             // dtPicker
             // 
             this.dtPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtPicker.Location = new System.Drawing.Point(617, 217);
-            this.dtPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtPicker.Location = new System.Drawing.Point(463, 176);
+            this.dtPicker.Margin = new System.Windows.Forms.Padding(2);
             this.dtPicker.Name = "dtPicker";
-            this.dtPicker.Size = new System.Drawing.Size(517, 37);
+            this.dtPicker.Size = new System.Drawing.Size(389, 31);
             this.dtPicker.TabIndex = 42;
             // 
             // birthdatelbl
             // 
             this.birthdatelbl.AutoSize = true;
             this.birthdatelbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdatelbl.Location = new System.Drawing.Point(609, 175);
+            this.birthdatelbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.birthdatelbl.Location = new System.Drawing.Point(457, 142);
+            this.birthdatelbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.birthdatelbl.Name = "birthdatelbl";
-            this.birthdatelbl.Size = new System.Drawing.Size(168, 41);
+            this.birthdatelbl.Size = new System.Drawing.Size(134, 32);
             this.birthdatelbl.TabIndex = 41;
             this.birthdatelbl.Text = "Birth date:";
             // 
@@ -258,9 +216,11 @@
             // 
             this.sexlbl.AutoSize = true;
             this.sexlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sexlbl.Location = new System.Drawing.Point(61, 427);
+            this.sexlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.sexlbl.Location = new System.Drawing.Point(46, 347);
+            this.sexlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sexlbl.Name = "sexlbl";
-            this.sexlbl.Size = new System.Drawing.Size(76, 41);
+            this.sexlbl.Size = new System.Drawing.Size(60, 32);
             this.sexlbl.TabIndex = 40;
             this.sexlbl.Text = "Sex:";
             // 
@@ -268,38 +228,51 @@
             // 
             this.breedlbl.AutoSize = true;
             this.breedlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breedlbl.Location = new System.Drawing.Point(61, 299);
+            this.breedlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.breedlbl.Location = new System.Drawing.Point(46, 243);
+            this.breedlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breedlbl.Name = "breedlbl";
-            this.breedlbl.Size = new System.Drawing.Size(108, 41);
+            this.breedlbl.Size = new System.Drawing.Size(87, 32);
             this.breedlbl.TabIndex = 39;
             this.breedlbl.Text = "Breed:";
             // 
             // tagNumberTxt
             // 
             this.tagNumberTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagNumberTxt.Location = new System.Drawing.Point(69, 215);
-            this.tagNumberTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tagNumberTxt.Location = new System.Drawing.Point(52, 175);
+            this.tagNumberTxt.Margin = new System.Windows.Forms.Padding(2);
             this.tagNumberTxt.Name = "tagNumberTxt";
-            this.tagNumberTxt.Size = new System.Drawing.Size(517, 37);
+            this.tagNumberTxt.Size = new System.Drawing.Size(389, 31);
             this.tagNumberTxt.TabIndex = 38;
             // 
             // tagnumberlbl
             // 
             this.tagnumberlbl.AutoSize = true;
             this.tagnumberlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagnumberlbl.Location = new System.Drawing.Point(61, 173);
+            this.tagnumberlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.tagnumberlbl.Location = new System.Drawing.Point(46, 141);
+            this.tagnumberlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tagnumberlbl.Name = "tagnumberlbl";
-            this.tagnumberlbl.Size = new System.Drawing.Size(195, 41);
+            this.tagnumberlbl.Size = new System.Drawing.Size(159, 32);
             this.tagnumberlbl.TabIndex = 37;
             this.tagnumberlbl.Text = "Tag number:";
             // 
+            // buttonGroup1
+            // 
+            this.buttonGroup1.Location = new System.Drawing.Point(463, 513);
+            this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonGroup1.Name = "buttonGroup1";
+            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
+            this.buttonGroup1.TabIndex = 54;
+            // 
             // RegisterPiglet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.registerPigletPanel);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RegisterPiglet";
-            this.Size = new System.Drawing.Size(1200, 645);
+            this.Size = new System.Drawing.Size(900, 590);
             this.registerPigletPanel.ResumeLayout(false);
             this.registerPigletPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -311,9 +284,6 @@
         private System.Windows.Forms.Panel registerPigletPanel;
         private System.Windows.Forms.RadioButton femaleRadioBtn;
         private System.Windows.Forms.RadioButton maleRadioBtn;
-        private BorderRoundedButton cancelbtn;
-        private BorderRoundedButton clearbtn;
-        private RoundedButton savebtn;
         private System.Windows.Forms.Label registerpiglbl;
         private System.Windows.Forms.Label statuslbl;
         private System.Windows.Forms.ComboBox comboStatus;
@@ -326,5 +296,6 @@
         private System.Windows.Forms.Label breedlbl;
         private System.Windows.Forms.TextBox tagNumberTxt;
         private System.Windows.Forms.Label tagnumberlbl;
+        private CustomUIElements.ButtonGroup.ButtonGroup buttonGroup1;
     }
 }

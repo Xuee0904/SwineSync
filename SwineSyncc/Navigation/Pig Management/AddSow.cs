@@ -236,7 +236,7 @@ namespace SwineSyncc
                     conn.Open();
                     int result = cmd.ExecuteNonQuery();
 
-                    ActivityLogger.Log("New Breed Added", $"New breed '{breedName}' inserted into PigBreed table.");
+                    ActivityLogger.Log("New breed added.", $"New breed '{breedName}' inserted into PigBreed table.");
 
                     return result > 0;
                 }
