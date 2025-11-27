@@ -14,12 +14,15 @@ namespace SwineSyncc.Navigation
 {
     public partial class AddPregnancy : UserControl
     {
+
+        private DataTable pregnantSowData = new DataTable();
+
         public AddPregnancy()
         {
             InitializeComponent();
 
             LoadComboBreedingID();
-            LoadComboPregnantSow();
+            LoadComboPregnantSow(); 
         }
 
         private void LoadComboBreedingID()
@@ -64,7 +67,70 @@ namespace SwineSyncc.Navigation
             }
         }
 
+        private void LoadSowAndBreedingInfo()
+        {
+            pregnantSowData.Clear();
+            pregnantSowData.Columns.Clear();
 
+            pregnantSowData.Columns.Add("SowID", typeof(int));
+            pregnantSowData.Columns.Add("Name", typeof(string));
+            pregnantSowData.Columns.Add("BreedingID", typeof(int));
 
+            string query = @"SELECT P.PigID AS SowID, P.Name AS Name, B.BreedingID FROM Pigs AS P INNER JOIN BreedingRecords AS B ON P.PigID = B.SowID 
+                            WHERE B.Result = 'Success' ORDER BY P.Name, B.BreedingID;";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        pregnantSowData.Load(reader);
+                    }
+                }
+            }
+
+            comboBreedingID.DataSource = pregnantSowData;
+            comboPregnantSow.DataSource = pregnantSowData;
+
+            comboBreedingID.DisplayMember = "BreedingID";
+            comboBreedingID.ValueMember = "SowID";
+
+            comboPregnantSow.DisplayMember = "Name";
+            comboPregnantSow.ValueMember = "SowID";
+
+            comboBreedingID.SelectedIndex = -1;
+            comboPregnantSow.SelectedIndex = -1;
+        }
+
+        private void comboPregnantSow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboPregnantSow.SelectedIndex != -1)
+            {
+                comboBreedingID.SelectedIndexChanged -= comboBreedingID_SelectedIndexChanged;
+
+                comboBreedingID.SelectedIndex = comboPregnantSow.SelectedIndex;
+
+                comboBreedingID.SelectedIndexChanged += comboBreedingID_SelectedIndexChanged;
+            }
+        }
+
+        private void comboBreedingID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBreedingID.SelectedIndex != -1)
+            {
+                comboPregnantSow.SelectedIndexChanged -= comboPregnantSow_SelectedIndexChanged;
+
+                comboPregnantSow.SelectedIndex = comboBreedingID.SelectedIndex;
+
+                comboPregnantSow.SelectedIndexChanged += comboPregnantSow_SelectedIndexChanged;
+            }
+        }
+
+        private void AddPregnancy_Load(object sender, EventArgs e)
+        {
+            LoadSowAndBreedingInfo(); //to ensure both combo boxes data are synchronized
+        }
     }
 }
