@@ -74,6 +74,13 @@ namespace SwineSyncc
                 return;
             }
 
+            if (weight > 400)
+            {
+                MessageBox.Show("Weight limit exceeded. A Sow cannot weigh more than 400 kg.",
+                                "Weight Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (dtPicker.Value > DateTime.Now)
             {
                 MessageBox.Show("Birthdate cannot be in the future.", "Invalid Birthdate",
@@ -110,7 +117,7 @@ namespace SwineSyncc
                         {
                             ActivityLogger.Log(
                                  "Register Sow",
-                                 $"Boar Added | Name: {name}, Breed: {breed}, Birthdate: {birthdate:MMM dd, yyyy}, Weight: {weight} kg, Status: {status}"
+                                 $"Sow Added | Name: {name}, Breed: {breed}, Birthdate: {birthdate:MMM dd, yyyy}, Weight: {weight} kg, Status: {status}"
                              );
 
                             MessageBox.Show("🐷 Pig registered successfully!", "Success",

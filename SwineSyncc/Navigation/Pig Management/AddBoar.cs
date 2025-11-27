@@ -68,6 +68,13 @@ namespace SwineSyncc.Navigation.Pig_Management
                 return;
             }
 
+            if (weight > 400)
+            {
+                MessageBox.Show("Weight limit exceeded. A boar cannot weigh more than 400 kg.",
+                                "Weight Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (dtPicker.Value > DateTime.Now)
             {
                 MessageBox.Show("Birthdate cannot be in the future.", "Invalid Birthdate",
