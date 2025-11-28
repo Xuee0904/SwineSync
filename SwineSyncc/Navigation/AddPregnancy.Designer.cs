@@ -64,6 +64,7 @@
             this.addPregnancyPanel.Name = "addPregnancyPanel";
             this.addPregnancyPanel.Size = new System.Drawing.Size(1200, 645);
             this.addPregnancyPanel.TabIndex = 0;
+            this.addPregnancyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.addPregnancyPanel_Paint);
             // 
             // cancelbtn
             // 
@@ -75,7 +76,7 @@
             this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.cancelbtn.Location = new System.Drawing.Point(827, 534);
-            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4);
             this.cancelbtn.Name = "cancelbtn";
             this.cancelbtn.Size = new System.Drawing.Size(168, 55);
             this.cancelbtn.TabIndex = 75;
@@ -92,7 +93,7 @@
             this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.clearbtn.Location = new System.Drawing.Point(651, 534);
-            this.clearbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearbtn.Margin = new System.Windows.Forms.Padding(4);
             this.clearbtn.Name = "clearbtn";
             this.clearbtn.Size = new System.Drawing.Size(168, 55);
             this.clearbtn.TabIndex = 74;

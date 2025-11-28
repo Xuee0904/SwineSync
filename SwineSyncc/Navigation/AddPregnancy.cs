@@ -22,6 +22,13 @@ namespace SwineSyncc.Navigation
         {
             InitializeComponent();
 
+            this.Dock = DockStyle.Fill;
+            this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(addPregnancyPanel, 40);
+
+            this.BackColor = Color.WhiteSmoke;
+            addPregnancyPanel.BackColor = Color.FromArgb(217, 221, 220);
+
             LoadComboBreedingID();
             LoadComboPregnantSow(); 
         }
@@ -230,6 +237,11 @@ namespace SwineSyncc.Navigation
                 MessageBox.Show("Database Error:\n" + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void addPregnancyPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
