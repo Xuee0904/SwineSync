@@ -133,8 +133,7 @@ namespace SwineSyncc.Navigation
         private void comboBreedingID_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBreedingID.SelectedIndex != -1)
-            {
-
+            {                
                 DataRowView currentRow = (DataRowView)comboBreedingID.SelectedItem;
 
                 if (currentRow != null)
@@ -157,6 +156,80 @@ namespace SwineSyncc.Navigation
         private void AddPregnancy_Load(object sender, EventArgs e)
         {
             LoadSowAndBreedingInfo(); //to ensure both combo boxes data are synchronized
+        }
+
+        private void savebtn_Click(object sender, EventArgs e)
+        {
+            if (comboPregnantSow.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a pregnant sow.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (comboBreedingID.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a Breeding ID.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+          
+            if (!int.TryParse(comboBreedingID.Text, out int breedingID))
+            {
+                MessageBox.Show("Invalid Breeding ID format.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int sowID = Convert.ToInt32(comboPregnantSow.SelectedValue);
+           
+            string sowName = comboPregnantSow.Text;
+
+            DateTime confirmationDate = dtConfirmation.Value;
+            DateTime expectedFarrowingDate = dtExpected.Value;
+
+          
+            if (confirmationDate > DateTime.Now)
+            {
+                MessageBox.Show("Confirmation date cannot be in the future.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }                           
+
+            string query = @"
+                INSERT INTO PregnancyRecords
+                (PregnantPigID, BreedingID, ConfirmationDate, ExpectedFarrowingDate)
+                VALUES (@PregnantPigID, @BreedingID, @ConfirmationDate, @ExpectedFarrowingDate)
+            ";
+
+            try
+            {
+                using (SqlConnection conn = DBConnection.Instance.GetConnection())
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@PregnantPigID", sowID);
+                    cmd.Parameters.AddWithValue("@BreedingID", breedingID);
+                    cmd.Parameters.AddWithValue("@ConfirmationDate", confirmationDate);
+                    cmd.Parameters.AddWithValue("@ExpectedFarrowingDate", expectedFarrowingDate);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+
+                ActivityLogger.Log(
+                    "Add Pregnancy Record",
+                    $"Pregnancy record added | Sow: {sowName} (ID: {sowID}), Breeding ID: {breedingID}, " +
+                    $"Confirmation Date: {confirmationDate:yyyy-MM-dd}, Expected Farrowing Date: {expectedFarrowingDate:yyyy-MM-dd}"
+                );
+
+                MessageBox.Show("Pregnancy record saved successfully!", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Database Error:\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
