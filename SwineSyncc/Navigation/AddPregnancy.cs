@@ -217,7 +217,7 @@ namespace SwineSyncc.Navigation
                 }
 
                 ActivityLogger.Log(
-                    "Add Pregnancy Record",
+                    "Register pregnancy",
                     $"Pregnancy record added | Sow: {sowName} (ID: {sowID}), Breeding ID: {breedingID}, " +
                     $"Confirmation Date: {confirmationDate:yyyy-MM-dd}, Expected Farrowing Date: {expectedFarrowingDate:yyyy-MM-dd}"
                 );

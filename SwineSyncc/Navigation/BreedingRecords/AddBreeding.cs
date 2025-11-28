@@ -270,7 +270,7 @@ namespace SwineSyncc.Navigation.Pig_Management
                         }
 
 
-                        ActivityLogger.Log("Breeding Registration", logDescription);
+                        ActivityLogger.Log("Register breeding", logDescription);
 
                         ClearFields();
                         SaveCompleted?.Invoke(this, EventArgs.Empty);
