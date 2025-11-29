@@ -106,6 +106,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Session.cs" />
+    <Compile Include="Navigation\AddHealthRec.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\AddHealthRec.Designer.cs">
+      <DependentUpon>AddHealthRec.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\PregnancyRecords\AddPregnancy.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\AddHealthRec.resx">
+      <DependentUpon>AddHealthRec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\PregnancyRecords\AddPregnancy.resx">
       <DependentUpon>AddPregnancy.cs</DependentUpon>
