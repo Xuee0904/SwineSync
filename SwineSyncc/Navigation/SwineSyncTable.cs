@@ -1089,5 +1089,10 @@ namespace SwineSyncc.Navigation
         }
 
         #endregion
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

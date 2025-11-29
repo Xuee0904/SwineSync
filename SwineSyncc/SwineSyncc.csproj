@@ -106,10 +106,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Session.cs" />
-    <Compile Include="Navigation\AddPregnancy.cs">
+    <Compile Include="Navigation\PregnancyRecords\AddPregnancy.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\AddPregnancy.Designer.cs">
+    <Compile Include="Navigation\PregnancyRecords\AddPregnancy.Designer.cs">
       <DependentUpon>AddPregnancy.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\Pig Management\AddBoar.cs">
@@ -190,10 +190,10 @@
     <Compile Include="Navigation\Pig Management\PigManagement.Designer.cs">
       <DependentUpon>PigManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\PregnancyRecords.cs">
+    <Compile Include="Navigation\PregnancyRecords\PregnancyRecords.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\PregnancyRecords.Designer.cs">
+    <Compile Include="Navigation\PregnancyRecords\PregnancyRecords.Designer.cs">
       <DependentUpon>PregnancyRecords.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\User Management\UserDetails.cs">
@@ -243,7 +243,7 @@
     <EmbeddedResource Include="Login\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\AddPregnancy.resx">
+    <EmbeddedResource Include="Navigation\PregnancyRecords\AddPregnancy.resx">
       <DependentUpon>AddPregnancy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\AddBoar.resx">
@@ -285,7 +285,7 @@
     <EmbeddedResource Include="Navigation\Pig Management\PigManagement.resx">
       <DependentUpon>PigManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\PregnancyRecords.resx">
+    <EmbeddedResource Include="Navigation\PregnancyRecords\PregnancyRecords.resx">
       <DependentUpon>PregnancyRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\User Management\UserDetails.resx">
