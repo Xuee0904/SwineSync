@@ -172,7 +172,7 @@ namespace SwineSyncc.Navigation.Pig_Management
         {         
             if (comboSow.SelectedItem == null)
             {
-                MessageBox.Show("Please select a sow.", "Validation Error",
+                MessageBox.Show("Please select a sow.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 comboSow.Focus();
                 return;
@@ -180,7 +180,7 @@ namespace SwineSyncc.Navigation.Pig_Management
 
             if (comboMethod.SelectedItem == null)
             {
-                MessageBox.Show("Please select a breeding method.", "Validation Error",
+                MessageBox.Show("Please select a breeding method.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 comboMethod.Focus();
                 return;
@@ -191,14 +191,14 @@ namespace SwineSyncc.Navigation.Pig_Management
             if (method == "Natural" && comboBoar.SelectedItem == null)
             {
                 MessageBox.Show("Please select a boar for natural breeding.",
-                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 comboBoar.Focus();
                 return;
             }
 
             if (comboResult.SelectedItem == null)
             {
-                MessageBox.Show("Please select the breeding result.", "Validation Error",
+                MessageBox.Show("Please select the breeding result.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 comboResult.Focus();
                 return;
@@ -206,7 +206,7 @@ namespace SwineSyncc.Navigation.Pig_Management
 
             if (dtBreeding.Value > DateTime.Now)
             {
-                MessageBox.Show("Breeding date cannot be a future date.", "Validation Error",
+                MessageBox.Show("Breeding date cannot be a future date.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtBreeding.Focus();
                 return;

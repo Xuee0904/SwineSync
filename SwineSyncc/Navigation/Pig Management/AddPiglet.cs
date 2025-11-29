@@ -125,21 +125,21 @@ namespace SwineSyncc.Navigation.Pig_Management
 
             if (string.IsNullOrWhiteSpace(tagNumberTxt.Text))
             {
-                MessageBox.Show("Tag Number is required.", "Validation Error",
+                MessageBox.Show("Tag Number is required.", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!maleRadioBtn.Checked && !femaleRadioBtn.Checked)
             {
-                MessageBox.Show("Please select a gender.", "Validation Error",
+                MessageBox.Show("Please select a gender.", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!int.TryParse(weightTxt.Text, out int weight) || weight <= 0)
             {
-                MessageBox.Show("Weight must be a positive number.", "Validation Error",
+                MessageBox.Show("Weight must be a positive number.", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -153,7 +153,7 @@ namespace SwineSyncc.Navigation.Pig_Management
 
             if (comboStatus.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select a status.", "Validation Error",
+                MessageBox.Show("Please select a status.", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }

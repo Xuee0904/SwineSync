@@ -169,14 +169,14 @@ namespace SwineSyncc.Navigation
         {
             if (comboPregnantSow.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select a pregnant sow.", "Validation Error",
+                MessageBox.Show("Please select a pregnant sow.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (comboBreedingID.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select a Breeding ID.", "Validation Error",
+                MessageBox.Show("Please select a Breeding ID.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }

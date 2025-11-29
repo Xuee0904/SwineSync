@@ -83,27 +83,27 @@ namespace SwineSyncc.Navigation.Pig_Management
           
             if (string.IsNullOrWhiteSpace(editNameTxt.Text))
             {
-                MessageBox.Show("Please enter the pig's name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter the pig's name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 editNameTxt.Focus();
                 return;
             }
           
             if (!editRbMale.Checked && !editRbFemale.Checked)
             {
-                MessageBox.Show("Please select the pig's sex.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the pig's sex.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             
             if (string.IsNullOrWhiteSpace(editComboStatus.Text))
             {
-                MessageBox.Show("Please select a status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a status.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 editComboStatus.Focus();
                 return;
             }
            
             if (!int.TryParse(editWeightTxt.Text, out int weight))
             {
-                MessageBox.Show("Weight must be a valid number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Weight must be a valid number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 editWeightTxt.Focus();
                 return;
             }
@@ -117,14 +117,14 @@ namespace SwineSyncc.Navigation.Pig_Management
 
             if (weight <= 0)
             {
-                MessageBox.Show("Weight must be greater than 0.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Weight must be greater than 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 editWeightTxt.Focus();
                 return;
             }
        
             if (editDtPicker.Value > DateTime.Now)
             {
-                MessageBox.Show("Birthdate cannot be in the future.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Birthdate cannot be in the future.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 editDtPicker.Focus();
                 return;
             }
@@ -306,6 +306,11 @@ namespace SwineSyncc.Navigation.Pig_Management
             {
                 comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             }
+        }
+
+        private void buttonGroup1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
