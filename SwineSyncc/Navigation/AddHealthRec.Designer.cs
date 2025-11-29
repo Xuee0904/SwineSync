@@ -152,9 +152,9 @@
             this.healthrecadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.healthrecadd.Location = new System.Drawing.Point(56, 50);
             this.healthrecadd.Name = "healthrecadd";
-            this.healthrecadd.Size = new System.Drawing.Size(222, 54);
+            this.healthrecadd.Size = new System.Drawing.Size(364, 54);
             this.healthrecadd.TabIndex = 55;
-            this.healthrecadd.Text = "Add piglet";
+            this.healthrecadd.Text = "Add health record";
             // 
             // comboHealthPigName
             // 
