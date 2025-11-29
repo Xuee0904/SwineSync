@@ -30,6 +30,10 @@ namespace SwineSyncc.Navigation.Pig_Management
             this.BackColor = Color.WhiteSmoke;
             addBreedingPanel.BackColor = Color.FromArgb(217, 221, 220);
 
+            buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
+            buttonGroup1.ClearClicked += (s, e) => ClearFields();
+            buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
+
             LoadBoarNameCombo();
             LoadSowNameCombo();
         }
@@ -168,7 +172,7 @@ namespace SwineSyncc.Navigation.Pig_Management
             ClearFields();
         }
 
-        private void savebtn_Click(object sender, EventArgs e)
+        private void SaveHandler(object sender, EventArgs e)
         {         
             if (comboSow.SelectedItem == null)
             {
@@ -289,6 +293,11 @@ namespace SwineSyncc.Navigation.Pig_Management
         }
 
         private void comboSow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void savebtn_Click(object sender, EventArgs e)
         {
 
         }

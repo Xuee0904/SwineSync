@@ -29,6 +29,10 @@ namespace SwineSyncc.Navigation
             this.BackColor = Color.WhiteSmoke;
             addPregnancyPanel.BackColor = Color.FromArgb(217, 221, 220);
 
+            //buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
+            //buttonGroup1.ClearClicked += (s, e) => ClearFields();
+            buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
+
             LoadComboBreedingID();
             LoadComboPregnantSow(); 
         }
@@ -165,7 +169,7 @@ namespace SwineSyncc.Navigation
             LoadSowAndBreedingInfo(); //to ensure both combo boxes data are synchronized
         }
 
-        private void savebtn_Click(object sender, EventArgs e)
+        private void SaveHandler(object sender, EventArgs e)
         {
             if (comboPregnantSow.SelectedIndex == -1)
             {
