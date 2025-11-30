@@ -120,24 +120,12 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="togglePicBox.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADXSURBVGhD7dkxakQxFMVQ739ZCbOuDCl+Y0J8ptIrLLid
-        nnDvtS6Xy6e81lo/w/e9P/ov9qOpO8IikvVYRLIei0jWYxHJeiwiWY9FJOuxiGQ9FpGsxyKS9VhEsh6L
-        SNZ7xOk7sh9M3REWkazHIpL1WESyHotI1mMRyXosIlmPRSTrsYhkPRaRrMcikvVYRLIei0jWe8TpO7If
-        TN0RFpGsxyKS9VhEsh6LSNZjEcl6LCJZj0Uk67GIZD0WkazHIpL1WESy3iNO35Hfz/j9aNq+9kdfLpf/
-        eQN9rBkUtwL9WAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnDeletePig.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACkAAAApCAYAAACoYAD2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAVRJREFUWEftmOGNQiEQhC3BEq4UOzg70E68DrQDrzNLsIS5bMIzvBHz2B3Ai3lf
-        wi92mAnCy8pm88kA2AG4ALguDKv5Yn13AJzh58zrdCMYcKJ/UPvZ2DXAjtdtSjpfOTcAx4VhNTkXXrcp
-        AH7J8Mg1TAqac+WapvyLkAAOAO606EjsaBw414zC+XkHd8414827OHHjXDNe3MaR2CYtnvMHkUtSS7PL
-        tIZcQz7XWLtm7djTtw3AKc3tC3NjQhaajZ9sjkNsScvz3UK+NFK0LhQjRetCMVK0LhQjRetCMVK0LhQj
-        RetCMVK0LhQjRetCMVK0LhQjRetCMSpov2u1LgpGHHJLXfyjkUiNx4TVzN6ChoVMNdZk7LmByOYsTGlu
-        XMgoa0iuidIyZORxqnbw3+bYIxbd0N7EX4ILu9mD2C7mdA6qB5xI37yaR/zaYWv1ffFdKfAHUG/F78Kp
-        6wUAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EAAACxABrSO9dQAAANdJREFUaEPt2TFqRDEUxVDvf1kJs64MKX5jQnym0issuJ2ecO+1LpfLp7zWWj/D
+        970/+i/2o6k7wiKS9VhEsh6LSNZjEcl6LCJZj0Uk67GIZD0WkazHIpL1WESyHotI1nvE6TuyH0zdERaR
+        rMcikvVYRLIei0jWYxHJeiwiWY9FJOuxiGQ9FpGsxyKS9VhEsh6LSNZ7xOk7sh9M3REWkazHIpL1WESy
+        HotI1mMRyXosIlmPRSTrsYhkPRaRrMcikvVYRLLeI07fkd/P+P1o2r72R18ul/95A32sGRS3Av1YAAAA
+        AElFTkSuQmCC
 </value>
   </data>
 </root>

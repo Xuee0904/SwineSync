@@ -32,6 +32,8 @@ namespace SwineSyncc
             _pigUC = new PigManagement(_mainPanel);
             _pigUC.RegisterPigClicked += (s, e) => LoadAddPig();
 
+            _pigUC.ToggleViewToTableClicked += (s, e) => LoadSowTable();
+
             ShowUserControl(_pigUC);
         }
 
@@ -269,6 +271,18 @@ namespace SwineSyncc
                 _userManagementUC.RefreshUserList(); 
             };
             ShowUserControl(addUser);
+        }       
+
+        public void LoadSowTable()
+        {
+            SowTable sowTable = new SowTable(_mainPanel);
+
+            sowTable.BackToCardViewClicked += (s, e) =>
+            {              
+                ShowUserControl(_pigUC);
+            };
+
+            ShowUserControl(sowTable);
         }
 
     }

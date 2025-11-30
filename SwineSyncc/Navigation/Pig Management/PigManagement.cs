@@ -9,12 +9,13 @@ namespace SwineSyncc
 {
     public partial class PigManagement : UserControl
     {
-        public event EventHandler RegisterPigClicked;
+        public event EventHandler RegisterPigClicked;      
+        public event EventHandler ToggleViewToTableClicked;
 
         private readonly Panel _mainPanel;
       
-        private bool _isDeleteMode = false;
-       
+        private bool _isDeleteMode = false;       
+
         private List<int> _selectedPigIds = new List<int>();
 
         public PigManagement(Panel mainPanel)
@@ -22,7 +23,9 @@ namespace SwineSyncc
             InitializeComponent();
             _mainPanel = mainPanel;
             this.Dock = DockStyle.Fill;
-            
+
+            togglePicBox.Image = Properties.Resources.tableIcon;
+
             LoadPigButtons();
         }
        
@@ -185,6 +188,11 @@ namespace SwineSyncc
         private void btnRegisterPig_Click_1(object sender, EventArgs e)
         {
             RegisterPigClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void togglePicBox_Click(object sender, EventArgs e)
+        {
+            ToggleViewToTableClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

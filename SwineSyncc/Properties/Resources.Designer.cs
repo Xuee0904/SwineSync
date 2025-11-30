@@ -183,6 +183,16 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PigNose {
+            get {
+                object obj = ResourceManager.GetObject("PigNose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Plus {
             get {
                 object obj = ResourceManager.GetObject("Plus", resourceCulture);
@@ -256,6 +266,16 @@ namespace SwineSyncc.Properties {
         internal static System.Drawing.Bitmap Swinesync_2x {
             get {
                 object obj = ResourceManager.GetObject("Swinesync@2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tableIcon {
+            get {
+                object obj = ResourceManager.GetObject("tableIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

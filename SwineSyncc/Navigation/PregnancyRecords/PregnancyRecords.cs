@@ -51,5 +51,10 @@ namespace SwineSyncc
         {
             displayTable.FilterData(customTextBox1.Texts.Trim());
         }
+
+        private void pnlPregnancyRecords_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
