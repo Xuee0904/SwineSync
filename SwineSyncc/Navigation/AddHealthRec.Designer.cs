@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cancelbtn = new BorderRoundedButton();
+            this.clearbtn = new BorderRoundedButton();
+            this.savebtn = new RoundedButton();
+            this.notesTxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.vetNameTxt = new System.Windows.Forms.TextBox();
+            this.conditionTxt = new System.Windows.Forms.TextBox();
+            this.comboHealthPigName = new System.Windows.Forms.ComboBox();
+            this.healthrecadd = new System.Windows.Forms.Label();
             this.statuslbl = new System.Windows.Forms.Label();
             this.treatmentTxt = new System.Windows.Forms.TextBox();
             this.weightlbl = new System.Windows.Forms.Label();
@@ -36,15 +45,6 @@
             this.checkuplabel = new System.Windows.Forms.Label();
             this.breedlbl = new System.Windows.Forms.Label();
             this.pignamelabel = new System.Windows.Forms.Label();
-            this.healthrecadd = new System.Windows.Forms.Label();
-            this.comboHealthPigName = new System.Windows.Forms.ComboBox();
-            this.conditionTxt = new System.Windows.Forms.TextBox();
-            this.vetNameTxt = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.notesTxt = new System.Windows.Forms.TextBox();
-            this.cancelbtn = new BorderRoundedButton();
-            this.clearbtn = new BorderRoundedButton();
-            this.savebtn = new RoundedButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +71,131 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 645);
             this.panel1.TabIndex = 0;
+            // 
+            // cancelbtn
+            // 
+            this.cancelbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.cancelbtn.BorderRadious = 9;
+            this.cancelbtn.BorderThickness = 3;
+            this.cancelbtn.FlatAppearance.BorderSize = 0;
+            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.cancelbtn.Location = new System.Drawing.Point(794, 631);
+            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.cancelbtn.Name = "cancelbtn";
+            this.cancelbtn.Size = new System.Drawing.Size(168, 55);
+            this.cancelbtn.TabIndex = 63;
+            this.cancelbtn.Text = "Cancel";
+            this.cancelbtn.UseVisualStyleBackColor = true;
+            // 
+            // clearbtn
+            // 
+            this.clearbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.clearbtn.BorderRadious = 9;
+            this.clearbtn.BorderThickness = 3;
+            this.clearbtn.FlatAppearance.BorderSize = 0;
+            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.clearbtn.Location = new System.Drawing.Point(619, 631);
+            this.clearbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(168, 55);
+            this.clearbtn.TabIndex = 62;
+            this.clearbtn.Text = "Clear";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            // 
+            // savebtn
+            // 
+            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.savebtn.BorderRadious = 9;
+            this.savebtn.FlatAppearance.BorderSize = 0;
+            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.savebtn.Location = new System.Drawing.Point(968, 631);
+            this.savebtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.savebtn.Name = "savebtn";
+            this.savebtn.Size = new System.Drawing.Size(168, 55);
+            this.savebtn.TabIndex = 61;
+            this.savebtn.Text = "Save";
+            this.savebtn.UseVisualStyleBackColor = false;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
+            // 
+            // notesTxt
+            // 
+            this.notesTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notesTxt.Location = new System.Drawing.Point(619, 476);
+            this.notesTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.notesTxt.Name = "notesTxt";
+            this.notesTxt.Size = new System.Drawing.Size(517, 37);
+            this.notesTxt.TabIndex = 60;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label1.Location = new System.Drawing.Point(612, 433);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 41);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "Notes:";
+            // 
+            // vetNameTxt
+            // 
+            this.vetNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vetNameTxt.Location = new System.Drawing.Point(66, 476);
+            this.vetNameTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.vetNameTxt.Name = "vetNameTxt";
+            this.vetNameTxt.Size = new System.Drawing.Size(517, 37);
+            this.vetNameTxt.TabIndex = 58;
+            // 
+            // conditionTxt
+            // 
+            this.conditionTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conditionTxt.Location = new System.Drawing.Point(66, 339);
+            this.conditionTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.conditionTxt.Name = "conditionTxt";
+            this.conditionTxt.Size = new System.Drawing.Size(517, 37);
+            this.conditionTxt.TabIndex = 57;
+            // 
+            // comboHealthPigName
+            // 
+            this.comboHealthPigName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboHealthPigName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboHealthPigName.FormattingEnabled = true;
+            this.comboHealthPigName.Items.AddRange(new object[] {
+            "Berkshire",
+            "Chester White",
+            "Duroc",
+            "Hampshire",
+            "Hereford",
+            "Kunekune",
+            "Landrace",
+            "Large White",
+            "Mangalista",
+            "Pietrain",
+            "Pot-bellied Pig",
+            "Tamworth",
+            "Yorkshire"});
+            this.comboHealthPigName.Location = new System.Drawing.Point(66, 223);
+            this.comboHealthPigName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboHealthPigName.Name = "comboHealthPigName";
+            this.comboHealthPigName.Size = new System.Drawing.Size(517, 38);
+            this.comboHealthPigName.TabIndex = 56;
+            // 
+            // healthrecadd
+            // 
+            this.healthrecadd.AutoSize = true;
+            this.healthrecadd.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.healthrecadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.healthrecadd.Location = new System.Drawing.Point(56, 50);
+            this.healthrecadd.Name = "healthrecadd";
+            this.healthrecadd.Size = new System.Drawing.Size(364, 54);
+            this.healthrecadd.TabIndex = 55;
+            this.healthrecadd.Text = "Add health record";
             // 
             // statuslbl
             // 
@@ -144,130 +269,6 @@
             this.pignamelabel.Size = new System.Drawing.Size(157, 41);
             this.pignamelabel.TabIndex = 45;
             this.pignamelabel.Text = "Pig name:";
-            // 
-            // healthrecadd
-            // 
-            this.healthrecadd.AutoSize = true;
-            this.healthrecadd.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.healthrecadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.healthrecadd.Location = new System.Drawing.Point(56, 50);
-            this.healthrecadd.Name = "healthrecadd";
-            this.healthrecadd.Size = new System.Drawing.Size(364, 54);
-            this.healthrecadd.TabIndex = 55;
-            this.healthrecadd.Text = "Add health record";
-            // 
-            // comboHealthPigName
-            // 
-            this.comboHealthPigName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboHealthPigName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboHealthPigName.FormattingEnabled = true;
-            this.comboHealthPigName.Items.AddRange(new object[] {
-            "Berkshire",
-            "Chester White",
-            "Duroc",
-            "Hampshire",
-            "Hereford",
-            "Kunekune",
-            "Landrace",
-            "Large White",
-            "Mangalista",
-            "Pietrain",
-            "Pot-bellied Pig",
-            "Tamworth",
-            "Yorkshire"});
-            this.comboHealthPigName.Location = new System.Drawing.Point(66, 223);
-            this.comboHealthPigName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboHealthPigName.Name = "comboHealthPigName";
-            this.comboHealthPigName.Size = new System.Drawing.Size(517, 38);
-            this.comboHealthPigName.TabIndex = 56;
-            // 
-            // conditionTxt
-            // 
-            this.conditionTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conditionTxt.Location = new System.Drawing.Point(66, 339);
-            this.conditionTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.conditionTxt.Name = "conditionTxt";
-            this.conditionTxt.Size = new System.Drawing.Size(517, 37);
-            this.conditionTxt.TabIndex = 57;
-            // 
-            // vetNameTxt
-            // 
-            this.vetNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vetNameTxt.Location = new System.Drawing.Point(66, 476);
-            this.vetNameTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.vetNameTxt.Name = "vetNameTxt";
-            this.vetNameTxt.Size = new System.Drawing.Size(517, 37);
-            this.vetNameTxt.TabIndex = 58;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(612, 433);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 41);
-            this.label1.TabIndex = 59;
-            this.label1.Text = "Notes:";
-            // 
-            // notesTxt
-            // 
-            this.notesTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notesTxt.Location = new System.Drawing.Point(619, 476);
-            this.notesTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.notesTxt.Name = "notesTxt";
-            this.notesTxt.Size = new System.Drawing.Size(517, 37);
-            this.notesTxt.TabIndex = 60;
-            // 
-            // cancelbtn
-            // 
-            this.cancelbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.BorderRadious = 9;
-            this.cancelbtn.BorderThickness = 3;
-            this.cancelbtn.FlatAppearance.BorderSize = 0;
-            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.Location = new System.Drawing.Point(794, 631);
-            this.cancelbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(168, 55);
-            this.cancelbtn.TabIndex = 63;
-            this.cancelbtn.Text = "Cancel";
-            this.cancelbtn.UseVisualStyleBackColor = true;
-            // 
-            // clearbtn
-            // 
-            this.clearbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.BorderRadious = 9;
-            this.clearbtn.BorderThickness = 3;
-            this.clearbtn.FlatAppearance.BorderSize = 0;
-            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.Location = new System.Drawing.Point(619, 631);
-            this.clearbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(168, 55);
-            this.clearbtn.TabIndex = 62;
-            this.clearbtn.Text = "Clear";
-            this.clearbtn.UseVisualStyleBackColor = true;
-            // 
-            // savebtn
-            // 
-            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.savebtn.BorderRadious = 9;
-            this.savebtn.FlatAppearance.BorderSize = 0;
-            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.savebtn.Location = new System.Drawing.Point(968, 631);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(168, 55);
-            this.savebtn.TabIndex = 61;
-            this.savebtn.Text = "Save";
-            this.savebtn.UseVisualStyleBackColor = false;
             // 
             // AddHealthRec
             // 

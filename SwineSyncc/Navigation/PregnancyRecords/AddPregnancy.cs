@@ -164,6 +164,27 @@ namespace SwineSyncc.Navigation
             }
         }
 
+        private bool SowHasActivePregnancy(int sowID)
+        {
+            string query = @"
+                SELECT COUNT(*)
+                FROM PregnancyRecords
+                WHERE PregnantPigID = @SowID
+                AND ExpectedFarrowingDate >= GETDATE();  -- gestation still active
+            ";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@SowID", sowID);
+
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
+
+
         private void AddPregnancy_Load(object sender, EventArgs e)
         {
             LoadSowAndBreedingInfo(); //to ensure both combo boxes data are synchronized
@@ -199,7 +220,17 @@ namespace SwineSyncc.Navigation
             DateTime confirmationDate = dtConfirmation.Value;
             DateTime expectedFarrowingDate = dtExpected.Value;
 
-          
+            if (SowHasActivePregnancy(sowID))
+            {
+                MessageBox.Show(
+                    $"The sow \"{sowName}\" already has an active pregnancy record and cannot be registered again.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             if (confirmationDate > DateTime.Now)
             {
                 MessageBox.Show("Confirmation date cannot be in the future.", "Validation Error",
