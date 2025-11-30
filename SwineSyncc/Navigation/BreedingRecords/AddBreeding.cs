@@ -162,18 +162,8 @@ namespace SwineSyncc.Navigation.Pig_Management
 
         }
 
-        private void cancelbtn_Click(object sender, EventArgs e)
-        {
-            CancelClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void clearbtn_Click(object sender, EventArgs e)
-        {
-            ClearFields();
-        }
-
         private void SaveHandler(object sender, EventArgs e)
-        {         
+        {
             if (comboSow.SelectedItem == null)
             {
                 MessageBox.Show("Please select a sow.", "Error",
@@ -234,11 +224,14 @@ namespace SwineSyncc.Navigation.Pig_Management
             string result = comboResult.SelectedItem.ToString();
             DateTime breedingDate = dtBreeding.Value;
 
+            int newBreedingID = 0;
+
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
-                string query = @"INSERT INTO BreedingRecords 
-                        (SowID, BoarID, BreedingDate, BreedingMethod, Result)
-                        VALUES (@SowPigID, @BoarPigID, @BreedingDate, @Method, @Result)";
+
+                string query = @"INSERT INTO BreedingRecords (SowID, BoarID, BreedingDate, BreedingMethod, Result)
+                                VALUES (@SowPigID, @BoarPigID, @BreedingDate, @Method, @Result);
+                                SELECT SCOPE_IDENTITY();";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -251,8 +244,14 @@ namespace SwineSyncc.Navigation.Pig_Management
                     try
                     {
                         conn.Open();
-                        cmd.ExecuteNonQuery();
-                      
+
+                        object newId = cmd.ExecuteScalar();
+
+                        if (newId != null && newId != DBNull.Value)
+                        {
+                            newBreedingID = Convert.ToInt32(newId);
+                        }
+
                         MessageBox.Show(
                             "Breeding record has been successfully saved!",
                             "Success",
@@ -261,23 +260,27 @@ namespace SwineSyncc.Navigation.Pig_Management
                         );
 
                         string logDescription;
-
                         if (method == "Artificial insemination(AI)")
                         {
                             logDescription =
-                                $"Breeding Added | Method: AI | Sow: {selectedSow.Name}";
+                                $"Breeding Added (ID: {newBreedingID}) | Method: AI | Sow: {selectedSow.Name}";
                         }
                         else
                         {
                             logDescription =
-                                $"Breeding Added | Method: Natural | Sow: {selectedSow.Name}, Boar: {selectedBoar.Name}";
+                                $"Breeding Added (ID: {newBreedingID}) | Method: Natural | Sow: {selectedSow.Name}, Boar: {selectedBoar.Name}";
                         }
 
 
                         ActivityLogger.Log("Register breeding", logDescription);
 
+                        if (result == "Success")
+                        {
+                            BreedingToPregnancyTransition(conn, newBreedingID, selectedSow);
+                        }
+
                         ClearFields();
-                        SaveCompleted?.Invoke(this, EventArgs.Empty);
+                        SaveCompleted?.Invoke(this, new BreedingSaveEventArgs(newBreedingID));
                     }
                     catch (Exception ex)
                     {
@@ -291,6 +294,126 @@ namespace SwineSyncc.Navigation.Pig_Management
                 }
             }
         }
+
+        /* using (SqlConnection conn = DBConnection.Instance.GetConnection())
+         {
+             string query = @"INSERT INTO BreedingRecords 
+                     (SowID, BoarID, BreedingDate, BreedingMethod, Result)
+                     VALUES (@SowPigID, @BoarPigID, @BreedingDate, @Method, @Result);
+                     SELECT SCOPE_IDENTITY();";
+
+             using (SqlCommand cmd = new SqlCommand(query, conn))
+             {
+                 cmd.Parameters.AddWithValue("@SowPigID", sowPigId);
+                 cmd.Parameters.AddWithValue("@BoarPigID", boarValue);
+                 cmd.Parameters.AddWithValue("@BreedingDate", breedingDate);
+                 cmd.Parameters.AddWithValue("@Method", method);
+                 cmd.Parameters.AddWithValue("@Result", result);
+
+                 object newId = cmd.ExecuteScalar();
+
+                 if (newId != null && newId != DBNull.Value)
+                 {
+                     newBreedingID = Convert.ToInt32(newId);
+                 }
+
+                 if (result == "Success")
+                 {
+                     BreeedingToPregnancyTransition(conn, newBreedingID, selectedSow);
+                 }
+
+                 try
+                 {
+                     conn.Open();
+                     cmd.ExecuteNonQuery();
+
+                     MessageBox.Show(
+                         "Breeding record has been successfully saved!",
+                         "Success",
+                         MessageBoxButtons.OK,
+                         MessageBoxIcon.Information
+                     );
+
+                     string logDescription;
+
+                     if (method == "Artificial insemination(AI)")
+                     {
+                         logDescription =
+                             $"Breeding Added | Method: AI | Sow: {selectedSow.Name}";
+                     }
+                     else
+                     {
+                         logDescription =
+                             $"Breeding Added | Method: Natural | Sow: {selectedSow.Name}, Boar: {selectedBoar.Name}";
+                     }
+
+
+                     ActivityLogger.Log("Register breeding", logDescription);
+
+                     ClearFields();
+                     SaveCompleted?.Invoke(this, EventArgs.Empty);
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show(
+                         "Database Error: " + ex.Message,
+                         "Error",
+                         MessageBoxButtons.OK,
+                         MessageBoxIcon.Error
+                     );
+                 }
+             }
+         }*/
+
+        public class BreedingSaveEventArgs : EventArgs
+        {
+            public int BreedingID { get; }
+            public BreedingSaveEventArgs(int breedingID) => BreedingID = breedingID;
+        }
+
+
+        private void BreedingToPregnancyTransition(SqlConnection conn, int breedingID, SowName selectedSow)
+        {
+            string sowName = selectedSow.Name;
+            int sowID = selectedSow.PigID;
+
+            DateTime expectedFarrowingDate = dtBreeding.Value.AddDays(114);
+            DateTime confirmationDate = DateTime.Today; //user should upfate this later
+
+            string query = @"
+                INSERT INTO PregnancyRecords
+                (PregnantPigID, BreedingID, ConfirmationDate, ExpectedFarrowingDate)
+                VALUES (@PregnantPigID, @BreedingID, @ConfirmationDate, @ExpectedFarrowingDate)
+            ";
+
+            try
+            {
+                using (conn = DBConnection.Instance.GetConnection())
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@PregnantPigID", sowID);
+                    cmd.Parameters.AddWithValue("@BreedingID", breedingID);
+                    cmd.Parameters.AddWithValue("@ConfirmationDate", confirmationDate);
+                    cmd.Parameters.AddWithValue("@ExpectedFarrowingDate", expectedFarrowingDate);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+
+                ActivityLogger.Log(
+                    "Register pregnancy",
+                    $"Pregnancy record added | Sow: {sowName} (ID: {sowID}), Breeding ID: {breedingID}, " +
+                    $"Confirmation Date: {confirmationDate:yyyy-MM-dd}, Expected Farrowing Date: {expectedFarrowingDate:yyyy-MM-dd}"
+                );
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Database Error:\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
 
         private void comboSow_SelectedIndexChanged(object sender, EventArgs e)
         {
