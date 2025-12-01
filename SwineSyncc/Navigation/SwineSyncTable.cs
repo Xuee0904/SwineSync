@@ -120,7 +120,7 @@ namespace SwineSyncc.Navigation
             else if (tableName == "BreedingRecords") {
                 this.tableQuery = @"SELECT b.BreedingID, pSow.Name AS SowName,
                 CASE 
-                    WHEN b.BreedingMethod = 'Artificial Insemination' THEN NULL
+                    WHEN b.BreedingMethod = 'Artificial Insemination' THEN 'NULL'
                     ELSE pBoar.Name
                 END AS BoarName, b.BreedingMethod, b.BreedingDate, b.Result
                 FROM BreedingRecords b
@@ -1118,14 +1118,18 @@ namespace SwineSyncc.Navigation
             // Check if the column is BoarName
             if (dataGridView1.Columns[e.ColumnIndex].Name == "BoarName")
             {
-                if (e.Value == null || e.Value == DBNull.Value || string.IsNullOrEmpty(e.Value.ToString()))
+                string cellValue = Convert.ToString(e.Value); // safe conversion
+
+                if (e.Value == null ||
+                    e.Value == DBNull.Value ||
+                    string.IsNullOrEmpty(cellValue) ||
+                    string.Equals(cellValue, "NULL", StringComparison.OrdinalIgnoreCase))
                 {
-                    // Set color for NULL values
-                    e.CellStyle.BackColor = Color.LightPink;
                     e.CellStyle.ForeColor = Color.DarkRed;
                     e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
                 }
             }
+
         }
     }
 }
