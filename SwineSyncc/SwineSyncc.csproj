@@ -427,10 +427,10 @@
     <None Include="Resources\notifications %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PigNose.png" />
+    <None Include="Resources\tableIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tableIcon.png" />
+    <None Include="Resources\PigNose.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
