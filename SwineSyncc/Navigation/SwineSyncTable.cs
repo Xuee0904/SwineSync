@@ -90,8 +90,12 @@ namespace SwineSyncc.Navigation
             WHERE BreedingID LIKE @kw OR SowID LIKE @kw OR BoarID LIKE @kw
             OR BreedingMethod LIKE @kw OR ExpectedFarrowingDate LIKE @kw";
             }
+            else if(tableName == "SowTable")
+            {
+                query = @"SELECT * FROM Pigs WHERE Sex = Female";
+            }
 
-            return query;
+                return query;
         }
 
         public void UpdateGrid(DataTable table)
@@ -107,14 +111,28 @@ namespace SwineSyncc.Navigation
             dataGridView1.Refresh(); // ensures visual update
         }
 
-
-
-
-
-
         public void SetTableQuery(string tableName)
         {
-            this.tableQuery = "SELECT * FROM " + tableName;
+            if (tableName == "SowTable")
+            {
+                this.tableQuery = @"SELECT * FROM Pigs WHERE Sex = 'Female'";
+            } 
+            else if (tableName == "BreedingRecords") {
+                this.tableQuery = @"SELECT b.BreedingID, pSow.Name AS SowName,
+                CASE 
+                    WHEN b.BreedingMethod = 'Artificial Insemination' THEN NULL
+                    ELSE pBoar.Name
+                END AS BoarName, b.BreedingMethod, b.BreedingDate, b.Result
+                FROM BreedingRecords b
+                LEFT JOIN Pigs pSow ON pSow.PigID = b.SowID
+                LEFT JOIN Pigs pBoar ON pBoar.PigID = b.BoarID
+                ORDER BY b.BreedingID;
+                ";
+            }
+            else
+            {
+                this.tableQuery = "SELECT * FROM " + tableName;
+            }
         }
 
         public string GetTableQuery()
@@ -1093,6 +1111,21 @@ namespace SwineSyncc.Navigation
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Check if the column is BoarName
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "BoarName")
+            {
+                if (e.Value == null || e.Value == DBNull.Value || string.IsNullOrEmpty(e.Value.ToString()))
+                {
+                    // Set color for NULL values
+                    e.CellStyle.BackColor = Color.LightPink;
+                    e.CellStyle.ForeColor = Color.DarkRed;
+                    e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+                }
+            }
         }
     }
 }

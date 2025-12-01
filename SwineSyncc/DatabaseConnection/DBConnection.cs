@@ -14,13 +14,13 @@ namespace SwineSyncc.Data
             //"Data Source=LAPTOP-SFLC0K1H\\SQLEXPRESS;Initial Catalog=SwineSyncDB;Integrated Security=True;";
 
             // CEDRIC SERVER
-            "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
+            //"Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=SwineSync;Integrated Security=True;";
 
             // RUSSEL SERVER
             //"Data Source=LAPTOP-VBK2CP8T\\SQLEXPRESS01;Initial Catalog=SwineSync;Integrated Security=True;";
 
             //JOSE SERVER
-            //"Server=localhost; Database=SwineSync; Integrated Security=True;";
+            "Server=localhost; Database=SwineSync; Integrated Security=True;";
 
         private DBConnection()
         {
