@@ -61,13 +61,12 @@
             this.flowLayoutPanel1.Controls.Add(this.transactionsBtn);
             this.flowLayoutPanel1.Controls.Add(this.userManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.remindersBtn);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(385, 999);
+            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(369, 886);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(385, 999);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(369, 886);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -115,7 +114,7 @@
             this.panelPigSubMenu.Location = new System.Drawing.Point(3, 267);
             this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPigSubMenu.Name = "panelPigSubMenu";
-            this.panelPigSubMenu.Size = new System.Drawing.Size(382, 227);
+            this.panelPigSubMenu.Size = new System.Drawing.Size(366, 227);
             this.panelPigSubMenu.TabIndex = 5;
             this.panelPigSubMenu.Visible = false;
             // 
@@ -137,7 +136,7 @@
             this.customButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.customButton1.Location = new System.Drawing.Point(3, 96);
             this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(382, 80);
+            this.customButton1.Size = new System.Drawing.Size(366, 80);
             this.customButton1.TabIndex = 32;
             this.customButton1.Text = "Dashboard";
             this.customButton1.TextColor = System.Drawing.Color.White;
@@ -161,7 +160,7 @@
             this.pigManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pigManagementBtn.Location = new System.Drawing.Point(3, 182);
             this.pigManagementBtn.Name = "pigManagementBtn";
-            this.pigManagementBtn.Size = new System.Drawing.Size(382, 80);
+            this.pigManagementBtn.Size = new System.Drawing.Size(366, 80);
             this.pigManagementBtn.TabIndex = 33;
             this.pigManagementBtn.Text = "Pig management";
             this.pigManagementBtn.TextColor = System.Drawing.SystemColors.Window;
@@ -243,7 +242,7 @@
             this.inventoryBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.inventoryBtn.Location = new System.Drawing.Point(3, 499);
             this.inventoryBtn.Name = "inventoryBtn";
-            this.inventoryBtn.Size = new System.Drawing.Size(382, 80);
+            this.inventoryBtn.Size = new System.Drawing.Size(366, 80);
             this.inventoryBtn.TabIndex = 34;
             this.inventoryBtn.Text = "Inventory";
             this.inventoryBtn.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -267,7 +266,7 @@
             this.transactionsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.transactionsBtn.Location = new System.Drawing.Point(3, 585);
             this.transactionsBtn.Name = "transactionsBtn";
-            this.transactionsBtn.Size = new System.Drawing.Size(382, 80);
+            this.transactionsBtn.Size = new System.Drawing.Size(366, 80);
             this.transactionsBtn.TabIndex = 35;
             this.transactionsBtn.Text = "Transaction";
             this.transactionsBtn.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -291,7 +290,7 @@
             this.userManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.userManagementBtn.Location = new System.Drawing.Point(3, 671);
             this.userManagementBtn.Name = "userManagementBtn";
-            this.userManagementBtn.Size = new System.Drawing.Size(382, 80);
+            this.userManagementBtn.Size = new System.Drawing.Size(366, 80);
             this.userManagementBtn.TabIndex = 36;
             this.userManagementBtn.Text = "User management";
             this.userManagementBtn.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -316,7 +315,7 @@
             this.remindersBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.remindersBtn.Location = new System.Drawing.Point(3, 757);
             this.remindersBtn.Name = "remindersBtn";
-            this.remindersBtn.Size = new System.Drawing.Size(382, 80);
+            this.remindersBtn.Size = new System.Drawing.Size(366, 80);
             this.remindersBtn.TabIndex = 37;
             this.remindersBtn.Text = "Reminders";
             this.remindersBtn.TextColor = System.Drawing.Color.WhiteSmoke;
