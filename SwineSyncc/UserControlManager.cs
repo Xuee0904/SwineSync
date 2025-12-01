@@ -35,8 +35,7 @@ namespace SwineSyncc
             _pigUC.ToggleViewToTableClicked += (s, e) => LoadSowTable();
 
             ShowUserControl(_pigUC);
-        }
-
+        }       
 
         public void LoadAddPig()
         {
