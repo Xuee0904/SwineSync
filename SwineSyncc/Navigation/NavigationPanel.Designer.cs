@@ -120,7 +120,7 @@
             this.customButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.customButton1.Location = new System.Drawing.Point(3, 109);
             this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(389, 97);
+            this.customButton1.Size = new System.Drawing.Size(386, 90);
             this.customButton1.TabIndex = 32;
             this.customButton1.Text = "Dashboard";
             this.customButton1.TextColor = System.Drawing.Color.White;
@@ -143,9 +143,9 @@
             this.pigManagementBtn.ForeColor = System.Drawing.SystemColors.Window;
             this.pigManagementBtn.Image = global::SwineSyncc.Properties.Resources.Pig_Icon__1_;
             this.pigManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pigManagementBtn.Location = new System.Drawing.Point(3, 212);
+            this.pigManagementBtn.Location = new System.Drawing.Point(3, 205);
             this.pigManagementBtn.Name = "pigManagementBtn";
-            this.pigManagementBtn.Size = new System.Drawing.Size(389, 97);
+            this.pigManagementBtn.Size = new System.Drawing.Size(386, 90);
             this.pigManagementBtn.TabIndex = 33;
             this.pigManagementBtn.Text = "Pig management";
             this.pigManagementBtn.TextColor = System.Drawing.SystemColors.Window;
@@ -162,10 +162,10 @@
             this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
             this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
             this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 314);
+            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 300);
             this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPigSubMenu.Name = "panelPigSubMenu";
-            this.panelPigSubMenu.Size = new System.Drawing.Size(389, 228);
+            this.panelPigSubMenu.Size = new System.Drawing.Size(386, 227);
             this.panelPigSubMenu.TabIndex = 5;
             this.panelPigSubMenu.Visible = false;
             // 
@@ -182,7 +182,7 @@
             this.healthRecordsBtn.ForeColor = System.Drawing.Color.White;
             this.healthRecordsBtn.Location = new System.Drawing.Point(64, 164);
             this.healthRecordsBtn.Name = "healthRecordsBtn";
-            this.healthRecordsBtn.Size = new System.Drawing.Size(297, 61);
+            this.healthRecordsBtn.Size = new System.Drawing.Size(297, 60);
             this.healthRecordsBtn.TabIndex = 29;
             this.healthRecordsBtn.Text = "Health records";
             this.healthRecordsBtn.UseVisualStyleBackColor = false;
@@ -201,7 +201,7 @@
             this.pregnancyRecordsBtn.ForeColor = System.Drawing.Color.White;
             this.pregnancyRecordsBtn.Location = new System.Drawing.Point(64, 83);
             this.pregnancyRecordsBtn.Name = "pregnancyRecordsBtn";
-            this.pregnancyRecordsBtn.Size = new System.Drawing.Size(297, 61);
+            this.pregnancyRecordsBtn.Size = new System.Drawing.Size(297, 60);
             this.pregnancyRecordsBtn.TabIndex = 28;
             this.pregnancyRecordsBtn.Text = "Pregnancy records";
             this.pregnancyRecordsBtn.UseVisualStyleBackColor = false;
@@ -220,7 +220,7 @@
             this.breedingRecordsBtn.ForeColor = System.Drawing.Color.White;
             this.breedingRecordsBtn.Location = new System.Drawing.Point(64, 3);
             this.breedingRecordsBtn.Name = "breedingRecordsBtn";
-            this.breedingRecordsBtn.Size = new System.Drawing.Size(297, 61);
+            this.breedingRecordsBtn.Size = new System.Drawing.Size(297, 60);
             this.breedingRecordsBtn.TabIndex = 27;
             this.breedingRecordsBtn.Text = "Breeding records";
             this.breedingRecordsBtn.UseVisualStyleBackColor = false;
@@ -242,9 +242,9 @@
             this.inventoryBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.inventoryBtn.Image = global::SwineSyncc.Properties.Resources.Inventory_Icon__1_;
             this.inventoryBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.inventoryBtn.Location = new System.Drawing.Point(3, 547);
+            this.inventoryBtn.Location = new System.Drawing.Point(3, 532);
             this.inventoryBtn.Name = "inventoryBtn";
-            this.inventoryBtn.Size = new System.Drawing.Size(389, 97);
+            this.inventoryBtn.Size = new System.Drawing.Size(386, 90);
             this.inventoryBtn.TabIndex = 34;
             this.inventoryBtn.Text = "Inventory";
             this.inventoryBtn.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -266,9 +266,9 @@
             this.transactionsBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.transactionsBtn.Image = global::SwineSyncc.Properties.Resources.Mask_group__4_;
             this.transactionsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.transactionsBtn.Location = new System.Drawing.Point(3, 650);
+            this.transactionsBtn.Location = new System.Drawing.Point(3, 628);
             this.transactionsBtn.Name = "transactionsBtn";
-            this.transactionsBtn.Size = new System.Drawing.Size(389, 97);
+            this.transactionsBtn.Size = new System.Drawing.Size(386, 90);
             this.transactionsBtn.TabIndex = 35;
             this.transactionsBtn.Text = "Transaction";
             this.transactionsBtn.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -290,9 +290,9 @@
             this.userManagementBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.userManagementBtn.Image = global::SwineSyncc.Properties.Resources.User_management2;
             this.userManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userManagementBtn.Location = new System.Drawing.Point(3, 753);
+            this.userManagementBtn.Location = new System.Drawing.Point(3, 724);
             this.userManagementBtn.Name = "userManagementBtn";
-            this.userManagementBtn.Size = new System.Drawing.Size(389, 97);
+            this.userManagementBtn.Size = new System.Drawing.Size(386, 90);
             this.userManagementBtn.TabIndex = 36;
             this.userManagementBtn.Text = "User management";
             this.userManagementBtn.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -315,13 +315,14 @@
             this.remindersBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.remindersBtn.Image = global::SwineSyncc.Properties.Resources.notifications__1_;
             this.remindersBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.remindersBtn.Location = new System.Drawing.Point(3, 856);
+            this.remindersBtn.Location = new System.Drawing.Point(3, 820);
             this.remindersBtn.Name = "remindersBtn";
-            this.remindersBtn.Size = new System.Drawing.Size(389, 97);
+            this.remindersBtn.Size = new System.Drawing.Size(386, 90);
             this.remindersBtn.TabIndex = 37;
             this.remindersBtn.Text = "Reminders";
             this.remindersBtn.TextColor = System.Drawing.Color.WhiteSmoke;
             this.remindersBtn.UseVisualStyleBackColor = false;
+            this.remindersBtn.Click += new System.EventHandler(this.remindersBtn_Click_1);
             // 
             // NavigationPanel
             // 

@@ -13,7 +13,8 @@ namespace SwineSyncc
         private PigManagement _pigUC;
         private PregnancyRecords _pregnancyUC;
         private UserManagement _userManagementUC;
-        private BreedingRecords _breedingUC;      
+        private BreedingRecords _breedingUC;
+        private Reminders _remindersUC;
 
         public UserControlManager(Panel mainPanel)
         {
@@ -35,7 +36,8 @@ namespace SwineSyncc
             _pigUC.ToggleViewToTableClicked += (s, e) => LoadSowTable();
 
             ShowUserControl(_pigUC);
-        }       
+        }     
+        
 
         public void LoadAddPig()
         {
@@ -145,6 +147,15 @@ namespace SwineSyncc
             ShowUserControl(_pregnancyUC);
         }
 
+        public void LoadReminders()
+        {
+            if (_remindersUC == null)
+            {
+                _remindersUC = new Reminders();
+
+            }
+            ShowUserControl(_remindersUC);
+        }
         public void LoadAddPregnancy()
         { 
             AddPregnancy addPregnancy = new AddPregnancy();

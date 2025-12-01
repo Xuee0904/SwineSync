@@ -49,7 +49,7 @@
             this.panel1.Controls.Add(this.pigletRadioBtn);
             this.panel1.Controls.Add(this.formsPanel);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1267, 985);
             this.panel1.TabIndex = 0;
@@ -73,7 +73,7 @@
             this.boarRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boarRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.boarRadioBtn.Location = new System.Drawing.Point(143, 149);
-            this.boarRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.boarRadioBtn.Margin = new System.Windows.Forms.Padding(4);
             this.boarRadioBtn.Name = "boarRadioBtn";
             this.boarRadioBtn.Size = new System.Drawing.Size(97, 37);
             this.boarRadioBtn.TabIndex = 3;
@@ -99,7 +99,7 @@
             this.sowRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sowRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.sowRadioBtn.Location = new System.Drawing.Point(31, 149);
-            this.sowRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sowRadioBtn.Margin = new System.Windows.Forms.Padding(4);
             this.sowRadioBtn.Name = "sowRadioBtn";
             this.sowRadioBtn.Size = new System.Drawing.Size(92, 37);
             this.sowRadioBtn.TabIndex = 0;
@@ -113,7 +113,7 @@
             this.pigletRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pigletRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.pigletRadioBtn.Location = new System.Drawing.Point(260, 149);
-            this.pigletRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pigletRadioBtn.Margin = new System.Windows.Forms.Padding(4);
             this.pigletRadioBtn.Name = "pigletRadioBtn";
             this.pigletRadioBtn.Size = new System.Drawing.Size(109, 37);
             this.pigletRadioBtn.TabIndex = 1;
@@ -125,10 +125,11 @@
             // 
             this.formsPanel.Controls.Add(this.backBtn);
             this.formsPanel.Location = new System.Drawing.Point(63, 194);
-            this.formsPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.formsPanel.Margin = new System.Windows.Forms.Padding(4);
             this.formsPanel.Name = "formsPanel";
             this.formsPanel.Size = new System.Drawing.Size(1200, 645);
             this.formsPanel.TabIndex = 2;
+            this.formsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.formsPanel_Paint);
             // 
             // backBtn
             // 
@@ -152,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddPig";
             this.Size = new System.Drawing.Size(1267, 985);
             this.panel1.ResumeLayout(false);

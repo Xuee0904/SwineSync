@@ -18,6 +18,7 @@ namespace SwineSyncc
         public event EventHandler PigManagementClicked;
         public event EventHandler BreedingRecordsClicked;
         public event EventHandler HealthRecordsClicked;
+        public event EventHandler RemindersClicked;
 
         private Button activeButton = null;
         private Color activeColor = Color.FromArgb(59, 44, 29);   // dark brown
@@ -117,6 +118,13 @@ namespace SwineSyncc
         {
             SetActiveButton(userManagementBtn);
             UserManagementClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void remindersBtn_Click_1(object sender, EventArgs e)
+        {
+            SetActiveButton(remindersBtn);
+            RemindersClicked?.Invoke(this, EventArgs.Empty);
+            
         }
     }
 }

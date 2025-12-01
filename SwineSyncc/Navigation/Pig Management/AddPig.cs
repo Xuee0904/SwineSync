@@ -65,5 +65,10 @@ namespace SwineSyncc.Navigation.Pig_Management
         {
             BackClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void formsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

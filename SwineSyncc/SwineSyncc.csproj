@@ -166,6 +166,12 @@
     <Compile Include="Navigation\Pig Management\EditPiglet.Designer.cs">
       <DependentUpon>EditPiglet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\Reminders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\Reminders.Designer.cs">
+      <DependentUpon>Reminders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\SwineSyncTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\EditPiglet.resx">
       <DependentUpon>EditPiglet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\Reminders.resx">
+      <DependentUpon>Reminders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\SwineSyncTable.resx">
       <DependentUpon>SwineSyncTable.cs</DependentUpon>
