@@ -82,7 +82,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(53, 346);
+            this.label1.Location = new System.Drawing.Point(68, 346);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 45);
             this.label1.TabIndex = 78;
@@ -114,7 +114,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvActivityLog.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvActivityLog.EnableHeadersVisualStyles = false;
-            this.dgvActivityLog.Location = new System.Drawing.Point(61, 395);
+            this.dgvActivityLog.Location = new System.Drawing.Point(76, 395);
             this.dgvActivityLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvActivityLog.Name = "dgvActivityLog";
             this.dgvActivityLog.ReadOnly = true;
@@ -164,8 +164,8 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.btnCancel.Location = new System.Drawing.Point(423, 686);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(439, 686);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(213, 79);
             this.btnCancel.TabIndex = 74;
@@ -196,8 +196,8 @@
             this.editAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editAccBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.editAccBtn.Location = new System.Drawing.Point(657, 686);
-            this.editAccBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editAccBtn.Location = new System.Drawing.Point(916, 686);
+            this.editAccBtn.Margin = new System.Windows.Forms.Padding(4);
             this.editAccBtn.Name = "editAccBtn";
             this.editAccBtn.Size = new System.Drawing.Size(213, 79);
             this.editAccBtn.TabIndex = 70;
@@ -213,8 +213,8 @@
             this.userDetailsBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userDetailsBackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userDetailsBackBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.userDetailsBackBtn.Location = new System.Drawing.Point(900, 686);
-            this.userDetailsBackBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userDetailsBackBtn.Location = new System.Drawing.Point(678, 686);
+            this.userDetailsBackBtn.Margin = new System.Windows.Forms.Padding(4);
             this.userDetailsBackBtn.Name = "userDetailsBackBtn";
             this.userDetailsBackBtn.Size = new System.Drawing.Size(213, 79);
             this.userDetailsBackBtn.TabIndex = 69;

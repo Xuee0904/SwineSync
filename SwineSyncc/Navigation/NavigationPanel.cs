@@ -100,12 +100,7 @@ namespace SwineSyncc
         private void remindersBtn_Click(object sender, EventArgs e)
         {
 
-        }
-        
-        private void customButton1_Click(object sender, EventArgs e)
-        {
-
-        }
+        }             
 
         private void customButton2_Click(object sender, EventArgs e)
         {

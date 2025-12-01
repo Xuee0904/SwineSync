@@ -145,7 +145,7 @@ namespace SwineSyncc.Navigation.User_Management
         private void ExitEditMode()
         {
             _isEditMode = false;
-            editAccBtn.Text = "Edit";
+            editAccBtn.Text = "Edit account";
             btnCancel.Visible = false;
           
             lblUsername.Visible = true;
