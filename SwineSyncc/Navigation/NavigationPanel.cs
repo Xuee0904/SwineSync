@@ -78,7 +78,7 @@ namespace SwineSyncc
 
         private void healthRecordsBtn_Click(object sender, EventArgs e)
         {
-            SetActiveButton(breedingRecordsBtn);
+            SetActiveButton(healthRecordsBtn);
             HealthRecordsClicked?.Invoke(this, EventArgs.Empty);
         }
 
