@@ -60,7 +60,7 @@
             this.panelSowTable.Location = new System.Drawing.Point(0, 0);
             this.panelSowTable.Margin = new System.Windows.Forms.Padding(2);
             this.panelSowTable.Name = "panelSowTable";
-            this.panelSowTable.Size = new System.Drawing.Size(952, 878);
+            this.panelSowTable.Size = new System.Drawing.Size(1003, 720);
             this.panelSowTable.TabIndex = 0;
             this.panelSowTable.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSowTable_Paint);
             // 
@@ -69,7 +69,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label5.Location = new System.Drawing.Point(435, 449);
+            this.label5.Location = new System.Drawing.Point(461, 396);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 37);
             this.label5.TabIndex = 34;
@@ -79,7 +79,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(513, 452);
+            this.label6.Location = new System.Drawing.Point(538, 399);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(423, 21);
             this.label6.TabIndex = 33;
@@ -89,7 +89,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(16, 452);
+            this.label7.Location = new System.Drawing.Point(41, 399);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(423, 21);
             this.label7.TabIndex = 32;
@@ -100,7 +100,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label4.Location = new System.Drawing.Point(435, 96);
+            this.label4.Location = new System.Drawing.Point(463, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 37);
             this.label4.TabIndex = 31;
@@ -110,7 +110,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(513, 99);
+            this.label3.Location = new System.Drawing.Point(538, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(423, 21);
             this.label3.TabIndex = 30;
@@ -120,7 +120,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 99);
+            this.label2.Location = new System.Drawing.Point(41, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(423, 21);
             this.label2.TabIndex = 29;
@@ -140,7 +140,7 @@
             // 
             // panelBoar
             // 
-            this.panelBoar.Location = new System.Drawing.Point(24, 496);
+            this.panelBoar.Location = new System.Drawing.Point(49, 443);
             this.panelBoar.Margin = new System.Windows.Forms.Padding(2);
             this.panelBoar.Name = "panelBoar";
             this.panelBoar.Size = new System.Drawing.Size(904, 272);
@@ -148,7 +148,7 @@
             // 
             // panelSow
             // 
-            this.panelSow.Location = new System.Drawing.Point(24, 136);
+            this.panelSow.Location = new System.Drawing.Point(49, 119);
             this.panelSow.Margin = new System.Windows.Forms.Padding(2);
             this.panelSow.Name = "panelSow";
             this.panelSow.Size = new System.Drawing.Size(904, 272);
@@ -158,7 +158,7 @@
             // 
             this.togglePicBox.ErrorImage = global::SwineSyncc.Properties.Resources.tableIcon;
             this.togglePicBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("togglePicBox.InitialImage")));
-            this.togglePicBox.Location = new System.Drawing.Point(871, 27);
+            this.togglePicBox.Location = new System.Drawing.Point(896, 27);
             this.togglePicBox.Margin = new System.Windows.Forms.Padding(2);
             this.togglePicBox.Name = "togglePicBox";
             this.togglePicBox.Size = new System.Drawing.Size(57, 49);
@@ -173,7 +173,7 @@
             this.Controls.Add(this.panelSowTable);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SowTable";
-            this.Size = new System.Drawing.Size(952, 878);
+            this.Size = new System.Drawing.Size(1003, 720);
             this.Load += new System.EventHandler(this.SowTable_Load);
             this.panelSowTable.ResumeLayout(false);
             this.panelSowTable.PerformLayout();
