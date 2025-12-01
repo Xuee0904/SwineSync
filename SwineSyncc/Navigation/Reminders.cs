@@ -24,6 +24,7 @@ namespace SwineSyncc.Navigation
             farrowingPb.Image = Properties.Resources.PigReminder;
 
             LoadNearestFarrowing();
+            LoadPendingBreedingReminder();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -68,6 +69,52 @@ namespace SwineSyncc.Navigation
             }
         }
 
+        private void LoadPendingBreedingReminder()
+        {
+            string query = @"
+                SELECT TOP 1
+                    P.Name AS SowName,
+                    DATEADD(DAY, 21, BR.BreedingDate) AS ConfirmationDue,
+                    (SELECT COUNT(*) FROM BreedingRecords WHERE Result = 'Pending') AS TotalPending
+                FROM BreedingRecords BR
+                JOIN Pigs P ON BR.SowID = P.PigID
+                WHERE BR.Result = 'Pending'
+                ORDER BY ConfirmationDue ASC;
+            ";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    string sowName = reader["SowName"].ToString();
+                    DateTime dueDate = Convert.ToDateTime(reader["ConfirmationDue"]);
+                    int totalPending = Convert.ToInt32(reader["TotalPending"]);
+
+                    pendingBreedingLbl.Text =
+                        $"{totalPending} pending breeding confirmation(s)\n" +
+                        $"Next due: {dueDate:MMM dd, yyyy}";
+                }
+                else
+                {
+                    pendingBreedingLbl.Text = "No pending breeding confirmations";
+                }
+            }
+        }
+
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+            
+            if (this.Visible)
+            {
+                LoadNearestFarrowing();
+                LoadPendingBreedingReminder();
+            }
+        }
 
     }
 }
