@@ -148,7 +148,7 @@
             this.panelBoar.Location = new System.Drawing.Point(124, 549);
             this.panelBoar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelBoar.Name = "panelBoar";
-            this.panelBoar.Size = new System.Drawing.Size(1141, 325);
+            this.panelBoar.Size = new System.Drawing.Size(1050, 325);
             this.panelBoar.TabIndex = 27;
             // 
             // panelSow
