@@ -94,6 +94,10 @@ namespace SwineSyncc.Navigation
             {
                 query = @"SELECT * FROM Pigs WHERE Sex = Female";
             }
+            else if(tableName == "BoarName")
+            {
+                query = @"SELECT * FROM Pigs WHERE Sex = Male";
+            }
 
                 return query;
         }
@@ -116,7 +120,11 @@ namespace SwineSyncc.Navigation
             if (tableName == "SowTable")
             {
                 this.tableQuery = @"SELECT * FROM Pigs WHERE Sex = 'Female'";
-            } 
+            }
+            else if(tableName == "BoarTable")
+            {
+                this.tableQuery = @"SELECT * FROM Pigs WHERE Sex = 'Male'";
+            }
             else if (tableName == "BreedingRecords") {
                 this.tableQuery = @"SELECT b.BreedingID, pSow.Name AS SowName,
                 CASE 

@@ -12,7 +12,8 @@ namespace SwineSyncc.Navigation.Pig_Management
 {
     public partial class SowTable : UserControl
     {
-        SwineSyncTable displayTable;
+        SwineSyncTable displaySowTable;
+        SwineSyncTable displayBoarTable;
         public event EventHandler BackToCardViewClicked;
         private readonly Panel _mainPanel;
         public SowTable(Panel mainPanel)
@@ -23,7 +24,8 @@ namespace SwineSyncc.Navigation.Pig_Management
 
             togglePicBox.Image = Properties.Resources.PigNose;
 
-            displayTable = new SwineSyncTable();
+            displaySowTable = new SwineSyncTable();
+            displayBoarTable = new SwineSyncTable();
         }
 
         private void panelSowTable_Paint(object sender, PaintEventArgs e)
@@ -33,9 +35,11 @@ namespace SwineSyncc.Navigation.Pig_Management
 
         private void SowTable_Load(object sender, EventArgs e)
         {
-            displayTable.SetTableQuery("SowTable");
-            displayTable.Dock = DockStyle.Fill;
-            panelSowTable.Controls.Add(displayTable);
+            displaySowTable.SetTableQuery("SowTable");
+            displayBoarTable.SetTableQuery("BoarTable");
+            displaySowTable.Dock = DockStyle.Fill;
+            panelSow.Controls.Add(displaySowTable);
+            panelBoar.Controls.Add(displayBoarTable);
         }
 
         private void togglePicBox_Click(object sender, EventArgs e)
