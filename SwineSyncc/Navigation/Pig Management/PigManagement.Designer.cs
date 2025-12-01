@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PigManagement));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.togglePicBox = new System.Windows.Forms.PictureBox();
+            this.btnRegisterPig = new IconRoundedButton();
+            this.btnDeletePig = new IconRoundedButton();
             this.flpMalePigs = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -39,9 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flpFemalePigs = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.togglePicBox = new System.Windows.Forms.PictureBox();
-            this.btnRegisterPig = new IconRoundedButton();
-            this.btnDeletePig = new IconRoundedButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.togglePicBox)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,53 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1269, 1081);
             this.panel1.TabIndex = 0;
+            // 
+            // togglePicBox
+            // 
+            this.togglePicBox.ErrorImage = global::SwineSyncc.Properties.Resources.tableIcon;
+            this.togglePicBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("togglePicBox.InitialImage")));
+            this.togglePicBox.Location = new System.Drawing.Point(1195, 33);
+            this.togglePicBox.Name = "togglePicBox";
+            this.togglePicBox.Size = new System.Drawing.Size(76, 60);
+            this.togglePicBox.TabIndex = 24;
+            this.togglePicBox.TabStop = false;
+            this.togglePicBox.Click += new System.EventHandler(this.togglePicBox_Click);
+            // 
+            // btnRegisterPig
+            // 
+            this.btnRegisterPig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.btnRegisterPig.BorderRadious = 9;
+            this.btnRegisterPig.FlatAppearance.BorderSize = 0;
+            this.btnRegisterPig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegisterPig.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterPig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.btnRegisterPig.Image = global::SwineSyncc.Properties.Resources.Plus;
+            this.btnRegisterPig.Location = new System.Drawing.Point(1029, 782);
+            this.btnRegisterPig.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegisterPig.Name = "btnRegisterPig";
+            this.btnRegisterPig.Size = new System.Drawing.Size(208, 79);
+            this.btnRegisterPig.TabIndex = 22;
+            this.btnRegisterPig.Text = "Add pig";
+            this.btnRegisterPig.UseVisualStyleBackColor = false;
+            this.btnRegisterPig.Click += new System.EventHandler(this.btnRegisterPig_Click_1);
+            // 
+            // btnDeletePig
+            // 
+            this.btnDeletePig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.btnDeletePig.BorderRadious = 9;
+            this.btnDeletePig.FlatAppearance.BorderSize = 0;
+            this.btnDeletePig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletePig.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletePig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.btnDeletePig.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletePig.Image")));
+            this.btnDeletePig.Location = new System.Drawing.Point(788, 782);
+            this.btnDeletePig.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeletePig.Name = "btnDeletePig";
+            this.btnDeletePig.Size = new System.Drawing.Size(208, 79);
+            this.btnDeletePig.TabIndex = 21;
+            this.btnDeletePig.Text = "Delete pig";
+            this.btnDeletePig.UseVisualStyleBackColor = false;
+            this.btnDeletePig.Click += new System.EventHandler(this.btnDeletePig_Click_1);
             // 
             // flpMalePigs
             // 
@@ -163,53 +210,6 @@
             this.label1.Size = new System.Drawing.Size(346, 54);
             this.label1.TabIndex = 5;
             this.label1.Text = "Pig management";
-            // 
-            // togglePicBox
-            // 
-            this.togglePicBox.ErrorImage = global::SwineSyncc.Properties.Resources.tableIcon;
-            this.togglePicBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("togglePicBox.InitialImage")));
-            this.togglePicBox.Location = new System.Drawing.Point(1161, 33);
-            this.togglePicBox.Name = "togglePicBox";
-            this.togglePicBox.Size = new System.Drawing.Size(76, 60);
-            this.togglePicBox.TabIndex = 24;
-            this.togglePicBox.TabStop = false;
-            this.togglePicBox.Click += new System.EventHandler(this.togglePicBox_Click);
-            // 
-            // btnRegisterPig
-            // 
-            this.btnRegisterPig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.btnRegisterPig.BorderRadious = 9;
-            this.btnRegisterPig.FlatAppearance.BorderSize = 0;
-            this.btnRegisterPig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegisterPig.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisterPig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.btnRegisterPig.Image = global::SwineSyncc.Properties.Resources.Plus;
-            this.btnRegisterPig.Location = new System.Drawing.Point(1029, 782);
-            this.btnRegisterPig.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRegisterPig.Name = "btnRegisterPig";
-            this.btnRegisterPig.Size = new System.Drawing.Size(208, 79);
-            this.btnRegisterPig.TabIndex = 22;
-            this.btnRegisterPig.Text = "Add pig";
-            this.btnRegisterPig.UseVisualStyleBackColor = false;
-            this.btnRegisterPig.Click += new System.EventHandler(this.btnRegisterPig_Click_1);
-            // 
-            // btnDeletePig
-            // 
-            this.btnDeletePig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.btnDeletePig.BorderRadious = 9;
-            this.btnDeletePig.FlatAppearance.BorderSize = 0;
-            this.btnDeletePig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeletePig.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletePig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.btnDeletePig.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletePig.Image")));
-            this.btnDeletePig.Location = new System.Drawing.Point(788, 782);
-            this.btnDeletePig.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeletePig.Name = "btnDeletePig";
-            this.btnDeletePig.Size = new System.Drawing.Size(208, 79);
-            this.btnDeletePig.TabIndex = 21;
-            this.btnDeletePig.Text = "Delete pig";
-            this.btnDeletePig.UseVisualStyleBackColor = false;
-            this.btnDeletePig.Click += new System.EventHandler(this.btnDeletePig_Click_1);
             // 
             // PigManagement
             // 

@@ -120,12 +120,12 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="togglePicBox.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADXSURBVGhD7dkxakQxFMVQ739ZCbOuDCl+Y0J8ptIrLLid
-        nnDvtS6Xy6e81lo/w/e9P/ov9qOpO8IikvVYRLIei0jWYxHJeiwiWY9FJOuxiGQ9FpGsxyKS9VhEsh6L
-        SNZ7xOk7sh9M3REWkazHIpL1WESyHotI1mMRyXosIlmPRSTrsYhkPRaRrMcikvVYRLIei0jWe8TpO7If
-        TN0RFpGsxyKS9VhEsh6LSNZjEcl6LCJZj0Uk67GIZD0WkazHIpL1WESy3iNO35Hfz/j9aNq+9kdfLpf/
-        eQN9rBkUtwL9WAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAANdJREFUaEPt2TFqRDEUxVDvf1kJs64MKX5jQnym0issuJ2ecO+1LpfLp7zWWj/D
+        970/+i/2o6k7wiKS9VhEsh6LSNZjEcl6LCJZj0Uk67GIZD0WkazHIpL1WESyHotI1nvE6TuyH0zdERaR
+        rMcikvVYRLIei0jWYxHJeiwiWY9FJOuxiGQ9FpGsxyKS9VhEsh6LSNZ7xOk7sh9M3REWkazHIpL1WESy
+        HotI1mMRyXosIlmPRSTrsYhkPRaRrMcikvVYRLLeI07fkd/P+P1o2r72R18ul/95A32sGRS3Av1YAAAA
+        AElFTkSuQmCC
 </value>
   </data>
   <data name="btnDeletePig.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
