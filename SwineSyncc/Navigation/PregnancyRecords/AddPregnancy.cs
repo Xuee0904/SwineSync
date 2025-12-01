@@ -15,6 +15,8 @@ namespace SwineSyncc.Navigation
     public partial class AddPregnancy : UserControl
     {
 
+        public event EventHandler CancelClicked;
+
         private DataTable pregnantSowData = new DataTable();
         private int gestationDays = 114;
 
@@ -29,8 +31,8 @@ namespace SwineSyncc.Navigation
             this.BackColor = Color.WhiteSmoke;
             addPregnancyPanel.BackColor = Color.FromArgb(217, 221, 220);
 
-            //buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
-            //buttonGroup1.ClearClicked += (s, e) => ClearFields();
+            buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
+            buttonGroup1.ClearClicked += (s, e) => ClearFields();
             buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
 
             LoadComboBreedingID();
@@ -272,6 +274,14 @@ namespace SwineSyncc.Navigation
                 MessageBox.Show("Database Error:\n" + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ClearFields()
+        {
+            comboPregnantSow.SelectedIndex = -1;
+            comboBreedingID.SelectedIndex = -1;
+            dtConfirmation.Value = DateTime.Now;
+            dtExpected.Value = DateTime.Now;
         }
 
         private void addPregnancyPanel_Paint(object sender, PaintEventArgs e)
