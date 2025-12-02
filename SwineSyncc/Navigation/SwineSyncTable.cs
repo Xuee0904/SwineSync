@@ -18,263 +18,286 @@ namespace SwineSyncc.Navigation
 {
     public partial class SwineSyncTable : UserControl
     {
-        string connectionString;
         private string tableQuery;
-        private string filterQuery;
-        // per-row animation guard
-        private readonly System.Collections.Concurrent.ConcurrentDictionary<int, byte> _animatingRows
-            = new System.Collections.Concurrent.ConcurrentDictionary<int, byte>();
+        private const int IconWidth = 18;      // visible icon size
+        private const int IconHeight = 18;
+        private const int IconPadding = 6;     // total extra space (left+right or top+bottom)
+        private const int ActionColWidth = IconWidth + IconPadding + 8; // final column width (extra margin)
+        // debounce timer for adaptive sizing
+        private readonly System.Windows.Forms.Timer _adjustTimer = new System.Windows.Forms.Timer { Interval = 120 };
 
-        // helpers for per-row guard
-        private bool TryStartAnimating(int rowIndex) => _animatingRows.TryAdd(rowIndex, 0);
-        private void StopAnimating(int rowIndex) => _animatingRows.TryRemove(rowIndex, out _);
+        // one-time initialization guards
+        private bool _columnsInitialized;
+        private int _cachedHeaderHeight;
+        private bool _isAdjustingColumns;
 
         public SwineSyncTable()
         {
             InitializeComponent();
-            // Optional: wire Load event if not wired in designer
-            this.Load -= SwineSyncTable_Load;
             this.Load += SwineSyncTable_Load;
+
+            InitAdjustTimer();
+
+            // wire data/size events
+            dataGridView1.DataBindingComplete -= DataGridView1_DataBindingComplete;
+            dataGridView1.DataBindingComplete += DataGridView1_DataBindingComplete;
+
+            dataGridView1.SizeChanged -= DataGridView1_SizeChanged;
+            dataGridView1.SizeChanged += DataGridView1_SizeChanged;
+
+            // wire cell click for edit/delete
+            dataGridView1.CellClick -= dataGridView1_CellClick;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _adjustTimer?.Stop();
+                _adjustTimer?.Dispose();
+                components?.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
         private void SwineSyncTable_Load(object sender, EventArgs e)
         {
-            // Load data and configure UI once
             LoadTable();
-        }
-
-        public void FilterData(string keyword)
-        {
-            if (keyword == null)
-                keyword = ""; // fallback to empty string
-
-            string query = GetSearchQuery(tableQuery);
-            if (string.IsNullOrWhiteSpace(query))
-                return;
-
-            using (SqlConnection conn = DBConnection.Instance.GetConnection())
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@kw", "%" + keyword + "%");
-
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                    {
-                        DataTable table = new DataTable();
-                        conn.Open();
-                        adapter.Fill(table);
-                        UpdateGrid(table);
-                    }
-                }
-            }
-        }
-
-        private string GetSearchQuery(string tableName)
-        {
-            string query = "";
-
-            if (string.IsNullOrWhiteSpace(tableName))
-                return query;
-
-            if (tableName == "PregnancyRecords")
-            {
-                query = @"
-            SELECT * FROM PregnancyRecords
-            WHERE PregnancyID LIKE @kw OR PregnantPigID LIKE @kw OR BreedingID LIKE @kw
-            OR ConfirmationDate LIKE @kw OR ExpectedFarrowingDate LIKE @kw";
-            }
-            else if (tableName == "BreedingRecords")
-            {
-                query = @"
-            SELECT * FROM BreedingRecords
-            WHERE BreedingID LIKE @kw OR SowID LIKE @kw OR BoarID LIKE @kw
-            OR BreedingMethod LIKE @kw OR ExpectedFarrowingDate LIKE @kw";
-            }
-            else if(tableName == "SowTable")
-            {
-                query = @"SELECT * FROM Pigs WHERE Sex = Female";
-            }
-            else if(tableName == "BoarName")
-            {
-                query = @"SELECT * FROM Pigs WHERE Sex = Male";
-            }
-
-                return query;
-        }
-
-        public void UpdateGrid(DataTable table)
-        {
-            if (table == null || table.Rows.Count == 0)
-            {
-                dataGridView1.DataSource = null;
-                dataGridView1.Rows.Clear(); // optional: clears visual remnants
-                return;
-            }
-
-            dataGridView1.DataSource = table;
-            dataGridView1.Refresh(); // ensures visual update
         }
 
         public void SetTableQuery(string tableName)
         {
             if (tableName == "SowTable")
-            {
                 this.tableQuery = @"SELECT * FROM Pigs WHERE Sex = 'Female'";
-            }
-            else if(tableName == "BoarTable")
-            {
+            else if (tableName == "BoarTable")
                 this.tableQuery = @"SELECT * FROM Pigs WHERE Sex = 'Male'";
-            }
-            else if (tableName == "BreedingRecords") {
+            else if (tableName == "BreedingRecords")
                 this.tableQuery = @"SELECT b.BreedingID, pSow.Name AS SowName,
-                CASE 
-                    WHEN b.BreedingMethod = 'Artificial Insemination' THEN 'NULL'
-                    ELSE pBoar.Name
-                END AS BoarName, b.BreedingMethod, b.BreedingDate, b.Result
+                CASE WHEN b.BreedingMethod = 'Artificial Insemination' THEN 'NULL' ELSE pBoar.Name END AS BoarName,
+                b.BreedingMethod, b.BreedingDate, b.Result
                 FROM BreedingRecords b
                 LEFT JOIN Pigs pSow ON pSow.PigID = b.SowID
                 LEFT JOIN Pigs pBoar ON pBoar.PigID = b.BoarID
-                ORDER BY b.BreedingID;
-                ";
-            }
+                ORDER BY b.BreedingID;";
             else
-            {
                 this.tableQuery = "SELECT * FROM " + tableName;
-            }
+
+            // schema changed — allow defaults to re-run next time
+            _columnsInitialized = false;
         }
 
-        public string GetTableQuery()
-        {
-            return this.tableQuery;
-        }
+        public string GetTableQuery() => this.tableQuery;
 
         #region Load and initialization
 
         public void LoadTable()
         {
-            // Load data into a DataTable
-            DataTable table = new DataTable();
-            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            var table = new DataTable();
+            using (var conn = DBConnection.Instance.GetConnection())
+            using (var adapter = new SqlDataAdapter(GetTableQuery(), conn))
             {
-                string query = GetTableQuery();
-                using (var adapter = new SqlDataAdapter(query, conn))
-                {
-                    adapter.Fill(table);
-                }
+                adapter.Fill(table);
             }
 
-            // Assign data source first so columns exist
             dataGridView1.DataSource = table;
 
-            // Basic appearance (after DataSource so columns exist)
+            EnsureColumnDefaults();
+
+            // appearance that is not per-column width
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dataGridView1.RowTemplate.Height = 40;
             dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
+            dataGridView1.ClearSelection();
+            dataGridView1.CurrentCell = null;
+
+            AddEditDeleteColumns();
+
+            // schedule adaptive sizing (debounced)
+            ScheduleAdjustColumns();
+        }
+
+        private void EnsureColumnDefaults()
+        {
+            if (_columnsInitialized) return;
+            _columnsInitialized = true;
 
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
                 col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                col.Width = 150;
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                col.MinimumWidth = Math.Max(100, col.MinimumWidth);
             }
 
-            // Wrap handling: check actual column name(s)
-            if (dataGridView1.Columns.Contains("Result"))
+            if (dataGridView1.IsHandleCreated)
             {
-                dataGridView1.Columns["Result"].DefaultCellStyle.WrapMode = DataGridViewTriState.False;
-                dataGridView1.Columns["Result"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                using (var g = dataGridView1.CreateGraphics())
+                {
+                    var headerFont = dataGridView1.ColumnHeadersDefaultCellStyle.Font ?? dataGridView1.Font;
+                    var fm = g.MeasureString("Mg", headerFont);
+                    _cachedHeaderHeight = (int)Math.Ceiling(fm.Height) + 12;
+                    dataGridView1.ColumnHeadersHeight = Math.Max(dataGridView1.ColumnHeadersHeight, _cachedHeaderHeight);
+                }
             }
-            else if (dataGridView1.Columns.Contains("Notes"))
+        }
+
+        private void InitAdjustTimer()
+        {
+            _adjustTimer.Tick -= AdjustTimer_Tick;
+            _adjustTimer.Tick += AdjustTimer_Tick;
+        }
+
+        private void AdjustTimer_Tick(object sender, EventArgs e)
+        {
+            _adjustTimer.Stop();
+            AdjustColumnWidths();
+        }
+
+        private void ScheduleAdjustColumns()
+        {
+            _adjustTimer.Stop();
+            _adjustTimer.Start();
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            ScheduleAdjustColumns();
+        }
+
+        private void DataGridView1_SizeChanged(object sender, EventArgs e)
+        {
+            ScheduleAdjustColumns();
+        }
+
+        #endregion
+
+        #region Edit/Delete columns and handlers
+
+        private void AddEditDeleteColumns()
+        {
+            // create padded icons once
+            var editIcon = CreatePaddedIcon(Properties.Resources.EditIcon);
+            var deleteIcon = CreatePaddedIcon(Properties.Resources.DeleteIcon);
+
+            // ensure row height can fit the icons comfortably
+            dataGridView1.RowTemplate.Height = Math.Max(dataGridView1.RowTemplate.Height, IconHeight + IconPadding + 6);
+
+            // Edit column
+            if (!dataGridView1.Columns.Contains("EditCol"))
             {
-                dataGridView1.Columns["Notes"].DefaultCellStyle.WrapMode = DataGridViewTriState.False;
-                dataGridView1.Columns["Notes"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                var editCol = new DataGridViewImageColumn
+                {
+                    Name = "EditCol",
+                    HeaderText = "",
+                    Image = editIcon,
+                    ImageLayout = DataGridViewImageCellLayout.Normal, // Normal keeps the padded image centered
+                    Width = ActionColWidth,
+                    ReadOnly = true
+                };
+                dataGridView1.Columns.Add(editCol);
+            }
+            else
+            {
+                var col = (DataGridViewImageColumn)dataGridView1.Columns["EditCol"];
+                col.Image = editIcon;
+                col.Width = ActionColWidth;
+                col.ImageLayout = DataGridViewImageCellLayout.Normal;
             }
 
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
+            // Delete column
+            if (!dataGridView1.Columns.Contains("DeleteCol"))
+            {
+                var delCol = new DataGridViewImageColumn
+                {
+                    Name = "DeleteCol",
+                    HeaderText = "",
+                    Image = deleteIcon,
+                    ImageLayout = DataGridViewImageCellLayout.Normal,
+                    Width = ActionColWidth,
+                    ReadOnly = true
+                };
+                dataGridView1.Columns.Add(delCol);
+            }
+            else
+            {
+                var col = (DataGridViewImageColumn)dataGridView1.Columns["DeleteCol"];
+                col.Image = deleteIcon;
+                col.Width = ActionColWidth;
+                col.ImageLayout = DataGridViewImageCellLayout.Normal;
+            }
 
-            dataGridView1.ClearSelection();
-            dataGridView1.CurrentCell = null;
+            // Add a little cell padding so the icon looks like it's inside a small button
+            if (dataGridView1.Columns.Contains("EditCol"))
+            {
+                dataGridView1.Columns["EditCol"].DefaultCellStyle.Padding = new Padding(4);
+                dataGridView1.Columns["EditCol"].HeaderCell.Style.Padding = new Padding(4);
+                dataGridView1.Columns["EditCol"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+            if (dataGridView1.Columns.Contains("DeleteCol"))
+            {
+                dataGridView1.Columns["DeleteCol"].DefaultCellStyle.Padding = new Padding(4);
+                dataGridView1.Columns["DeleteCol"].HeaderCell.Style.Padding = new Padding(4);
+                dataGridView1.Columns["DeleteCol"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
 
+            // Optionally set per-row cell values to ensure consistent rendering
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+                if (dataGridView1.Columns.Contains("EditCol")) row.Cells["EditCol"].Value = editIcon;
+                if (dataGridView1.Columns.Contains("DeleteCol")) row.Cells["DeleteCol"].Value = deleteIcon;
+            }
+        }
+
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            var col = dataGridView1.Columns[e.ColumnIndex];
+            if (col == null) return;
+
+            if (col.Name == "EditCol")
+                HandleEditClick(e.RowIndex);
+            else if (col.Name == "DeleteCol")
+                HandleDeleteClick(e.RowIndex);
+        }
+
+        private void HandleEditClick(int rowIndex)
+        {
             
+        }
 
-            // Compute a comfortable header height from header font
-            using (var g = dataGridView1.CreateGraphics())
+        private void HandleDeleteClick(int rowIndex)
+        {
+            var row = dataGridView1.Rows[rowIndex];
+            if (row.IsNewRow) return;
+            var raw = row.Cells["BreedingID"]?.Value;
+            if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
+
+            var result = MessageBox.Show($"Delete record {id}?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result != DialogResult.Yes) return;
+
+            using (var conn = DBConnection.Instance.GetConnection())
+            using (var cmd = conn.CreateCommand())
             {
-                var headerFont = dataGridView1.ColumnHeadersDefaultCellStyle.Font ?? dataGridView1.Font;
-                var fm = g.MeasureString("Mg", headerFont);
-                int headerHeight = (int)Math.Ceiling(fm.Height) + 12; // padding
-                dataGridView1.ColumnHeadersHeight = Math.Max(dataGridView1.ColumnHeadersHeight, headerHeight);
+                cmd.CommandText = "DELETE FROM BreedingRecords WHERE BreedingID = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
             }
 
-            
-
-
-            // Add checkbox column only if not present
-            AddCheckboxColumn();
-
-            // Fill checkbox cells with thumbnails and default state
-            FillCheckboxes();
-
-            // Configure visuals and handlers once
-            ConfigureCheckboxColumnAppearance();
-            EnableHeaderImageCheckbox();
-            EnableAdaptiveColumnSizing();
-
-            // Double buffering for smoother painting
-            EnableDoubleBuffering(dataGridView1);
-
-            // Tooltips handlers (de-duplicate)
-            dataGridView1.CellMouseEnter -= DataGridView1_CellMouseEnter;
-            dataGridView1.CellMouseEnter += DataGridView1_CellMouseEnter;
-            dataGridView1.CellMouseLeave -= DataGridView1_CellMouseLeave;
-            dataGridView1.CellMouseLeave += DataGridView1_CellMouseLeave;
-
-            // Final layout/refresh
-            dataGridView1.PerformLayout();
-            dataGridView1.Refresh();
+            LoadTable();
         }
 
         #endregion
 
         #region Adaptive column sizing
-
-        private void EnableAdaptiveColumnSizing()
-        {
-            // Wire events once
-            dataGridView1.Resize -= DataGridView1_AdaptiveLayoutChanged;
-            dataGridView1.Resize += DataGridView1_AdaptiveLayoutChanged;
-
-            dataGridView1.ColumnWidthChanged -= DataGridView1_AdaptiveLayoutChanged;
-            dataGridView1.ColumnWidthChanged += DataGridView1_AdaptiveLayoutChanged;
-
-            dataGridView1.ColumnDisplayIndexChanged -= DataGridView1_AdaptiveLayoutChanged;
-            dataGridView1.ColumnDisplayIndexChanged += DataGridView1_AdaptiveLayoutChanged;
-
-            dataGridView1.ColumnAdded -= DataGridView1_AdaptiveLayoutChanged;
-            dataGridView1.ColumnAdded += DataGridView1_AdaptiveLayoutChanged;
-
-            dataGridView1.ColumnRemoved -= DataGridView1_AdaptiveLayoutChanged;
-            dataGridView1.ColumnRemoved += DataGridView1_AdaptiveLayoutChanged;
-
-            // initial layout
-            AdjustColumnWidths();
-        }
-
-        private void DataGridView1_AdaptiveLayoutChanged(object sender, EventArgs e)
-        {
-            if (_isAdjustingColumns) return; // ignore re-entrant events
-            AdjustColumnWidths();
-        }
-
-
-        // add this field to the class
-        private bool _isAdjustingColumns = false;
 
         private void AdjustColumnWidths()
         {
@@ -286,16 +309,30 @@ namespace SwineSyncc.Navigation
                 var visibleCols = dataGridView1.Columns.Cast<DataGridViewColumn>().Where(c => c.Visible).ToList();
                 if (visibleCols.Count == 0) return;
 
-                DataGridViewColumn checkCol = dataGridView1.Columns.Contains("CheckCol") ? dataGridView1.Columns["CheckCol"] : null;
-                var dataCols = visibleCols.Where(c => c != checkCol).ToList();
+                // Reserve fixed width for action columns and exclude them from the data column distribution
+                const int actionColWidth = 36; // change this to whatever fixed size you want
+                var actionNames = new[] { "EditCol", "DeleteCol" };
+                var actionCols = visibleCols.Where(c => actionNames.Contains(c.Name)).ToList();
+                var dataCols = visibleCols.Except(actionCols).ToList();
 
-                // Compute available width (client width minus row header)
+                // Apply fixed sizing to action columns up front
+                foreach (var a in actionCols)
+                {
+                    a.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    a.MinimumWidth = Math.Max(actionColWidth, a.MinimumWidth);
+                    a.Width = Math.Max(actionColWidth, a.Width);
+                    a.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    a.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+
                 int clientWidth = dataGridView1.ClientSize.Width;
                 int leftOffset = dataGridView1.RowHeadersVisible ? dataGridView1.RowHeadersWidth : 0;
                 clientWidth -= leftOffset;
 
-                // If vertical scrollbar will be visible, subtract its width.
-                // Use a conservative check: if the vertical scrollbar control is visible OR rows exceed client height.
+                // Subtract action columns total width from available client width
+                int totalActionWidth = actionCols.Sum(c => c.Width);
+                clientWidth -= totalActionWidth;
+
                 bool vScrollVisible = dataGridView1.Controls.OfType<VScrollBar>().Any(v => v.Visible)
                                       || (dataGridView1.Rows.Count * dataGridView1.RowTemplate.Height) > dataGridView1.ClientSize.Height;
                 if (vScrollVisible) clientWidth -= SystemInformation.VerticalScrollBarWidth;
@@ -306,82 +343,59 @@ namespace SwineSyncc.Navigation
 
                 const int maxAutoColumns = 7;
                 const int fixedColumnWidth = 140;
-                const int minColumnWidth = 100; // keep your preferred minimum
-                const int checkboxWidth = 36;
-
-                // Ensure checkbox column fixed width and not part of Fill distribution
-                if (checkCol != null)
-                {
-                    checkCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    checkCol.MinimumWidth = Math.Max(28, checkCol.MinimumWidth);
-                    checkCol.Width = Math.Max(checkboxWidth, checkCol.Width);
-                }
+                const int minColumnWidth = 100;
 
                 dataGridView1.SuspendLayout();
                 try
                 {
                     if (dataCols.Count == 0)
                     {
-                        // Only checkbox visible: nothing else to do
+                        // No data columns to distribute; action columns already sized
                     }
                     else if (dataCols.Count <= maxAutoColumns)
                     {
-                        // Distribute available width among data columns only
-                        int availableForData = clientWidth - (checkCol != null ? checkCol.Width : 0);
-                        availableForData = Math.Max(0, availableForData);
-
-                        // Compute base width (respect minimum)
+                        int availableForData = Math.Max(0, clientWidth);
                         int baseWidth = Math.Max(minColumnWidth, availableForData / dataCols.Count);
 
-                        // Assign base width to all but the last column
                         for (int i = 0; i < dataCols.Count; i++)
                         {
                             var col = dataCols[i];
                             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                             col.MinimumWidth = Math.Max(minColumnWidth, col.MinimumWidth);
-
-                            // For now set width to baseWidth; we'll let the last column absorb remainder
                             col.Width = baseWidth;
                         }
 
-                        // Compute used width and remainder
-                        int used = dataCols.Sum(c => c.Width) + (checkCol != null ? checkCol.Width : 0);
-                        int remainder = clientWidth - used;
+                        int used = dataCols.Sum(c => c.Width) + totalActionWidth;
+                        int remainder = (dataGridView1.ClientSize.Width - leftOffset - totalHorizontalPadding - (vScrollVisible ? SystemInformation.VerticalScrollBarWidth : 0)) - used;
 
                         if (remainder > 0)
                         {
-                            // Give remainder to the last data column but also set it to Fill so it absorbs any tiny future gaps
                             var last = dataCols.Last();
                             last.Width = Math.Max(last.MinimumWidth, last.Width + remainder);
                             last.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                         else if (remainder < 0)
                         {
-                            // If we overshot, shrink the last column but not below minimum
                             var last = dataCols.Last();
                             int shrink = Math.Min(last.Width - last.MinimumWidth, -remainder);
                             if (shrink > 0) last.Width -= shrink;
-                            // Ensure last column can still fill any tiny remaining gap
                             last.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                         else
                         {
-                            // Exactly fits: still set last column to Fill so it absorbs any small future changes
                             dataCols.Last().AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                     }
                     else
                     {
-                        // Many columns: fixed width for data columns, checkbox remains small
                         foreach (var col in dataCols)
                         {
                             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                             col.Width = Math.Max(fixedColumnWidth, minColumnWidth);
                         }
 
-                        // If total width still less than clientWidth, expand the last data column and set it to Fill
-                        int used = dataCols.Sum(c => c.Width) + (checkCol != null ? checkCol.Width : 0);
-                        int remainder = clientWidth - used;
+                        int used = dataCols.Sum(c => c.Width) + totalActionWidth;
+                        int remainder = (dataGridView1.ClientSize.Width - leftOffset - totalHorizontalPadding - (vScrollVisible ? SystemInformation.VerticalScrollBarWidth : 0)) - used;
                         if (remainder > 0 && dataCols.Count > 0)
                         {
                             var last = dataCols.Last();
@@ -390,7 +404,6 @@ namespace SwineSyncc.Navigation
                         }
                         else if (dataCols.Count > 0)
                         {
-                            // Ensure last column is Fill to absorb tiny gaps
                             dataCols.Last().AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                     }
@@ -400,16 +413,7 @@ namespace SwineSyncc.Navigation
                     dataGridView1.ResumeLayout();
                 }
 
-                // Reapply checkbox alignment/padding
-                if (checkCol != null)
-                {
-                    checkCol.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    checkCol.DefaultCellStyle.Padding = new Padding(4, 0, 4, 0);
-                    checkCol.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    checkCol.HeaderCell.Style.Padding = new Padding(4, 0, 4, 0);
-                }
-
-                // Small refresh after the event stack unwinds to avoid reentry
+                // avoid immediate reentry; invalidate after event stack unwinds
                 dataGridView1.BeginInvoke((Action)(() => dataGridView1.Invalidate()));
             }
             catch (Exception ex)
@@ -422,696 +426,34 @@ namespace SwineSyncc.Navigation
             }
         }
 
-
-
-        #endregion
-
-        #region Header image checkbox and painting
-
-        private void EnableHeaderImageCheckbox()
+        private Image CreatePaddedIcon(Image src)
         {
-            if (!dataGridView1.Columns.Contains("CheckCol")) return;
-            var imgCol = dataGridView1.Columns["CheckCol"] as DataGridViewImageColumn;
-            if (imgCol == null || imgCol.Tag == null) return;
+            if (src == null) return null;
 
-            // Configure appearance so header and cells align
-            ConfigureCheckboxColumnAppearance();
+            int destW = IconWidth + IconPadding;
+            int destH = IconHeight + IconPadding;
+            var dest = new Bitmap(destW, destH);
+            dest.SetResolution(src.HorizontalResolution, src.VerticalResolution);
 
-            // Attach handlers
-            dataGridView1.CellPainting -= DataGridView1_HeaderCellPainting;
-            dataGridView1.CellPainting += DataGridView1_HeaderCellPainting;
-
-            dataGridView1.ColumnHeaderMouseClick -= DataGridView1_ColumnHeaderMouseClick;
-            dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
-
-            // Keep header image state correct initially
-            UpdateHeaderImageState();
-        }
-
-        private void ConfigureCheckboxColumnAppearance()
-        {
-            if (!dataGridView1.Columns.Contains("CheckCol")) return;
-            var imgCol = dataGridView1.Columns["CheckCol"] as DataGridViewImageColumn;
-            if (imgCol == null) return;
-
-            imgCol.ImageLayout = DataGridViewImageCellLayout.Normal;
-            imgCol.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            imgCol.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            // Small padding so column can be compact
-            imgCol.DefaultCellStyle.Padding = new Padding(4, 0, 4, 0);
-            imgCol.HeaderCell.Style.Padding = new Padding(4, 0, 4, 0);
-
-            // Make checkbox column fixed and not part of Fill distribution
-            const int checkboxPreferredWidth = 36;
-            imgCol.MinimumWidth = Math.Max(28, imgCol.MinimumWidth);
-            imgCol.Width = Math.Max(checkboxPreferredWidth, imgCol.Width);
-            imgCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None; // keep it fixed
-        }
-
-
-        private void DataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            // Only handle header clicks on the checkbox column
-            if (e.RowIndex != -1) return;
-            if (!dataGridView1.Columns.Contains("CheckCol") || dataGridView1.Columns[e.ColumnIndex].Name != "CheckCol") return;
-
-            var imgCol = dataGridView1.Columns["CheckCol"] as DataGridViewImageColumn;
-            if (imgCol == null) return;
-
-            // Try to read header state as a bool; if not present compute from rows
-            bool? headerState = null;
-            if (imgCol.HeaderCell?.Tag is bool hb) headerState = hb;
-            else
-            {
-                int total = 0, checkedCount = 0;
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.IsNewRow) continue;
-                    total++;
-                    var cell = row.Cells["CheckCol"];
-                    if (cell != null && cell.Tag is bool b && b) checkedCount++;
-                }
-                headerState = (total == 0) ? false : (checkedCount == 0 ? false : (checkedCount == total ? true : (bool?)null));
-            }
-
-            // Toggle: if currently checked -> uncheck all; otherwise check all
-            bool target = !(headerState == true);
-
-            // Set all rows (non-blocking)
-            SetAllRowCheckboxes(target);
-
-            // Update header cell tag and repaint header
-            imgCol.HeaderCell.Tag = target;
-            dataGridView1.InvalidateCell(e.ColumnIndex, -1);
-        }
-
-        private void DataGridView1_HeaderCellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex != -1) return;
-                if (!dataGridView1.Columns.Contains("CheckCol") || dataGridView1.Columns[e.ColumnIndex].Name != "CheckCol") return;
-
-                var imgCol = dataGridView1.Columns["CheckCol"] as DataGridViewImageColumn;
-                if (imgCol == null || imgCol.Tag == null) return;
-
-                if (!TryExtractCheckImages(imgCol.Tag, out Image uncheckedThumb, out Image checkedThumb, out Image indeterminateThumb))
-                    return;
-
-                // Determine header state
-                bool? headerState = null;
-                if (imgCol.HeaderCell?.Tag is bool hb) headerState = hb;
-                else
-                {
-                    int total = 0, checkedCount = 0;
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        if (row.IsNewRow) continue;
-                        total++;
-                        var cell = row.Cells["CheckCol"];
-                        if (cell != null && cell.Tag is bool b && b) checkedCount++;
-                    }
-                    headerState = (total == 0) ? false : (checkedCount == 0 ? false : (checkedCount == total ? true : (bool?)null));
-                }
-
-                Image headerImg = headerState == true ? checkedThumb : (headerState == false ? uncheckedThumb : (indeterminateThumb ?? uncheckedThumb));
-                if (headerImg == null) return;
-
-                // Paint background/borders first
-                e.PaintBackground(e.CellBounds, true);
-
-                // Determine the target horizontal center by sampling a visible data cell in the same column.
-                // This ensures header image lines up exactly with the cell images even when scrolling.
-                int sampleRowIndex = -1;
-                // Prefer the first displayed row; fall back to first non-new row
-                if (dataGridView1.FirstDisplayedScrollingRowIndex >= 0)
-                    sampleRowIndex = dataGridView1.FirstDisplayedScrollingRowIndex;
-                if (sampleRowIndex < 0 || sampleRowIndex >= dataGridView1.Rows.Count || dataGridView1.Rows[sampleRowIndex].IsNewRow)
-                {
-                    for (int r = 0; r < dataGridView1.Rows.Count; r++)
-                    {
-                        if (!dataGridView1.Rows[r].IsNewRow)
-                        {
-                            sampleRowIndex = r;
-                            break;
-                        }
-                    }
-                }
-
-                Rectangle cellRect = Rectangle.Empty;
-                if (sampleRowIndex >= 0)
-                {
-                    // GetCellDisplayRectangle returns coordinates relative to the grid; header e.CellBounds is in same coordinate space
-                    cellRect = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, sampleRowIndex, true);
-                }
-
-                // Use cell padding for horizontal alignment if available
-                var cellPad = imgCol.DefaultCellStyle?.Padding ?? Padding.Empty;
-                int padLeft = cellPad.Left;
-                int padRight = cellPad.Right;
-
-                // Compute available area inside header cell for the image (respect header padding too)
-                var headerPad = imgCol.HeaderCell?.Style?.Padding ?? Padding.Empty;
-                int padTop = Math.Max(cellPad.Top, headerPad.Top);
-                int padBottom = Math.Max(cellPad.Bottom, headerPad.Bottom);
-
-                int availW = Math.Max(0, e.CellBounds.Width - (headerPad.Left + headerPad.Right) - 4);
-                int availH = Math.Max(0, e.CellBounds.Height - (padTop + padBottom) - 4);
-
-                int imgW = Math.Min(headerImg.Width, availW);
-                int imgH = Math.Min(headerImg.Height, availH);
-
-                int x;
-                if (cellRect != Rectangle.Empty && cellRect.Width > 0)
-                {
-                    // Compute the center of the image area inside the sample cell (respecting cell padding)
-                    int cellContentLeft = cellRect.X + padLeft;
-                    int cellContentWidth = Math.Max(0, cellRect.Width - (padLeft + padRight));
-                    int cellCenterX = cellContentLeft + cellContentWidth / 2;
-
-                    // Place header image so its center matches the cell center
-                    x = cellCenterX - (imgW / 2);
-
-                    // Clamp to header bounds so image doesn't draw outside header cell
-                    int minX = e.CellBounds.X + headerPad.Left + 2;
-                    int maxX = e.CellBounds.Right - headerPad.Right - imgW - 2;
-                    if (x < minX) x = minX;
-                    if (x > maxX) x = maxX;
-                }
-                else
-                {
-                    // Fallback: center inside header cell
-                    x = e.CellBounds.X + headerPad.Left + (Math.Max(0, e.CellBounds.Width - (headerPad.Left + headerPad.Right) - imgW) / 2);
-                }
-
-                // Vertical: center within the header cell
-                int y = e.CellBounds.Y + (e.CellBounds.Height - imgH) / 2;
-
-                var g = e.Graphics;
-                var oldMode = g.InterpolationMode;
-                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                g.DrawImage(headerImg, new Rectangle(x, y, imgW, imgH));
-                g.InterpolationMode = oldMode;
-
-                e.Handled = true;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"HeaderCellPainting error: {ex}");
-                // Let default painting proceed if something went wrong
-            }
-        }
-
-
-
-        private void UpdateHeaderImageState()
-        {
-            if (!dataGridView1.Columns.Contains("CheckCol")) return;
-            var imgCol = dataGridView1.Columns["CheckCol"] as DataGridViewImageColumn;
-            if (imgCol == null) return;
-
-            int total = 0, checkedCount = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.IsNewRow) continue;
-                total++;
-                var cell = row.Cells["CheckCol"];
-                if (cell != null && cell.Tag is bool b && b) checkedCount++;
-            }
-
-            bool? newState;
-            if (total == 0) newState = false;
-            else if (checkedCount == 0) newState = false;
-            else if (checkedCount == total) newState = true;
-            else newState = null;
-
-            imgCol.HeaderCell.Tag = newState;
-            // repaint header cell
-            int colIndex = imgCol.Index;
-            dataGridView1.InvalidateCell(colIndex, -1);
-        }
-
-        #endregion
-
-        #region Checkbox column, clicks, fill
-
-        private void AddCheckboxColumn()
-        {
-            // Prevent duplicates
-            if (dataGridView1.Columns.Contains("CheckCol"))
-                return;
-
-            // Load images from project resources (replace names if different)
-            Image uncheckedImg = Properties.Resources.unselected_checkbox;
-            Image checkedImg = Properties.Resources.selected_checkbox;
-
-            // Fallback if resources are missing
-            if (uncheckedImg == null) uncheckedImg = new Bitmap(1, 1);
-            if (checkedImg == null) checkedImg = uncheckedImg;
-
-            // Create small thumbnails for display (adjust size to taste)
-            const int thumbSize = 18; // try 16, 18, or 20
-            Image uncheckedThumb = ResizeImage(uncheckedImg, thumbSize, thumbSize);
-            Image checkedThumb = ResizeImage(checkedImg, thumbSize, thumbSize);
-
-            var imgCol = new DataGridViewImageColumn
-            {
-                Name = "CheckCol",
-                HeaderText = "",
-                Width = 36, // compact checkbox column width
-                ImageLayout = DataGridViewImageCellLayout.Normal,
-                Image = uncheckedThumb,
-                ValueType = typeof(Image)
-            };
-
-            // Center the image in the cell
-            imgCol.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            dataGridView1.Columns.Insert(0, imgCol);
-
-            // Store typed ImageTag in the column Tag (do not dispose resource images)
-            imgCol.Tag = new ImageTag(uncheckedImg, checkedImg, uncheckedThumb, checkedThumb, null);
-
-            // Hook the CellClick and CellContentClick events (de-duplicate)
-            dataGridView1.CellClick -= DataGridView1_CellClick;
-            dataGridView1.CellClick += DataGridView1_CellClick;
-
-            dataGridView1.CellContentClick -= DataGridView1_CellContentClick;
-            dataGridView1.CellContentClick += DataGridView1_CellContentClick;
-        }
-
-
-
-
-        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            HandleImageCellClick(e);
-        }
-
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            HandleImageCellClick(e);
-        }
-
-        private void HandleImageCellClick(DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
-
-            var col = dataGridView1.Columns[e.ColumnIndex];
-            if (col == null || col.Name != "CheckCol") return;
-
-            var cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            if (cell == null) return;
-
-            // ensure the cell value is an Image (we display thumbnails)
-            if (!(cell.Value is Image)) return;
-
-            // current checked state stored in Tag (bool). Default false.
-            bool isChecked = cell.Tag is bool b && b;
-
-            // retrieve thumbnails from column tag using the safe extractor
-            var imgCol = col as DataGridViewImageColumn;
-            if (imgCol?.Tag == null) return;
-
-            if (!TryExtractCheckImages(imgCol.Tag, out Image uncheckedThumb, out Image checkedThumb, out Image _))
-                return;
-
-            if (uncheckedThumb == null || checkedThumb == null) return;
-
-            Image fromImg = isChecked ? checkedThumb : uncheckedThumb;
-            Image toImg = isChecked ? uncheckedThumb : checkedThumb;
-
-            // start animation (fire-and-forget)
-            _ = AnimateCheckboxToggleAsync(e.RowIndex, fromImg, toImg, !isChecked);
-        }
-
-        private void FillCheckboxes()
-        {
-            if (!dataGridView1.Columns.Contains("CheckCol")) return;
-
-            var imgCol = dataGridView1.Columns["CheckCol"] as DataGridViewImageColumn;
-            if (imgCol?.Tag == null) return;
-
-            if (!TryExtractCheckImages(imgCol.Tag, out Image uncheckedThumb, out Image checkedThumb, out Image _)) return;
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.IsNewRow) continue;
-                var cell = row.Cells["CheckCol"];
-                if (cell == null) continue;
-
-                cell.Value = uncheckedThumb;
-                cell.Tag = false;
-                cell.ReadOnly = false;
-                cell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                // Ensure checkbox column cells use a compact font so they don't affect row height
-                cell.Style.Font = new Font(dataGridView1.DefaultCellStyle.Font.FontFamily, Math.Max(8f, dataGridView1.DefaultCellStyle.Font.Size - 1f));
-            }
-        }
-
-
-        #endregion
-
-        #region Set all rows (async + optional animation)
-
-        private async Task SetAllRowCheckboxesAsync(bool check, bool animate = false)
-        {
-            if (!dataGridView1.Columns.Contains("CheckCol")) return;
-            var imgCol = dataGridView1.Columns["CheckCol"] as DataGridViewImageColumn;
-            if (imgCol == null || imgCol.Tag == null) return;
-
-            if (!TryExtractCheckImages(imgCol.Tag, out Image uncheckedThumb, out Image checkedThumb, out Image _))
-                return;
-
-            // If animation requested, start animations for rows that need changing
-            if (animate)
-            {
-                var tasks = new List<Task>();
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.IsNewRow) continue;
-                    var cell = row.Cells["CheckCol"];
-                    if (cell == null) continue;
-
-                    bool current = cell.Tag is bool b && b;
-                    if (current == check) continue; // already in desired state
-
-                    Image fromImg = current ? checkedThumb : uncheckedThumb;
-                    Image toImg = check ? checkedThumb : uncheckedThumb;
-
-                    // Start animation for this row (non-blocking)
-                    tasks.Add(AnimateCheckboxToggleAsync(row.Index, fromImg, toImg, check));
-                }
-
-                if (tasks.Count > 0)
-                    await Task.WhenAll(tasks).ConfigureAwait(false);
-            }
-            else
-            {
-                // Immediate update without animation.
-                if (dataGridView1.InvokeRequired)
-                {
-                    dataGridView1.Invoke((Action)(() => ApplyImmediateCheckState(check, checkedThumb, uncheckedThumb)));
-                }
-                else
-                {
-                    ApplyImmediateCheckState(check, checkedThumb, uncheckedThumb);
-                }
-            }
-
-            // Refresh visuals and update header image state on UI thread
-            if (dataGridView1.InvokeRequired)
-            {
-                dataGridView1.Invoke((Action)(() =>
-                {
-                    dataGridView1.Invalidate();
-                    UpdateHeaderImageState();
-                }));
-            }
-            else
-            {
-                dataGridView1.Invalidate();
-                UpdateHeaderImageState();
-            }
-        }
-
-        private void SetAllRowCheckboxes(bool check, bool animate = false)
-        {
-            _ = SetAllRowCheckboxesAsync(check, animate);
-        }
-
-        private void ApplyImmediateCheckState(bool check, Image checkedThumb, Image uncheckedThumb)
-        {
-            // We are on UI thread here
-            dataGridView1.SuspendLayout();
-            try
-            {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.IsNewRow) continue;
-                    var cell = row.Cells["CheckCol"];
-                    if (cell == null) continue;
-
-                    bool current = cell.Tag is bool b && b;
-                    if (current == check) continue;
-
-                    // Use shared thumbnail images (do not dispose them here)
-                    cell.Value = check ? checkedThumb : uncheckedThumb;
-                    cell.Tag = check;
-                }
-            }
-            finally
-            {
-                dataGridView1.ResumeLayout();
-            }
-        }
-
-        #endregion
-
-        #region Animation, blending, resizing helpers
-
-        private async Task AnimateCheckboxToggleAsync(int rowIndex, Image fromImg, Image toImg, bool newCheckedState)
-        {
-            // per-row guard (non-blocking)
-            if (!TryStartAnimating(rowIndex)) return;
-
-            const int steps = 8;
-            const int delayMs = 25;
-
-            try
-            {
-                for (int i = 1; i <= steps; i++)
-                {
-                    float t = i / (float)steps;
-                    using (Bitmap blended = BlendImages(fromImg, toImg, t))
-                    {
-                        // Clone so the grid owns its own Image instance
-                        Image frame = (Image)blended.Clone();
-
-                        if (dataGridView1.IsHandleCreated)
-                        {
-                            // Marshal to UI thread and assign the frame
-                            dataGridView1.Invoke((Action)(() =>
-                            {
-                                if (rowIndex >= 0 && rowIndex < dataGridView1.Rows.Count)
-                                {
-                                    dataGridView1.Rows[rowIndex].Cells["CheckCol"].Value = frame;
-                                }
-                            }));
-                        }
-                    }
-
-                    await Task.Delay(delayMs).ConfigureAwait(false);
-                }
-
-                // Set final image (use the cached thumbnail object) and update Tag on UI thread
-                if (dataGridView1.IsHandleCreated)
-                {
-                    dataGridView1.Invoke((Action)(() =>
-                    {
-                        if (rowIndex >= 0 && rowIndex < dataGridView1.Rows.Count)
-                        {
-                            dataGridView1.Rows[rowIndex].Cells["CheckCol"].Value = toImg;
-                            dataGridView1.Rows[rowIndex].Cells["CheckCol"].Tag = newCheckedState;
-                        }
-                    }));
-                }
-
-                // Notify header/other logic that a row checkbox changed
-                OnRowCheckboxToggled(rowIndex);
-            }
-            finally
-            {
-                StopAnimating(rowIndex);
-            }
-        }
-
-        // Call this after a row's checkbox state has been changed (rowIndex is optional)
-        private void OnRowCheckboxToggled(int rowIndex = -1)
-        {
-            // Ensure UI thread when touching the grid
-            if (dataGridView1.InvokeRequired)
-            {
-                dataGridView1.BeginInvoke((Action)(() => OnRowCheckboxToggled(rowIndex)));
-                return;
-            }
-
-            // Update header image/checkbox state so header reflects current rows
-            UpdateHeaderImageState();
-        }
-
-        private Bitmap BlendImages(Image a, Image b, float t)
-        {
-            // Use the size of the thumbnails (they should be same size)
-            int width = Math.Max(a.Width, b.Width);
-            int height = Math.Max(a.Height, b.Height);
-            var bmp = new Bitmap(width, height);
-            using (Graphics g = Graphics.FromImage(bmp))
+            using (var g = Graphics.FromImage(dest))
             {
                 g.Clear(Color.Transparent);
                 g.CompositingMode = CompositingMode.SourceOver;
                 g.CompositingQuality = CompositingQuality.HighQuality;
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 g.SmoothingMode = SmoothingMode.HighQuality;
-                g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-                // Draw first image with alpha (1 - t)
-                float alphaA = 1f - t;
-                using (ImageAttributes ia = new ImageAttributes())
-                {
-                    var cmA = new ColorMatrix { Matrix33 = alphaA };
-                    ia.SetColorMatrix(cmA, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
-                    g.DrawImage(a, new Rectangle(0, 0, width, height), 0, 0, a.Width, a.Height, GraphicsUnit.Pixel, ia);
-                }
+                // compute centered destination rect for the visible icon area
+                var destRect = new Rectangle(
+                    (destW - IconWidth) / 2,
+                    (destH - IconHeight) / 2,
+                    IconWidth,
+                    IconHeight);
 
-                // Draw second image with alpha t
-                float alphaB = t;
-                using (ImageAttributes ib = new ImageAttributes())
-                {
-                    var cmB = new ColorMatrix { Matrix33 = alphaB };
-                    ib.SetColorMatrix(cmB, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
-                    g.DrawImage(b, new Rectangle(0, 0, width, height), 0, 0, b.Width, b.Height, GraphicsUnit.Pixel, ib);
-                }
-            }
-            return bmp;
-        }
-
-        private Image ResizeImage(Image src, int width, int height)
-        {
-            var dest = new Bitmap(width, height);
-            dest.SetResolution(src.HorizontalResolution, src.VerticalResolution);
-            using (Graphics g = Graphics.FromImage(dest))
-            {
-                g.CompositingMode = CompositingMode.SourceCopy;
-                g.CompositingQuality = CompositingQuality.HighQuality;
-                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                g.SmoothingMode = SmoothingMode.HighQuality;
-                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
-                var destRect = new Rectangle(0, 0, width, height);
-                g.Clear(Color.Transparent);
                 g.DrawImage(src, destRect, 0, 0, src.Width, src.Height, GraphicsUnit.Pixel);
             }
+
             return dest;
-        }
-
-        #endregion
-
-        #region Tooltips
-
-        // Show full note in tooltip on hover
-        private void DataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
-            if (!dataGridView1.Columns.Contains("Note") || dataGridView1.Columns[e.ColumnIndex].Name != "Note")
-            {
-                dataGridView1.ShowCellToolTips = false;
-                return;
-            }
-
-            var cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            string text = cell?.FormattedValue?.ToString() ?? string.Empty;
-
-            // Only show tooltip if text is longer than fits in the cell
-            if (!string.IsNullOrEmpty(text))
-            {
-                dataGridView1.ShowCellToolTips = true;
-                cell.ToolTipText = text;
-            }
-            else
-            {
-                dataGridView1.ShowCellToolTips = false;
-            }
-        }
-
-        private void DataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
-            if (dataGridView1.Columns.Contains("Note"))
-            {
-                var cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                if (cell != null) cell.ToolTipText = string.Empty;
-            }
-            dataGridView1.ShowCellToolTips = false;
-        }
-
-        #endregion
-
-        #region ImageTag and extractor
-
-        // Typed container for images stored in column.Tag
-        private class ImageTag
-        {
-            public Image UncheckedOriginal { get; set; }
-            public Image CheckedOriginal { get; set; }
-            public Image UncheckedThumb { get; set; }
-            public Image CheckedThumb { get; set; }
-            public Image IndeterminateThumb { get; set; }
-
-            public ImageTag(Image uncheckedOriginal, Image checkedOriginal, Image uncheckedThumb, Image checkedThumb, Image indeterminateThumb = null)
-            {
-                UncheckedOriginal = uncheckedOriginal;
-                CheckedOriginal = checkedOriginal;
-                UncheckedThumb = uncheckedThumb;
-                CheckedThumb = checkedThumb;
-                IndeterminateThumb = indeterminateThumb;
-            }
-        }
-
-        // Reflection-based extractor that works with ImageTag or dictionary/anonymous shapes
-        private bool TryExtractCheckImages(object tagObj, out Image uncheckedThumb, out Image checkedThumb, out Image indeterminateThumb)
-        {
-            uncheckedThumb = checkedThumb = indeterminateThumb = null;
-            if (tagObj == null) return false;
-
-            if (tagObj is ImageTag typed)
-            {
-                uncheckedThumb = typed.UncheckedThumb;
-                checkedThumb = typed.CheckedThumb;
-                indeterminateThumb = typed.IndeterminateThumb;
-                return uncheckedThumb != null && checkedThumb != null;
-            }
-
-            try
-            {
-                var t = tagObj.GetType();
-                var pUnchecked = t.GetProperty("UncheckedThumb");
-                var pChecked = t.GetProperty("CheckedThumb");
-                var pIndeterminate = t.GetProperty("IndeterminateThumb");
-
-                if (pUnchecked != null && pChecked != null)
-                {
-                    uncheckedThumb = pUnchecked.GetValue(tagObj) as Image;
-                    checkedThumb = pChecked.GetValue(tagObj) as Image;
-                    if (pIndeterminate != null) indeterminateThumb = pIndeterminate.GetValue(tagObj) as Image;
-                    return uncheckedThumb != null && checkedThumb != null;
-                }
-
-                if (tagObj is System.Collections.IDictionary dict)
-                {
-                    if (dict.Contains("UncheckedThumb")) uncheckedThumb = dict["UncheckedThumb"] as Image;
-                    if (dict.Contains("CheckedThumb")) checkedThumb = dict["CheckedThumb"] as Image;
-                    if (dict.Contains("IndeterminateThumb")) indeterminateThumb = dict["IndeterminateThumb"] as Image;
-                    return uncheckedThumb != null && checkedThumb != null;
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"TryExtractCheckImages reflection error: {ex}");
-            }
-
-            return false;
-        }
-
-        #endregion
-
-        #region Double buffering helper
-
-        private void EnableDoubleBuffering(DataGridView dgv)
-        {
-            var prop = typeof(DataGridView).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-            prop?.SetValue(dgv, true, null);
         }
 
         #endregion

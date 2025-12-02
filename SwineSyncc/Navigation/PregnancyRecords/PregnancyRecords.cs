@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using SwineSyncc.Data;
 
 namespace SwineSyncc
@@ -49,7 +48,7 @@ namespace SwineSyncc
 
         private void customTextBox1__TextChanged(object sender, EventArgs e)
         {
-            displayTable.FilterData(customTextBox1.Texts.Trim());
+            
         }
 
         private void pnlPregnancyRecords_Paint(object sender, PaintEventArgs e)

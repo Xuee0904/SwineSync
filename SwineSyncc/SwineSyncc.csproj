@@ -465,5 +465,11 @@
   <ItemGroup>
     <None Include="Resources\PendingIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
