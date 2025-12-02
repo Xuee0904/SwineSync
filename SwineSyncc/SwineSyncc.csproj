@@ -106,28 +106,28 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Session.cs" />
-    <Compile Include="Navigation\AddHealthRec.cs">
+    <Compile Include="Navigation\HealthRecords\AddHealthRec.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\AddHealthRec.Designer.cs">
+    <Compile Include="Navigation\HealthRecords\AddHealthRec.Designer.cs">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\AddItem.cs">
+    <Compile Include="Navigation\Inventory\AddItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\AddItem.Designer.cs">
+    <Compile Include="Navigation\Inventory\AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\HealthRecords.cs">
+    <Compile Include="Navigation\HealthRecords\HealthRecords.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\HealthRecords.Designer.cs">
+    <Compile Include="Navigation\HealthRecords\HealthRecords.Designer.cs">
       <DependentUpon>HealthRecords.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\Inventory.cs">
+    <Compile Include="Navigation\Inventory\Inventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\Inventory.Designer.cs">
+    <Compile Include="Navigation\Inventory\Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\Pig Management\SowTable.cs">
@@ -279,16 +279,16 @@
     <EmbeddedResource Include="Login\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\AddHealthRec.resx">
+    <EmbeddedResource Include="Navigation\HealthRecords\AddHealthRec.resx">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\AddItem.resx">
+    <EmbeddedResource Include="Navigation\Inventory\AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\HealthRecords.resx">
+    <EmbeddedResource Include="Navigation\HealthRecords\HealthRecords.resx">
       <DependentUpon>HealthRecords.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\Inventory.resx">
+    <EmbeddedResource Include="Navigation\Inventory\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\SowTable.resx">
