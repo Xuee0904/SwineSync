@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pendingBreedingPanel = new System.Windows.Forms.Panel();
+            this.pendingBreedingLbl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pendingBreedingPb = new System.Windows.Forms.PictureBox();
             this.farrowingPanel = new System.Windows.Forms.Panel();
             this.farrowingLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.farrowingPb = new System.Windows.Forms.PictureBox();
             this.healthrecadd = new System.Windows.Forms.Label();
-            this.pendingBreedingPanel = new System.Windows.Forms.Panel();
-            this.pendingBreedingLbl = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pendingBreedingPb = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.farrowingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).BeginInit();
             this.pendingBreedingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingBreedingPb)).BeginInit();
+            this.farrowingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,6 +56,47 @@
             this.panel1.Size = new System.Drawing.Size(1269, 1081);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // pendingBreedingPanel
+            // 
+            this.pendingBreedingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pendingBreedingPanel.Controls.Add(this.pendingBreedingLbl);
+            this.pendingBreedingPanel.Controls.Add(this.label3);
+            this.pendingBreedingPanel.Controls.Add(this.pendingBreedingPb);
+            this.pendingBreedingPanel.Location = new System.Drawing.Point(79, 265);
+            this.pendingBreedingPanel.Name = "pendingBreedingPanel";
+            this.pendingBreedingPanel.Size = new System.Drawing.Size(773, 111);
+            this.pendingBreedingPanel.TabIndex = 60;
+            // 
+            // pendingBreedingLbl
+            // 
+            this.pendingBreedingLbl.AutoSize = true;
+            this.pendingBreedingLbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pendingBreedingLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.pendingBreedingLbl.Location = new System.Drawing.Point(467, 31);
+            this.pendingBreedingLbl.Name = "pendingBreedingLbl";
+            this.pendingBreedingLbl.Size = new System.Drawing.Size(72, 23);
+            this.pendingBreedingLbl.TabIndex = 59;
+            this.pendingBreedingLbl.Text = "Pending";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.label3.Location = new System.Drawing.Point(121, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(262, 41);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "Pending breeding";
+            // 
+            // pendingBreedingPb
+            // 
+            this.pendingBreedingPb.Location = new System.Drawing.Point(22, 19);
+            this.pendingBreedingPb.Name = "pendingBreedingPb";
+            this.pendingBreedingPb.Size = new System.Drawing.Size(89, 71);
+            this.pendingBreedingPb.TabIndex = 0;
+            this.pendingBreedingPb.TabStop = false;
             // 
             // farrowingPanel
             // 
@@ -109,47 +150,6 @@
             this.healthrecadd.TabIndex = 56;
             this.healthrecadd.Text = "Reminders";
             // 
-            // pendingBreedingPanel
-            // 
-            this.pendingBreedingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pendingBreedingPanel.Controls.Add(this.pendingBreedingLbl);
-            this.pendingBreedingPanel.Controls.Add(this.label3);
-            this.pendingBreedingPanel.Controls.Add(this.pendingBreedingPb);
-            this.pendingBreedingPanel.Location = new System.Drawing.Point(79, 258);
-            this.pendingBreedingPanel.Name = "pendingBreedingPanel";
-            this.pendingBreedingPanel.Size = new System.Drawing.Size(773, 111);
-            this.pendingBreedingPanel.TabIndex = 60;
-            // 
-            // pendingBreedingLbl
-            // 
-            this.pendingBreedingLbl.AutoSize = true;
-            this.pendingBreedingLbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingBreedingLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.pendingBreedingLbl.Location = new System.Drawing.Point(467, 31);
-            this.pendingBreedingLbl.Name = "pendingBreedingLbl";
-            this.pendingBreedingLbl.Size = new System.Drawing.Size(72, 23);
-            this.pendingBreedingLbl.TabIndex = 59;
-            this.pendingBreedingLbl.Text = "Pending";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label3.Location = new System.Drawing.Point(121, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(262, 41);
-            this.label3.TabIndex = 58;
-            this.label3.Text = "Pending breeding";
-            // 
-            // pendingBreedingPb
-            // 
-            this.pendingBreedingPb.Location = new System.Drawing.Point(22, 19);
-            this.pendingBreedingPb.Name = "pendingBreedingPb";
-            this.pendingBreedingPb.Size = new System.Drawing.Size(89, 71);
-            this.pendingBreedingPb.TabIndex = 0;
-            this.pendingBreedingPb.TabStop = false;
-            // 
             // Reminders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -159,12 +159,12 @@
             this.Size = new System.Drawing.Size(1269, 1081);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.farrowingPanel.ResumeLayout(false);
-            this.farrowingPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).EndInit();
             this.pendingBreedingPanel.ResumeLayout(false);
             this.pendingBreedingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingBreedingPb)).EndInit();
+            this.farrowingPanel.ResumeLayout(false);
+            this.farrowingPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).EndInit();
             this.ResumeLayout(false);
 
         }
