@@ -12,9 +12,17 @@ namespace SwineSyncc.Navigation
 {
     public partial class Inventory : UserControl
     {
+        SwineSyncTable displayTable;
         public Inventory()
         {
             InitializeComponent();
+        }
+
+        private void Inventory_Load(object sender, EventArgs e)
+        {
+            displayTable.SetTableQuery("Inventory");
+            displayTable.Dock = DockStyle.Fill;
+            pnlInventory.Controls.Add(displayTable);
         }
     }
 }
