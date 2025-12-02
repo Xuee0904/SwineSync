@@ -23,6 +23,9 @@ namespace SwineSyncc.Navigation
             farrowingPanel.BackColor = Color.FromArgb(240, 237, 232);
             farrowingPb.Image = Properties.Resources.PigReminder;
 
+
+            pendingBreedingPb.Image = Properties.Resources.PendingIcon;
+
             LoadNearestFarrowing();
             LoadPendingBreedingReminder();
         }
