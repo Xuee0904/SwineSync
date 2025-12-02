@@ -112,6 +112,12 @@
     <Compile Include="Navigation\AddHealthRec.Designer.cs">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\AddItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\AddItem.Designer.cs">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\Inventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -269,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\AddHealthRec.resx">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\AddItem.resx">
+      <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
