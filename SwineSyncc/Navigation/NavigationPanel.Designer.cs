@@ -247,6 +247,7 @@
             this.inventoryBtn.Text = "Inventory";
             this.inventoryBtn.TextColor = System.Drawing.Color.WhiteSmoke;
             this.inventoryBtn.UseVisualStyleBackColor = false;
+            this.inventoryBtn.Click += new System.EventHandler(this.inventoryBtn_Click_1);
             // 
             // transactionsBtn
             // 

@@ -112,6 +112,12 @@
     <Compile Include="Navigation\AddHealthRec.Designer.cs">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\Inventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\Pig Management\SowTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\AddHealthRec.resx">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\SowTable.resx">
       <DependentUpon>SowTable.cs</DependentUpon>
