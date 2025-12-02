@@ -30,16 +30,18 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.healthrecadd = new System.Windows.Forms.Label();
+            this.pnlInventory = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pnlInventory);
             this.panel1.Controls.Add(this.healthrecadd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1269, 1081);
+            this.panel1.Size = new System.Drawing.Size(1337, 886);
             this.panel1.TabIndex = 0;
             // 
             // healthrecadd
@@ -53,13 +55,20 @@
             this.healthrecadd.TabIndex = 57;
             this.healthrecadd.Text = "Inventory";
             // 
+            // pnlInventory
+            // 
+            this.pnlInventory.Location = new System.Drawing.Point(51, 121);
+            this.pnlInventory.Name = "pnlInventory";
+            this.pnlInventory.Size = new System.Drawing.Size(1228, 590);
+            this.pnlInventory.TabIndex = 58;
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "Inventory";
-            this.Size = new System.Drawing.Size(1269, 1081);
+            this.Size = new System.Drawing.Size(1337, 886);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -70,5 +79,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label healthrecadd;
+        private System.Windows.Forms.Panel pnlInventory;
     }
 }
