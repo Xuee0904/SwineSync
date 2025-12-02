@@ -16,6 +16,7 @@ namespace SwineSyncc
         private BreedingRecords _breedingUC;
         private Reminders _remindersUC;
         private Inventory _inventoryUC;
+        private HealthRecords _healthUC;
 
         public UserControlManager(Panel mainPanel)
         {
@@ -305,6 +306,15 @@ namespace SwineSyncc
 
             }
             ShowUserControl(_inventoryUC);
+        }
+
+        public void LoadHealthRecords()
+        {
+            if (_healthUC == null)
+            {
+                _healthUC = new HealthRecords();
+            }
+            ShowUserControl (_healthUC);
         }
 
     }
