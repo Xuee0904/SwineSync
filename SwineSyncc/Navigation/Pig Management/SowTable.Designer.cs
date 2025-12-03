@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SowTable));
             this.panelSowTable = new System.Windows.Forms.Panel();
+            this.panelBoar = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
+            this.panelSow = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -38,14 +40,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.togglePicBox = new System.Windows.Forms.PictureBox();
-            this.panelSow = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
-            this.panelBoar = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
+            this.btnPiglet = new RoundedButton();
             this.panelSowTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.togglePicBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSowTable
             // 
+            this.panelSowTable.Controls.Add(this.btnPiglet);
             this.panelSowTable.Controls.Add(this.panelBoar);
             this.panelSowTable.Controls.Add(this.panelSow);
             this.panelSowTable.Controls.Add(this.label5);
@@ -58,18 +60,44 @@
             this.panelSowTable.Controls.Add(this.togglePicBox);
             this.panelSowTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSowTable.Location = new System.Drawing.Point(0, 0);
-            this.panelSowTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSowTable.Margin = new System.Windows.Forms.Padding(2);
             this.panelSowTable.Name = "panelSowTable";
             this.panelSowTable.Size = new System.Drawing.Size(1003, 720);
             this.panelSowTable.TabIndex = 0;
             this.panelSowTable.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSowTable_Paint);
+            // 
+            // panelBoar
+            // 
+            this.panelBoar.BackColor = System.Drawing.Color.White;
+            this.panelBoar.BorderRadius = 12;
+            this.panelBoar.ForeColor = System.Drawing.Color.Black;
+            this.panelBoar.GradientAngle = 90F;
+            this.panelBoar.GradientBottomColor = System.Drawing.Color.CadetBlue;
+            this.panelBoar.GradientTopColor = System.Drawing.Color.DodgerBlue;
+            this.panelBoar.Location = new System.Drawing.Point(93, 391);
+            this.panelBoar.Name = "panelBoar";
+            this.panelBoar.Size = new System.Drawing.Size(788, 230);
+            this.panelBoar.TabIndex = 35;
+            // 
+            // panelSow
+            // 
+            this.panelSow.BackColor = System.Drawing.Color.White;
+            this.panelSow.BorderRadius = 12;
+            this.panelSow.ForeColor = System.Drawing.Color.Black;
+            this.panelSow.GradientAngle = 90F;
+            this.panelSow.GradientBottomColor = System.Drawing.Color.CadetBlue;
+            this.panelSow.GradientTopColor = System.Drawing.Color.DodgerBlue;
+            this.panelSow.Location = new System.Drawing.Point(93, 118);
+            this.panelSow.Name = "panelSow";
+            this.panelSow.Size = new System.Drawing.Size(788, 230);
+            this.panelSow.TabIndex = 35;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label5.Location = new System.Drawing.Point(461, 396);
+            this.label5.Location = new System.Drawing.Point(461, 351);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 37);
             this.label5.TabIndex = 34;
@@ -79,7 +107,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(538, 399);
+            this.label6.Location = new System.Drawing.Point(538, 354);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(423, 21);
             this.label6.TabIndex = 33;
@@ -89,7 +117,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 399);
+            this.label7.Location = new System.Drawing.Point(41, 354);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(423, 21);
             this.label7.TabIndex = 32;
@@ -143,45 +171,35 @@
             this.togglePicBox.ErrorImage = global::SwineSyncc.Properties.Resources.tableIcon;
             this.togglePicBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("togglePicBox.InitialImage")));
             this.togglePicBox.Location = new System.Drawing.Point(896, 27);
-            this.togglePicBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.togglePicBox.Margin = new System.Windows.Forms.Padding(2);
             this.togglePicBox.Name = "togglePicBox";
             this.togglePicBox.Size = new System.Drawing.Size(57, 49);
             this.togglePicBox.TabIndex = 25;
             this.togglePicBox.TabStop = false;
             this.togglePicBox.Click += new System.EventHandler(this.togglePicBox_Click);
             // 
-            // panelSow
+            // btnPiglet
             // 
-            this.panelSow.BackColor = System.Drawing.Color.White;
-            this.panelSow.BorderRadius = 12;
-            this.panelSow.ForeColor = System.Drawing.Color.Black;
-            this.panelSow.GradientAngle = 90F;
-            this.panelSow.GradientBottomColor = System.Drawing.Color.CadetBlue;
-            this.panelSow.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.panelSow.Location = new System.Drawing.Point(93, 118);
-            this.panelSow.Name = "panelSow";
-            this.panelSow.Size = new System.Drawing.Size(788, 264);
-            this.panelSow.TabIndex = 35;
-            // 
-            // panelBoar
-            // 
-            this.panelBoar.BackColor = System.Drawing.Color.White;
-            this.panelBoar.BorderRadius = 12;
-            this.panelBoar.ForeColor = System.Drawing.Color.Black;
-            this.panelBoar.GradientAngle = 90F;
-            this.panelBoar.GradientBottomColor = System.Drawing.Color.CadetBlue;
-            this.panelBoar.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.panelBoar.Location = new System.Drawing.Point(93, 446);
-            this.panelBoar.Name = "panelBoar";
-            this.panelBoar.Size = new System.Drawing.Size(788, 264);
-            this.panelBoar.TabIndex = 35;
+            this.btnPiglet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.btnPiglet.BorderRadious = 9;
+            this.btnPiglet.FlatAppearance.BorderSize = 0;
+            this.btnPiglet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPiglet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPiglet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.btnPiglet.Location = new System.Drawing.Point(724, 640);
+            this.btnPiglet.Name = "btnPiglet";
+            this.btnPiglet.Size = new System.Drawing.Size(157, 64);
+            this.btnPiglet.TabIndex = 46;
+            this.btnPiglet.Text = "Piglet table >";
+            this.btnPiglet.UseVisualStyleBackColor = false;
+            this.btnPiglet.Click += new System.EventHandler(this.btnPiglet_Click);
             // 
             // SowTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelSowTable);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SowTable";
             this.Size = new System.Drawing.Size(1003, 720);
             this.Load += new System.EventHandler(this.SowTable_Load);
@@ -205,5 +223,6 @@
         private System.Windows.Forms.Label label2;
         private CustomUIElements.Gradient_RoundedPanel panelBoar;
         private CustomUIElements.Gradient_RoundedPanel panelSow;
+        private RoundedButton btnPiglet;
     }
 }

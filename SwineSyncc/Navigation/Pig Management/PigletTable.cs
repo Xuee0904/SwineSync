@@ -12,9 +12,15 @@ namespace SwineSyncc.Navigation.Pig_Management
 {
     public partial class PigletTable : UserControl
     {
-        public PigletTable()
+
+        private readonly Panel _mainPanel;
+
+        public PigletTable(Panel mainPanel)
         {
             InitializeComponent();
+
+            _mainPanel = mainPanel;
+            this.Dock = DockStyle.Fill;
         }
     }
 }

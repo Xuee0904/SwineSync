@@ -15,6 +15,7 @@ namespace SwineSyncc.Navigation.Pig_Management
         SwineSyncTable displaySowTable;
         SwineSyncTable displayBoarTable;
         public event EventHandler BackToCardViewClicked;
+        public event EventHandler ProceedToPigletTableClicked;
         private readonly Panel _mainPanel;
         public SowTable(Panel mainPanel)
         {
@@ -45,6 +46,11 @@ namespace SwineSyncc.Navigation.Pig_Management
         private void togglePicBox_Click(object sender, EventArgs e)
         {
             BackToCardViewClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnPiglet_Click(object sender, EventArgs e)
+        {
+            ProceedToPigletTableClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

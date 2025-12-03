@@ -297,7 +297,19 @@ namespace SwineSyncc
                 ShowUserControl(_pigUC);
             };
 
+            sowTable.ProceedToPigletTableClicked += (s, e) =>
+            {
+                LoadPigletTable();
+            };
+
             ShowUserControl(sowTable);
+        }
+
+        public void LoadPigletTable()
+        {
+            PigletTable pigletTable = new PigletTable(_mainPanel);
+
+            ShowUserControl(pigletTable);
         }
 
         public void LoadInventory()
