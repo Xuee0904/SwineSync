@@ -13,12 +13,14 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwineSyncc.Navigation.BreedingRecords;
 
 namespace SwineSyncc.Navigation
 {
     public partial class SwineSyncTable : UserControl
     {
         private string tableQuery;
+        private string currentTable;
         private const int IconWidth = 18;     
         private const int IconHeight = 18;
         private const int IconPadding = 6;     
@@ -85,6 +87,7 @@ namespace SwineSyncc.Navigation
 
             // schema changed — allow defaults to re-run next time
             _columnsInitialized = false;
+            this.currentTable = tableName;
         }
 
         public string GetTableQuery() => this.tableQuery;
@@ -99,7 +102,7 @@ namespace SwineSyncc.Navigation
             {
                 adapter.Fill(table);
             }
-
+            
             dataGridView1.DataSource = table;
 
             EnsureColumnDefaults();
@@ -262,34 +265,50 @@ namespace SwineSyncc.Navigation
             if (col == null) return;
 
             if (col.Name == "EditCol")
-                HandleEditClick(e.RowIndex);
+                HandleEditClick(e.RowIndex, currentTable);
             else if (col.Name == "DeleteCol")
-                HandleDeleteClick(e.RowIndex);
+                HandleDeleteClick(e.RowIndex, currentTable);
         }
 
-        private void HandleEditClick(int rowIndex)
+        private void HandleEditClick(int rowIndex, string currentTable)
         {
-            
-        }
-
-        private void HandleDeleteClick(int rowIndex)
-        {
-            var row = dataGridView1.Rows[rowIndex];
-            if (row.IsNewRow) return;
-            var raw = row.Cells["BreedingID"]?.Value;
-            if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
-
-            var result = MessageBox.Show($"Delete record {id}?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result != DialogResult.Yes) return;
-
-            using (var conn = DBConnection.Instance.GetConnection())
-            using (var cmd = conn.CreateCommand())
+            if(currentTable == "BreedingRecords")
             {
-                cmd.CommandText = "DELETE FROM BreedingRecords WHERE BreedingID = @id";
-                cmd.Parameters.AddWithValue("@id", id);
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                var row = dataGridView1.Rows[rowIndex];
+                if (row.IsNewRow) return;
+                var raw = row.Cells["BreedingID"]?.Value;
+                if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
+
+                using (var editForm = new EditBreeding(id))
+                {
+
+                    if (editForm.ShowDialog() == DialogResult.OK)
+                        LoadTable();
+                }
+            }
+        }
+
+        private void HandleDeleteClick(int rowIndex, string currentTable)
+        {
+            if(currentTable == "BreedingRecords")
+            {
+                var row = dataGridView1.Rows[rowIndex];
+                if (row.IsNewRow) return;
+                var raw = row.Cells["BreedingID"]?.Value;
+                if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
+
+                var result = MessageBox.Show($"Delete record {id}?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result != DialogResult.Yes) return;
+
+                using (var conn = DBConnection.Instance.GetConnection())
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM BreedingRecords WHERE BreedingID = @id";
+                    cmd.Parameters.AddWithValue("@id", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
             }
 
             LoadTable();
