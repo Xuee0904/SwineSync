@@ -136,6 +136,12 @@
     <Compile Include="Navigation\Inventory\Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\Pig Management\PigletTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\Pig Management\PigletTable.Designer.cs">
+      <DependentUpon>PigletTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\Pig Management\SowTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -299,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Inventory\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\Pig Management\PigletTable.resx">
+      <DependentUpon>PigletTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\SowTable.resx">
       <DependentUpon>SowTable.cs</DependentUpon>
