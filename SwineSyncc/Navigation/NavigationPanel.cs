@@ -51,7 +51,7 @@ namespace SwineSyncc
         public void TriggerPigManagementClick()
         {
             SetActiveButton(pigManagementBtn);
-            PigManagementClicked?.Invoke(this, EventArgs.Empty);
+            //PigManagementClicked?.Invoke(this, EventArgs.Empty);
         }
 
 
