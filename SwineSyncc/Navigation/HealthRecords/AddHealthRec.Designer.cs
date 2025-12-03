@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cancelbtn = new BorderRoundedButton();
-            this.clearbtn = new BorderRoundedButton();
-            this.savebtn = new RoundedButton();
             this.notesTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.vetNameTxt = new System.Windows.Forms.TextBox();
@@ -45,14 +42,13 @@
             this.checkuplabel = new System.Windows.Forms.Label();
             this.breedlbl = new System.Windows.Forms.Label();
             this.pignamelabel = new System.Windows.Forms.Label();
+            this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.cancelbtn);
-            this.panel1.Controls.Add(this.clearbtn);
-            this.panel1.Controls.Add(this.savebtn);
+            this.panel1.Controls.Add(this.buttonGroup1);
             this.panel1.Controls.Add(this.notesTxt);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.vetNameTxt);
@@ -68,65 +64,16 @@
             this.panel1.Controls.Add(this.pignamelabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(900, 524);
             this.panel1.TabIndex = 0;
-            // 
-            // cancelbtn
-            // 
-            this.cancelbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.BorderRadious = 9;
-            this.cancelbtn.BorderThickness = 3;
-            this.cancelbtn.FlatAppearance.BorderSize = 0;
-            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.cancelbtn.Location = new System.Drawing.Point(596, 513);
-            this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(126, 45);
-            this.cancelbtn.TabIndex = 63;
-            this.cancelbtn.Text = "Cancel";
-            this.cancelbtn.UseVisualStyleBackColor = true;
-            // 
-            // clearbtn
-            // 
-            this.clearbtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.BorderRadious = 9;
-            this.clearbtn.BorderThickness = 3;
-            this.clearbtn.FlatAppearance.BorderSize = 0;
-            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearbtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.clearbtn.Location = new System.Drawing.Point(464, 513);
-            this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(126, 45);
-            this.clearbtn.TabIndex = 62;
-            this.clearbtn.Text = "Clear";
-            this.clearbtn.UseVisualStyleBackColor = true;
-            // 
-            // savebtn
-            // 
-            this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.savebtn.BorderRadious = 9;
-            this.savebtn.FlatAppearance.BorderSize = 0;
-            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.savebtn.Location = new System.Drawing.Point(726, 513);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(126, 45);
-            this.savebtn.TabIndex = 61;
-            this.savebtn.Text = "Save";
-            this.savebtn.UseVisualStyleBackColor = false;
-            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // notesTxt
             // 
             this.notesTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.notesTxt.Location = new System.Drawing.Point(464, 387);
-            this.notesTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.notesTxt.Margin = new System.Windows.Forms.Padding(2);
             this.notesTxt.Name = "notesTxt";
             this.notesTxt.Size = new System.Drawing.Size(389, 31);
             this.notesTxt.TabIndex = 60;
@@ -147,7 +94,7 @@
             // 
             this.vetNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vetNameTxt.Location = new System.Drawing.Point(50, 387);
-            this.vetNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.vetNameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.vetNameTxt.Name = "vetNameTxt";
             this.vetNameTxt.Size = new System.Drawing.Size(389, 31);
             this.vetNameTxt.TabIndex = 58;
@@ -156,7 +103,7 @@
             // 
             this.conditionTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conditionTxt.Location = new System.Drawing.Point(50, 275);
-            this.conditionTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.conditionTxt.Margin = new System.Windows.Forms.Padding(2);
             this.conditionTxt.Name = "conditionTxt";
             this.conditionTxt.Size = new System.Drawing.Size(389, 31);
             this.conditionTxt.TabIndex = 57;
@@ -181,7 +128,7 @@
             "Tamworth",
             "Yorkshire"});
             this.comboHealthPigName.Location = new System.Drawing.Point(50, 181);
-            this.comboHealthPigName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboHealthPigName.Margin = new System.Windows.Forms.Padding(2);
             this.comboHealthPigName.Name = "comboHealthPigName";
             this.comboHealthPigName.Size = new System.Drawing.Size(389, 33);
             this.comboHealthPigName.TabIndex = 56;
@@ -214,7 +161,7 @@
             // 
             this.treatmentTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treatmentTxt.Location = new System.Drawing.Point(464, 275);
-            this.treatmentTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treatmentTxt.Margin = new System.Windows.Forms.Padding(2);
             this.treatmentTxt.Name = "treatmentTxt";
             this.treatmentTxt.Size = new System.Drawing.Size(389, 31);
             this.treatmentTxt.TabIndex = 51;
@@ -235,7 +182,7 @@
             // 
             this.dtCheckUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtCheckUp.Location = new System.Drawing.Point(464, 180);
-            this.dtCheckUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtCheckUp.Margin = new System.Windows.Forms.Padding(2);
             this.dtCheckUp.Name = "dtCheckUp";
             this.dtCheckUp.Size = new System.Drawing.Size(389, 31);
             this.dtCheckUp.TabIndex = 49;
@@ -276,12 +223,20 @@
             this.pignamelabel.TabIndex = 45;
             this.pignamelabel.Text = "Pig name:";
             // 
+            // buttonGroup1
+            // 
+            this.buttonGroup1.Location = new System.Drawing.Point(464, 513);
+            this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonGroup1.Name = "buttonGroup1";
+            this.buttonGroup1.Size = new System.Drawing.Size(385, 45);
+            this.buttonGroup1.TabIndex = 64;
+            // 
             // AddHealthRec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddHealthRec";
             this.Size = new System.Drawing.Size(900, 524);
             this.panel1.ResumeLayout(false);
@@ -306,8 +261,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox vetNameTxt;
         private System.Windows.Forms.TextBox conditionTxt;
-        private BorderRoundedButton cancelbtn;
-        private BorderRoundedButton clearbtn;
-        private RoundedButton savebtn;
+        private CustomUIElements.ButtonGroup.ButtonGroup buttonGroup1;
     }
 }

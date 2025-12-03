@@ -164,6 +164,9 @@ namespace SwineSyncc
         public void LoadAddPregnancy()
         { 
             AddPregnancy addPregnancy = new AddPregnancy();
+
+            addPregnancy.CancelClicked += (s, e) => ShowUserControl(_pregnancyUC);
+
             ShowUserControl(addPregnancy);
         }
 
@@ -336,6 +339,8 @@ namespace SwineSyncc
         public void LoadAddHealthRecord()
         {
             AddHealthRec addHealthRecord = new AddHealthRec();
+
+            addHealthRecord.CancelClicked += (s, e) => ShowUserControl(_healthUC);
 
             ShowUserControl(addHealthRecord);
         }

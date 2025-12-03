@@ -15,11 +15,17 @@ namespace SwineSyncc.Navigation
 {
     public partial class AddHealthRec : UserControl
     {
+
+        public event EventHandler CancelClicked
+            ;
         public AddHealthRec()
         {
             InitializeComponent();
 
             PopulatePigComboBox();
+
+            buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
+            buttonGroup1.ClearClicked += (s, e) => ClearFields();
         }
 
         private void PopulatePigComboBox()
@@ -72,10 +78,17 @@ namespace SwineSyncc.Navigation
 
         }
 
-        private void savebtn_Click(object sender, EventArgs e)
+        private void ClearFields()
         {
-
+            comboHealthPigName.SelectedIndex = -1;
+            conditionTxt.Clear();
+            treatmentTxt.Clear();
+            vetNameTxt.Clear();
+            notesTxt.Clear();
+            dtCheckUp.Value = DateTime.Now;
         }
+
+
 
     }
 }
