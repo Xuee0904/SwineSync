@@ -17,6 +17,7 @@ namespace SwineSyncc
         private Reminders _remindersUC;
         private Inventory _inventoryUC;
         private HealthRecords _healthUC;
+        private DashboardUI _dashboardUC;
 
         public UserControlManager(Panel mainPanel)
         {
@@ -29,6 +30,7 @@ namespace SwineSyncc
             uc.Dock = DockStyle.Fill;
             _mainPanel.Controls.Add(uc);
         }
+
 
         public void LoadPigManagement()
         {
@@ -317,5 +319,13 @@ namespace SwineSyncc
             ShowUserControl (_healthUC);
         }
 
+        public void LoadDashboard()
+        {
+            if (_dashboardUC == null)
+            {
+                _dashboardUC = new DashboardUI();
+            }
+            ShowUserControl(_dashboardUC);
+        }
     }
 }

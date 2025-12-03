@@ -33,9 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelPigSubMenu = new System.Windows.Forms.Panel();
-            this.customButton1 = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
+            this.dashboardBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.pigManagementBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
+            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.healthRecordsBtn = new IconRoundedButton();
             this.pregnancyRecordsBtn = new IconRoundedButton();
             this.breedingRecordsBtn = new IconRoundedButton();
@@ -54,7 +54,7 @@
             this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Controls.Add(this.customButton1);
+            this.flowLayoutPanel1.Controls.Add(this.dashboardBtn);
             this.flowLayoutPanel1.Controls.Add(this.pigManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.panelPigSubMenu);
             this.flowLayoutPanel1.Controls.Add(this.inventoryBtn);
@@ -101,46 +101,30 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // panelPigSubMenu
+            // dashboardBtn
             // 
-            this.panelPigSubMenu.AutoSize = true;
-            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
-            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
-            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 267);
-            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelPigSubMenu.Name = "panelPigSubMenu";
-            this.panelPigSubMenu.Size = new System.Drawing.Size(366, 227);
-            this.panelPigSubMenu.TabIndex = 5;
-            this.panelPigSubMenu.Visible = false;
-            // 
-            // customButton1
-            // 
-            this.customButton1.BackColor = System.Drawing.Color.Transparent;
-            this.customButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.customButton1.BorderColor = System.Drawing.Color.Transparent;
-            this.customButton1.BorderRadius = 0;
-            this.customButton1.BorderSize = 0;
-            this.customButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.customButton1.FlatAppearance.BorderSize = 0;
-            this.customButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.customButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
-            this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Image = global::SwineSyncc.Properties.Resources.Dashboard_icons;
-            this.customButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.customButton1.Location = new System.Drawing.Point(3, 96);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(366, 80);
-            this.customButton1.TabIndex = 32;
-            this.customButton1.Text = "Dashboard";
-            this.customButton1.TextColor = System.Drawing.Color.White;
-            this.customButton1.UseVisualStyleBackColor = false;
+            this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.BackgroundColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.BorderColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.BorderRadius = 0;
+            this.dashboardBtn.BorderSize = 0;
+            this.dashboardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dashboardBtn.FlatAppearance.BorderSize = 0;
+            this.dashboardBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dashboardBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.dashboardBtn.ForeColor = System.Drawing.Color.White;
+            this.dashboardBtn.Image = global::SwineSyncc.Properties.Resources.Dashboard_icons;
+            this.dashboardBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dashboardBtn.Location = new System.Drawing.Point(3, 96);
+            this.dashboardBtn.Name = "dashboardBtn";
+            this.dashboardBtn.Size = new System.Drawing.Size(366, 80);
+            this.dashboardBtn.TabIndex = 32;
+            this.dashboardBtn.Text = "Dashboard";
+            this.dashboardBtn.TextColor = System.Drawing.Color.White;
+            this.dashboardBtn.UseVisualStyleBackColor = false;
+            this.dashboardBtn.Click += new System.EventHandler(this.dashboardBtn_Click_1);
             // 
             // pigManagementBtn
             // 
@@ -166,6 +150,23 @@
             this.pigManagementBtn.TextColor = System.Drawing.SystemColors.Window;
             this.pigManagementBtn.UseVisualStyleBackColor = false;
             this.pigManagementBtn.Click += new System.EventHandler(this.customButton2_Click);
+            // 
+            // panelPigSubMenu
+            // 
+            this.panelPigSubMenu.AutoSize = true;
+            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
+            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 267);
+            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelPigSubMenu.Name = "panelPigSubMenu";
+            this.panelPigSubMenu.Size = new System.Drawing.Size(366, 227);
+            this.panelPigSubMenu.TabIndex = 5;
+            this.panelPigSubMenu.Visible = false;
             // 
             // healthRecordsBtn
             // 
@@ -272,6 +273,7 @@
             this.transactionsBtn.Text = "Transaction";
             this.transactionsBtn.TextColor = System.Drawing.Color.WhiteSmoke;
             this.transactionsBtn.UseVisualStyleBackColor = false;
+            this.transactionsBtn.Click += new System.EventHandler(this.transactionsBtn_Click_1);
             // 
             // userManagementBtn
             // 
@@ -351,7 +353,7 @@
         private IconRoundedButton breedingRecordsBtn;
         private IconRoundedButton pregnancyRecordsBtn;
         private IconRoundedButton healthRecordsBtn;
-        private ColdChainConnectSystem_ACDP.Materials.CustomButton customButton1;
+        private ColdChainConnectSystem_ACDP.Materials.CustomButton dashboardBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton pigManagementBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton inventoryBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton transactionsBtn;

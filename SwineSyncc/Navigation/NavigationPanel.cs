@@ -20,6 +20,7 @@ namespace SwineSyncc
         public event EventHandler HealthRecordsClicked;
         public event EventHandler RemindersClicked;
         public event EventHandler InventoryClicked;
+        public event EventHandler DashboardClicked;
 
         private Button activeButton = null;
         private Color activeColor = Color.FromArgb(59, 44, 29);   // dark brown
@@ -28,6 +29,7 @@ namespace SwineSyncc
         public NavigationPanel()
         {
             InitializeComponent();
+            SetActiveButton(dashboardBtn);
         }
 
         private void SetActiveButton(Button clickedButton)
@@ -46,6 +48,11 @@ namespace SwineSyncc
             activeButton.FlatAppearance.MouseDownBackColor = activeColor;
         }
 
+        public void TriggerPigManagementClick()
+        {
+            SetActiveButton(pigManagementBtn);
+            PigManagementClicked?.Invoke(this, EventArgs.Empty);
+        }
 
 
 
@@ -81,27 +88,7 @@ namespace SwineSyncc
         {
             SetActiveButton(healthRecordsBtn);
             HealthRecordsClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void inventoryBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void transactionsBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void analyticsBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void remindersBtn_Click(object sender, EventArgs e)
-        {
-
-        }             
+        }                        
 
         private void customButton2_Click(object sender, EventArgs e)
         {
@@ -127,6 +114,17 @@ namespace SwineSyncc
         {
             SetActiveButton(inventoryBtn);
             InventoryClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void dashboardBtn_Click_1(object sender, EventArgs e)
+        {
+            SetActiveButton(dashboardBtn);
+            DashboardClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void transactionsBtn_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwineSyncc.Login;
+using SwineSyncc.Navigation;
 
 namespace SwineSyncc
 {
@@ -31,9 +32,10 @@ namespace SwineSyncc
             navigationPanel.RemindersClicked += (s, e) => ucManager.LoadReminders();
             navigationPanel.InventoryClicked += (s, e) => ucManager.LoadInventory();
             navigationPanel.HealthRecordsClicked += (s, e) => ucManager.LoadHealthRecords();
+            navigationPanel.DashboardClicked += (s, e) => ucManager.LoadDashboard();
 
             ApplyAccessLevel();
-
+            ShowDashboard();
         }
 
         private void ApplyAccessLevel()
@@ -47,6 +49,21 @@ namespace SwineSyncc
                 
             }
         }
+
+        private void ShowDashboard()
+        {
+            DashboardUI dashboard = new DashboardUI();         
+            dashboard.TotalPigsPanelClicked += (s, e) =>
+            {              
+                navigationPanel.TriggerPigManagementClick();             
+                ucManager.LoadPigManagement();
+            };
+
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(dashboard);
+            dashboard.Dock = DockStyle.Fill;
+        }
+
 
 
         private void Dashboard_Load(object sender, EventArgs e)
