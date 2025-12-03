@@ -26,6 +26,11 @@ namespace SwineSyncc
 
         private void ShowUserControl(UserControl uc)
         {
+            foreach (Control ctrl in _mainPanel.Controls)
+            {
+                ctrl.Dispose();
+            }
+
             _mainPanel.Controls.Clear();
             uc.Dock = DockStyle.Fill;
             _mainPanel.Controls.Add(uc);
@@ -317,15 +322,7 @@ namespace SwineSyncc
                 _healthUC = new HealthRecords();
             }
             ShowUserControl (_healthUC);
-        }
+        }       
 
-        public void LoadDashboard()
-        {
-            if (_dashboardUC == null)
-            {
-                _dashboardUC = new DashboardUI();
-            }
-            ShowUserControl(_dashboardUC);
-        }
     }
 }

@@ -32,7 +32,9 @@ namespace SwineSyncc
             navigationPanel.RemindersClicked += (s, e) => ucManager.LoadReminders();
             navigationPanel.InventoryClicked += (s, e) => ucManager.LoadInventory();
             navigationPanel.HealthRecordsClicked += (s, e) => ucManager.LoadHealthRecords();
-            navigationPanel.DashboardClicked += (s, e) => ucManager.LoadDashboard();
+            //navigationPanel.DashboardClicked += (s, e) => ucManager.LoadDashboard();
+
+            navigationPanel.DashboardClicked += (s, e) => ShowDashboard(); 
 
             ApplyAccessLevel();
             ShowDashboard();
