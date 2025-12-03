@@ -25,12 +25,7 @@ namespace SwineSyncc
         }
 
         private void ShowUserControl(UserControl uc)
-        {
-            foreach (Control ctrl in _mainPanel.Controls)
-            {
-                ctrl.Dispose();
-            }
-
+        {         
             _mainPanel.Controls.Clear();
             uc.Dock = DockStyle.Fill;
             _mainPanel.Controls.Add(uc);
