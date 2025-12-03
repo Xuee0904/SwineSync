@@ -29,17 +29,24 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelTotalPiglets = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
+            this.dashboardPigletPb = new System.Windows.Forms.PictureBox();
+            this.labelTotalPigletsTitle = new System.Windows.Forms.Label();
+            this.lblTotalPiglets = new System.Windows.Forms.Label();
             this.panelTotalPigs = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.dashboardPigPb = new System.Windows.Forms.PictureBox();
             this.labelTotalPigsTitle = new System.Windows.Forms.Label();
             this.lblTotalPigs = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panelTotalPiglets.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardPigletPb)).BeginInit();
             this.panelTotalPigs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPigPb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panelTotalPiglets);
             this.panel1.Controls.Add(this.panelTotalPigs);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -47,6 +54,53 @@
             this.panel1.Size = new System.Drawing.Size(1338, 886);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panelTotalPiglets
+            // 
+            this.panelTotalPiglets.BackColor = System.Drawing.Color.White;
+            this.panelTotalPiglets.BorderRadius = 30;
+            this.panelTotalPiglets.Controls.Add(this.dashboardPigletPb);
+            this.panelTotalPiglets.Controls.Add(this.labelTotalPigletsTitle);
+            this.panelTotalPiglets.Controls.Add(this.lblTotalPiglets);
+            this.panelTotalPiglets.ForeColor = System.Drawing.Color.Black;
+            this.panelTotalPiglets.GradientAngle = 90F;
+            this.panelTotalPiglets.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.panelTotalPiglets.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.panelTotalPiglets.Location = new System.Drawing.Point(496, 86);
+            this.panelTotalPiglets.Name = "panelTotalPiglets";
+            this.panelTotalPiglets.Size = new System.Drawing.Size(350, 200);
+            this.panelTotalPiglets.TabIndex = 4;
+            // 
+            // dashboardPigletPb
+            // 
+            this.dashboardPigletPb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.dashboardPigletPb.Location = new System.Drawing.Point(48, 64);
+            this.dashboardPigletPb.Name = "dashboardPigletPb";
+            this.dashboardPigletPb.Size = new System.Drawing.Size(84, 60);
+            this.dashboardPigletPb.TabIndex = 2;
+            this.dashboardPigletPb.TabStop = false;
+            // 
+            // labelTotalPigletsTitle
+            // 
+            this.labelTotalPigletsTitle.AutoSize = true;
+            this.labelTotalPigletsTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.labelTotalPigletsTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalPigletsTitle.Location = new System.Drawing.Point(145, 81);
+            this.labelTotalPigletsTitle.Name = "labelTotalPigletsTitle";
+            this.labelTotalPigletsTitle.Size = new System.Drawing.Size(134, 28);
+            this.labelTotalPigletsTitle.TabIndex = 0;
+            this.labelTotalPigletsTitle.Text = "Total piglets:";
+            // 
+            // lblTotalPiglets
+            // 
+            this.lblTotalPiglets.AutoSize = true;
+            this.lblTotalPiglets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.lblTotalPiglets.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPiglets.Location = new System.Drawing.Point(286, 64);
+            this.lblTotalPiglets.Name = "lblTotalPiglets";
+            this.lblTotalPiglets.Size = new System.Drawing.Size(50, 59);
+            this.lblTotalPiglets.TabIndex = 1;
+            this.lblTotalPiglets.Text = "0";
             // 
             // panelTotalPigs
             // 
@@ -104,6 +158,9 @@
             this.Name = "DashboardUI";
             this.Size = new System.Drawing.Size(1338, 886);
             this.panel1.ResumeLayout(false);
+            this.panelTotalPiglets.ResumeLayout(false);
+            this.panelTotalPiglets.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardPigletPb)).EndInit();
             this.panelTotalPigs.ResumeLayout(false);
             this.panelTotalPigs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPigPb)).EndInit();
@@ -118,5 +175,9 @@
         private System.Windows.Forms.Label lblTotalPigs;
         private System.Windows.Forms.PictureBox dashboardPigPb;
         private CustomUIElements.Gradient_RoundedPanel panelTotalPigs;
+        private CustomUIElements.Gradient_RoundedPanel panelTotalPiglets;
+        private System.Windows.Forms.PictureBox dashboardPigletPb;
+        private System.Windows.Forms.Label labelTotalPigletsTitle;
+        private System.Windows.Forms.Label lblTotalPiglets;
     }
 }
