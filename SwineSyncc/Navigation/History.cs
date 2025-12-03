@@ -12,9 +12,23 @@ namespace SwineSyncc.Navigation
 {
     public partial class History : UserControl
     {
+        SwineSyncTable displayDeletedPigs;
+        SwineSyncTable displayDeletedPiglets;
         public History()
         {
             InitializeComponent();
+            displayDeletedPigs = new SwineSyncTable();
+            displayDeletedPiglets = new SwineSyncTable();
+        }
+
+        private void History_Load(object sender, EventArgs e)
+        {
+            displayDeletedPigs.Dock = DockStyle.Fill;
+            displayDeletedPigs.SetTableQuery("DeletedPigs");
+            pnlDeletedPigs.Controls.Add(displayDeletedPigs);
+            displayDeletedPiglets.Dock = DockStyle.Fill;
+            displayDeletedPiglets.SetTableQuery("DeletedPiglets");
+            pnlDeletedPiglets.Controls.Add(displayDeletedPigs);
         }
     }
 }
