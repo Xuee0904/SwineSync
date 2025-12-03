@@ -19,10 +19,10 @@ namespace SwineSyncc.Navigation
     public partial class SwineSyncTable : UserControl
     {
         private string tableQuery;
-        private const int IconWidth = 18;      // visible icon size
+        private const int IconWidth = 18;     
         private const int IconHeight = 18;
-        private const int IconPadding = 6;     // total extra space (left+right or top+bottom)
-        private const int ActionColWidth = IconWidth + IconPadding + 8; // final column width (extra margin)
+        private const int IconPadding = 6;     
+        private const int ActionColWidth = IconWidth + IconPadding + 8; 
         // debounce timer for adaptive sizing
         private readonly System.Windows.Forms.Timer _adjustTimer = new System.Windows.Forms.Timer { Interval = 120 };
 
