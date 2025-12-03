@@ -21,6 +21,7 @@ namespace SwineSyncc
         public event EventHandler RemindersClicked;
         public event EventHandler InventoryClicked;
         public event EventHandler DashboardClicked;
+        public event EventHandler HistoryClicked;
 
         private Button activeButton = null;
         private Color activeColor = Color.FromArgb(59, 44, 29);   // dark brown
@@ -125,6 +126,12 @@ namespace SwineSyncc
         private void transactionsBtn_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void historyBtn_Click(object sender, EventArgs e)
+        {
+            SetActiveButton(historyBtn);
+            HistoryClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

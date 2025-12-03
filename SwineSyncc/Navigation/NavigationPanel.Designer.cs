@@ -33,9 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.dashboardBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.pigManagementBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
-            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.healthRecordsBtn = new IconRoundedButton();
             this.pregnancyRecordsBtn = new IconRoundedButton();
             this.breedingRecordsBtn = new IconRoundedButton();
@@ -43,6 +43,7 @@
             this.transactionsBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.userManagementBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.remindersBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
+            this.historyBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,6 +62,7 @@
             this.flowLayoutPanel1.Controls.Add(this.transactionsBtn);
             this.flowLayoutPanel1.Controls.Add(this.userManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.remindersBtn);
+            this.flowLayoutPanel1.Controls.Add(this.historyBtn);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -101,6 +103,23 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // panelPigSubMenu
+            // 
+            this.panelPigSubMenu.AutoSize = true;
+            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
+            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 247);
+            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelPigSubMenu.Name = "panelPigSubMenu";
+            this.panelPigSubMenu.Size = new System.Drawing.Size(366, 227);
+            this.panelPigSubMenu.TabIndex = 5;
+            this.panelPigSubMenu.Visible = false;
+            // 
             // dashboardBtn
             // 
             this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
@@ -119,7 +138,7 @@
             this.dashboardBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashboardBtn.Location = new System.Drawing.Point(3, 96);
             this.dashboardBtn.Name = "dashboardBtn";
-            this.dashboardBtn.Size = new System.Drawing.Size(366, 80);
+            this.dashboardBtn.Size = new System.Drawing.Size(366, 70);
             this.dashboardBtn.TabIndex = 32;
             this.dashboardBtn.Text = "Dashboard";
             this.dashboardBtn.TextColor = System.Drawing.Color.White;
@@ -142,31 +161,14 @@
             this.pigManagementBtn.ForeColor = System.Drawing.SystemColors.Window;
             this.pigManagementBtn.Image = global::SwineSyncc.Properties.Resources.Pig_Icon__1_;
             this.pigManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pigManagementBtn.Location = new System.Drawing.Point(3, 182);
+            this.pigManagementBtn.Location = new System.Drawing.Point(3, 172);
             this.pigManagementBtn.Name = "pigManagementBtn";
-            this.pigManagementBtn.Size = new System.Drawing.Size(366, 80);
+            this.pigManagementBtn.Size = new System.Drawing.Size(366, 70);
             this.pigManagementBtn.TabIndex = 33;
             this.pigManagementBtn.Text = "Pig management";
             this.pigManagementBtn.TextColor = System.Drawing.SystemColors.Window;
             this.pigManagementBtn.UseVisualStyleBackColor = false;
             this.pigManagementBtn.Click += new System.EventHandler(this.customButton2_Click);
-            // 
-            // panelPigSubMenu
-            // 
-            this.panelPigSubMenu.AutoSize = true;
-            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
-            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
-            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 267);
-            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelPigSubMenu.Name = "panelPigSubMenu";
-            this.panelPigSubMenu.Size = new System.Drawing.Size(366, 227);
-            this.panelPigSubMenu.TabIndex = 5;
-            this.panelPigSubMenu.Visible = false;
             // 
             // healthRecordsBtn
             // 
@@ -241,9 +243,9 @@
             this.inventoryBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.inventoryBtn.Image = global::SwineSyncc.Properties.Resources.Inventory_Icon__1_;
             this.inventoryBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.inventoryBtn.Location = new System.Drawing.Point(3, 499);
+            this.inventoryBtn.Location = new System.Drawing.Point(3, 479);
             this.inventoryBtn.Name = "inventoryBtn";
-            this.inventoryBtn.Size = new System.Drawing.Size(366, 80);
+            this.inventoryBtn.Size = new System.Drawing.Size(366, 70);
             this.inventoryBtn.TabIndex = 34;
             this.inventoryBtn.Text = "Inventory";
             this.inventoryBtn.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -266,9 +268,9 @@
             this.transactionsBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.transactionsBtn.Image = global::SwineSyncc.Properties.Resources.Mask_group__4_;
             this.transactionsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.transactionsBtn.Location = new System.Drawing.Point(3, 585);
+            this.transactionsBtn.Location = new System.Drawing.Point(3, 555);
             this.transactionsBtn.Name = "transactionsBtn";
-            this.transactionsBtn.Size = new System.Drawing.Size(366, 80);
+            this.transactionsBtn.Size = new System.Drawing.Size(366, 70);
             this.transactionsBtn.TabIndex = 35;
             this.transactionsBtn.Text = "Transaction";
             this.transactionsBtn.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -291,9 +293,9 @@
             this.userManagementBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.userManagementBtn.Image = global::SwineSyncc.Properties.Resources.User_management2;
             this.userManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userManagementBtn.Location = new System.Drawing.Point(3, 671);
+            this.userManagementBtn.Location = new System.Drawing.Point(3, 631);
             this.userManagementBtn.Name = "userManagementBtn";
-            this.userManagementBtn.Size = new System.Drawing.Size(366, 80);
+            this.userManagementBtn.Size = new System.Drawing.Size(366, 70);
             this.userManagementBtn.TabIndex = 36;
             this.userManagementBtn.Text = "User management";
             this.userManagementBtn.TextColor = System.Drawing.Color.WhiteSmoke;
@@ -316,14 +318,39 @@
             this.remindersBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.remindersBtn.Image = global::SwineSyncc.Properties.Resources.notifications__1_;
             this.remindersBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.remindersBtn.Location = new System.Drawing.Point(3, 757);
+            this.remindersBtn.Location = new System.Drawing.Point(3, 707);
             this.remindersBtn.Name = "remindersBtn";
-            this.remindersBtn.Size = new System.Drawing.Size(366, 80);
+            this.remindersBtn.Size = new System.Drawing.Size(366, 70);
             this.remindersBtn.TabIndex = 37;
             this.remindersBtn.Text = "Reminders";
             this.remindersBtn.TextColor = System.Drawing.Color.WhiteSmoke;
             this.remindersBtn.UseVisualStyleBackColor = false;
             this.remindersBtn.Click += new System.EventHandler(this.remindersBtn_Click_1);
+            // 
+            // historyBtn
+            // 
+            this.historyBtn.BackColor = System.Drawing.Color.Transparent;
+            this.historyBtn.BackgroundColor = System.Drawing.Color.Transparent;
+            this.historyBtn.BorderColor = System.Drawing.Color.Transparent;
+            this.historyBtn.BorderRadius = 0;
+            this.historyBtn.BorderSize = 0;
+            this.historyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.historyBtn.FlatAppearance.BorderSize = 0;
+            this.historyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.historyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.historyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.historyBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.historyBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.historyBtn.Image = global::SwineSyncc.Properties.Resources.notifications__1_;
+            this.historyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.historyBtn.Location = new System.Drawing.Point(3, 783);
+            this.historyBtn.Name = "historyBtn";
+            this.historyBtn.Size = new System.Drawing.Size(366, 70);
+            this.historyBtn.TabIndex = 38;
+            this.historyBtn.Text = "History";
+            this.historyBtn.TextColor = System.Drawing.Color.WhiteSmoke;
+            this.historyBtn.UseVisualStyleBackColor = false;
+            this.historyBtn.Click += new System.EventHandler(this.historyBtn_Click);
             // 
             // NavigationPanel
             // 
@@ -359,5 +386,6 @@
         private ColdChainConnectSystem_ACDP.Materials.CustomButton transactionsBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton userManagementBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton remindersBtn;
+        private ColdChainConnectSystem_ACDP.Materials.CustomButton historyBtn;
     }
 }

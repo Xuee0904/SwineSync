@@ -17,7 +17,7 @@ namespace SwineSyncc
         private Reminders _remindersUC;
         private Inventory _inventoryUC;
         private HealthRecords _healthUC;
-        private DashboardUI _dashboardUC;
+        private History _historyUC;
 
         public UserControlManager(Panel mainPanel)
         {
@@ -319,5 +319,13 @@ namespace SwineSyncc
             ShowUserControl (_healthUC);
         }       
 
+        public void LoadHistory()
+        {
+            if (_historyUC == null)
+            {
+                _historyUC = new History();
+            }
+            ShowUserControl(_historyUC);
+        }
     }
 }

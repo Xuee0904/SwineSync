@@ -33,6 +33,7 @@ namespace SwineSyncc
             navigationPanel.InventoryClicked += (s, e) => ucManager.LoadInventory();
             navigationPanel.HealthRecordsClicked += (s, e) => ucManager.LoadHealthRecords();
             //navigationPanel.DashboardClicked += (s, e) => ucManager.LoadDashboard();
+            navigationPanel.HistoryClicked += (s, e) => ucManager.LoadHistory();
 
             navigationPanel.DashboardClicked += (s, e) => ShowDashboard(); 
 
