@@ -13,6 +13,9 @@ namespace SwineSyncc.Navigation
     public partial class HealthRecords : UserControl
     {
         SwineSyncTable displayTable;
+
+        public event EventHandler AddHealthRecordClicked;
+
         public HealthRecords()
         {
             InitializeComponent();
@@ -24,6 +27,11 @@ namespace SwineSyncc.Navigation
             displayTable.SetTableQuery("HealthRecords");
             displayTable.Dock = DockStyle.Fill;
             pnlHealthRecords.Controls.Add(displayTable);
+        }
+
+        private void btnAddHealth_Click(object sender, EventArgs e)
+        {
+            AddHealthRecordClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

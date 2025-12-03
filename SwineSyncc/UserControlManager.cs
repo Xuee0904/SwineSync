@@ -327,9 +327,18 @@ namespace SwineSyncc
             if (_healthUC == null)
             {
                 _healthUC = new HealthRecords();
+
+                _healthUC.AddHealthRecordClicked += (s, e) => LoadAddHealthRecord();
             }
             ShowUserControl (_healthUC);
-        }       
+        }
+
+        public void LoadAddHealthRecord()
+        {
+            AddHealthRec addHealthRecord = new AddHealthRec();
+
+            ShowUserControl(addHealthRecord);
+        }
 
         public void LoadHistory()
         {
