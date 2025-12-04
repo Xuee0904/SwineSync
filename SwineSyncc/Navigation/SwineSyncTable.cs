@@ -53,17 +53,6 @@ namespace SwineSyncc.Navigation
             dataGridView1.CellClick += dataGridView1_CellClick;
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _adjustTimer?.Stop();
-                _adjustTimer?.Dispose();
-                components?.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void SwineSyncTable_Load(object sender, EventArgs e)
         {
             LoadTable();

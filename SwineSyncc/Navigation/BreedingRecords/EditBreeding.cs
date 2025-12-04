@@ -339,6 +339,8 @@ namespace SwineSyncc.Navigation.BreedingRecords
                         }
 
                         SaveCompleted?.Invoke(this, new BreedingSaveEventArgs(_breedingID));
+                        DialogResult = DialogResult.OK;
+                        Close();
                     }
                     catch (Exception ex)
                     {
