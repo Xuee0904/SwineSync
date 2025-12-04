@@ -34,6 +34,8 @@ namespace SwineSyncc.Navigation.BreedingRecords
             fetchData = repo.GetBreedingById(_breedingID);
 
             buttonGroup1.CancelClicked += (s, e) => Close();
+            buttonGroup1.ClearClicked += (s, e) => ClearFields();
+            buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
         }
 
         private void EditBreeding_Load(object sender, EventArgs e)
@@ -159,13 +161,6 @@ namespace SwineSyncc.Navigation.BreedingRecords
                 cbEditBreedingBoarName.BackColor = Color.White;
             }
         }
-
-        private void SaveHandler(object sender, EventArgs e)
-        {
-            MessageBox.Show("SaveHandler started!", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information); // di nalabas to ibig sabihin hindi ko na wire hahaha
-
-           
-        }
        
         private void BreedingToPregnancyTransition(SqlConnection conn, int breedingID, SowName selectedSow)
         {
@@ -208,7 +203,16 @@ namespace SwineSyncc.Navigation.BreedingRecords
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ClearFields()
+        {
+            cbEditBreedingSowName.SelectedIndex = -1;
+            cbEditBreedingBoarName.SelectedIndex = -1;
+            cbEditBreedingMethod.SelectedIndex = -1;
+            cbEditResult.SelectedIndex = -1;
+            dtpEditBreedingDate.Value = DateTime.Now;
+        }
+
+        private void SaveHandler(object sender, EventArgs e)
         {
             if (cbEditBreedingSowName.SelectedItem == null)
             {
@@ -342,6 +346,12 @@ namespace SwineSyncc.Navigation.BreedingRecords
                     }
                 }
             }
+
+            ClearFields();
+            this.Close();
+
+
+
         }
     }
 }
