@@ -13,6 +13,9 @@ namespace SwineSyncc.Navigation
     public partial class Inventory : UserControl
     {
         SwineSyncTable displayTable;
+
+        public event EventHandler AddItemClicked;
+
         public Inventory()
         {
             InitializeComponent();
@@ -20,9 +23,20 @@ namespace SwineSyncc.Navigation
 
         private void Inventory_Load(object sender, EventArgs e)
         {
+            displayTable = new SwineSyncTable();
             displayTable.SetTableQuery("Inventory");
             displayTable.Dock = DockStyle.Fill;
             pnlInventory.Controls.Add(displayTable);
+        }
+
+        private void btnAddInventory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            AddItemClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

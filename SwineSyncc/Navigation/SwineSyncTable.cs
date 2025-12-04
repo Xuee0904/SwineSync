@@ -81,6 +81,8 @@ namespace SwineSyncc.Navigation
                 this.tableQuery = @"SELECT P.PregnancyID, PSow.Name, P.BreedingID,  P.ConfirmationDate, P.ExpectedFarrowingDate
                 FROM PregnancyRecords AS P
                 LEFT JOIN Pigs AS PSow ON P.PregnantPigID = PSow.PigID";
+            else if (tableName == "Inventory")
+                this.tableQuery = @"SELECT * FROM Inventory";
             else
                 this.tableQuery = "SELECT * FROM " + tableName;
 

@@ -326,8 +326,19 @@ namespace SwineSyncc
             {
                 _inventoryUC = new Inventory();
 
+                _inventoryUC.AddItemClicked += (s, e) => LoadInventoryAddItem();
+
             }
             ShowUserControl(_inventoryUC);
+        }
+
+        public void LoadInventoryAddItem()
+        {
+            AddItem addInventoryItem = new AddItem();
+
+            addInventoryItem.CancelClicked += (s, e) => ShowUserControl(_inventoryUC);
+
+            ShowUserControl(addInventoryItem);
         }
 
         public void LoadHealthRecords()

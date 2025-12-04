@@ -12,6 +12,9 @@ namespace SwineSyncc.Navigation
 {
     public partial class AddItem : UserControl
     {
+
+        public event EventHandler CancelClicked;
+
         public AddItem()
         {
             InitializeComponent();
