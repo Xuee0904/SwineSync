@@ -509,5 +509,8 @@
   <ItemGroup>
     <None Include="Resources\DeleteIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PregnancyIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

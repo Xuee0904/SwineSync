@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelTotalPregnancy = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
+            this.dashboardPregnancyPb = new System.Windows.Forms.PictureBox();
+            this.labelTotalPregnancyTitle = new System.Windows.Forms.Label();
+            this.lblTotalPregnancy = new System.Windows.Forms.Label();
             this.panelTotalPiglets = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.dashboardPigletPb = new System.Windows.Forms.PictureBox();
             this.labelTotalPigletsTitle = new System.Windows.Forms.Label();
@@ -37,17 +41,13 @@
             this.dashboardPigPb = new System.Windows.Forms.PictureBox();
             this.labelTotalPigsTitle = new System.Windows.Forms.Label();
             this.lblTotalPigs = new System.Windows.Forms.Label();
-            this.panelTotalPregnancy = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
-            this.dashboardPregnancyPb = new System.Windows.Forms.PictureBox();
-            this.labelTotalPregnancyTitle = new System.Windows.Forms.Label();
-            this.lblTotalPregnancy = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panelTotalPregnancy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardPregnancyPb)).BeginInit();
             this.panelTotalPiglets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPigletPb)).BeginInit();
             this.panelTotalPigs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPigPb)).BeginInit();
-            this.panelTotalPregnancy.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dashboardPregnancyPb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,6 +61,53 @@
             this.panel1.Size = new System.Drawing.Size(1338, 886);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panelTotalPregnancy
+            // 
+            this.panelTotalPregnancy.BackColor = System.Drawing.Color.White;
+            this.panelTotalPregnancy.BorderRadius = 30;
+            this.panelTotalPregnancy.Controls.Add(this.dashboardPregnancyPb);
+            this.panelTotalPregnancy.Controls.Add(this.labelTotalPregnancyTitle);
+            this.panelTotalPregnancy.Controls.Add(this.lblTotalPregnancy);
+            this.panelTotalPregnancy.ForeColor = System.Drawing.Color.Black;
+            this.panelTotalPregnancy.GradientAngle = 90F;
+            this.panelTotalPregnancy.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.panelTotalPregnancy.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.panelTotalPregnancy.Location = new System.Drawing.Point(99, 336);
+            this.panelTotalPregnancy.Name = "panelTotalPregnancy";
+            this.panelTotalPregnancy.Size = new System.Drawing.Size(409, 200);
+            this.panelTotalPregnancy.TabIndex = 5;
+            // 
+            // dashboardPregnancyPb
+            // 
+            this.dashboardPregnancyPb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.dashboardPregnancyPb.Location = new System.Drawing.Point(48, 64);
+            this.dashboardPregnancyPb.Name = "dashboardPregnancyPb";
+            this.dashboardPregnancyPb.Size = new System.Drawing.Size(84, 60);
+            this.dashboardPregnancyPb.TabIndex = 2;
+            this.dashboardPregnancyPb.TabStop = false;
+            // 
+            // labelTotalPregnancyTitle
+            // 
+            this.labelTotalPregnancyTitle.AutoSize = true;
+            this.labelTotalPregnancyTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.labelTotalPregnancyTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalPregnancyTitle.Location = new System.Drawing.Point(145, 81);
+            this.labelTotalPregnancyTitle.Name = "labelTotalPregnancyTitle";
+            this.labelTotalPregnancyTitle.Size = new System.Drawing.Size(184, 28);
+            this.labelTotalPregnancyTitle.TabIndex = 0;
+            this.labelTotalPregnancyTitle.Text = "Total pregnancies:";
+            // 
+            // lblTotalPregnancy
+            // 
+            this.lblTotalPregnancy.AutoSize = true;
+            this.lblTotalPregnancy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.lblTotalPregnancy.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPregnancy.Location = new System.Drawing.Point(338, 65);
+            this.lblTotalPregnancy.Name = "lblTotalPregnancy";
+            this.lblTotalPregnancy.Size = new System.Drawing.Size(50, 59);
+            this.lblTotalPregnancy.TabIndex = 1;
+            this.lblTotalPregnancy.Text = "0";
             // 
             // panelTotalPiglets
             // 
@@ -157,53 +204,6 @@
             this.lblTotalPigs.TabIndex = 1;
             this.lblTotalPigs.Text = "0";
             // 
-            // panelTotalPregnancy
-            // 
-            this.panelTotalPregnancy.BackColor = System.Drawing.Color.White;
-            this.panelTotalPregnancy.BorderRadius = 30;
-            this.panelTotalPregnancy.Controls.Add(this.dashboardPregnancyPb);
-            this.panelTotalPregnancy.Controls.Add(this.labelTotalPregnancyTitle);
-            this.panelTotalPregnancy.Controls.Add(this.lblTotalPregnancy);
-            this.panelTotalPregnancy.ForeColor = System.Drawing.Color.Black;
-            this.panelTotalPregnancy.GradientAngle = 90F;
-            this.panelTotalPregnancy.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
-            this.panelTotalPregnancy.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
-            this.panelTotalPregnancy.Location = new System.Drawing.Point(99, 336);
-            this.panelTotalPregnancy.Name = "panelTotalPregnancy";
-            this.panelTotalPregnancy.Size = new System.Drawing.Size(409, 200);
-            this.panelTotalPregnancy.TabIndex = 5;
-            // 
-            // dashboardPregnancyPb
-            // 
-            this.dashboardPregnancyPb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
-            this.dashboardPregnancyPb.Location = new System.Drawing.Point(48, 64);
-            this.dashboardPregnancyPb.Name = "dashboardPregnancyPb";
-            this.dashboardPregnancyPb.Size = new System.Drawing.Size(84, 60);
-            this.dashboardPregnancyPb.TabIndex = 2;
-            this.dashboardPregnancyPb.TabStop = false;
-            // 
-            // labelTotalPregnancyTitle
-            // 
-            this.labelTotalPregnancyTitle.AutoSize = true;
-            this.labelTotalPregnancyTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
-            this.labelTotalPregnancyTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalPregnancyTitle.Location = new System.Drawing.Point(145, 81);
-            this.labelTotalPregnancyTitle.Name = "labelTotalPregnancyTitle";
-            this.labelTotalPregnancyTitle.Size = new System.Drawing.Size(169, 28);
-            this.labelTotalPregnancyTitle.TabIndex = 0;
-            this.labelTotalPregnancyTitle.Text = "Total pregnancy:";
-            // 
-            // lblTotalPregnancy
-            // 
-            this.lblTotalPregnancy.AutoSize = true;
-            this.lblTotalPregnancy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
-            this.lblTotalPregnancy.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPregnancy.Location = new System.Drawing.Point(336, 65);
-            this.lblTotalPregnancy.Name = "lblTotalPregnancy";
-            this.lblTotalPregnancy.Size = new System.Drawing.Size(50, 59);
-            this.lblTotalPregnancy.TabIndex = 1;
-            this.lblTotalPregnancy.Text = "0";
-            // 
             // DashboardUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -212,15 +212,15 @@
             this.Name = "DashboardUI";
             this.Size = new System.Drawing.Size(1338, 886);
             this.panel1.ResumeLayout(false);
+            this.panelTotalPregnancy.ResumeLayout(false);
+            this.panelTotalPregnancy.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardPregnancyPb)).EndInit();
             this.panelTotalPiglets.ResumeLayout(false);
             this.panelTotalPiglets.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPigletPb)).EndInit();
             this.panelTotalPigs.ResumeLayout(false);
             this.panelTotalPigs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPigPb)).EndInit();
-            this.panelTotalPregnancy.ResumeLayout(false);
-            this.panelTotalPregnancy.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dashboardPregnancyPb)).EndInit();
             this.ResumeLayout(false);
 
         }

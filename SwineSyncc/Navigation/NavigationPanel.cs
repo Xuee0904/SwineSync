@@ -55,6 +55,12 @@ namespace SwineSyncc
             //PigManagementClicked?.Invoke(this, EventArgs.Empty);
         }
 
+        public void TriggerPregnancyRecordsClick()
+        {
+            SetActiveButton(pregnancyRecordsBtn);
+            //PigManagementClicked?.Invoke(this, EventArgs.Empty);
+        }
+
 
 
         private void dashboardBtn_Click(object sender, EventArgs e)

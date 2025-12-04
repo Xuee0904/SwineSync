@@ -16,18 +16,23 @@ namespace SwineSyncc.Navigation
     {
         public event EventHandler TotalPigsPanelClicked;
         public event EventHandler TotalPigletsPanelClicked;
+        public event EventHandler TotalPregnancyPanelClicked;
 
         public DashboardUI()
         {
             InitializeComponent();
             dashboardPigPb.Image = Properties.Resources.PigIcon;
             dashboardPigletPb.Image = Properties.Resources.PigletIcon;
+            dashboardPregnancyPb.Image = Properties.Resources.PregnancyIcon;
 
             panelTotalPigs.Click += PanelTotalPigs_Click;
             lblTotalPigs.Click += PanelTotalPigs_Click;  // makes label also clickable
 
             panelTotalPiglets.Click += PanelTotalPiglets_Click;
             lblTotalPiglets.Click += PanelTotalPiglets_Click;
+
+            panelTotalPregnancy.Click += PanelTotalPregnancy_Click;
+            lblTotalPregnancy.Click += PanelTotalPregnancy_Click;
 
             LoadTotalPigs();
             LoadTotalPiglets();
@@ -42,6 +47,11 @@ namespace SwineSyncc.Navigation
         private void PanelTotalPiglets_Click(object sender, EventArgs e)
         {
             TotalPigletsPanelClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void PanelTotalPregnancy_Click(object sender, EventArgs e)
+        {
+            TotalPregnancyPanelClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
