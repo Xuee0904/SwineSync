@@ -31,6 +31,7 @@ namespace SwineSyncc.Navigation
 
             LoadTotalPigs();
             LoadTotalPiglets();
+            LoadTotalPregnancy();
         }
 
         private void PanelTotalPigs_Click(object sender, EventArgs e)
@@ -74,6 +75,19 @@ namespace SwineSyncc.Navigation
             }
         }
 
+        private void LoadTotalPregnancy()
+        {
+            string query = "SELECT COUNT(*) FROM PregnancyRecords";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                conn.Open();
+                int totalPregnancy = (int)cmd.ExecuteScalar();
+                lblTotalPregnancy.Text = totalPregnancy.ToString();
+            }
+        }
+
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
@@ -81,6 +95,7 @@ namespace SwineSyncc.Navigation
             {
                 LoadTotalPigs();
                 LoadTotalPiglets();
+                LoadTotalPregnancy();
             }
         }
 

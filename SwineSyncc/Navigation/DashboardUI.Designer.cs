@@ -37,15 +37,22 @@
             this.dashboardPigPb = new System.Windows.Forms.PictureBox();
             this.labelTotalPigsTitle = new System.Windows.Forms.Label();
             this.lblTotalPigs = new System.Windows.Forms.Label();
+            this.panelTotalPregnancy = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
+            this.dashboardPregnancyPb = new System.Windows.Forms.PictureBox();
+            this.labelTotalPregnancyTitle = new System.Windows.Forms.Label();
+            this.lblTotalPregnancy = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelTotalPiglets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPigletPb)).BeginInit();
             this.panelTotalPigs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPigPb)).BeginInit();
+            this.panelTotalPregnancy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardPregnancyPb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panelTotalPregnancy);
             this.panel1.Controls.Add(this.panelTotalPiglets);
             this.panel1.Controls.Add(this.panelTotalPigs);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,11 +151,58 @@
             this.lblTotalPigs.AutoSize = true;
             this.lblTotalPigs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
             this.lblTotalPigs.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPigs.Location = new System.Drawing.Point(265, 64);
+            this.lblTotalPigs.Location = new System.Drawing.Point(273, 64);
             this.lblTotalPigs.Name = "lblTotalPigs";
             this.lblTotalPigs.Size = new System.Drawing.Size(50, 59);
             this.lblTotalPigs.TabIndex = 1;
             this.lblTotalPigs.Text = "0";
+            // 
+            // panelTotalPregnancy
+            // 
+            this.panelTotalPregnancy.BackColor = System.Drawing.Color.White;
+            this.panelTotalPregnancy.BorderRadius = 30;
+            this.panelTotalPregnancy.Controls.Add(this.dashboardPregnancyPb);
+            this.panelTotalPregnancy.Controls.Add(this.labelTotalPregnancyTitle);
+            this.panelTotalPregnancy.Controls.Add(this.lblTotalPregnancy);
+            this.panelTotalPregnancy.ForeColor = System.Drawing.Color.Black;
+            this.panelTotalPregnancy.GradientAngle = 90F;
+            this.panelTotalPregnancy.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.panelTotalPregnancy.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.panelTotalPregnancy.Location = new System.Drawing.Point(99, 336);
+            this.panelTotalPregnancy.Name = "panelTotalPregnancy";
+            this.panelTotalPregnancy.Size = new System.Drawing.Size(409, 200);
+            this.panelTotalPregnancy.TabIndex = 5;
+            // 
+            // dashboardPregnancyPb
+            // 
+            this.dashboardPregnancyPb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.dashboardPregnancyPb.Location = new System.Drawing.Point(48, 64);
+            this.dashboardPregnancyPb.Name = "dashboardPregnancyPb";
+            this.dashboardPregnancyPb.Size = new System.Drawing.Size(84, 60);
+            this.dashboardPregnancyPb.TabIndex = 2;
+            this.dashboardPregnancyPb.TabStop = false;
+            // 
+            // labelTotalPregnancyTitle
+            // 
+            this.labelTotalPregnancyTitle.AutoSize = true;
+            this.labelTotalPregnancyTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.labelTotalPregnancyTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalPregnancyTitle.Location = new System.Drawing.Point(145, 81);
+            this.labelTotalPregnancyTitle.Name = "labelTotalPregnancyTitle";
+            this.labelTotalPregnancyTitle.Size = new System.Drawing.Size(169, 28);
+            this.labelTotalPregnancyTitle.TabIndex = 0;
+            this.labelTotalPregnancyTitle.Text = "Total pregnancy:";
+            // 
+            // lblTotalPregnancy
+            // 
+            this.lblTotalPregnancy.AutoSize = true;
+            this.lblTotalPregnancy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
+            this.lblTotalPregnancy.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPregnancy.Location = new System.Drawing.Point(336, 65);
+            this.lblTotalPregnancy.Name = "lblTotalPregnancy";
+            this.lblTotalPregnancy.Size = new System.Drawing.Size(50, 59);
+            this.lblTotalPregnancy.TabIndex = 1;
+            this.lblTotalPregnancy.Text = "0";
             // 
             // DashboardUI
             // 
@@ -164,6 +218,9 @@
             this.panelTotalPigs.ResumeLayout(false);
             this.panelTotalPigs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPigPb)).EndInit();
+            this.panelTotalPregnancy.ResumeLayout(false);
+            this.panelTotalPregnancy.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardPregnancyPb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,5 +236,9 @@
         private System.Windows.Forms.PictureBox dashboardPigletPb;
         private System.Windows.Forms.Label labelTotalPigletsTitle;
         private System.Windows.Forms.Label lblTotalPiglets;
+        private CustomUIElements.Gradient_RoundedPanel panelTotalPregnancy;
+        private System.Windows.Forms.PictureBox dashboardPregnancyPb;
+        private System.Windows.Forms.Label labelTotalPregnancyTitle;
+        private System.Windows.Forms.Label lblTotalPregnancy;
     }
 }
