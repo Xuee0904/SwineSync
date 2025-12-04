@@ -338,6 +338,11 @@ namespace SwineSyncc
 
             addInventoryItem.CancelClicked += (s, e) => ShowUserControl(_inventoryUC);
 
+            addInventoryItem.SaveCompleted += (s, e) =>
+            {
+                ShowUserControl(_inventoryUC);
+            };
+
             ShowUserControl(addInventoryItem);
         }
 

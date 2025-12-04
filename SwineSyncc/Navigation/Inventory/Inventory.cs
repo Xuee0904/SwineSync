@@ -29,11 +29,6 @@ namespace SwineSyncc.Navigation
             pnlInventory.Controls.Add(displayTable);
         }
 
-        private void btnAddInventory_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             AddItemClicked?.Invoke(this, EventArgs.Empty);
