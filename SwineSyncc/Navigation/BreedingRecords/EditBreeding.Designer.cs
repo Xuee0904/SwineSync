@@ -40,6 +40,7 @@
             this.cbEditBreedingBoarName = new System.Windows.Forms.ComboBox();
             this.dtpEditBreedingDate = new System.Windows.Forms.DateTimePicker();
             this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblEditBreeding
@@ -171,11 +172,22 @@
             this.buttonGroup1.TabIndex = 63;
             this.buttonGroup1.Load += new System.EventHandler(this.buttonGroup1_Load);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(828, 403);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 64;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // EditBreeding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 588);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonGroup1);
             this.Controls.Add(this.dtpEditBreedingDate);
             this.Controls.Add(this.lblEditBreeding);
@@ -213,5 +225,6 @@
         private System.Windows.Forms.ComboBox cbEditBreedingBoarName;
         private System.Windows.Forms.DateTimePicker dtpEditBreedingDate;
         private CustomUIElements.ButtonGroup.ButtonGroup buttonGroup1;
+        private System.Windows.Forms.Button button1;
     }
 }

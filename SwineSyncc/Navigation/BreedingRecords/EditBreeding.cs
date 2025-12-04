@@ -162,138 +162,7 @@ namespace SwineSyncc.Navigation.BreedingRecords
         {
             MessageBox.Show("SaveHandler started!", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information); // di nalabas to ibig sabihin hindi ko na wire hahaha
 
-            if (cbEditBreedingSowName.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a sow.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (cbEditBreedingMethod.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a breeding method.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            string method = cbEditBreedingMethod.SelectedItem.ToString();
-
-            
-            if (method == "Natural" && cbEditBreedingBoarName.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a boar for natural breeding.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (cbEditResult.SelectedItem == null)
-            {
-                MessageBox.Show("Please select the breeding result.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (dtpEditBreedingDate.Value > DateTime.Now)
-            {
-                MessageBox.Show("Breeding date cannot be a future date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            
-            SowName selectedSow = cbEditBreedingSowName.SelectedItem as SowName;
-            BoarName selectedBoar = cbEditBreedingBoarName.SelectedItem as BoarName;
-
-          
-            if (selectedSow == null)
-            {
-                MessageBox.Show("Invalid sow selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int sowId = selectedSow.PigID;
-
-            object boarValue;
            
-            if (method == "Artificial insemination(AI)")
-            {
-                boarValue = DBNull.Value;
-            }
-            else
-            {               
-                if (selectedBoar == null || selectedBoar.PigID == 0)
-                {
-                    MessageBox.Show("Please select a valid boar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                boarValue = selectedBoar.PigID;
-            }
-
-            string result = cbEditResult.SelectedItem.ToString();
-            DateTime breedingDate = dtpEditBreedingDate.Value;
-
-            using (SqlConnection conn = DBConnection.Instance.GetConnection())
-            {
-                string query = @"
-                    UPDATE BreedingRecords
-                    SET 
-                        SowID = @SowID,
-                        BoarID = @BoarID,
-                        BreedingDate = @BreedingDate,
-                        BreedingMethod = @Method,
-                        Result = @Result
-                    WHERE BreedingID = @BreedingID;
-                ";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@SowID", sowId);
-                    cmd.Parameters.AddWithValue("@BoarID", boarValue);
-                    cmd.Parameters.AddWithValue("@BreedingDate", breedingDate);
-                    cmd.Parameters.AddWithValue("@Method", method);
-                    cmd.Parameters.AddWithValue("@Result", result);
-                    cmd.Parameters.AddWithValue("@BreedingID", _breedingID);
-
-                    try
-                    {
-                        conn.Open();                       
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected == 0)
-                        {
-                            MessageBox.Show("No changes were made. The record may not exist.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
-                        MessageBox.Show("Breeding record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        string logDescription;
-                        if (method == "Artificial insemination(AI)")
-                        {
-                            logDescription = $"Breeding Updated (ID: {_breedingID}) | Method: AI | Sow: {selectedSow.Name}";
-                        }
-                        else
-                        {
-                            logDescription = $"Breeding Updated (ID: {_breedingID}) | Method: Natural | Sow: {selectedSow.Name}, Boar: {selectedBoar.Name}";
-                        }
-
-                        ActivityLogger.Log("Edit breeding", logDescription);
-
-                        
-                        if (result == "Success" && fetchData.Result != "Success")
-                        {
-                            string checkQuery = "SELECT COUNT(*) FROM PregnancyRecords WHERE BreedingID = @BreedingID";
-                            using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
-                            {
-                                checkCmd.Parameters.AddWithValue("@BreedingID", _breedingID);
-                                int existingPregnancies = (int)checkCmd.ExecuteScalar();
-                                if (existingPregnancies == 0)
-                                {
-                                    BreedingToPregnancyTransition(conn, _breedingID, selectedSow);
-                                }
-                            }
-                        }
-
-                        SaveCompleted?.Invoke(this, new BreedingSaveEventArgs(_breedingID));
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
         }
        
         private void BreedingToPregnancyTransition(SqlConnection conn, int breedingID, SowName selectedSow)
@@ -335,6 +204,142 @@ namespace SwineSyncc.Navigation.BreedingRecords
         private void buttonGroup1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (cbEditBreedingSowName.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a sow.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbEditBreedingMethod.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a breeding method.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string method = cbEditBreedingMethod.SelectedItem.ToString();
+
+
+            if (method == "Natural" && cbEditBreedingBoarName.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a boar for natural breeding.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbEditResult.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the breeding result.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dtpEditBreedingDate.Value > DateTime.Now)
+            {
+                MessageBox.Show("Breeding date cannot be a future date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            SowName selectedSow = cbEditBreedingSowName.SelectedItem as SowName;
+            BoarName selectedBoar = cbEditBreedingBoarName.SelectedItem as BoarName;
+
+
+            if (selectedSow == null)
+            {
+                MessageBox.Show("Invalid sow selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int sowId = selectedSow.PigID;
+
+            object boarValue;
+
+            if (method == "Artificial insemination(AI)")
+            {
+                boarValue = DBNull.Value;
+            }
+            else
+            {
+                if (selectedBoar == null || selectedBoar.PigID == 0)
+                {
+                    MessageBox.Show("Please select a valid boar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                boarValue = selectedBoar.PigID;
+            }
+
+            string result = cbEditResult.SelectedItem.ToString();
+            DateTime breedingDate = dtpEditBreedingDate.Value;
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                string query = @"
+                    UPDATE BreedingRecords
+                    SET 
+                        SowID = @SowID,
+                        BoarID = @BoarID,
+                        BreedingDate = @BreedingDate,
+                        BreedingMethod = @Method,
+                        Result = @Result
+                    WHERE BreedingID = @BreedingID;
+                ";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SowID", sowId);
+                    cmd.Parameters.AddWithValue("@BoarID", boarValue);
+                    cmd.Parameters.AddWithValue("@BreedingDate", breedingDate);
+                    cmd.Parameters.AddWithValue("@Method", method);
+                    cmd.Parameters.AddWithValue("@Result", result);
+                    cmd.Parameters.AddWithValue("@BreedingID", _breedingID);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected == 0)
+                        {
+                            MessageBox.Show("No changes were made. The record may not exist.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        MessageBox.Show("Breeding record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string logDescription;
+                        if (method == "Artificial insemination(AI)")
+                        {
+                            logDescription = $"Breeding Updated (ID: {_breedingID}) | Method: AI | Sow: {selectedSow.Name}";
+                        }
+                        else
+                        {
+                            logDescription = $"Breeding Updated (ID: {_breedingID}) | Method: Natural | Sow: {selectedSow.Name}, Boar: {selectedBoar.Name}";
+                        }
+
+                        ActivityLogger.Log("Edit breeding", logDescription);
+
+
+                        if (result == "Success" && fetchData.Result != "Success")
+                        {
+                            string checkQuery = "SELECT COUNT(*) FROM PregnancyRecords WHERE BreedingID = @BreedingID";
+                            using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
+                            {
+                                checkCmd.Parameters.AddWithValue("@BreedingID", _breedingID);
+                                int existingPregnancies = (int)checkCmd.ExecuteScalar();
+                                if (existingPregnancies == 0)
+                                {
+                                    BreedingToPregnancyTransition(conn, _breedingID, selectedSow);
+                                }
+                            }
+                        }
+
+                        SaveCompleted?.Invoke(this, new BreedingSaveEventArgs(_breedingID));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }
