@@ -287,16 +287,16 @@ namespace SwineSyncc.Navigation
 
         private void HandleEditClick(int rowIndex, string currentTable)
         {
-            if(currentTable == "BreedingRecords")
+            var row = dataGridView1.Rows[rowIndex];
+            if (row.IsNewRow) return;
+
+            if (currentTable == "BreedingRecords")
             {
-                var row = dataGridView1.Rows[rowIndex];
-                if (row.IsNewRow) return;
                 var raw = row.Cells["BreedingID"]?.Value;
                 if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
 
                 using (var editForm = new EditBreeding(id))
                 {
-
                     if (editForm.ShowDialog() == DialogResult.OK)
                         LoadTable();
                 }
