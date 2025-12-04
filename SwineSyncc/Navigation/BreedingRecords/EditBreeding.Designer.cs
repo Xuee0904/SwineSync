@@ -87,6 +87,7 @@
             this.cbEditBreedingMethod.Name = "cbEditBreedingMethod";
             this.cbEditBreedingMethod.Size = new System.Drawing.Size(280, 33);
             this.cbEditBreedingMethod.TabIndex = 53;
+            this.cbEditBreedingMethod.SelectedIndexChanged += new System.EventHandler(this.cbEditBreedingMethod_SelectedIndexChanged);
             // 
             // lblBreedingDate
             // 

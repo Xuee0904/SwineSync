@@ -1,19 +1,20 @@
 ﻿using SwineSyncc.Data;
+using SwineSyncc.Navigation.BreedingRecords;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SwineSyncc.Navigation.BreedingRecords;
 
 namespace SwineSyncc.Navigation
 {
@@ -79,8 +80,8 @@ namespace SwineSyncc.Navigation
                 CASE WHEN b.BreedingMethod = 'Artificial Insemination' THEN 'NULL' ELSE pBoar.Name END AS BoarName,
                 b.BreedingMethod, b.BreedingDate, b.Result
                 FROM BreedingRecords b
-                LEFT JOIN Pigs pSow ON pSow.PigID = b.SowID
-                LEFT JOIN Pigs pBoar ON pBoar.PigID = b.BoarID
+                LEFT JOIN Pigs pSow ON b.SowID = pSow.PigID
+                LEFT JOIN Pigs pBoar ON  b.BoarID = pBoar.PigID
                 ORDER BY b.BreedingID;";
             else
                 this.tableQuery = "SELECT * FROM " + tableName;
@@ -102,7 +103,12 @@ namespace SwineSyncc.Navigation
             {
                 adapter.Fill(table);
             }
-            
+
+            foreach (DataColumn c in table.Columns)
+                Debug.WriteLine("Col: " + c.ColumnName);
+
+            if (table.Rows.Count > 0)
+                Debug.WriteLine("Row0: " + string.Join(", ", table.Rows[0].ItemArray));
             dataGridView1.DataSource = table;
 
             EnsureColumnDefaults();
