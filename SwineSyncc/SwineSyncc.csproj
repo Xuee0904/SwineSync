@@ -96,6 +96,7 @@
     <Compile Include="Data\BreedingRepository.cs" />
     <Compile Include="Data\PigletRepository.cs" />
     <Compile Include="Data\PigRepository.cs" />
+    <Compile Include="Data\PregnancyRepository.cs" />
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="DynamicButtonLoader\PigletLoader.cs" />
     <Compile Include="DynamicButtonLoader\PigLoader.cs" />

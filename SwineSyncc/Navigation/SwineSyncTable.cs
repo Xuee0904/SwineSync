@@ -83,6 +83,10 @@ namespace SwineSyncc.Navigation
                 LEFT JOIN Pigs pSow ON b.SowID = pSow.PigID
                 LEFT JOIN Pigs pBoar ON  b.BoarID = pBoar.PigID
                 ORDER BY b.BreedingID;";
+            else if (tableName == "PregnancyRecords")
+                this.tableQuery = @"SELECT P.PregnancyID, PSow.Name, P.BreedingID,  P.ConfirmationDate, P.ExpectedFarrowingDate
+                FROM PregnancyRecords AS P
+                LEFT JOIN Pigs AS PSow ON P.PregnantPigID = PSow.PigID";
             else
                 this.tableQuery = "SELECT * FROM " + tableName;
 

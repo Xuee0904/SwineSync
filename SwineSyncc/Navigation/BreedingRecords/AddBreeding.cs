@@ -381,7 +381,7 @@ namespace SwineSyncc.Navigation.Pig_Management
             DateTime confirmationDate = DateTime.Today; //user should upfate this later
 
             string query = @"
-                INSERT INTO PregnancyRecords
+                INSERT INTO BreedingRecords
                 (PregnantPigID, BreedingID, ConfirmationDate, ExpectedFarrowingDate)
                 VALUES (@PregnantPigID, @BreedingID, @ConfirmationDate, @ExpectedFarrowingDate)
             ";
@@ -391,10 +391,10 @@ namespace SwineSyncc.Navigation.Pig_Management
                 using (conn = DBConnection.Instance.GetConnection())
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@PregnantPigID", sowID);
-                    cmd.Parameters.AddWithValue("@BreedingID", breedingID);
-                    cmd.Parameters.AddWithValue("@ConfirmationDate", confirmationDate);
-                    cmd.Parameters.AddWithValue("@ExpectedFarrowingDate", expectedFarrowingDate);
+                    cmd.Parameters.AddWithValue("@PregnantPigID", (int)sowID);
+                    cmd.Parameters.AddWithValue("@BreedingID", (int)breedingID);
+                    cmd.Parameters.AddWithValue("@ConfirmationDate", (DateTime)confirmationDate);
+                    cmd.Parameters.AddWithValue("@ExpectedFarrowingDate", (DateTime)expectedFarrowingDate);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
