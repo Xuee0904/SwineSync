@@ -424,5 +424,10 @@ namespace SwineSyncc.Navigation.Pig_Management
         {
 
         }
+
+        private void buttonGroup1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

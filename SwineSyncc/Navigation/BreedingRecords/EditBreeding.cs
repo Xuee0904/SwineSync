@@ -10,11 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SwineSyncc.Navigation.Pig_Management.AddBreeding;
 
 namespace SwineSyncc.Navigation.BreedingRecords
 {
     public partial class EditBreeding : Form
     {
+        public event EventHandler SaveCompleted;
+
         private readonly int _breedingID;
         private Breeding fetchData;
 
@@ -125,14 +128,13 @@ namespace SwineSyncc.Navigation.BreedingRecords
                         });
                     }
                 }
-            }
-            // If you want a literal "Null" option visible in the dropdown, uncomment:
+            }          
             boars.Insert(0, new Pig { PigID = 0, Name = "Null" });
 
             cbEditBreedingBoarName.DataSource = boars;
             cbEditBreedingBoarName.DisplayMember = "Name";
             cbEditBreedingBoarName.ValueMember = "PigID";
-            cbEditBreedingBoarName.SelectedItem = fetchData.BoarName; // safe default
+            cbEditBreedingBoarName.SelectedItem = fetchData.BoarName; 
         }
 
         private void cbEditBreedingMethod_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,6 +150,114 @@ namespace SwineSyncc.Navigation.BreedingRecords
                 // clear selection visually
                 cbEditBreedingBoarName.SelectedIndex = -1;
             }
+        }
+
+        private void SaveHandler(object sender, EventArgs e)
+        {
+            if (cbEditBreedingSowName.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a sow.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbEditBreedingMethod.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a breeding method.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string method = cbEditBreedingMethod.SelectedItem.ToString();
+
+            if (method == "Natural Mating" && cbEditBreedingBoarName.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a boar for natural mating.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbEditResult.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the result.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dtpEditBreedingDate.Value > DateTime.Now)
+            {
+                MessageBox.Show("Breeding date cannot be in the future.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+           
+            Pig selectedSow = cbEditBreedingSowName.SelectedItem as Pig;
+            Pig selectedBoar = cbEditBreedingBoarName.SelectedItem as Pig;
+
+            if (selectedSow == null)
+            {
+                MessageBox.Show("Invalid sow selected.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int sowId = selectedSow.PigID;
+
+            object boarValue =
+                (method == "Artificial Insemination")
+                ? DBNull.Value
+                : (object)selectedBoar?.PigID;
+
+            string result = cbEditResult.SelectedItem.ToString();
+            DateTime breedingDate = dtpEditBreedingDate.Value;
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                string query = @"
+                    UPDATE BreedingRecords
+                    SET 
+                        SowID = @SowID,
+                        BoarID = @BoarID,
+                        BreedingDate = @BreedingDate,
+                        BreedingMethod = @Method,
+                        Result = @Result
+                    WHERE BreedingID = @BreedingID;";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SowID", sowId);
+                    cmd.Parameters.AddWithValue("@BoarID", boarValue);
+                    cmd.Parameters.AddWithValue("@BreedingDate", breedingDate);
+                    cmd.Parameters.AddWithValue("@Method", method);
+                    cmd.Parameters.AddWithValue("@Result", result);
+                    cmd.Parameters.AddWithValue("@BreedingID", _breedingID);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Breeding record updated successfully!",
+                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        ActivityLogger.Log("Edit breeding",
+                            $"Updated Breeding (ID: {_breedingID}) | Sow: {selectedSow.Name} | Method: {method}");
+
+                        SaveCompleted?.Invoke(this, new BreedingSaveEventArgs(_breedingID));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Database Error:\n" + ex.Message,
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+
+        private void buttonGroup1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
