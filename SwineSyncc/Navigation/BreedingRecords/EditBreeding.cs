@@ -20,8 +20,8 @@ namespace SwineSyncc.Navigation.BreedingRecords
 
         private readonly int _breedingID;
         private Breeding fetchData;
-
-        string[] breedingMethodValues = { "Natural Mating", "Artificial Insemination" };
+       
+        string[] breedingMethodValues = { "Natural", "Artificial insemination(AI)" };
         string[] resultValues = { "Success", "Failed", "Pending" };
         private bool _isInitializing;
 
@@ -54,21 +54,11 @@ namespace SwineSyncc.Navigation.BreedingRecords
             dtpEditBreedingDate.Value = fetchData.BreedingDate;
 
             lblEditBreeding.Text += " - ID: " + fetchData.BreedingID;
-
-            // Initial boar state
-            cbEditBreedingBoarName.Enabled = !string.Equals(cbEditBreedingMethod.SelectedItem as string, "Artificial Insemination", StringComparison.OrdinalIgnoreCase);
-            if (!cbEditBreedingBoarName.Enabled) cbEditBreedingBoarName.SelectedIndex = -1;
+           
+            UpdateBoarComboState();
 
             _isInitializing = false;
-        }
-
-        // Pig DTO used for binding
-        private class Pig
-        {
-            public int PigID { get; set; }
-            public string Name { get; set; }
-            public override string ToString() => Name;
-        }
+        }       
 
         private void LoadBreedingComboBoxes()
         {
@@ -78,10 +68,10 @@ namespace SwineSyncc.Navigation.BreedingRecords
             cbEditResult.Items.Clear();
             cbEditResult.Items.AddRange(resultValues);
         }
-
+        
         private void LoadSowNameCombo()
         {
-            var sows = new List<Pig>();
+            var sows = new List<SowName>();  
 
             string query = "SELECT PigID, Name FROM Pigs WHERE Sex = 'Female' ORDER BY Name";
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
@@ -92,7 +82,7 @@ namespace SwineSyncc.Navigation.BreedingRecords
                 {
                     while (reader.Read())
                     {
-                        sows.Add(new Pig
+                        sows.Add(new SowName 
                         {
                             PigID = reader.GetInt32(reader.GetOrdinal("PigID")),
                             Name = reader["Name"].ToString()
@@ -101,16 +91,17 @@ namespace SwineSyncc.Navigation.BreedingRecords
                 }
             }
 
-            // Bind list to ComboBox so SelectedValue works
+            
             cbEditBreedingSowName.DataSource = sows;
             cbEditBreedingSowName.DisplayMember = "Name";
             cbEditBreedingSowName.ValueMember = "PigID";
-            cbEditBreedingSowName.SelectedItem = fetchData.SowName; // safe default
+            
+            cbEditBreedingSowName.SelectedItem = fetchData.SowName;
         }
 
         private void LoadBoarNameCombo()
         {
-            var boars = new List<Pig>();
+            var boars = new List<BoarName>();  
 
             string query = "SELECT PigID, Name FROM Pigs WHERE Sex = 'Male' ORDER BY Name";
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
@@ -121,85 +112,117 @@ namespace SwineSyncc.Navigation.BreedingRecords
                 {
                     while (reader.Read())
                     {
-                        boars.Add(new Pig
+                        boars.Add(new BoarName 
                         {
                             PigID = reader.GetInt32(reader.GetOrdinal("PigID")),
                             Name = reader["Name"].ToString()
                         });
                     }
                 }
-            }          
-            boars.Insert(0, new Pig { PigID = 0, Name = "Null" });
+            }           
+            boars.Insert(0, new BoarName { PigID = 0, Name = "Null" });
 
             cbEditBreedingBoarName.DataSource = boars;
             cbEditBreedingBoarName.DisplayMember = "Name";
             cbEditBreedingBoarName.ValueMember = "PigID";
-            cbEditBreedingBoarName.SelectedItem = fetchData.BoarName; 
+           
+            cbEditBreedingBoarName.SelectedItem = fetchData.BoarName;
         }
 
         private void cbEditBreedingMethod_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_isInitializing) return;
 
+            
             var selected = cbEditBreedingMethod.SelectedItem as string;
-            bool isAI = string.Equals(selected, "Artificial Insemination", StringComparison.OrdinalIgnoreCase);
+            bool isAI = string.Equals(selected, "Artificial insemination(AI)", StringComparison.OrdinalIgnoreCase);
+
+           
+            UpdateBoarComboState();
+        }
+       
+        private void UpdateBoarComboState()
+        {
+            var selected = cbEditBreedingMethod.SelectedItem as string;
+            bool isAI = string.Equals(selected, "Artificial insemination(AI)", StringComparison.OrdinalIgnoreCase);
 
             cbEditBreedingBoarName.Enabled = !isAI;
             if (isAI)
             {
-                // clear selection visually
-                cbEditBreedingBoarName.SelectedIndex = -1;
+                cbEditBreedingBoarName.SelectedIndex = 0; 
+                cbEditBreedingBoarName.BackColor = Color.LightGray; 
+            }
+            else
+            {
+                cbEditBreedingBoarName.BackColor = Color.White;
             }
         }
 
         private void SaveHandler(object sender, EventArgs e)
         {
+            MessageBox.Show("SaveHandler started!", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information); // di nalabas to ibig sabihin hindi ko na wire hahaha
+
             if (cbEditBreedingSowName.SelectedItem == null)
             {
-                MessageBox.Show("Please select a sow.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a sow.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (cbEditBreedingMethod.SelectedItem == null)
             {
-                MessageBox.Show("Please select a breeding method.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a breeding method.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             string method = cbEditBreedingMethod.SelectedItem.ToString();
 
-            if (method == "Natural Mating" && cbEditBreedingBoarName.SelectedItem == null)
+            
+            if (method == "Natural" && cbEditBreedingBoarName.SelectedItem == null)
             {
-                MessageBox.Show("Please select a boar for natural mating.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a boar for natural breeding.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (cbEditResult.SelectedItem == null)
             {
-                MessageBox.Show("Please select the breeding result.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the breeding result.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (dtpEditBreedingDate.Value > DateTime.Now)
             {
-                MessageBox.Show("Breeding date cannot be in the future.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Breeding date cannot be a future date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Extract values from controls
+            
             SowName selectedSow = cbEditBreedingSowName.SelectedItem as SowName;
             BoarName selectedBoar = cbEditBreedingBoarName.SelectedItem as BoarName;
 
+          
+            if (selectedSow == null)
+            {
+                MessageBox.Show("Invalid sow selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             int sowId = selectedSow.PigID;
 
-            object boarValue = method == "Artificial Insemination"
-                ? DBNull.Value
-                : (object)selectedBoar.PigID;
+            object boarValue;
+           
+            if (method == "Artificial insemination(AI)")
+            {
+                boarValue = DBNull.Value;
+            }
+            else
+            {               
+                if (selectedBoar == null || selectedBoar.PigID == 0)
+                {
+                    MessageBox.Show("Please select a valid boar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                boarValue = selectedBoar.PigID;
+            }
 
             string result = cbEditResult.SelectedItem.ToString();
             DateTime breedingDate = dtpEditBreedingDate.Value;
@@ -228,31 +251,90 @@ namespace SwineSyncc.Navigation.BreedingRecords
 
                     try
                     {
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
+                        conn.Open();                       
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected == 0)
+                        {
+                            MessageBox.Show("No changes were made. The record may not exist.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        MessageBox.Show("Breeding record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string logDescription;
+                        if (method == "Artificial insemination(AI)")
+                        {
+                            logDescription = $"Breeding Updated (ID: {_breedingID}) | Method: AI | Sow: {selectedSow.Name}";
+                        }
+                        else
+                        {
+                            logDescription = $"Breeding Updated (ID: {_breedingID}) | Method: Natural | Sow: {selectedSow.Name}, Boar: {selectedBoar.Name}";
+                        }
 
-                        MessageBox.Show("Breeding record updated successfully!",
-                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ActivityLogger.Log("Edit breeding", logDescription);
 
-                        ActivityLogger.Log("Edit breeding",
-                            $"Breeding updated (ID: {_breedingID}) | Method: {method} | Result: {result}");
+                        
+                        if (result == "Success" && fetchData.Result != "Success")
+                        {
+                            string checkQuery = "SELECT COUNT(*) FROM PregnancyRecords WHERE BreedingID = @BreedingID";
+                            using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
+                            {
+                                checkCmd.Parameters.AddWithValue("@BreedingID", _breedingID);
+                                int existingPregnancies = (int)checkCmd.ExecuteScalar();
+                                if (existingPregnancies == 0)
+                                {
+                                    BreedingToPregnancyTransition(conn, _breedingID, selectedSow);
+                                }
+                            }
+                        }
 
                         SaveCompleted?.Invoke(this, new BreedingSaveEventArgs(_breedingID));
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Database Error: " + ex.Message,
-                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
+       
+        private void BreedingToPregnancyTransition(SqlConnection conn, int breedingID, SowName selectedSow)
+        {
+            int sowID = selectedSow.PigID;
 
+            DateTime expectedFarrowingDate = dtpEditBreedingDate.Value.AddDays(114);
+            DateTime confirmationDate = DateTime.Today;
 
+            string query = @"
+                INSERT INTO PregnancyRecords
+                (PregnantPigID, BreedingID, ConfirmationDate, ExpectedFarrowingDate)
+                VALUES (@PregnantPigID, @BreedingID, @ConfirmationDate, @ExpectedFarrowingDate);
+            ";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))  
+                {
+                    cmd.Parameters.AddWithValue("@PregnantPigID", sowID);
+                    cmd.Parameters.AddWithValue("@BreedingID", breedingID);
+                    cmd.Parameters.AddWithValue("@ConfirmationDate", confirmationDate);
+                    cmd.Parameters.AddWithValue("@ExpectedFarrowingDate", expectedFarrowingDate);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                ActivityLogger.Log(
+                    "Register pregnancy",
+                    $"Pregnancy record added | Sow: {selectedSow.Name}, Breeding ID: {breedingID}"
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void buttonGroup1_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
