@@ -79,12 +79,15 @@ namespace SwineSyncc.Navigation
                 this.tableQuery = @"SELECT * FROM Piglets";
             else if (tableName == "BreedingRecords")
                 this.tableQuery = @"SELECT b.BreedingID, pSow.Name AS SowName,
-                CASE WHEN b.BreedingMethod = 'Artificial Insemination' THEN 'NULL' ELSE pBoar.Name END AS BoarName,
-                b.BreedingMethod, b.BreedingDate, b.Result
-                FROM BreedingRecords b
-                LEFT JOIN Pigs pSow ON b.SowID = pSow.PigID
-                LEFT JOIN Pigs pBoar ON  b.BoarID = pBoar.PigID
-                ORDER BY b.BreedingID;";
+                                    CASE 
+                                        WHEN LOWER(b.BreedingMethod) LIKE '%artificial insemination%' 
+                                             THEN 'NULL' 
+                                        ELSE pBoar.Name 
+                                    END AS BoarName, b.BreedingMethod, b.BreedingDate, b.Result
+                                    FROM BreedingRecords b
+                                    LEFT JOIN Pigs pSow ON b.SowID = pSow.PigID
+                                    LEFT JOIN Pigs pBoar ON b.BoarID = pBoar.PigID
+                                    ORDER BY b.BreedingID;";
             else if (tableName == "PregnancyRecords")
                 this.tableQuery = @"SELECT P.PregnancyID, PSow.Name, P.BreedingID,  P.ConfirmationDate, P.ExpectedFarrowingDate
                 FROM PregnancyRecords AS P
@@ -506,6 +509,7 @@ namespace SwineSyncc.Navigation
                     string.IsNullOrEmpty(cellValue) ||
                     string.Equals(cellValue, "NULL", StringComparison.OrdinalIgnoreCase))
                 {
+                    e.Value = "Null";
                     e.CellStyle.ForeColor = Color.DarkRed;
                     e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
                 }
