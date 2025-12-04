@@ -374,16 +374,15 @@ namespace SwineSyncc.Navigation.Pig_Management
 
         private void BreedingToPregnancyTransition(SqlConnection conn, int breedingID, SowName selectedSow)
         {
-            string sowName = selectedSow.Name;
             int sowID = selectedSow.PigID;
 
             DateTime expectedFarrowingDate = dtBreeding.Value.AddDays(114);
-            DateTime confirmationDate = DateTime.Today; //user should upfate this later
+            DateTime confirmationDate = DateTime.Today;
 
             string query = @"
-                INSERT INTO BreedingRecords
+                INSERT INTO PregnancyRecords
                 (PregnantPigID, BreedingID, ConfirmationDate, ExpectedFarrowingDate)
-                VALUES (@PregnantPigID, @BreedingID, @ConfirmationDate, @ExpectedFarrowingDate)
+                VALUES (@PregnantPigID, @BreedingID, @ConfirmationDate, @ExpectedFarrowingDate);
             ";
 
             try
@@ -391,10 +390,10 @@ namespace SwineSyncc.Navigation.Pig_Management
                 using (conn = DBConnection.Instance.GetConnection())
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@PregnantPigID", (int)sowID);
-                    cmd.Parameters.AddWithValue("@BreedingID", (int)breedingID);
-                    cmd.Parameters.AddWithValue("@ConfirmationDate", (DateTime)confirmationDate);
-                    cmd.Parameters.AddWithValue("@ExpectedFarrowingDate", (DateTime)expectedFarrowingDate);
+                    cmd.Parameters.AddWithValue("@PregnantPigID", sowID);
+                    cmd.Parameters.AddWithValue("@BreedingID", breedingID);
+                    cmd.Parameters.AddWithValue("@ConfirmationDate", confirmationDate);
+                    cmd.Parameters.AddWithValue("@ExpectedFarrowingDate", expectedFarrowingDate);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -402,17 +401,17 @@ namespace SwineSyncc.Navigation.Pig_Management
 
                 ActivityLogger.Log(
                     "Register pregnancy",
-                    $"Pregnancy record added | Sow: {sowName} (ID: {sowID}), Breeding ID: {breedingID}, " +
-                    $"Confirmation Date: {confirmationDate:yyyy-MM-dd}, Expected Farrowing Date: {expectedFarrowingDate:yyyy-MM-dd}"
+                    $"Pregnancy record added | Sow: {selectedSow.Name}, Breeding ID: {breedingID}"
                 );
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Database Error:\n" + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
+
+
 
 
         private void comboSow_SelectedIndexChanged(object sender, EventArgs e)

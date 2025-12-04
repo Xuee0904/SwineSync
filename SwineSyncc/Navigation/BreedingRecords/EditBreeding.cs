@@ -179,7 +179,7 @@ namespace SwineSyncc.Navigation.BreedingRecords
 
             if (cbEditResult.SelectedItem == null)
             {
-                MessageBox.Show("Please select the result.", "Error",
+                MessageBox.Show("Please select the breeding result.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -190,23 +190,16 @@ namespace SwineSyncc.Navigation.BreedingRecords
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-           
-            Pig selectedSow = cbEditBreedingSowName.SelectedItem as Pig;
-            Pig selectedBoar = cbEditBreedingBoarName.SelectedItem as Pig;
 
-            if (selectedSow == null)
-            {
-                MessageBox.Show("Invalid sow selected.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            // Extract values from controls
+            SowName selectedSow = cbEditBreedingSowName.SelectedItem as SowName;
+            BoarName selectedBoar = cbEditBreedingBoarName.SelectedItem as BoarName;
 
             int sowId = selectedSow.PigID;
 
-            object boarValue =
-                (method == "Artificial Insemination")
+            object boarValue = method == "Artificial Insemination"
                 ? DBNull.Value
-                : (object)selectedBoar?.PigID;
+                : (object)selectedBoar.PigID;
 
             string result = cbEditResult.SelectedItem.ToString();
             DateTime breedingDate = dtpEditBreedingDate.Value;
@@ -221,7 +214,8 @@ namespace SwineSyncc.Navigation.BreedingRecords
                         BreedingDate = @BreedingDate,
                         BreedingMethod = @Method,
                         Result = @Result
-                    WHERE BreedingID = @BreedingID;";
+                    WHERE BreedingID = @BreedingID;
+                ";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -241,18 +235,19 @@ namespace SwineSyncc.Navigation.BreedingRecords
                             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         ActivityLogger.Log("Edit breeding",
-                            $"Updated Breeding (ID: {_breedingID}) | Sow: {selectedSow.Name} | Method: {method}");
+                            $"Breeding updated (ID: {_breedingID}) | Method: {method} | Result: {result}");
 
                         SaveCompleted?.Invoke(this, new BreedingSaveEventArgs(_breedingID));
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Database Error:\n" + ex.Message,
+                        MessageBox.Show("Database Error: " + ex.Message,
                             "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
+
 
 
         private void buttonGroup1_Load(object sender, EventArgs e)
