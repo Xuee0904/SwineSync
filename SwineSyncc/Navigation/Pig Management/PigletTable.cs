@@ -22,5 +22,10 @@ namespace SwineSyncc.Navigation.Pig_Management
             _mainPanel = mainPanel;
             this.Dock = DockStyle.Fill;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -68,6 +68,11 @@ namespace SwineSyncc
                 ucManager.LoadPregnancyRecords();
             };
 
+            dashboard.TotalPigletsPanelClicked += (s, e) =>
+            {
+                navigationPanel.TriggerPigManagementClick();
+                ucManager.LoadPigletTable();
+            };
 
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(dashboard);
