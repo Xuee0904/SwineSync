@@ -15,17 +15,30 @@ namespace SwineSyncc.Navigation.Pig_Management
 
         private readonly Panel _mainPanel;
 
+        public event EventHandler BackToSowTableClicked;
+
+        SwineSyncTable displayPigletTable;
+
         public PigletTable(Panel mainPanel)
         {
             InitializeComponent();
 
             _mainPanel = mainPanel;
             this.Dock = DockStyle.Fill;
+
+            displayPigletTable = new SwineSyncTable();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+            displayPigletTable.SetTableQuery("PigletTable");
+            displayPigletTable.Dock = DockStyle.Fill;
+            panelPiglet.Controls.Add(displayPigletTable);
+        }
 
+        private void btnPig_Click(object sender, EventArgs e)
+        {
+            BackToSowTableClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

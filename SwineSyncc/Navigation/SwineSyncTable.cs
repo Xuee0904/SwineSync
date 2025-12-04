@@ -75,6 +75,8 @@ namespace SwineSyncc.Navigation
                 this.tableQuery = @"SELECT * FROM Pigs WHERE Sex = 'Female'";
             else if (tableName == "BoarTable")
                 this.tableQuery = @"SELECT * FROM Pigs WHERE Sex = 'Male'";
+            else if (tableName == "PigletTable")
+                this.tableQuery = @"SELECT * FROM Piglets";
             else if (tableName == "BreedingRecords")
                 this.tableQuery = @"SELECT b.BreedingID, pSow.Name AS SowName,
                 CASE WHEN b.BreedingMethod = 'Artificial Insemination' THEN 'NULL' ELSE pBoar.Name END AS BoarName,

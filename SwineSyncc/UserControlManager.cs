@@ -312,6 +312,11 @@ namespace SwineSyncc
         {
             PigletTable pigletTable = new PigletTable(_mainPanel);
 
+            pigletTable.BackToSowTableClicked += (s, e) =>
+            {
+                LoadSowTable();
+            };
+
             ShowUserControl(pigletTable);
         }
 
