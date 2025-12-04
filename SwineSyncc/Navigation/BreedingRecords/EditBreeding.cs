@@ -32,6 +32,8 @@ namespace SwineSyncc.Navigation.BreedingRecords
 
             var repo = new BreedingRepository();
             fetchData = repo.GetBreedingById(_breedingID);
+
+            buttonGroup1.CancelClicked += (s, e) => Close();
         }
 
         private void EditBreeding_Load(object sender, EventArgs e)

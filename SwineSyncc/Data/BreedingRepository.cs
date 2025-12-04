@@ -18,9 +18,12 @@ namespace SwineSyncc.Data
             {
                 conn.Open();
 
-                string query = @"SELECT B.BreedingID, B.SowID, B.BoarID, Sow.Name AS SowName,
+                string query;
+
+                
+                query = @"SELECT B.BreedingID, B.SowID, B.BoarID, Sow.Name AS SowName,
                                 CASE
-                                    WHEN B.BreedingMethod = 'Artificial Insemination' THEN 'Null'
+                                    WHEN B.BreedingMethod = 'Artificial Insemination' THEN NULL
                                     ELSE Boar.Name
                                 END AS BoarName, B.BreedingMethod, B.BreedingDate, B.Result
                                 FROM BreedingRecords AS B
@@ -39,9 +42,12 @@ namespace SwineSyncc.Data
                         {
                             BreedingID = (int)reader["BreedingID"],
                             SowID = (int)reader["SowID"],
-                            BoarID = (int)reader["BoarID"],
+                            BoarID = reader["BoarID"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["BoarID"]),
+
                             SowName = reader["SowName"].ToString(),
+
                             BoarName = reader["BoarName"] == DBNull.Value ? null : reader["BoarName"].ToString(),
+
                             BreedingMethod = reader["BreedingMethod"].ToString(),
                             BreedingDate = (DateTime)reader["BreedingDate"],
                             Result = reader["Result"].ToString()
@@ -86,7 +92,7 @@ namespace SwineSyncc.Data
     {
         public int BreedingID { get; set; }
         public int SowID { get; set; }
-        public int BoarID { get; set; }
+        public int? BoarID { get; set; }
         public string SowName { get; set; }
         public string BoarName { get; set; }
         public string BreedingMethod { get; set; }
