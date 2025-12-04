@@ -126,6 +126,12 @@
     <Compile Include="Navigation\HealthRecords\AddHealthRec.Designer.cs">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\HealthRecords\EditHealth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\HealthRecords\EditHealth.Designer.cs">
+      <DependentUpon>EditHealth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\History.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -209,6 +215,12 @@
     </Compile>
     <Compile Include="Navigation\Pig Management\EditPiglet.Designer.cs">
       <DependentUpon>EditPiglet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\PregnancyRecords\EditPregnancy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\PregnancyRecords\EditPregnancy.Designer.cs">
+      <DependentUpon>EditPregnancy.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\Reminders.cs">
       <SubType>UserControl</SubType>
@@ -314,6 +326,9 @@
     <EmbeddedResource Include="Navigation\HealthRecords\AddHealthRec.resx">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\HealthRecords\EditHealth.resx">
+      <DependentUpon>EditHealth.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navigation\History.resx">
       <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Pig Management\EditPiglet.resx">
       <DependentUpon>EditPiglet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\PregnancyRecords\EditPregnancy.resx">
+      <DependentUpon>EditPregnancy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Reminders.resx">
       <DependentUpon>Reminders.cs</DependentUpon>
