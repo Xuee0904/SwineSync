@@ -12,20 +12,33 @@ namespace SwineSyncc.Navigation.HealthRecords
 {
     public partial class HealthRecords : UserControl
     {
-        SwineSyncTable displayTable;
-
+        
         public event EventHandler AddHealthRecordClicked;
 
         public HealthRecords()
         {
             InitializeComponent();
-            displayTable = new SwineSyncTable();
+
+            TableRefresh();
         }
 
         private void HealthRecords_Load(object sender, EventArgs e)
         {
+            LoadTableData();
+        }
+
+        public void TableRefresh()
+        {
+            LoadTableData();
+        }
+
+        private void LoadTableData()
+        {
+            SwineSyncTable displayTable = new SwineSyncTable();
+
             displayTable.SetTableQuery("HealthRecords");
             displayTable.Dock = DockStyle.Fill;
+            pnlHealthRecords.Controls.Clear();
             pnlHealthRecords.Controls.Add(displayTable);
         }
 

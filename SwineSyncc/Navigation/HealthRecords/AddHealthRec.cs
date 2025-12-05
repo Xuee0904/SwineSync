@@ -17,6 +17,7 @@ namespace SwineSyncc.Navigation
     {
 
         public event EventHandler CancelClicked;
+        public event EventHandler SaveCompleted;
 
         public AddHealthRec()
         {
@@ -199,6 +200,7 @@ namespace SwineSyncc.Navigation
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             ClearFields();
+                            SaveCompleted?.Invoke(this, EventArgs.Empty);
                         }
                         else
                         {
@@ -211,6 +213,8 @@ namespace SwineSyncc.Navigation
                         MessageBox.Show($"Database Error: {ex.Message}", "Database Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+
+                    
                 }
             }
         }

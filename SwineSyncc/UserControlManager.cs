@@ -368,6 +368,8 @@ namespace SwineSyncc
 
                 _healthUC.AddHealthRecordClicked += (s, e) => LoadAddHealthRecord();
             }
+
+            _healthUC.TableRefresh();
             ShowUserControl (_healthUC);
         }
 
@@ -376,6 +378,11 @@ namespace SwineSyncc
             AddHealthRec addHealthRecord = new AddHealthRec();
 
             addHealthRecord.CancelClicked += (s, e) => ShowUserControl(_healthUC);
+            addHealthRecord.SaveCompleted += (s, e) =>
+            {
+                _healthUC.TableRefresh();
+                ShowUserControl(_healthUC);
+            };
 
             ShowUserControl(addHealthRecord);
         }
