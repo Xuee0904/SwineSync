@@ -86,7 +86,7 @@ namespace SwineSyncc.Navigation
                         LEFT JOIN Pigs AS PSow ON P.PregnantPigID = PSow.PigID
                         WHERE P.FlagDeleted = 0";
             else if (tableName == "Inventory")
-                this.tableQuery = @"SELECT * FROM Inventory WHERE FlagDeleted = 0";
+                this.tableQuery = @"SELECT ProductID, ProductType, Quantity, RecordDate, ExpirationDate, Description FROM Inventory WHERE FlagDeleted = 0";
             else if (tableName == "HealthRecords")
                 this.tableQuery = @"SELECT
                         H.HealthRecordID,
