@@ -565,5 +565,8 @@
   <ItemGroup>
     <None Include="Resources\profile.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReleaseIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -343,6 +343,16 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ReleaseIcon {
+            get {
+                object obj = ResourceManager.GetObject("ReleaseIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2025_11_19_182248 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2025-11-19 182248", resourceCulture);
