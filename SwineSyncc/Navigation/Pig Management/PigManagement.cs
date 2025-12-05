@@ -192,6 +192,10 @@ namespace SwineSyncc
                         if (breedingBlockedCount > 0)
                             summaryMessage += $"{breedingBlockedCount} pig(s) are part of breeding records.\n";
 
+                        if (healthBlockedCount > 0)
+                            summaryMessage += $"{healthBlockedCount} pig(s) are part of health records.\n";
+
+
                         MessageBox.Show(summaryMessage, "Deletion Failed",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }

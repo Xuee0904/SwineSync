@@ -203,7 +203,7 @@ namespace SwineSyncc.Navigation
                     if (summary == "")
                         summary = "No piglets were deleted.";
 
-                    MessageBox.Show(summary, "Deletion Summary", MessageBoxButtons.OK);
+                    MessageBox.Show(summary, "Deletion Summary", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
 
