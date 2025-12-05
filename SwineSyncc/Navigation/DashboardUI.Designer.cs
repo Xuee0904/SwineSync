@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.addbreedinglabel = new System.Windows.Forms.Label();
             this.panelTotalPregnancy = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.dashboardPregnancyPb = new System.Windows.Forms.PictureBox();
             this.labelTotalPregnancyTitle = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.dashboardPigPb = new System.Windows.Forms.PictureBox();
             this.labelTotalPigsTitle = new System.Windows.Forms.Label();
             this.lblTotalPigs = new System.Windows.Forms.Label();
-            this.addbreedinglabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelTotalPregnancy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardPregnancyPb)).BeginInit();
@@ -59,10 +59,23 @@
             this.panel1.Controls.Add(this.panelTotalPigs);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1338, 886);
+            this.panel1.Size = new System.Drawing.Size(1004, 720);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // addbreedinglabel
+            // 
+            this.addbreedinglabel.AutoSize = true;
+            this.addbreedinglabel.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addbreedinglabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.addbreedinglabel.Location = new System.Drawing.Point(31, 27);
+            this.addbreedinglabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addbreedinglabel.Name = "addbreedinglabel";
+            this.addbreedinglabel.Size = new System.Drawing.Size(184, 45);
+            this.addbreedinglabel.TabIndex = 63;
+            this.addbreedinglabel.Text = "Dashboard";
             // 
             // panelTotalPregnancy
             // 
@@ -75,17 +88,19 @@
             this.panelTotalPregnancy.GradientAngle = 90F;
             this.panelTotalPregnancy.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(155)))));
             this.panelTotalPregnancy.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(155)))));
-            this.panelTotalPregnancy.Location = new System.Drawing.Point(106, 379);
+            this.panelTotalPregnancy.Location = new System.Drawing.Point(80, 308);
+            this.panelTotalPregnancy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelTotalPregnancy.Name = "panelTotalPregnancy";
-            this.panelTotalPregnancy.Size = new System.Drawing.Size(409, 200);
+            this.panelTotalPregnancy.Size = new System.Drawing.Size(307, 162);
             this.panelTotalPregnancy.TabIndex = 5;
             // 
             // dashboardPregnancyPb
             // 
             this.dashboardPregnancyPb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(155)))));
-            this.dashboardPregnancyPb.Location = new System.Drawing.Point(48, 64);
+            this.dashboardPregnancyPb.Location = new System.Drawing.Point(36, 52);
+            this.dashboardPregnancyPb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dashboardPregnancyPb.Name = "dashboardPregnancyPb";
-            this.dashboardPregnancyPb.Size = new System.Drawing.Size(84, 60);
+            this.dashboardPregnancyPb.Size = new System.Drawing.Size(63, 49);
             this.dashboardPregnancyPb.TabIndex = 2;
             this.dashboardPregnancyPb.TabStop = false;
             // 
@@ -94,9 +109,10 @@
             this.labelTotalPregnancyTitle.AutoSize = true;
             this.labelTotalPregnancyTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(155)))));
             this.labelTotalPregnancyTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalPregnancyTitle.Location = new System.Drawing.Point(145, 81);
+            this.labelTotalPregnancyTitle.Location = new System.Drawing.Point(109, 66);
+            this.labelTotalPregnancyTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTotalPregnancyTitle.Name = "labelTotalPregnancyTitle";
-            this.labelTotalPregnancyTitle.Size = new System.Drawing.Size(184, 28);
+            this.labelTotalPregnancyTitle.Size = new System.Drawing.Size(149, 21);
             this.labelTotalPregnancyTitle.TabIndex = 0;
             this.labelTotalPregnancyTitle.Text = "Total pregnancies:";
             // 
@@ -105,9 +121,10 @@
             this.lblTotalPregnancy.AutoSize = true;
             this.lblTotalPregnancy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(155)))));
             this.lblTotalPregnancy.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPregnancy.Location = new System.Drawing.Point(338, 65);
+            this.lblTotalPregnancy.Location = new System.Drawing.Point(254, 53);
+            this.lblTotalPregnancy.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalPregnancy.Name = "lblTotalPregnancy";
-            this.lblTotalPregnancy.Size = new System.Drawing.Size(50, 59);
+            this.lblTotalPregnancy.Size = new System.Drawing.Size(40, 47);
             this.lblTotalPregnancy.TabIndex = 1;
             this.lblTotalPregnancy.Text = "0";
             // 
@@ -122,17 +139,19 @@
             this.panelTotalPiglets.GradientAngle = 90F;
             this.panelTotalPiglets.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(150)))));
             this.panelTotalPiglets.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(150)))));
-            this.panelTotalPiglets.Location = new System.Drawing.Point(503, 129);
+            this.panelTotalPiglets.Location = new System.Drawing.Point(377, 105);
+            this.panelTotalPiglets.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelTotalPiglets.Name = "panelTotalPiglets";
-            this.panelTotalPiglets.Size = new System.Drawing.Size(350, 200);
+            this.panelTotalPiglets.Size = new System.Drawing.Size(262, 162);
             this.panelTotalPiglets.TabIndex = 4;
             // 
             // dashboardPigletPb
             // 
             this.dashboardPigletPb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(150)))));
-            this.dashboardPigletPb.Location = new System.Drawing.Point(48, 64);
+            this.dashboardPigletPb.Location = new System.Drawing.Point(36, 52);
+            this.dashboardPigletPb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dashboardPigletPb.Name = "dashboardPigletPb";
-            this.dashboardPigletPb.Size = new System.Drawing.Size(84, 60);
+            this.dashboardPigletPb.Size = new System.Drawing.Size(63, 49);
             this.dashboardPigletPb.TabIndex = 2;
             this.dashboardPigletPb.TabStop = false;
             // 
@@ -141,9 +160,10 @@
             this.labelTotalPigletsTitle.AutoSize = true;
             this.labelTotalPigletsTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(150)))));
             this.labelTotalPigletsTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalPigletsTitle.Location = new System.Drawing.Point(145, 81);
+            this.labelTotalPigletsTitle.Location = new System.Drawing.Point(109, 66);
+            this.labelTotalPigletsTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTotalPigletsTitle.Name = "labelTotalPigletsTitle";
-            this.labelTotalPigletsTitle.Size = new System.Drawing.Size(134, 28);
+            this.labelTotalPigletsTitle.Size = new System.Drawing.Size(108, 21);
             this.labelTotalPigletsTitle.TabIndex = 0;
             this.labelTotalPigletsTitle.Text = "Total piglets:";
             // 
@@ -152,9 +172,10 @@
             this.lblTotalPiglets.AutoSize = true;
             this.lblTotalPiglets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(150)))));
             this.lblTotalPiglets.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPiglets.Location = new System.Drawing.Point(286, 64);
+            this.lblTotalPiglets.Location = new System.Drawing.Point(214, 52);
+            this.lblTotalPiglets.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalPiglets.Name = "lblTotalPiglets";
-            this.lblTotalPiglets.Size = new System.Drawing.Size(50, 59);
+            this.lblTotalPiglets.Size = new System.Drawing.Size(40, 47);
             this.lblTotalPiglets.TabIndex = 1;
             this.lblTotalPiglets.Text = "0";
             // 
@@ -169,18 +190,20 @@
             this.panelTotalPigs.GradientAngle = 90F;
             this.panelTotalPigs.GradientBottomColor = System.Drawing.Color.Tan;
             this.panelTotalPigs.GradientTopColor = System.Drawing.Color.Tan;
-            this.panelTotalPigs.Location = new System.Drawing.Point(106, 129);
+            this.panelTotalPigs.Location = new System.Drawing.Point(80, 105);
+            this.panelTotalPigs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelTotalPigs.Name = "panelTotalPigs";
-            this.panelTotalPigs.Size = new System.Drawing.Size(350, 200);
+            this.panelTotalPigs.Size = new System.Drawing.Size(262, 162);
             this.panelTotalPigs.TabIndex = 3;
             this.panelTotalPigs.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalPigs_Paint);
             // 
             // dashboardPigPb
             // 
             this.dashboardPigPb.BackColor = System.Drawing.Color.Tan;
-            this.dashboardPigPb.Location = new System.Drawing.Point(48, 64);
+            this.dashboardPigPb.Location = new System.Drawing.Point(36, 52);
+            this.dashboardPigPb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dashboardPigPb.Name = "dashboardPigPb";
-            this.dashboardPigPb.Size = new System.Drawing.Size(84, 60);
+            this.dashboardPigPb.Size = new System.Drawing.Size(63, 49);
             this.dashboardPigPb.TabIndex = 2;
             this.dashboardPigPb.TabStop = false;
             // 
@@ -189,9 +212,10 @@
             this.labelTotalPigsTitle.AutoSize = true;
             this.labelTotalPigsTitle.BackColor = System.Drawing.Color.Tan;
             this.labelTotalPigsTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalPigsTitle.Location = new System.Drawing.Point(151, 81);
+            this.labelTotalPigsTitle.Location = new System.Drawing.Point(113, 66);
+            this.labelTotalPigsTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTotalPigsTitle.Name = "labelTotalPigsTitle";
-            this.labelTotalPigsTitle.Size = new System.Drawing.Size(109, 28);
+            this.labelTotalPigsTitle.Size = new System.Drawing.Size(88, 21);
             this.labelTotalPigsTitle.TabIndex = 0;
             this.labelTotalPigsTitle.Text = "Total pigs:";
             // 
@@ -200,30 +224,21 @@
             this.lblTotalPigs.AutoSize = true;
             this.lblTotalPigs.BackColor = System.Drawing.Color.Tan;
             this.lblTotalPigs.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPigs.Location = new System.Drawing.Point(273, 64);
+            this.lblTotalPigs.Location = new System.Drawing.Point(205, 52);
+            this.lblTotalPigs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalPigs.Name = "lblTotalPigs";
-            this.lblTotalPigs.Size = new System.Drawing.Size(50, 59);
+            this.lblTotalPigs.Size = new System.Drawing.Size(40, 47);
             this.lblTotalPigs.TabIndex = 1;
             this.lblTotalPigs.Text = "0";
             // 
-            // addbreedinglabel
-            // 
-            this.addbreedinglabel.AutoSize = true;
-            this.addbreedinglabel.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addbreedinglabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.addbreedinglabel.Location = new System.Drawing.Point(47, 47);
-            this.addbreedinglabel.Name = "addbreedinglabel";
-            this.addbreedinglabel.Size = new System.Drawing.Size(229, 54);
-            this.addbreedinglabel.TabIndex = 63;
-            this.addbreedinglabel.Text = "Dashboard";
-            // 
             // DashboardUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DashboardUI";
-            this.Size = new System.Drawing.Size(1338, 886);
+            this.Size = new System.Drawing.Size(1004, 720);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelTotalPregnancy.ResumeLayout(false);
