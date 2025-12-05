@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlDeletedPiglets = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
-            this.pnlDeletedPigs = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.lblDeletedPiglets = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -43,8 +41,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pnlDeletedPiglets);
-            this.panel1.Controls.Add(this.pnlDeletedPigs);
             this.panel1.Controls.Add(this.lblDeletedPiglets);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label7);
@@ -58,32 +54,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(952, 878);
             this.panel1.TabIndex = 1;
-            // 
-            // pnlDeletedPiglets
-            // 
-            this.pnlDeletedPiglets.BackColor = System.Drawing.Color.White;
-            this.pnlDeletedPiglets.BorderRadius = 12;
-            this.pnlDeletedPiglets.ForeColor = System.Drawing.Color.Black;
-            this.pnlDeletedPiglets.GradientAngle = 90F;
-            this.pnlDeletedPiglets.GradientBottomColor = System.Drawing.Color.CadetBlue;
-            this.pnlDeletedPiglets.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.pnlDeletedPiglets.Location = new System.Drawing.Point(74, 445);
-            this.pnlDeletedPiglets.Name = "pnlDeletedPiglets";
-            this.pnlDeletedPiglets.Size = new System.Drawing.Size(788, 264);
-            this.pnlDeletedPiglets.TabIndex = 64;
-            // 
-            // pnlDeletedPigs
-            // 
-            this.pnlDeletedPigs.BackColor = System.Drawing.Color.White;
-            this.pnlDeletedPigs.BorderRadius = 12;
-            this.pnlDeletedPigs.ForeColor = System.Drawing.Color.Black;
-            this.pnlDeletedPigs.GradientAngle = 90F;
-            this.pnlDeletedPigs.GradientBottomColor = System.Drawing.Color.CadetBlue;
-            this.pnlDeletedPigs.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.pnlDeletedPigs.Location = new System.Drawing.Point(74, 118);
-            this.pnlDeletedPigs.Name = "pnlDeletedPigs";
-            this.pnlDeletedPigs.Size = new System.Drawing.Size(788, 264);
-            this.pnlDeletedPigs.TabIndex = 65;
             // 
             // lblDeletedPiglets
             // 
@@ -176,8 +146,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private CustomUIElements.Gradient_RoundedPanel pnlDeletedPiglets;
-        private CustomUIElements.Gradient_RoundedPanel pnlDeletedPigs;
         private System.Windows.Forms.Label lblDeletedPiglets;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

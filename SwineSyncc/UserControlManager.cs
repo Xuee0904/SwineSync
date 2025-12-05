@@ -392,8 +392,17 @@ namespace SwineSyncc
             if (_historyUC == null)
             {
                 _historyUC = new History();
+
+                _historyUC.RecordsClicked += (s, e) => LoadHistroyBPRecords();
             }
             ShowUserControl(_historyUC);
+        }
+
+        public void LoadHistroyBPRecords()
+        {
+            HistoryPage2 historyBPR = new HistoryPage2();
+
+            ShowUserControl(historyBPR);
         }
     }
 }
