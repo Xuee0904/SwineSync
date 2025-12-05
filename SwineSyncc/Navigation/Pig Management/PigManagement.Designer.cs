@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PigManagement));
             this.panel1 = new System.Windows.Forms.Panel();
             this.togglePicBox = new System.Windows.Forms.PictureBox();
@@ -42,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flpFemalePigs = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTableToggle = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.togglePicBox)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +69,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1269, 1081);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // togglePicBox
             // 
@@ -211,6 +214,10 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Pig management";
             // 
+            // toolTableToggle
+            // 
+            this.toolTableToggle.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTableToggle_Popup);
+            // 
             // PigManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -241,5 +248,6 @@
         private IconRoundedButton btnDeletePig;
         private IconRoundedButton btnRegisterPig;
         private System.Windows.Forms.PictureBox togglePicBox;
+        private System.Windows.Forms.ToolTip toolTableToggle;
     }
 }

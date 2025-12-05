@@ -119,12 +119,12 @@
             // lblBreedingRecords
             // 
             this.lblBreedingRecords.AutoSize = true;
-            this.lblBreedingRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreedingRecords.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBreedingRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblBreedingRecords.Location = new System.Drawing.Point(35, 38);
+            this.lblBreedingRecords.Location = new System.Drawing.Point(31, 27);
             this.lblBreedingRecords.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBreedingRecords.Name = "lblBreedingRecords";
-            this.lblBreedingRecords.Size = new System.Drawing.Size(236, 31);
+            this.lblBreedingRecords.Size = new System.Drawing.Size(277, 45);
             this.lblBreedingRecords.TabIndex = 14;
             this.lblBreedingRecords.Text = "Breeding records";
             // 

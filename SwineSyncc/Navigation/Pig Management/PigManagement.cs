@@ -26,6 +26,7 @@ namespace SwineSyncc
             this.Dock = DockStyle.Fill;
 
             togglePicBox.Image = Properties.Resources.tableIcon;
+            toolTableToggle.SetToolTip(togglePicBox, "Switch to tabular mode");
 
             LoadPigButtons();
             ApplyAccessLevel();
@@ -208,6 +209,16 @@ namespace SwineSyncc
         private void togglePicBox_Click(object sender, EventArgs e)
         {
             ToggleViewToTableClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void toolTableToggle_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
