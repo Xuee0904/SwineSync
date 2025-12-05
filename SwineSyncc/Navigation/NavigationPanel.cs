@@ -33,7 +33,7 @@ namespace SwineSyncc
         {
             InitializeComponent();
 
-            pbLogout.Click += pbLogout_Click;  
+            //pbLogout.Click += pbLogout_Click;  
 
             SetActiveButton(dashboardBtn);
             LoadCurrentUser();
