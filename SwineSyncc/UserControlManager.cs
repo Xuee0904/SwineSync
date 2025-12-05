@@ -179,6 +179,7 @@ namespace SwineSyncc
 
                 _breedingUC.AddBreedingRecordClicked += (s, e) => LoadAddBreeding();
             }
+            _breedingUC.TableRefresh();
             ShowUserControl(_breedingUC);
         }
 
@@ -187,6 +188,11 @@ namespace SwineSyncc
             AddBreeding addBreeding = new AddBreeding();
 
             addBreeding.CancelClicked += (s, e) => ShowUserControl(_breedingUC);
+            addBreeding.SaveCompleted += (s, e) =>
+            {
+                _breedingUC.TableRefresh();
+                ShowUserControl(_breedingUC);
+            };
 
             ShowUserControl(addBreeding);
         }
