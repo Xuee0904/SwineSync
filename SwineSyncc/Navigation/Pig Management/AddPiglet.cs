@@ -327,5 +327,10 @@ namespace SwineSyncc.Navigation.Pig_Management
                 comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             }
         }
+
+        private void buttonGroup1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

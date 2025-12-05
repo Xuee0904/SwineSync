@@ -126,6 +126,12 @@
     <Compile Include="Navigation\HealthRecords\AddHealthRec.Designer.cs">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\HealthRecords\EditFormHealthRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\HealthRecords\EditFormHealthRecords.Designer.cs">
+      <DependentUpon>EditFormHealthRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\History.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -319,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\HealthRecords\AddHealthRec.resx">
       <DependentUpon>AddHealthRec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\HealthRecords\EditFormHealthRecords.resx">
+      <DependentUpon>EditFormHealthRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\History.resx">
       <DependentUpon>History.cs</DependentUpon>

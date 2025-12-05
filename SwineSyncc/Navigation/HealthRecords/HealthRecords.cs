@@ -33,5 +33,10 @@ namespace SwineSyncc.Navigation
         {
             AddHealthRecordClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void pnlHealthRecords_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
