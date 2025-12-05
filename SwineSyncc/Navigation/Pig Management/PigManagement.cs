@@ -120,8 +120,9 @@ namespace SwineSyncc
             int deletedCount = 0;
             int pigletBlockedCount = 0;
             int breedingBlockedCount = 0;
+            int healthBlockedCount = 0;
 
-            foreach (int id in _selectedPigIds)
+                    foreach (int id in _selectedPigIds)
             {           
                 Pig pigToDelete = repo.GetPigById(id);   
                         
@@ -140,8 +141,14 @@ namespace SwineSyncc
                     breedingBlockedCount++;
                     continue;
                 }
-               
-                repo.SafeDeletePig(id);
+
+                if (repo.HasHealthRecords(id))
+                {
+                            healthBlockedCount++;
+                            continue;
+                }
+
+                        repo.SafeDeletePig(id);
                 deletedCount++;
 
                         ActivityLogger.Log(
@@ -166,6 +173,10 @@ namespace SwineSyncc
 
                             if (breedingBlockedCount > 0)
                                 summaryMessage += $"{breedingBlockedCount} pig(s) are part of breeding records.\n";
+
+                            if (healthBlockedCount > 0)
+                                summaryMessage += $"{healthBlockedCount} pig(s) are part of health records.\n";
+
                         }
 
                         MessageBox.Show(summaryMessage, "Deletion Summary",
