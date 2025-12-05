@@ -26,7 +26,6 @@ namespace SwineSyncc.Navigation
         {
             InitializeComponent();
 
-
             HealthRepository.PopulatePigComboBox(comboHealthPigName);
             comboHealthPigName.DisplayMember = "DisplayText"; 
             comboHealthPigName.SelectedIndex = 0;
@@ -201,8 +200,6 @@ namespace SwineSyncc.Navigation
                         {
                             MessageBox.Show($"Database Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-
-                    
                 }
             }
         }

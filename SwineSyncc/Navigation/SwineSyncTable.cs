@@ -335,6 +335,17 @@ namespace SwineSyncc.Navigation
                         LoadTable();
                 }
             }
+            if(currentTable == "Inventory")
+            {
+                var raw = row.Cells["ProductID"]?.Value;
+                if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
+
+                using (var editForm = new EditItem(id))
+                {
+                    if (editForm.ShowDialog() == DialogResult.OK)
+                        LoadTable();
+                }
+            }
         }
 
         private void HandleDeleteClick(int rowIndex, string currentTable)

@@ -1,5 +1,6 @@
 ﻿using SwineSyncc.Data;
 using SwineSyncc.Navigation;
+using SwineSyncc.Navigation.Inventory;
 using SwineSyncc.Navigation.Pig_Management;
 using SwineSyncc.Navigation.HealthRecords;
 using System;
@@ -16,7 +17,7 @@ namespace SwineSyncc
         private UserManagement _userManagementUC;
         private BreedingRecords _breedingUC;
         private Reminders _remindersUC;
-        private Inventory _inventoryUC;
+        private InventoryRecords _inventoryUC;
         private HealthRecords _healthUC;
         private History _historyUC;
 
@@ -338,7 +339,7 @@ namespace SwineSyncc
         {
             if (_inventoryUC == null)
             {
-                _inventoryUC = new Inventory();
+                _inventoryUC = new InventoryRecords();
 
                 _inventoryUC.AddItemClicked += (s, e) => LoadInventoryAddItem();
 

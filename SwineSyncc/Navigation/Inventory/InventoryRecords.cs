@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SwineSyncc.Navigation
+namespace SwineSyncc.Navigation.Inventory
 {
-    public partial class Inventory : UserControl
+    public partial class InventoryRecords : UserControl
     {
         SwineSyncTable displayTable;
 
         public event EventHandler AddItemClicked;
 
-        public Inventory()
+        public InventoryRecords()
         {
             InitializeComponent();
         }

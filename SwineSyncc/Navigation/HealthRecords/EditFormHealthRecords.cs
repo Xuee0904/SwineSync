@@ -33,6 +33,7 @@ namespace SwineSyncc.Navigation.HealthRecords
             buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
         }
 
+
         private void LoadHealthRecordData()
         {
             if (fetchData == null)

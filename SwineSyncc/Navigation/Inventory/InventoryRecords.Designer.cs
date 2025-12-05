@@ -1,6 +1,6 @@
-﻿namespace SwineSyncc.Navigation
+﻿namespace SwineSyncc.Navigation.Inventory
 {
-    partial class Inventory
+    partial class InventoryRecords
     {
         /// <summary> 
         /// Required designer variable.
