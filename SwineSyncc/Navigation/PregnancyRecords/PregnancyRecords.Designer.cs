@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.customTextBox1 = new CustomControls.RJControls.CustomTextBox();
             this.pnlPregnancyRecords = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.deletePregnancyBtn = new BorderRoundedButton();
             this.addPregnancyBtn = new BorderRoundedButton();
@@ -40,7 +39,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.customTextBox1);
             this.panel1.Controls.Add(this.pnlPregnancyRecords);
             this.panel1.Controls.Add(this.deletePregnancyBtn);
             this.panel1.Controls.Add(this.addPregnancyBtn);
@@ -48,33 +46,10 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1003, 720);
             this.panel1.TabIndex = 0;
-            // 
-            // customTextBox1
-            // 
-            this.customTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(227)))));
-            this.customTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(104)))), ((int)(((byte)(87)))));
-            this.customTextBox1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.customTextBox1.BorderRadius = 0;
-            this.customTextBox1.BorderSize = 2;
-            this.customTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.customTextBox1.Location = new System.Drawing.Point(709, 38);
-            this.customTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customTextBox1.Multiline = false;
-            this.customTextBox1.Name = "customTextBox1";
-            this.customTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.customTextBox1.PasswordChar = false;
-            this.customTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.customTextBox1.PlaceholderText = "";
-            this.customTextBox1.Size = new System.Drawing.Size(250, 31);
-            this.customTextBox1.TabIndex = 14;
-            this.customTextBox1.Texts = "";
-            this.customTextBox1.UnderlinedStyle = false;
-            this.customTextBox1._TextChanged += new System.EventHandler(this.customTextBox1__TextChanged);
             // 
             // pnlPregnancyRecords
             // 
@@ -100,7 +75,7 @@
             this.deletePregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletePregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.deletePregnancyBtn.Location = new System.Drawing.Point(521, 626);
-            this.deletePregnancyBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deletePregnancyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.deletePregnancyBtn.Name = "deletePregnancyBtn";
             this.deletePregnancyBtn.Size = new System.Drawing.Size(138, 45);
             this.deletePregnancyBtn.TabIndex = 12;
@@ -119,7 +94,7 @@
             this.addPregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addPregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.addPregnancyBtn.Location = new System.Drawing.Point(821, 626);
-            this.addPregnancyBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addPregnancyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.addPregnancyBtn.Name = "addPregnancyBtn";
             this.addPregnancyBtn.Size = new System.Drawing.Size(138, 45);
             this.addPregnancyBtn.TabIndex = 11;
@@ -137,7 +112,7 @@
             this.editPregnancyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editPregnancyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.editPregnancyBtn.Location = new System.Drawing.Point(671, 626);
-            this.editPregnancyBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editPregnancyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.editPregnancyBtn.Name = "editPregnancyBtn";
             this.editPregnancyBtn.Size = new System.Drawing.Size(138, 45);
             this.editPregnancyBtn.TabIndex = 10;
@@ -162,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PregnancyRecords";
             this.Size = new System.Drawing.Size(1003, 720);
             this.Load += new System.EventHandler(this.PregnancyRecords_Load);
@@ -180,6 +155,5 @@
         private BorderRoundedButton editPregnancyBtn;
         private System.Windows.Forms.Label label1;
         private CustomUIElements.Gradient_RoundedPanel pnlPregnancyRecords;
-        private CustomControls.RJControls.CustomTextBox customTextBox1;
     }
 }
