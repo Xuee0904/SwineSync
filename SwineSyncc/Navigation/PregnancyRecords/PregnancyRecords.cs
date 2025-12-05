@@ -22,6 +22,8 @@ namespace SwineSyncc
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             displayTable = new SwineSyncTable();
+
+            TableRefresh();
         }
 
         private void addPregnancyBtn_Click(object sender, EventArgs e)
@@ -41,8 +43,19 @@ namespace SwineSyncc
 
         private void PregnancyRecords_Load(object sender, EventArgs e)
         {
+            LoadTableData();
+        }
+
+        public void TableRefresh()
+        {
+            LoadTableData();
+        }
+
+        private void LoadTableData()
+        {
             displayTable.SetTableQuery("PregnancyRecords");
             displayTable.Dock = DockStyle.Fill;
+            pnlPregnancyRecords.Controls.Clear();
             pnlPregnancyRecords.Controls.Add(displayTable);
         }
 

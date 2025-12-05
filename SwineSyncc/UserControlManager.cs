@@ -149,6 +149,8 @@ namespace SwineSyncc
 
                 _pregnancyUC.AddPregnancyRecordClicked += (s, e) => LoadAddPregnancy();
             }
+
+            _pregnancyUC.TableRefresh();
             ShowUserControl(_pregnancyUC);
         }
 
@@ -167,6 +169,11 @@ namespace SwineSyncc
             AddPregnancy addPregnancy = new AddPregnancy();
 
             addPregnancy.CancelClicked += (s, e) => ShowUserControl(_pregnancyUC);
+            addPregnancy.SaveCompleted += (s, e) =>
+            {
+                _pregnancyUC.TableRefresh();
+                ShowUserControl(_pregnancyUC);
+            };
 
             ShowUserControl(addPregnancy);
         }
