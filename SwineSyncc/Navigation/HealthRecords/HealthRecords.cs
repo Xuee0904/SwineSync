@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SwineSyncc.Navigation
+namespace SwineSyncc.Navigation.HealthRecords
 {
     public partial class HealthRecords : UserControl
     {
