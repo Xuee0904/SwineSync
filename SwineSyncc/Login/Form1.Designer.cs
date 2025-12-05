@@ -215,7 +215,7 @@ namespace SwineSyncc
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Login page";
             ((System.ComponentModel.ISupportInitialize)(this.eyeIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBox3)).EndInit();
