@@ -95,6 +95,12 @@ namespace SwineSyncc
                 ucManager.LoadBreedingRecords();
             };
 
+            reminders.ExpirationPanelClicked += (s, e) =>
+            {
+                navigationPanel.TriggerInventoryClick();
+                ucManager.LoadInventory();
+            };
+
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(reminders);
             reminders.Dock = DockStyle.Fill;

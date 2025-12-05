@@ -64,6 +64,10 @@ namespace SwineSyncc
             SetActiveButton(breedingRecordsBtn);
         }
 
+        public void TriggerInventoryClick()
+        {
+            SetActiveButton(inventoryBtn);
+        }
 
         private void dashboardBtn_Click(object sender, EventArgs e)
         {

@@ -38,15 +38,22 @@
             this.checkForFarrowingLbl = new System.Windows.Forms.Label();
             this.farrowingPb = new System.Windows.Forms.PictureBox();
             this.healthrecadd = new System.Windows.Forms.Label();
+            this.expirationPanel = new System.Windows.Forms.Panel();
+            this.expirationLbl = new System.Windows.Forms.Label();
+            this.checkExp = new System.Windows.Forms.Label();
+            this.expirationPb = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.pendingBreedingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingBreedingPb)).BeginInit();
             this.farrowingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).BeginInit();
+            this.expirationPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.expirationPb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.expirationPanel);
             this.panel1.Controls.Add(this.pendingBreedingPanel);
             this.panel1.Controls.Add(this.farrowingPanel);
             this.panel1.Controls.Add(this.healthrecadd);
@@ -150,6 +157,47 @@
             this.healthrecadd.TabIndex = 56;
             this.healthrecadd.Text = "Reminders";
             // 
+            // expirationPanel
+            // 
+            this.expirationPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.expirationPanel.Controls.Add(this.expirationLbl);
+            this.expirationPanel.Controls.Add(this.checkExp);
+            this.expirationPanel.Controls.Add(this.expirationPb);
+            this.expirationPanel.Location = new System.Drawing.Point(79, 399);
+            this.expirationPanel.Name = "expirationPanel";
+            this.expirationPanel.Size = new System.Drawing.Size(773, 111);
+            this.expirationPanel.TabIndex = 61;
+            // 
+            // expirationLbl
+            // 
+            this.expirationLbl.AutoSize = true;
+            this.expirationLbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expirationLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.expirationLbl.Location = new System.Drawing.Point(467, 31);
+            this.expirationLbl.Name = "expirationLbl";
+            this.expirationLbl.Size = new System.Drawing.Size(86, 23);
+            this.expirationLbl.TabIndex = 59;
+            this.expirationLbl.Text = "Expiration";
+            // 
+            // checkExp
+            // 
+            this.checkExp.AutoSize = true;
+            this.checkExp.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.checkExp.Location = new System.Drawing.Point(121, 31);
+            this.checkExp.Name = "checkExp";
+            this.checkExp.Size = new System.Drawing.Size(307, 41);
+            this.checkExp.TabIndex = 58;
+            this.checkExp.Text = "Check for expirations";
+            // 
+            // expirationPb
+            // 
+            this.expirationPb.Location = new System.Drawing.Point(22, 19);
+            this.expirationPb.Name = "expirationPb";
+            this.expirationPb.Size = new System.Drawing.Size(89, 71);
+            this.expirationPb.TabIndex = 0;
+            this.expirationPb.TabStop = false;
+            // 
             // Reminders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -165,6 +213,9 @@
             this.farrowingPanel.ResumeLayout(false);
             this.farrowingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).EndInit();
+            this.expirationPanel.ResumeLayout(false);
+            this.expirationPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.expirationPb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -181,5 +232,9 @@
         private System.Windows.Forms.Label pendingBreedingLbl;
         private System.Windows.Forms.Label labelPendingBreeding;
         private System.Windows.Forms.PictureBox pendingBreedingPb;
+        private System.Windows.Forms.Panel expirationPanel;
+        private System.Windows.Forms.Label expirationLbl;
+        private System.Windows.Forms.Label checkExp;
+        private System.Windows.Forms.PictureBox expirationPb;
     }
 }
