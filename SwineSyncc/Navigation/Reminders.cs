@@ -206,7 +206,7 @@ namespace SwineSyncc.Navigation
                         int daysLeft = (releaseDate - DateTime.Now.Date).Days;
 
                         releasePigletLbl.Text =
-                            $"Piglet {tag} will be released in {daysLeft} day(s)\n" +
+                            $"Piglet: {tag} will be released in {daysLeft} day(s)\n" +
                             $"Release Date: {releaseDate:MMMM dd, yyyy}";
                     }
                     else
