@@ -33,6 +33,9 @@ namespace SwineSyncc.Navigation
 
             expirationPb.Image = Properties.Resources.ExpirationIcon;
 
+            releasePigletPb.Image = Properties.Resources.ReleaseIcon;
+
+
             farrowingPanel.Click += ReminderFarrowing_Click;
             checkForFarrowingLbl.Click += ReminderFarrowing_Click;
 
