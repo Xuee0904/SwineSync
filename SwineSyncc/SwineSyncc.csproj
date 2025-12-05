@@ -540,5 +540,8 @@
   <ItemGroup>
     <None Include="Resources\PowerIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Book open.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

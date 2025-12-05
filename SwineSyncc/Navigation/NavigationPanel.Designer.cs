@@ -360,7 +360,7 @@
             this.historyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.historyBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.historyBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.historyBtn.Image = global::SwineSyncc.Properties.Resources.HistoryIcon;
+            this.historyBtn.Image = global::SwineSyncc.Properties.Resources.Book_open;
             this.historyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.historyBtn.Location = new System.Drawing.Point(3, 783);
             this.historyBtn.Name = "historyBtn";
