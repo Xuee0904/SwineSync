@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigationPanel));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbLogout = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelPigSubMenu = new System.Windows.Forms.Panel();
@@ -46,6 +47,7 @@
             this.historyBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelPigSubMenu.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +77,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.pbLogout);
             this.panel1.Controls.Add(this.userName);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -83,25 +86,35 @@
             this.panel1.TabIndex = 14;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // pbLogout
+            // 
+            this.pbLogout.Image = global::SwineSyncc.Properties.Resources.PowerIcon;
+            this.pbLogout.Location = new System.Drawing.Point(298, 36);
+            this.pbLogout.Name = "pbLogout";
+            this.pbLogout.Size = new System.Drawing.Size(60, 48);
+            this.pbLogout.TabIndex = 13;
+            this.pbLogout.TabStop = false;
+            // 
             // userName
             // 
             this.userName.AutoSize = true;
             this.userName.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
-            this.userName.Location = new System.Drawing.Point(134, 21);
+            this.userName.Location = new System.Drawing.Point(158, 21);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(75, 38);
             this.userName.TabIndex = 12;
             this.userName.Text = "User";
             this.userName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.userName.Click += new System.EventHandler(this.userName_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::SwineSyncc.Properties.Resources.UserIcon;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(37, 15);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(74, 67);
+            this.pictureBox1.Size = new System.Drawing.Size(62, 52);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
@@ -366,6 +379,7 @@
             this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelPigSubMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -389,5 +403,6 @@
         private ColdChainConnectSystem_ACDP.Materials.CustomButton userManagementBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton remindersBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton historyBtn;
+        private System.Windows.Forms.PictureBox pbLogout;
     }
 }

@@ -186,5 +186,10 @@ namespace SwineSyncc
         {
 
         }
+
+        private void userName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
