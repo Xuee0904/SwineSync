@@ -19,8 +19,6 @@ namespace SwineSyncc.Data
                 conn.Open();
 
                 string query;
-
-                
                 query = @"SELECT B.BreedingID, B.SowID, B.BoarID, Sow.Name AS SowName,
                                 CASE
                                     WHEN B.BreedingMethod = 'Artificial Insemination' THEN NULL
@@ -57,33 +55,6 @@ namespace SwineSyncc.Data
             }
 
             return null;
-        }
-
-        public void UpdateBreeding(int breedingId, int sowId, int boarId, string breedingMethod, DateTime breedingDate, string result)
-        {
-            using (SqlConnection conn = DBConnection.Instance.GetConnection())
-            {
-                conn.Open();
-
-                string query = @"
-                UPDATE BreedingRecords
-                SET SowID = @SowID,
-                    BoarID = @BoarID,
-                    BreedingMethod = @BreedingMethod,
-                    BreedingDate = @BreedingDate,
-                    Result = @Result
-                WHERE BreedingID = @BreedingID";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@BreedingID", breedingId);
-                cmd.Parameters.AddWithValue("@SowID", sowId);
-                cmd.Parameters.AddWithValue("@BoarID", boarId);
-                cmd.Parameters.AddWithValue("@BreedingMethod", breedingMethod);
-                cmd.Parameters.AddWithValue("@BreedingDate", breedingDate);
-                cmd.Parameters.AddWithValue("@Result", result);
-
-                cmd.ExecuteNonQuery();
-            }
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using SwineSyncc.Data;
 using SwineSyncc.Navigation.BreedingRecords;
+using SwineSyncc.Navigation.PregnancyRecords;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -287,6 +288,17 @@ namespace SwineSyncc.Navigation
                 if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
 
                 using (var editForm = new EditBreeding(id))
+                {
+                    if (editForm.ShowDialog() == DialogResult.OK)
+                        LoadTable();
+                }
+            }
+            if (currentTable == "PregnancyRecords")
+            {
+                var raw = row.Cells["PregnancyID"]?.Value;
+                if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
+
+                using (var editForm = new EditPregnancy(id))
                 {
                     if (editForm.ShowDialog() == DialogResult.OK)
                         LoadTable();

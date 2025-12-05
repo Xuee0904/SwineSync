@@ -351,9 +351,6 @@ namespace SwineSyncc.Navigation.BreedingRecords
 
             ClearFields();
             this.Close();
-
-
-
         }
     }
 }
