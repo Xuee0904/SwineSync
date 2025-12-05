@@ -24,6 +24,7 @@ namespace SwineSyncc.Navigation.Pig_Management
             this.Dock = DockStyle.Fill;
 
             togglePicBox.Image = Properties.Resources.PigNose;
+            toolToggleProfile.SetToolTip(togglePicBox, "Switch to profile mode");
 
             displaySowTable = new SwineSyncTable();
             displayBoarTable = new SwineSyncTable();

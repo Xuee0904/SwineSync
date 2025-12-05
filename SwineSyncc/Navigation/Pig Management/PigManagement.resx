@@ -121,7 +121,7 @@
   <data name="togglePicBox.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAANdJREFUaEPt2TFqRDEUxVDvf1kJs64MKX5jQnym0issuJ2ecO+1LpfLp7zWWj/D
+        DwAACw8BkvkDpQAAANdJREFUaEPt2TFqRDEUxVDvf1kJs64MKX5jQnym0issuJ2ecO+1LpfLp7zWWj/D
         970/+i/2o6k7wiKS9VhEsh6LSNZjEcl6LCJZj0Uk67GIZD0WkazHIpL1WESyHotI1nvE6TuyH0zdERaR
         rMcikvVYRLIei0jWYxHJeiwiWY9FJOuxiGQ9FpGsxyKS9VhEsh6LSNZ7xOk7sh9M3REWkazHIpL1WESy
         HotI1mMRyXosIlmPRSTrsYhkPRaRrMcikvVYRLLeI07fkd/P+P1o2r72R18ul/95A32sGRS3Av1YAAAA
@@ -140,4 +140,7 @@
         6wUAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="toolTableToggle.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
