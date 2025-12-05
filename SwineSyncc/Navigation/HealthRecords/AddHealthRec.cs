@@ -17,11 +17,29 @@ namespace SwineSyncc.Navigation
     public partial class AddHealthRec : UserControl
     {
         public event EventHandler CancelClicked;
+
+
+        public event EventHandler SaveCompleted;
+
+
         public AddHealthRec()
         {
             InitializeComponent();
 
+
+            HealthRepository.PopulatePigComboBox(comboHealthPigName);
+            comboHealthPigName.DisplayMember = "DisplayText"; 
+            comboHealthPigName.SelectedIndex = 0;
+
+            this.Dock = DockStyle.Fill;
+            this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(addHealthRecPanel, 40);
+
+            this.BackColor = Color.WhiteSmoke;
+            addHealthRecPanel.BackColor = Color.FromArgb(217, 221, 220);
+
             PopulatePigComboBox();
+
 
             buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
             buttonGroup1.ClearClicked += (s, e) => ClearFields();
@@ -85,15 +103,57 @@ namespace SwineSyncc.Navigation
         }
 
         private void SaveHandler(object sender, EventArgs e)
-        {
-            if (comboHealthPigName.SelectedItem is PigComboDetails selectedPigItem)
+        {           
+         
+            if (comboHealthPigName.SelectedItem == null)
             {
-                if (selectedPigItem.PigID == null && selectedPigItem.PigletID == null)
-                {
-                    MessageBox.Show("Please select a valid pig or piglet.", "Validation Error",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                MessageBox.Show("Please select a pig or piglet.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboHealthPigName.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(conditionTxt.Text))
+            {
+                MessageBox.Show("Condition field is required.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                conditionTxt.Focus();
+                return;
+            }
+    
+            if (string.IsNullOrWhiteSpace(treatmentTxt.Text))
+            {
+                MessageBox.Show("Treatment field is required.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                treatmentTxt.Focus();
+                return;
+            }
+         
+            if (string.IsNullOrWhiteSpace(vetNameTxt.Text))
+            {
+                MessageBox.Show("Vet Name is required.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                vetNameTxt.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(notesTxt.Text))
+            {
+                MessageBox.Show("Notes field is required.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                notesTxt.Focus();
+                return;
+            }
+
+            if (dtCheckUp.Value > DateTime.Now)
+            {
+                MessageBox.Show("Checkup date cannot be in the future.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtCheckUp.Focus();
+                return;
+            }
+
+            var selectedPigItem = comboHealthPigName.SelectedItem as PigComboDetails;
 
                 int? pigIDToSave = selectedPigItem.PigID;
                 int? pigletIDToSave = selectedPigItem.PigletID;
@@ -104,8 +164,10 @@ namespace SwineSyncc.Navigation
                 string vetName = vetNameTxt.Text;
                 string notes = notesTxt.Text;
 
-                string query = @"INSERT INTO HealthRecords (PigID, PigletID, CheckupDate, Condition, Treatment, VetName, Notes)
-                            VALUES (@PigID, @PigletID, @Date, @Condition, @Treatment, @VetName, @Notes);";
+            string query = @"INSERT INTO HealthRecords 
+            (PigID, PigletID, CheckupDate, Condition, Treatment, VetName, Notes)
+            VALUES (@PigID, @PigletID, @Date, @Condition, @Treatment, @VetName, @Notes);";
+
 
                 using (SqlConnection conn = DBConnection.Instance.GetConnection())
                 {
@@ -113,7 +175,6 @@ namespace SwineSyncc.Navigation
                     {
                         cmd.Parameters.AddWithValue("@PigID", pigIDToSave.HasValue ? (object)pigIDToSave.Value : DBNull.Value);
                         cmd.Parameters.AddWithValue("@PigletID", pigletIDToSave.HasValue ? (object)pigletIDToSave.Value : DBNull.Value);
-
                         cmd.Parameters.AddWithValue("@Date", checkUpDate);
                         cmd.Parameters.AddWithValue("@Condition", condition);
                         cmd.Parameters.AddWithValue("@Treatment", treatment);
@@ -140,7 +201,8 @@ namespace SwineSyncc.Navigation
                         {
                             MessageBox.Show($"Database Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }
+
+                    
                 }
             }
         }
