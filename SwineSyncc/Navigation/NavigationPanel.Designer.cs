@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigationPanel));
+            this.toolLogout = new System.Windows.Forms.ToolTip(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbLogout = new System.Windows.Forms.PictureBox();
@@ -46,7 +47,6 @@
             this.userManagementBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.remindersBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.historyBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
-            this.toolLogout = new System.Windows.Forms.ToolTip(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
@@ -91,9 +91,9 @@
             // pbLogout
             // 
             this.pbLogout.Image = global::SwineSyncc.Properties.Resources.PowerIcon;
-            this.pbLogout.Location = new System.Drawing.Point(295, 33);
+            this.pbLogout.Location = new System.Drawing.Point(299, 16);
             this.pbLogout.Name = "pbLogout";
-            this.pbLogout.Size = new System.Drawing.Size(60, 48);
+            this.pbLogout.Size = new System.Drawing.Size(48, 53);
             this.pbLogout.TabIndex = 13;
             this.pbLogout.TabStop = false;
             this.pbLogout.Click += new System.EventHandler(this.pbLogout_Click);
@@ -103,7 +103,7 @@
             this.userName.AutoSize = true;
             this.userName.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.Location = new System.Drawing.Point(158, 21);
+            this.userName.Location = new System.Drawing.Point(141, 21);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(75, 38);
             this.userName.TabIndex = 12;
@@ -114,13 +114,14 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::SwineSyncc.Properties.Resources.UserIcon;
+            this.pictureBox1.BackgroundImage = global::SwineSyncc.Properties.Resources.profile;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 52);
+            this.pictureBox1.Size = new System.Drawing.Size(71, 66);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // dashboardBtn
             // 

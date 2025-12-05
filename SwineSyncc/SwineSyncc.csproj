@@ -552,5 +552,17 @@
   <ItemGroup>
     <None Include="Resources\Book open.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
