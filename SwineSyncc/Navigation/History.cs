@@ -29,7 +29,7 @@ namespace SwineSyncc.Navigation
             pnlDeletedPigs.Controls.Add(displayDeletedPigs);
             displayDeletedPiglets.Dock = DockStyle.Fill;
             displayDeletedPiglets.SetTableQuery("DeletedPiglets");
-            pnlDeletedPiglets.Controls.Add(displayDeletedPigs);
+            pnlDeletedPiglets.Controls.Add(displayDeletedPiglets);
         }
 
         
