@@ -118,6 +118,9 @@ namespace SwineSyncc
         {
             userManagementBtn.Visible = false;
             userManagementBtn.Enabled = false;
+
+            historyBtn.Visible = false;
+            historyBtn.Enabled = false;
         }       
 
         private void pigManagementBtn_Click(object sender, EventArgs e)
@@ -173,12 +176,7 @@ namespace SwineSyncc
         {
             SetActiveButton(dashboardBtn);
             DashboardClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void transactionsBtn_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        }      
 
         private void historyBtn_Click(object sender, EventArgs e)
         {
@@ -222,6 +220,11 @@ namespace SwineSyncc
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

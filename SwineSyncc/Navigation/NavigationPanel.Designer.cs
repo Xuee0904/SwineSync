@@ -43,7 +43,6 @@
             this.pregnancyRecordsBtn = new IconRoundedButton();
             this.breedingRecordsBtn = new IconRoundedButton();
             this.inventoryBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
-            this.transactionsBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.userManagementBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.remindersBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.historyBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
@@ -63,7 +62,6 @@
             this.flowLayoutPanel1.Controls.Add(this.pigManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.panelPigSubMenu);
             this.flowLayoutPanel1.Controls.Add(this.inventoryBtn);
-            this.flowLayoutPanel1.Controls.Add(this.transactionsBtn);
             this.flowLayoutPanel1.Controls.Add(this.userManagementBtn);
             this.flowLayoutPanel1.Controls.Add(this.remindersBtn);
             this.flowLayoutPanel1.Controls.Add(this.historyBtn);
@@ -75,6 +73,7 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(369, 886);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // panel1
             // 
@@ -272,31 +271,6 @@
             this.inventoryBtn.UseVisualStyleBackColor = false;
             this.inventoryBtn.Click += new System.EventHandler(this.inventoryBtn_Click_1);
             // 
-            // transactionsBtn
-            // 
-            this.transactionsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.transactionsBtn.BackgroundColor = System.Drawing.Color.Transparent;
-            this.transactionsBtn.BorderColor = System.Drawing.Color.Transparent;
-            this.transactionsBtn.BorderRadius = 0;
-            this.transactionsBtn.BorderSize = 0;
-            this.transactionsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.transactionsBtn.FlatAppearance.BorderSize = 0;
-            this.transactionsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.transactionsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.transactionsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.transactionsBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
-            this.transactionsBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.transactionsBtn.Image = global::SwineSyncc.Properties.Resources.Mask_group__4_;
-            this.transactionsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.transactionsBtn.Location = new System.Drawing.Point(3, 555);
-            this.transactionsBtn.Name = "transactionsBtn";
-            this.transactionsBtn.Size = new System.Drawing.Size(366, 70);
-            this.transactionsBtn.TabIndex = 35;
-            this.transactionsBtn.Text = "Transaction";
-            this.transactionsBtn.TextColor = System.Drawing.Color.WhiteSmoke;
-            this.transactionsBtn.UseVisualStyleBackColor = false;
-            this.transactionsBtn.Click += new System.EventHandler(this.transactionsBtn_Click_1);
-            // 
             // userManagementBtn
             // 
             this.userManagementBtn.BackColor = System.Drawing.Color.Transparent;
@@ -313,7 +287,7 @@
             this.userManagementBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.userManagementBtn.Image = global::SwineSyncc.Properties.Resources.User_management2;
             this.userManagementBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userManagementBtn.Location = new System.Drawing.Point(3, 631);
+            this.userManagementBtn.Location = new System.Drawing.Point(3, 555);
             this.userManagementBtn.Name = "userManagementBtn";
             this.userManagementBtn.Size = new System.Drawing.Size(366, 70);
             this.userManagementBtn.TabIndex = 36;
@@ -338,7 +312,7 @@
             this.remindersBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.remindersBtn.Image = global::SwineSyncc.Properties.Resources.notifications__1_;
             this.remindersBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.remindersBtn.Location = new System.Drawing.Point(3, 707);
+            this.remindersBtn.Location = new System.Drawing.Point(3, 631);
             this.remindersBtn.Name = "remindersBtn";
             this.remindersBtn.Size = new System.Drawing.Size(366, 70);
             this.remindersBtn.TabIndex = 37;
@@ -363,7 +337,7 @@
             this.historyBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.historyBtn.Image = global::SwineSyncc.Properties.Resources.Book_open;
             this.historyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.historyBtn.Location = new System.Drawing.Point(3, 783);
+            this.historyBtn.Location = new System.Drawing.Point(3, 707);
             this.historyBtn.Name = "historyBtn";
             this.historyBtn.Size = new System.Drawing.Size(366, 70);
             this.historyBtn.TabIndex = 38;
@@ -404,7 +378,6 @@
         private ColdChainConnectSystem_ACDP.Materials.CustomButton dashboardBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton pigManagementBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton inventoryBtn;
-        private ColdChainConnectSystem_ACDP.Materials.CustomButton transactionsBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton userManagementBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton remindersBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton historyBtn;
