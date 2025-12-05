@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using SwineSyncc.Data;
 using SwineSyncc.DynamicButtonLoader;
+using SwineSyncc.Login;
 using SwineSyncc.Navigation.Pig_Management;
 
 namespace SwineSyncc.Navigation
@@ -31,6 +32,16 @@ namespace SwineSyncc.Navigation
             RoundedPanelStyle.ApplyRoundedCorners(pigDetailsPanel, 20);
             pigDetailsPanel.BackColor = System.Drawing.Color.FromArgb(217, 221, 220);
             this.Padding = new Padding(40);
+
+            ApplyAccessLevel();
+        }
+
+        private void ApplyAccessLevel()
+        {
+            if (Session.Role == "Assistant")
+            {
+                deletePigletBtn.Visible = false;
+            }
         }
 
         public void DisplayPigDetails(int id, string name, string breed, string sex, DateTime birthdate, int weight, string status)
@@ -72,6 +83,7 @@ namespace SwineSyncc.Navigation
                 btnEdit.Visible = false;       
                 editBtnMale.Visible = true;    
             }
+            ApplyAccessLevel();
         }
         
         private void LoadPiglets()

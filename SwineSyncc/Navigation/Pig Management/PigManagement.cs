@@ -35,7 +35,7 @@ namespace SwineSyncc
         {
             if (Session.Role == "Assistant")
             {
-                btnDeletePig.Visible = false;  // Hide delete button
+                btnDeletePig.Visible = false;  
             }
         }
 
