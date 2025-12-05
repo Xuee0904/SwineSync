@@ -83,6 +83,9 @@ namespace SwineSyncc.Navigation
            descriptionTxt.Clear();
         }
 
+        private void buttonGroup1_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
