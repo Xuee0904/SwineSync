@@ -165,10 +165,20 @@ namespace SwineSyncc.Navigation
                 {
                     var repo = new PigletRepository();
 
+                    int deletedCount = 0;
+                    int healthBlockedCount = 0;
+
+
                     foreach (int id in _selectedPigletIds)
                     {
                         Piglet piglet = repo.GetPigletById(id);
                         string tag = piglet != null ? piglet.TagNumber : "Unknown Tag";
+
+                        if (repo.PigletHasHealthRecords(id))
+                        {
+                            healthBlockedCount++;
+                            continue;
+                        }
 
                         repo.SafeDeletePiglet(id);
                       
@@ -182,8 +192,19 @@ namespace SwineSyncc.Navigation
                         );
                     }
 
+                    string summary = "";
 
-                    MessageBox.Show("Piglet deletion successful!");
+                    if (deletedCount > 0)
+                        summary += $"Successfully deleted {deletedCount} piglet(s).\n";
+
+                    if (healthBlockedCount > 0)
+                        summary += $"{healthBlockedCount} piglet(s) were NOT deleted because they have health records.\n";
+
+                    if (summary == "")
+                        summary = "No piglets were deleted.";
+
+                    MessageBox.Show(summary, "Deletion Summary", MessageBoxButtons.OK);
+
                 }
 
                 _isDeleteMode = false;
