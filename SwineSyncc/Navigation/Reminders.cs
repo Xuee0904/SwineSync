@@ -44,6 +44,7 @@ namespace SwineSyncc.Navigation
             LoadNearestFarrowing();
             LoadPendingBreedingReminder();
             LoadNearestExpiration();
+            LoadPigletReleaseReminder();
         }
 
         private void ReminderFarrowing_Click(object sender, EventArgs e)
@@ -181,6 +182,41 @@ namespace SwineSyncc.Navigation
             }
         }
 
+        private void LoadPigletReleaseReminder()
+        {
+            string query = @"
+                        SELECT TOP 1
+                        T.TagNumber,
+                        DATEADD(DAY, 21, T.Birthdate) AS ReleaseDate
+                        FROM Piglets T
+                        WHERE DATEADD(DAY, 21, T.Birthdate) >= CAST(GETDATE() AS DATE)
+                        ORDER BY ReleaseDate ASC;
+                     ";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string tag = reader["TagNumber"].ToString();
+                        DateTime releaseDate = Convert.ToDateTime(reader["ReleaseDate"]);
+                        int daysLeft = (releaseDate - DateTime.Now.Date).Days;
+
+                        releasePigletLbl.Text =
+                            $"Piglet {tag} will be released in {daysLeft} day(s)\n" +
+                            $"Release Date: {releaseDate:MMMM dd, yyyy}";
+                    }
+                    else
+                    {
+                        releasePigletLbl.Text = "No upcoming piglet release dates.";
+                    }
+                }
+            }
+        }
+
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
@@ -190,6 +226,7 @@ namespace SwineSyncc.Navigation
                 LoadNearestFarrowing();
                 LoadPendingBreedingReminder();
                 LoadNearestExpiration();
+                LoadPigletReleaseReminder();
             }
         }
 

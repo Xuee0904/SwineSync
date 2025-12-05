@@ -81,7 +81,7 @@
             this.expirationPanel.Location = new System.Drawing.Point(79, 399);
             this.expirationPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.expirationPanel.Name = "expirationPanel";
-            this.expirationPanel.Size = new System.Drawing.Size(799, 112);
+            this.expirationPanel.Size = new System.Drawing.Size(865, 112);
             this.expirationPanel.TabIndex = 61;
             // 
             // expirationLbl
@@ -124,7 +124,7 @@
             this.pendingBreedingPanel.Location = new System.Drawing.Point(79, 265);
             this.pendingBreedingPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pendingBreedingPanel.Name = "pendingBreedingPanel";
-            this.pendingBreedingPanel.Size = new System.Drawing.Size(799, 112);
+            this.pendingBreedingPanel.Size = new System.Drawing.Size(865, 112);
             this.pendingBreedingPanel.TabIndex = 60;
             // 
             // pendingBreedingLbl
@@ -167,7 +167,7 @@
             this.farrowingPanel.Location = new System.Drawing.Point(79, 127);
             this.farrowingPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.farrowingPanel.Name = "farrowingPanel";
-            this.farrowingPanel.Size = new System.Drawing.Size(799, 112);
+            this.farrowingPanel.Size = new System.Drawing.Size(865, 112);
             this.farrowingPanel.TabIndex = 57;
             // 
             // farrowingLbl
@@ -221,7 +221,7 @@
             this.releasePigletPanel.Location = new System.Drawing.Point(79, 535);
             this.releasePigletPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.releasePigletPanel.Name = "releasePigletPanel";
-            this.releasePigletPanel.Size = new System.Drawing.Size(799, 112);
+            this.releasePigletPanel.Size = new System.Drawing.Size(865, 112);
             this.releasePigletPanel.TabIndex = 62;
             // 
             // releasePigletLbl
