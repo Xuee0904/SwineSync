@@ -45,7 +45,7 @@
             this.releasePigletPanel = new System.Windows.Forms.Panel();
             this.releasePigletLbl = new System.Windows.Forms.Label();
             this.releasePigletIn = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.releasePigletPb = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.expirationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expirationPb)).BeginInit();
@@ -54,7 +54,7 @@
             this.farrowingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).BeginInit();
             this.releasePigletPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.releasePigletPb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -217,7 +217,7 @@
             this.releasePigletPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.releasePigletPanel.Controls.Add(this.releasePigletLbl);
             this.releasePigletPanel.Controls.Add(this.releasePigletIn);
-            this.releasePigletPanel.Controls.Add(this.pictureBox1);
+            this.releasePigletPanel.Controls.Add(this.releasePigletPb);
             this.releasePigletPanel.Location = new System.Drawing.Point(79, 535);
             this.releasePigletPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.releasePigletPanel.Name = "releasePigletPanel";
@@ -246,14 +246,14 @@
             this.releasePigletIn.TabIndex = 58;
             this.releasePigletIn.Text = "Release piglet in";
             // 
-            // pictureBox1
+            // releasePigletPb
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(21, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(89, 71);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.releasePigletPb.Location = new System.Drawing.Point(21, 18);
+            this.releasePigletPb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.releasePigletPb.Name = "releasePigletPb";
+            this.releasePigletPb.Size = new System.Drawing.Size(89, 71);
+            this.releasePigletPb.TabIndex = 0;
+            this.releasePigletPb.TabStop = false;
             // 
             // Reminders
             // 
@@ -276,7 +276,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).EndInit();
             this.releasePigletPanel.ResumeLayout(false);
             this.releasePigletPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.releasePigletPb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -300,6 +300,6 @@
         private System.Windows.Forms.Panel releasePigletPanel;
         private System.Windows.Forms.Label releasePigletLbl;
         private System.Windows.Forms.Label releasePigletIn;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox releasePigletPb;
     }
 }
