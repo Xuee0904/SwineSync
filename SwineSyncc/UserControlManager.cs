@@ -344,6 +344,8 @@ namespace SwineSyncc
                 _inventoryUC.AddItemClicked += (s, e) => LoadInventoryAddItem();
 
             }
+
+            _inventoryUC.TableRefresh();
             ShowUserControl(_inventoryUC);
         }
 
@@ -355,6 +357,7 @@ namespace SwineSyncc
 
             addInventoryItem.SaveCompleted += (s, e) =>
             {
+                _inventoryUC.TableRefresh();
                 ShowUserControl(_inventoryUC);
             };
 

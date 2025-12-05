@@ -19,13 +19,26 @@ namespace SwineSyncc.Navigation.Inventory
         public InventoryRecords()
         {
             InitializeComponent();
+
+            TableRefresh();
         }
 
         private void Inventory_Load(object sender, EventArgs e)
         {
+            LoadTableData();
+        }
+
+        public void TableRefresh()
+        {
+            LoadTableData();
+        }
+
+        private void LoadTableData()
+        {
             displayTable = new SwineSyncTable();
             displayTable.SetTableQuery("Inventory");
             displayTable.Dock = DockStyle.Fill;
+            pnlInventory.Controls.Clear();
             pnlInventory.Controls.Add(displayTable);
         }
 
