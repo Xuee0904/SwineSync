@@ -33,8 +33,36 @@ namespace SwineSyncc.Navigation
 
         private void SaveHandler(object sender, EventArgs e)
         {
-            string product = comboProduct.SelectedItem?.ToString();
-            int quantity = int.Parse(quantityTxt.Text);
+
+            if (comboProduct.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a product.", "Validation Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(quantityTxt.Text))
+            {
+                MessageBox.Show("Quantity is required.", "Validation Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(quantityTxt.Text, out int quantity) || quantity <= 0)
+            {
+                MessageBox.Show("Quantity must be a positive number.", "Validation Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dtExpirationDate.Value < dtRecordDate.Value)
+            {
+                MessageBox.Show("Expiration date cannot be earlier than the record date.",
+                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string product = comboProduct.SelectedItem.ToString();
             DateTime recordDate = dtRecordDate.Value;
             DateTime expirationDate = dtExpirationDate.Value;
             string description = descriptionTxt.Text.Trim();
@@ -43,8 +71,9 @@ namespace SwineSyncc.Navigation
             {
                 using (SqlConnection conn = DBConnection.Instance.GetConnection())
                 {
-                    string query = @"INSERT INTO Inventory (ProductType, Quantity, RecordDate, ExpirationDate, Description)
-                         VALUES (@ProductType, @Quantity, @RecordDate, @ExpirationDate, @Description)";
+                    string query = @"INSERT INTO Inventory
+                             (ProductType, Quantity, RecordDate, ExpirationDate, Description)
+                             VALUES (@ProductType, @Quantity, @RecordDate, @ExpirationDate, @Description)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -55,24 +84,24 @@ namespace SwineSyncc.Navigation
                         cmd.Parameters.AddWithValue("@Description", description);
 
                         conn.Open();
-
                         cmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Item added successfully!", "Success",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        SaveCompleted?.Invoke(this, EventArgs.Empty);
-                        ClearFields();
                     }
                 }
+
+                MessageBox.Show("Item added successfully!", "Success",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                SaveCompleted?.Invoke(this, EventArgs.Empty);
+                ClearFields();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database Error: " + ex.Message, "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
         }
+
+
 
         private void ClearFields()
         {

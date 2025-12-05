@@ -16,5 +16,10 @@ namespace SwineSyncc.Navigation.HealthRecords
         {
             InitializeComponent();
         }
+
+        private void buttonGroup1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

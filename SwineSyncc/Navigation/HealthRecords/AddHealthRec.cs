@@ -165,7 +165,9 @@ namespace SwineSyncc.Navigation
             dtCheckUp.Value = DateTime.Now;
         }
 
+        private void buttonGroup1_Load(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
