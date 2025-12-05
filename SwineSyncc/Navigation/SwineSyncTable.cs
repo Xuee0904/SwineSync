@@ -70,40 +70,42 @@ namespace SwineSyncc.Navigation
                 this.tableQuery = @"SELECT * FROM Piglets";
             else if (tableName == "BreedingRecords")
                 this.tableQuery = @"SELECT b.BreedingID, pSow.Name AS SowName,
-                                    CASE 
-                                        WHEN LOWER(b.BreedingMethod) LIKE '%artificial insemination%' 
-                                             THEN 'NULL' 
-                                        ELSE pBoar.Name 
-                                    END AS BoarName, b.BreedingMethod, b.BreedingDate, b.Result
-                                    FROM BreedingRecords b
-                                    LEFT JOIN Pigs pSow ON b.SowID = pSow.PigID
-                                    LEFT JOIN Pigs pBoar ON b.BoarID = pBoar.PigID
-                                    ORDER BY b.BreedingID;";
+                        CASE 
+                            WHEN LOWER(b.BreedingMethod) LIKE '%artificial insemination%' 
+                                 THEN 'NULL' z
+                            ELSE pBoar.Name 
+                        END AS BoarName, b.BreedingMethod, b.BreedingDate, b.Result
+                        FROM BreedingRecords b
+                        LEFT JOIN Pigs pSow ON b.SowID = pSow.PigID
+                        LEFT JOIN Pigs pBoar ON b.BoarID = pBoar.PigID
+                        WHERE b.FlagDeleted = 0
+                        ORDER BY b.BreedingID;";
             else if (tableName == "PregnancyRecords")
-                this.tableQuery = @"SELECT P.PregnancyID, PSow.Name, P.BreedingID,  P.ConfirmationDate, P.ExpectedFarrowingDate
-                FROM PregnancyRecords AS P
-                LEFT JOIN Pigs AS PSow ON P.PregnantPigID = PSow.PigID";
+                this.tableQuery = @"SELECT P.PregnancyID, PSow.Name, P.BreedingID, P.ConfirmationDate, P.ExpectedFarrowingDate
+                        FROM PregnancyRecords AS P
+                        LEFT JOIN Pigs AS PSow ON P.PregnantPigID = PSow.PigID
+                        WHERE P.FlagDeleted = 0";
             else if (tableName == "Inventory")
-                this.tableQuery = @"SELECT * FROM Inventory";
+                this.tableQuery = @"SELECT * FROM Inventory WHERE FlagDeleted = 0";
             else if (tableName == "HealthRecords")
                 this.tableQuery = @"SELECT
-                H.HealthRecordID,
-                P.Name AS PigName,
-                CASE
-                    WHEN H.PigletID IS NOT NULL THEN
-                        PL.TagNumber + ' (Mother: ' + ISNULL(MP.Name, 'Unknown') + ')'
-                    ELSE NULL
-                END AS PigletTagWithMother,
-                H.CheckupDate,
-                H.Condition,
-                H.Treatment,
-                H.VetName,
-                H.Notes
-                FROM dbo.HealthRecords AS H
-                LEFT JOIN dbo.Pigs    AS P  ON H.PigID    = P.PigID
-                LEFT JOIN dbo.Piglets AS PL ON H.PigletID = PL.PigletID
-                LEFT JOIN dbo.Pigs    AS MP ON PL.MotherPigID = MP.PigID;
-                ";
+                        H.HealthRecordID,
+                        P.Name AS PigName,
+                        CASE
+                            WHEN H.PigletID IS NOT NULL THEN
+                                PL.TagNumber + ' (Mother: ' + ISNULL(MP.Name, 'Unknown') + ')'
+                            ELSE NULL
+                        END AS PigletTagWithMother,
+                        H.CheckupDate,
+                        H.Condition,
+                        H.Treatment,
+                        H.VetName,
+                        H.Notes
+                        FROM dbo.HealthRecords AS H
+                        LEFT JOIN dbo.Pigs    AS P  ON H.PigID    = P.PigID
+                        LEFT JOIN dbo.Piglets AS PL ON H.PigletID = PL.PigletID
+                        LEFT JOIN dbo.Pigs    AS MP ON PL.MotherPigID = MP.PigID
+                        WHERE H.FlagDeleted = 0;";
             else
                 this.tableQuery = "SELECT * FROM " + tableName;
 
@@ -350,29 +352,63 @@ namespace SwineSyncc.Navigation
 
         private void HandleDeleteClick(int rowIndex, string currentTable)
         {
-            if(currentTable == "BreedingRecords")
+            var row = dataGridView1.Rows[rowIndex];
+            if (row.IsNewRow) return;
+
+            string idColumn = null;
+            string tableNameSql = null;
+
+            // Determine which table and ID column to use
+            if (currentTable == "BreedingRecords")
             {
-                var row = dataGridView1.Rows[rowIndex];
-                if (row.IsNewRow) return;
-                var raw = row.Cells["BreedingID"]?.Value;
-                if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
+                idColumn = "BreedingID";
+                tableNameSql = "BreedingRecords";
+            }
+            else if (currentTable == "PregnancyRecords")
+            {
+                idColumn = "PregnancyID";
+                tableNameSql = "PregnancyRecords";
+            }
+            else if (currentTable == "HealthRecords")
+            {
+                idColumn = "HealthRecordID";
+                tableNameSql = "HealthRecords";
+            }
+            else
+            {
+                return; // not a deletable table
+            }
 
-                var result = MessageBox.Show($"Delete record {id}?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result != DialogResult.Yes) return;
+            var raw = row.Cells[idColumn]?.Value;
+            if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
 
+            var result = MessageBox.Show($"Delete record {id}?", "Confirm delete",
+                                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result != DialogResult.Yes) return;
+
+            try
+            {
                 using (var conn = DBConnection.Instance.GetConnection())
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "DELETE FROM BreedingRecords WHERE BreedingID = @id";
+                    cmd.CommandText = $"UPDATE {tableNameSql} SET FlagDeleted = 1 WHERE {idColumn} = @id";
                     cmd.Parameters.AddWithValue("@id", id);
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    conn.Close();
                 }
+
+                MessageBox.Show("Record flagged as deleted.", "Deleted",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting record: " + ex.Message, "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             LoadTable();
         }
+
 
         #endregion
 
