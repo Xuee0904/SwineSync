@@ -530,5 +530,8 @@
   <ItemGroup>
     <None Include="Resources\PregnancyIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExpirationIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

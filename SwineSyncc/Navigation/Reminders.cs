@@ -24,10 +24,13 @@ namespace SwineSyncc.Navigation
             this.BackColor = Color.WhiteSmoke;
 
             farrowingPanel.BackColor = Color.FromArgb(240, 237, 232);
+
             farrowingPb.Image = Properties.Resources.PigReminder;
 
 
             pendingBreedingPb.Image = Properties.Resources.PendingIcon;
+
+            expirationPb.Image = Properties.Resources.ExpirationIcon;
 
             farrowingPanel.Click += ReminderFarrowing_Click;
             checkForFarrowingLbl.Click += ReminderFarrowing_Click;

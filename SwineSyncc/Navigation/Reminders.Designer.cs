@@ -32,23 +32,23 @@
             this.pendingBreedingPanel = new System.Windows.Forms.Panel();
             this.pendingBreedingLbl = new System.Windows.Forms.Label();
             this.labelPendingBreeding = new System.Windows.Forms.Label();
-            this.pendingBreedingPb = new System.Windows.Forms.PictureBox();
             this.farrowingPanel = new System.Windows.Forms.Panel();
             this.farrowingLbl = new System.Windows.Forms.Label();
             this.checkForFarrowingLbl = new System.Windows.Forms.Label();
-            this.farrowingPb = new System.Windows.Forms.PictureBox();
             this.healthrecadd = new System.Windows.Forms.Label();
             this.expirationPanel = new System.Windows.Forms.Panel();
             this.expirationLbl = new System.Windows.Forms.Label();
             this.checkExp = new System.Windows.Forms.Label();
             this.expirationPb = new System.Windows.Forms.PictureBox();
+            this.pendingBreedingPb = new System.Windows.Forms.PictureBox();
+            this.farrowingPb = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.pendingBreedingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pendingBreedingPb)).BeginInit();
             this.farrowingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).BeginInit();
             this.expirationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expirationPb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingBreedingPb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,7 +72,7 @@
             this.pendingBreedingPanel.Controls.Add(this.pendingBreedingPb);
             this.pendingBreedingPanel.Location = new System.Drawing.Point(79, 265);
             this.pendingBreedingPanel.Name = "pendingBreedingPanel";
-            this.pendingBreedingPanel.Size = new System.Drawing.Size(773, 111);
+            this.pendingBreedingPanel.Size = new System.Drawing.Size(800, 111);
             this.pendingBreedingPanel.TabIndex = 60;
             // 
             // pendingBreedingLbl
@@ -97,14 +97,6 @@
             this.labelPendingBreeding.TabIndex = 58;
             this.labelPendingBreeding.Text = "Pending breeding";
             // 
-            // pendingBreedingPb
-            // 
-            this.pendingBreedingPb.Location = new System.Drawing.Point(22, 19);
-            this.pendingBreedingPb.Name = "pendingBreedingPb";
-            this.pendingBreedingPb.Size = new System.Drawing.Size(89, 71);
-            this.pendingBreedingPb.TabIndex = 0;
-            this.pendingBreedingPb.TabStop = false;
-            // 
             // farrowingPanel
             // 
             this.farrowingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -113,7 +105,7 @@
             this.farrowingPanel.Controls.Add(this.farrowingPb);
             this.farrowingPanel.Location = new System.Drawing.Point(79, 127);
             this.farrowingPanel.Name = "farrowingPanel";
-            this.farrowingPanel.Size = new System.Drawing.Size(773, 111);
+            this.farrowingPanel.Size = new System.Drawing.Size(800, 111);
             this.farrowingPanel.TabIndex = 57;
             // 
             // farrowingLbl
@@ -138,14 +130,6 @@
             this.checkForFarrowingLbl.TabIndex = 58;
             this.checkForFarrowingLbl.Text = "Check for farrowing";
             // 
-            // farrowingPb
-            // 
-            this.farrowingPb.Location = new System.Drawing.Point(22, 19);
-            this.farrowingPb.Name = "farrowingPb";
-            this.farrowingPb.Size = new System.Drawing.Size(89, 71);
-            this.farrowingPb.TabIndex = 0;
-            this.farrowingPb.TabStop = false;
-            // 
             // healthrecadd
             // 
             this.healthrecadd.AutoSize = true;
@@ -165,7 +149,7 @@
             this.expirationPanel.Controls.Add(this.expirationPb);
             this.expirationPanel.Location = new System.Drawing.Point(79, 399);
             this.expirationPanel.Name = "expirationPanel";
-            this.expirationPanel.Size = new System.Drawing.Size(773, 111);
+            this.expirationPanel.Size = new System.Drawing.Size(800, 111);
             this.expirationPanel.TabIndex = 61;
             // 
             // expirationLbl
@@ -198,6 +182,22 @@
             this.expirationPb.TabIndex = 0;
             this.expirationPb.TabStop = false;
             // 
+            // pendingBreedingPb
+            // 
+            this.pendingBreedingPb.Location = new System.Drawing.Point(22, 19);
+            this.pendingBreedingPb.Name = "pendingBreedingPb";
+            this.pendingBreedingPb.Size = new System.Drawing.Size(89, 71);
+            this.pendingBreedingPb.TabIndex = 0;
+            this.pendingBreedingPb.TabStop = false;
+            // 
+            // farrowingPb
+            // 
+            this.farrowingPb.Location = new System.Drawing.Point(22, 19);
+            this.farrowingPb.Name = "farrowingPb";
+            this.farrowingPb.Size = new System.Drawing.Size(89, 71);
+            this.farrowingPb.TabIndex = 0;
+            this.farrowingPb.TabStop = false;
+            // 
             // Reminders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -209,13 +209,13 @@
             this.panel1.PerformLayout();
             this.pendingBreedingPanel.ResumeLayout(false);
             this.pendingBreedingPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pendingBreedingPb)).EndInit();
             this.farrowingPanel.ResumeLayout(false);
             this.farrowingPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).EndInit();
             this.expirationPanel.ResumeLayout(false);
             this.expirationPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expirationPb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingBreedingPb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).EndInit();
             this.ResumeLayout(false);
 
         }
