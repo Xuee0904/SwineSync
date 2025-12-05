@@ -89,7 +89,7 @@
             // pbLogout
             // 
             this.pbLogout.Image = global::SwineSyncc.Properties.Resources.PowerIcon;
-            this.pbLogout.Location = new System.Drawing.Point(298, 36);
+            this.pbLogout.Location = new System.Drawing.Point(295, 33);
             this.pbLogout.Name = "pbLogout";
             this.pbLogout.Size = new System.Drawing.Size(60, 48);
             this.pbLogout.TabIndex = 13;
