@@ -1,7 +1,8 @@
 ﻿using SwineSyncc.Data;
+using SwineSyncc.Login;
 using SwineSyncc.Navigation.BreedingRecords;
-using SwineSyncc.Navigation.PregnancyRecords;
 using SwineSyncc.Navigation.HealthRecords;
+using SwineSyncc.Navigation.PregnancyRecords;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,7 +73,7 @@ namespace SwineSyncc.Navigation
                 this.tableQuery = @"SELECT b.BreedingID, pSow.Name AS SowName,
                         CASE 
                             WHEN LOWER(b.BreedingMethod) LIKE '%artificial insemination%' 
-                                 THEN 'NULL' z
+                                 THEN 'NULL'
                             ELSE pBoar.Name 
                         END AS BoarName, b.BreedingMethod, b.BreedingDate, b.Result
                         FROM BreedingRecords b
@@ -270,11 +271,13 @@ namespace SwineSyncc.Navigation
 
         private void AddEditDeleteColumns()
         {
+            // Check role before adding action columns
+            bool isAdmin = Session.Role == "Admin";
+
             // create padded icons once
             var editIcon = CreatePaddedIcon(Properties.Resources.EditIcon);
             var deleteIcon = CreatePaddedIcon(Properties.Resources.DeleteIcon);
 
-            // ensure row height can fit the icons comfortably
             dataGridView1.RowTemplate.Height = Math.Max(dataGridView1.RowTemplate.Height, IconHeight + IconPadding + 6);
 
             // Edit column
@@ -284,19 +287,21 @@ namespace SwineSyncc.Navigation
                 {
                     Name = "EditCol",
                     HeaderText = "",
-                    Image = editIcon,
-                    ImageLayout = DataGridViewImageCellLayout.Normal, // Normal keeps the padded image centered
+                    Image = isAdmin ? editIcon : null,
+                    ImageLayout = DataGridViewImageCellLayout.Normal,
                     Width = ActionColWidth,
-                    ReadOnly = true
+                    ReadOnly = true,
+                    Visible = isAdmin
                 };
                 dataGridView1.Columns.Add(editCol);
             }
             else
             {
                 var col = (DataGridViewImageColumn)dataGridView1.Columns["EditCol"];
-                col.Image = editIcon;
+                col.Image = isAdmin ? editIcon : null;
                 col.Width = ActionColWidth;
                 col.ImageLayout = DataGridViewImageCellLayout.Normal;
+                col.Visible = isAdmin;
             }
 
             // Delete column
@@ -306,43 +311,50 @@ namespace SwineSyncc.Navigation
                 {
                     Name = "DeleteCol",
                     HeaderText = "",
-                    Image = deleteIcon,
+                    Image = isAdmin ? deleteIcon : null,
                     ImageLayout = DataGridViewImageCellLayout.Normal,
                     Width = ActionColWidth,
-                    ReadOnly = true
+                    ReadOnly = true,
+                    Visible = isAdmin
                 };
                 dataGridView1.Columns.Add(delCol);
             }
             else
             {
                 var col = (DataGridViewImageColumn)dataGridView1.Columns["DeleteCol"];
-                col.Image = deleteIcon;
+                col.Image = isAdmin ? deleteIcon : null;
                 col.Width = ActionColWidth;
                 col.ImageLayout = DataGridViewImageCellLayout.Normal;
+                col.Visible = isAdmin;
             }
 
-            // Add a little cell padding so the icon looks like it's inside a small button
-            if (dataGridView1.Columns.Contains("EditCol"))
+            // Padding and alignment only if visible
+            if (isAdmin && dataGridView1.Columns.Contains("EditCol"))
             {
                 dataGridView1.Columns["EditCol"].DefaultCellStyle.Padding = new Padding(4);
                 dataGridView1.Columns["EditCol"].HeaderCell.Style.Padding = new Padding(4);
                 dataGridView1.Columns["EditCol"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
-            if (dataGridView1.Columns.Contains("DeleteCol"))
+
+            if (isAdmin && dataGridView1.Columns.Contains("DeleteCol"))
             {
                 dataGridView1.Columns["DeleteCol"].DefaultCellStyle.Padding = new Padding(4);
                 dataGridView1.Columns["DeleteCol"].HeaderCell.Style.Padding = new Padding(4);
                 dataGridView1.Columns["DeleteCol"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
-            // Optionally set per-row cell values to ensure consistent rendering
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            // Set per-row icon values only if admin
+            if (isAdmin)
             {
-                if (row.IsNewRow) continue;
-                if (dataGridView1.Columns.Contains("EditCol")) row.Cells["EditCol"].Value = editIcon;
-                if (dataGridView1.Columns.Contains("DeleteCol")) row.Cells["DeleteCol"].Value = deleteIcon;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.IsNewRow) continue;
+                    if (dataGridView1.Columns.Contains("EditCol")) row.Cells["EditCol"].Value = editIcon;
+                    if (dataGridView1.Columns.Contains("DeleteCol")) row.Cells["DeleteCol"].Value = deleteIcon;
+                }
             }
         }
+
 
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
