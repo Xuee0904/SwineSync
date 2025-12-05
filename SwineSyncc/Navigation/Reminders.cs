@@ -16,6 +16,7 @@ namespace SwineSyncc.Navigation
     public partial class Reminders : UserControl
     {
         public event EventHandler FarrowingPanelClicked;
+        public event EventHandler BreedingPanelClicked;
         public Reminders()
         {
             InitializeComponent();
@@ -30,6 +31,9 @@ namespace SwineSyncc.Navigation
             farrowingPanel.Click += ReminderFarrowing_Click;
             checkForFarrowingLbl.Click += ReminderFarrowing_Click;
 
+            pendingBreedingPanel.Click += ReminderPendingBreeding_Click;
+            labelPendingBreeding.Click += ReminderPendingBreeding_Click;
+
 
             LoadNearestFarrowing();
             LoadPendingBreedingReminder();
@@ -38,6 +42,11 @@ namespace SwineSyncc.Navigation
         private void ReminderFarrowing_Click(object sender, EventArgs e)
         {
             FarrowingPanelClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void ReminderPendingBreeding_Click(object sender, EventArgs e)
+        {
+            BreedingPanelClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

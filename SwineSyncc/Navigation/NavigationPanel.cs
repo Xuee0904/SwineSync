@@ -59,6 +59,10 @@ namespace SwineSyncc
             SetActiveButton(pregnancyRecordsBtn);    
         }
 
+        public void TriggerBreedingRecordsClick()
+        {
+            SetActiveButton(breedingRecordsBtn);
+        }
 
 
         private void dashboardBtn_Click(object sender, EventArgs e)

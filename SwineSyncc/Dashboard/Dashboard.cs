@@ -89,6 +89,12 @@ namespace SwineSyncc
                 ucManager.LoadPregnancyRecords();
             };
 
+            reminders.BreedingPanelClicked += (s, e) =>
+            {
+                navigationPanel.TriggerBreedingRecordsClick();
+                ucManager.LoadBreedingRecords();
+            };
+
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(reminders);
             reminders.Dock = DockStyle.Fill;
