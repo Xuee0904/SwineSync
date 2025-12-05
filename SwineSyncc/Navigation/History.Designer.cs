@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.healthrecadd = new System.Windows.Forms.Label();
             this.pnlDeletedPiglets = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.pnlDeletedPigs = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.lblDeletedPiglets = new System.Windows.Forms.Label();
@@ -38,6 +37,7 @@
             this.lblDeletedPigs = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.healthrecadd = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,22 +54,10 @@
             this.panel1.Controls.Add(this.healthrecadd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(952, 878);
+            this.panel1.Size = new System.Drawing.Size(1269, 1081);
             this.panel1.TabIndex = 0;
-            // 
-            // healthrecadd
-            // 
-            this.healthrecadd.AutoSize = true;
-            this.healthrecadd.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.healthrecadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.healthrecadd.Location = new System.Drawing.Point(42, 41);
-            this.healthrecadd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.healthrecadd.Name = "healthrecadd";
-            this.healthrecadd.Size = new System.Drawing.Size(131, 45);
-            this.healthrecadd.TabIndex = 57;
-            this.healthrecadd.Text = "History";
             // 
             // pnlDeletedPiglets
             // 
@@ -79,9 +67,10 @@
             this.pnlDeletedPiglets.GradientAngle = 90F;
             this.pnlDeletedPiglets.GradientBottomColor = System.Drawing.Color.CadetBlue;
             this.pnlDeletedPiglets.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.pnlDeletedPiglets.Location = new System.Drawing.Point(68, 491);
+            this.pnlDeletedPiglets.Location = new System.Drawing.Point(98, 548);
+            this.pnlDeletedPiglets.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlDeletedPiglets.Name = "pnlDeletedPiglets";
-            this.pnlDeletedPiglets.Size = new System.Drawing.Size(788, 264);
+            this.pnlDeletedPiglets.Size = new System.Drawing.Size(1051, 325);
             this.pnlDeletedPiglets.TabIndex = 64;
             // 
             // pnlDeletedPigs
@@ -92,9 +81,10 @@
             this.pnlDeletedPigs.GradientAngle = 90F;
             this.pnlDeletedPigs.GradientBottomColor = System.Drawing.Color.CadetBlue;
             this.pnlDeletedPigs.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.pnlDeletedPigs.Location = new System.Drawing.Point(68, 163);
+            this.pnlDeletedPigs.Location = new System.Drawing.Point(98, 145);
+            this.pnlDeletedPigs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlDeletedPigs.Name = "pnlDeletedPigs";
-            this.pnlDeletedPigs.Size = new System.Drawing.Size(788, 264);
+            this.pnlDeletedPigs.Size = new System.Drawing.Size(1051, 325);
             this.pnlDeletedPigs.TabIndex = 65;
             // 
             // lblDeletedPiglets
@@ -102,9 +92,10 @@
             this.lblDeletedPiglets.AutoSize = true;
             this.lblDeletedPiglets.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeletedPiglets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblDeletedPiglets.Location = new System.Drawing.Point(369, 449);
+            this.lblDeletedPiglets.Location = new System.Drawing.Point(499, 497);
+            this.lblDeletedPiglets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDeletedPiglets.Name = "lblDeletedPiglets";
-            this.lblDeletedPiglets.Size = new System.Drawing.Size(213, 37);
+            this.lblDeletedPiglets.Size = new System.Drawing.Size(260, 46);
             this.lblDeletedPiglets.TabIndex = 63;
             this.lblDeletedPiglets.Text = "Deleted Piglets";
             // 
@@ -112,9 +103,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(513, 453);
+            this.label6.Location = new System.Drawing.Point(691, 502);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(423, 21);
+            this.label6.Size = new System.Drawing.Size(484, 28);
             this.label6.TabIndex = 62;
             this.label6.Text = "___________________________________________________________";
             // 
@@ -122,9 +114,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(16, 452);
+            this.label7.Location = new System.Drawing.Point(28, 500);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(423, 21);
+            this.label7.Size = new System.Drawing.Size(484, 28);
             this.label7.TabIndex = 61;
             this.label7.Text = "___________________________________________________________";
             // 
@@ -133,9 +126,10 @@
             this.lblDeletedPigs.AutoSize = true;
             this.lblDeletedPigs.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeletedPigs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.lblDeletedPigs.Location = new System.Drawing.Point(387, 120);
+            this.lblDeletedPigs.Location = new System.Drawing.Point(523, 92);
+            this.lblDeletedPigs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDeletedPigs.Name = "lblDeletedPigs";
-            this.lblDeletedPigs.Size = new System.Drawing.Size(179, 37);
+            this.lblDeletedPigs.Size = new System.Drawing.Size(219, 46);
             this.lblDeletedPigs.TabIndex = 60;
             this.lblDeletedPigs.Text = "Deleted Pigs";
             this.lblDeletedPigs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,9 +138,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(513, 124);
+            this.label3.Location = new System.Drawing.Point(691, 97);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(423, 21);
+            this.label3.Size = new System.Drawing.Size(484, 28);
             this.label3.TabIndex = 59;
             this.label3.Text = "___________________________________________________________";
             // 
@@ -154,20 +149,32 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 124);
+            this.label2.Location = new System.Drawing.Point(28, 97);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(423, 21);
+            this.label2.Size = new System.Drawing.Size(484, 28);
             this.label2.TabIndex = 58;
             this.label2.Text = "___________________________________________________________";
             // 
+            // healthrecadd
+            // 
+            this.healthrecadd.AutoSize = true;
+            this.healthrecadd.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.healthrecadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.healthrecadd.Location = new System.Drawing.Point(46, 32);
+            this.healthrecadd.Name = "healthrecadd";
+            this.healthrecadd.Size = new System.Drawing.Size(163, 54);
+            this.healthrecadd.TabIndex = 57;
+            this.healthrecadd.Text = "History";
+            // 
             // History
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "History";
-            this.Size = new System.Drawing.Size(952, 878);
+            this.Size = new System.Drawing.Size(1269, 1081);
             this.Load += new System.EventHandler(this.History_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
