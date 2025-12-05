@@ -220,5 +220,10 @@ namespace SwineSyncc
                 MessageBox.Show("An error occurred during logout: " + ex.Message, "Logout Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

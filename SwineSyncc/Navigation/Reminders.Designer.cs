@@ -42,6 +42,10 @@
             this.checkForFarrowingLbl = new System.Windows.Forms.Label();
             this.farrowingPb = new System.Windows.Forms.PictureBox();
             this.healthrecadd = new System.Windows.Forms.Label();
+            this.releasePigletPanel = new System.Windows.Forms.Panel();
+            this.releasePigletLbl = new System.Windows.Forms.Label();
+            this.releasePigletIn = new System.Windows.Forms.Label();
+            this.releasePigletPb = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.expirationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expirationPb)).BeginInit();
@@ -49,19 +53,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pendingBreedingPb)).BeginInit();
             this.farrowingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).BeginInit();
+            this.releasePigletPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.releasePigletPb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.releasePigletPanel);
             this.panel1.Controls.Add(this.expirationPanel);
             this.panel1.Controls.Add(this.pendingBreedingPanel);
             this.panel1.Controls.Add(this.farrowingPanel);
             this.panel1.Controls.Add(this.healthrecadd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(952, 878);
+            this.panel1.Size = new System.Drawing.Size(1269, 1081);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -71,10 +78,10 @@
             this.expirationPanel.Controls.Add(this.expirationLbl);
             this.expirationPanel.Controls.Add(this.checkExp);
             this.expirationPanel.Controls.Add(this.expirationPb);
-            this.expirationPanel.Location = new System.Drawing.Point(59, 324);
-            this.expirationPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.expirationPanel.Location = new System.Drawing.Point(79, 399);
+            this.expirationPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.expirationPanel.Name = "expirationPanel";
-            this.expirationPanel.Size = new System.Drawing.Size(600, 91);
+            this.expirationPanel.Size = new System.Drawing.Size(865, 112);
             this.expirationPanel.TabIndex = 61;
             // 
             // expirationLbl
@@ -82,10 +89,9 @@
             this.expirationLbl.AutoSize = true;
             this.expirationLbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expirationLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.expirationLbl.Location = new System.Drawing.Point(350, 25);
-            this.expirationLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.expirationLbl.Location = new System.Drawing.Point(467, 31);
             this.expirationLbl.Name = "expirationLbl";
-            this.expirationLbl.Size = new System.Drawing.Size(69, 19);
+            this.expirationLbl.Size = new System.Drawing.Size(86, 23);
             this.expirationLbl.TabIndex = 59;
             this.expirationLbl.Text = "Expiration";
             // 
@@ -94,19 +100,18 @@
             this.checkExp.AutoSize = true;
             this.checkExp.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.checkExp.Location = new System.Drawing.Point(91, 25);
-            this.checkExp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.checkExp.Location = new System.Drawing.Point(121, 31);
             this.checkExp.Name = "checkExp";
-            this.checkExp.Size = new System.Drawing.Size(245, 32);
+            this.checkExp.Size = new System.Drawing.Size(307, 41);
             this.checkExp.TabIndex = 58;
             this.checkExp.Text = "Check for expirations";
             // 
             // expirationPb
             // 
-            this.expirationPb.Location = new System.Drawing.Point(16, 15);
-            this.expirationPb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.expirationPb.Location = new System.Drawing.Point(21, 18);
+            this.expirationPb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.expirationPb.Name = "expirationPb";
-            this.expirationPb.Size = new System.Drawing.Size(67, 58);
+            this.expirationPb.Size = new System.Drawing.Size(89, 71);
             this.expirationPb.TabIndex = 0;
             this.expirationPb.TabStop = false;
             // 
@@ -116,10 +121,10 @@
             this.pendingBreedingPanel.Controls.Add(this.pendingBreedingLbl);
             this.pendingBreedingPanel.Controls.Add(this.labelPendingBreeding);
             this.pendingBreedingPanel.Controls.Add(this.pendingBreedingPb);
-            this.pendingBreedingPanel.Location = new System.Drawing.Point(59, 215);
-            this.pendingBreedingPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pendingBreedingPanel.Location = new System.Drawing.Point(79, 265);
+            this.pendingBreedingPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pendingBreedingPanel.Name = "pendingBreedingPanel";
-            this.pendingBreedingPanel.Size = new System.Drawing.Size(600, 91);
+            this.pendingBreedingPanel.Size = new System.Drawing.Size(865, 112);
             this.pendingBreedingPanel.TabIndex = 60;
             // 
             // pendingBreedingLbl
@@ -127,10 +132,9 @@
             this.pendingBreedingLbl.AutoSize = true;
             this.pendingBreedingLbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingBreedingLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.pendingBreedingLbl.Location = new System.Drawing.Point(350, 25);
-            this.pendingBreedingLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pendingBreedingLbl.Location = new System.Drawing.Point(467, 31);
             this.pendingBreedingLbl.Name = "pendingBreedingLbl";
-            this.pendingBreedingLbl.Size = new System.Drawing.Size(58, 19);
+            this.pendingBreedingLbl.Size = new System.Drawing.Size(72, 23);
             this.pendingBreedingLbl.TabIndex = 59;
             this.pendingBreedingLbl.Text = "Pending";
             // 
@@ -139,19 +143,18 @@
             this.labelPendingBreeding.AutoSize = true;
             this.labelPendingBreeding.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPendingBreeding.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.labelPendingBreeding.Location = new System.Drawing.Point(91, 25);
-            this.labelPendingBreeding.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPendingBreeding.Location = new System.Drawing.Point(121, 31);
             this.labelPendingBreeding.Name = "labelPendingBreeding";
-            this.labelPendingBreeding.Size = new System.Drawing.Size(206, 32);
+            this.labelPendingBreeding.Size = new System.Drawing.Size(262, 41);
             this.labelPendingBreeding.TabIndex = 58;
             this.labelPendingBreeding.Text = "Pending breeding";
             // 
             // pendingBreedingPb
             // 
-            this.pendingBreedingPb.Location = new System.Drawing.Point(16, 15);
-            this.pendingBreedingPb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pendingBreedingPb.Location = new System.Drawing.Point(21, 18);
+            this.pendingBreedingPb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pendingBreedingPb.Name = "pendingBreedingPb";
-            this.pendingBreedingPb.Size = new System.Drawing.Size(67, 58);
+            this.pendingBreedingPb.Size = new System.Drawing.Size(89, 71);
             this.pendingBreedingPb.TabIndex = 0;
             this.pendingBreedingPb.TabStop = false;
             // 
@@ -161,10 +164,10 @@
             this.farrowingPanel.Controls.Add(this.farrowingLbl);
             this.farrowingPanel.Controls.Add(this.checkForFarrowingLbl);
             this.farrowingPanel.Controls.Add(this.farrowingPb);
-            this.farrowingPanel.Location = new System.Drawing.Point(59, 103);
-            this.farrowingPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.farrowingPanel.Location = new System.Drawing.Point(79, 127);
+            this.farrowingPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.farrowingPanel.Name = "farrowingPanel";
-            this.farrowingPanel.Size = new System.Drawing.Size(600, 91);
+            this.farrowingPanel.Size = new System.Drawing.Size(865, 112);
             this.farrowingPanel.TabIndex = 57;
             // 
             // farrowingLbl
@@ -172,10 +175,9 @@
             this.farrowingLbl.AutoSize = true;
             this.farrowingLbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.farrowingLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.farrowingLbl.Location = new System.Drawing.Point(350, 25);
-            this.farrowingLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.farrowingLbl.Location = new System.Drawing.Point(467, 31);
             this.farrowingLbl.Name = "farrowingLbl";
-            this.farrowingLbl.Size = new System.Drawing.Size(70, 19);
+            this.farrowingLbl.Size = new System.Drawing.Size(84, 23);
             this.farrowingLbl.TabIndex = 59;
             this.farrowingLbl.Text = "Farrowing";
             // 
@@ -184,19 +186,18 @@
             this.checkForFarrowingLbl.AutoSize = true;
             this.checkForFarrowingLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkForFarrowingLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.checkForFarrowingLbl.Location = new System.Drawing.Point(91, 25);
-            this.checkForFarrowingLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.checkForFarrowingLbl.Location = new System.Drawing.Point(121, 31);
             this.checkForFarrowingLbl.Name = "checkForFarrowingLbl";
-            this.checkForFarrowingLbl.Size = new System.Drawing.Size(230, 32);
+            this.checkForFarrowingLbl.Size = new System.Drawing.Size(288, 41);
             this.checkForFarrowingLbl.TabIndex = 58;
             this.checkForFarrowingLbl.Text = "Check for farrowing";
             // 
             // farrowingPb
             // 
-            this.farrowingPb.Location = new System.Drawing.Point(16, 15);
-            this.farrowingPb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.farrowingPb.Location = new System.Drawing.Point(21, 18);
+            this.farrowingPb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.farrowingPb.Name = "farrowingPb";
-            this.farrowingPb.Size = new System.Drawing.Size(67, 58);
+            this.farrowingPb.Size = new System.Drawing.Size(89, 71);
             this.farrowingPb.TabIndex = 0;
             this.farrowingPb.TabStop = false;
             // 
@@ -205,21 +206,63 @@
             this.healthrecadd.AutoSize = true;
             this.healthrecadd.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.healthrecadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.healthrecadd.Location = new System.Drawing.Point(31, 27);
-            this.healthrecadd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.healthrecadd.Location = new System.Drawing.Point(41, 33);
             this.healthrecadd.Name = "healthrecadd";
-            this.healthrecadd.Size = new System.Drawing.Size(178, 45);
+            this.healthrecadd.Size = new System.Drawing.Size(223, 54);
             this.healthrecadd.TabIndex = 56;
             this.healthrecadd.Text = "Reminders";
             // 
+            // releasePigletPanel
+            // 
+            this.releasePigletPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.releasePigletPanel.Controls.Add(this.releasePigletLbl);
+            this.releasePigletPanel.Controls.Add(this.releasePigletIn);
+            this.releasePigletPanel.Controls.Add(this.releasePigletPb);
+            this.releasePigletPanel.Location = new System.Drawing.Point(79, 535);
+            this.releasePigletPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.releasePigletPanel.Name = "releasePigletPanel";
+            this.releasePigletPanel.Size = new System.Drawing.Size(865, 112);
+            this.releasePigletPanel.TabIndex = 62;
+            // 
+            // releasePigletLbl
+            // 
+            this.releasePigletLbl.AutoSize = true;
+            this.releasePigletLbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.releasePigletLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.releasePigletLbl.Location = new System.Drawing.Point(467, 31);
+            this.releasePigletLbl.Name = "releasePigletLbl";
+            this.releasePigletLbl.Size = new System.Drawing.Size(53, 23);
+            this.releasePigletLbl.TabIndex = 59;
+            this.releasePigletLbl.Text = "Piglet";
+            // 
+            // releasePigletIn
+            // 
+            this.releasePigletIn.AutoSize = true;
+            this.releasePigletIn.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.releasePigletIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.releasePigletIn.Location = new System.Drawing.Point(121, 31);
+            this.releasePigletIn.Name = "releasePigletIn";
+            this.releasePigletIn.Size = new System.Drawing.Size(242, 41);
+            this.releasePigletIn.TabIndex = 58;
+            this.releasePigletIn.Text = "Release piglet in";
+            // 
+            // releasePigletPb
+            // 
+            this.releasePigletPb.Location = new System.Drawing.Point(21, 18);
+            this.releasePigletPb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.releasePigletPb.Name = "releasePigletPb";
+            this.releasePigletPb.Size = new System.Drawing.Size(89, 71);
+            this.releasePigletPb.TabIndex = 0;
+            this.releasePigletPb.TabStop = false;
+            // 
             // Reminders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Reminders";
-            this.Size = new System.Drawing.Size(952, 878);
+            this.Size = new System.Drawing.Size(1269, 1081);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.expirationPanel.ResumeLayout(false);
@@ -231,6 +274,9 @@
             this.farrowingPanel.ResumeLayout(false);
             this.farrowingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).EndInit();
+            this.releasePigletPanel.ResumeLayout(false);
+            this.releasePigletPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.releasePigletPb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,5 +297,9 @@
         private System.Windows.Forms.Label expirationLbl;
         private System.Windows.Forms.Label checkExp;
         private System.Windows.Forms.PictureBox expirationPb;
+        private System.Windows.Forms.Panel releasePigletPanel;
+        private System.Windows.Forms.Label releasePigletLbl;
+        private System.Windows.Forms.Label releasePigletIn;
+        private System.Windows.Forms.PictureBox releasePigletPb;
     }
 }

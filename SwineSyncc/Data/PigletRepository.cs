@@ -41,6 +41,23 @@ namespace SwineSyncc.Data
             return null;
         }
 
+        public bool PigletHasHealthRecords(int pigletId)
+        {
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            {
+                string query = @"SELECT COUNT(*) FROM HealthRecords WHERE PigletID = @PigletID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@PigletID", pigletId);
+                    conn.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
+
         public void UpdatePiglet(int pigletId, string tagNumber, string breed, string sex, DateTime birthdate, int weight, string status)
         {
             using (SqlConnection conn = DBConnection.Instance.GetConnection())

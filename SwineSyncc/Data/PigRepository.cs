@@ -97,6 +97,20 @@ namespace SwineSyncc.Data
             }
         }
 
+        public bool HasHealthRecords(int pigId)
+        {
+            string query = "SELECT COUNT(*) FROM HealthRecords WHERE PigID = @PigID";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@PigID", pigId);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
+
 
         public void SafeDeletePig(int pigId)
         {

@@ -140,6 +140,12 @@
     <Compile Include="Navigation\History.Designer.cs">
       <DependentUpon>History.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\HistoryPage2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\HistoryPage2.Designer.cs">
+      <DependentUpon>HistoryPage2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\Inventory\AddItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -339,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\History.resx">
       <DependentUpon>History.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\HistoryPage2.resx">
+      <DependentUpon>HistoryPage2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\Inventory\AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
@@ -549,6 +558,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PowerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Book open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

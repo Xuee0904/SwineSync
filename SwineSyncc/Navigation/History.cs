@@ -14,6 +14,8 @@ namespace SwineSyncc.Navigation
     {
         SwineSyncTable displayDeletedPigs;
         SwineSyncTable displayDeletedPiglets;
+
+        public event EventHandler RecordsClicked;
         public History()
         {
             InitializeComponent();
@@ -29,6 +31,11 @@ namespace SwineSyncc.Navigation
             displayDeletedPiglets.Dock = DockStyle.Fill;
             displayDeletedPiglets.SetTableQuery("DeletedPiglets");
             pnlDeletedPiglets.Controls.Add(displayDeletedPigs);
+        }
+
+        private void btnRecords_Click(object sender, EventArgs e)
+        {
+            RecordsClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }
