@@ -87,7 +87,7 @@ namespace SwineSyncc.Navigation.Pig_Management
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error lding data: " + ex.Message);
+                        MessageBox.Show("Error loading data: " + ex.Message);
                     }
                 }
             }

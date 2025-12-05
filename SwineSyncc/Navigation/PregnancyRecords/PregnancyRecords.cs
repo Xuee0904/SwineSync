@@ -29,6 +29,7 @@ namespace SwineSyncc
             AddPregnancyRecordClicked?.Invoke(this, EventArgs.Empty);
         }
 
+        
         private void editPregnancyBtn_Click(object sender, EventArgs e)
         {
 

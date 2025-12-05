@@ -1,6 +1,7 @@
 ﻿using SwineSyncc.Data;
 using SwineSyncc.Navigation.BreedingRecords;
 using SwineSyncc.Navigation.PregnancyRecords;
+using SwineSyncc.Navigation.HealthRecords;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -84,6 +85,25 @@ namespace SwineSyncc.Navigation
                 LEFT JOIN Pigs AS PSow ON P.PregnantPigID = PSow.PigID";
             else if (tableName == "Inventory")
                 this.tableQuery = @"SELECT * FROM Inventory";
+            else if (tableName == "HealthRecords")
+                this.tableQuery = @"SELECT
+                H.HealthRecordID,
+                P.Name AS PigName,
+                CASE
+                    WHEN H.PigletID IS NOT NULL THEN
+                        PL.TagNumber + ' (Mother: ' + ISNULL(MP.Name, 'Unknown') + ')'
+                    ELSE NULL
+                END AS PigletTagWithMother,
+                H.CheckupDate,
+                H.Condition,
+                H.Treatment,
+                H.VetName,
+                H.Notes
+                FROM dbo.HealthRecords AS H
+                LEFT JOIN dbo.Pigs    AS P  ON H.PigID    = P.PigID
+                LEFT JOIN dbo.Piglets AS PL ON H.PigletID = PL.PigletID
+                LEFT JOIN dbo.Pigs    AS MP ON PL.MotherPigID = MP.PigID;
+                ";
             else
                 this.tableQuery = "SELECT * FROM " + tableName;
 
@@ -304,6 +324,17 @@ namespace SwineSyncc.Navigation
                         LoadTable();
                 }
             }
+            if(currentTable == "HealthRecords")
+            {
+                var raw = row.Cells["HealthRecordID"]?.Value;
+                if (raw == null || !int.TryParse(raw.ToString(), out int id)) return;
+
+                using (var editForm = new EditFormHealthRecords(id))
+                {
+                    if (editForm.ShowDialog() == DialogResult.OK)
+                        LoadTable();
+                }
+            }
         }
 
         private void HandleDeleteClick(int rowIndex, string currentTable)
@@ -346,8 +377,11 @@ namespace SwineSyncc.Navigation
                 var visibleCols = dataGridView1.Columns.Cast<DataGridViewColumn>().Where(c => c.Visible).ToList();
                 if (visibleCols.Count == 0) return;
 
-                // Reserve fixed width for action columns and exclude them from the data column distribution
-                const int actionColWidth = 36; // change this to whatever fixed size you want
+                // Configurable thresholds
+                const int actionColWidth = 36; // fixed action column width
+                const int nameLengthThreshold = 12; // if column name length > this, expand
+                const int extraWidthForLongName = 30; // extra width to add for long names (changeable)
+
                 var actionNames = new[] { "EditCol", "DeleteCol" };
                 var actionCols = visibleCols.Where(c => actionNames.Contains(c.Name)).ToList();
                 var dataCols = visibleCols.Except(actionCols).ToList();
@@ -399,7 +433,18 @@ namespace SwineSyncc.Navigation
                             var col = dataCols[i];
                             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                             col.MinimumWidth = Math.Max(minColumnWidth, col.MinimumWidth);
-                            col.Width = baseWidth;
+
+                            // Start with base width
+                            int targetWidth = baseWidth;
+
+                            // If the column name (or header text) is long, add extra width
+                            string nameToCheck = !string.IsNullOrEmpty(col.Name) ? col.Name : col.HeaderText;
+                            if (!string.IsNullOrEmpty(nameToCheck) && nameToCheck.Length > nameLengthThreshold)
+                            {
+                                targetWidth += extraWidthForLongName;
+                            }
+
+                            col.Width = targetWidth;
                         }
 
                         int used = dataCols.Sum(c => c.Width) + totalActionWidth;
@@ -428,7 +473,16 @@ namespace SwineSyncc.Navigation
                         foreach (var col in dataCols)
                         {
                             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                            col.Width = Math.Max(fixedColumnWidth, minColumnWidth);
+
+                            // Start with fixed width, then expand for long names
+                            int targetWidth = Math.Max(fixedColumnWidth, minColumnWidth);
+                            string nameToCheck = !string.IsNullOrEmpty(col.Name) ? col.Name : col.HeaderText;
+                            if (!string.IsNullOrEmpty(nameToCheck) && nameToCheck.Length > nameLengthThreshold)
+                            {
+                                targetWidth += extraWidthForLongName;
+                            }
+
+                            col.Width = targetWidth;
                         }
 
                         int used = dataCols.Sum(c => c.Width) + totalActionWidth;
@@ -462,6 +516,7 @@ namespace SwineSyncc.Navigation
                 _isAdjustingColumns = false;
             }
         }
+
 
         private Image CreatePaddedIcon(Image src)
         {
@@ -502,22 +557,36 @@ namespace SwineSyncc.Navigation
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Check if the column is BoarName
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "BoarName")
+            // Helper to treat null/empty/DB null/"NULL" as empty
+            bool IsEmptyCell(object value)
             {
-                string cellValue = Convert.ToString(e.Value); // safe conversion
+                if (value == null || value == DBNull.Value) return true;
+                var s = Convert.ToString(value);
+                if (string.IsNullOrWhiteSpace(s)) return true;
+                if (string.Equals(s, "NULL", StringComparison.OrdinalIgnoreCase)) return true;
+                return false;
+            }
 
-                if (e.Value == null ||
-                    e.Value == DBNull.Value ||
-                    string.IsNullOrEmpty(cellValue) ||
-                    string.Equals(cellValue, "NULL", StringComparison.OrdinalIgnoreCase))
+            var colName = dataGridView1.Columns[e.ColumnIndex].Name;
+
+            // Columns to show "Null" when empty
+            if (colName == "BoarName" || colName == "PigName" || colName == "PigTagWithMother" || colName == "PigletTagWithMother")
+            {
+                if (IsEmptyCell(e.Value))
                 {
                     e.Value = "Null";
                     e.CellStyle.ForeColor = Color.DarkRed;
                     e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+                    e.FormattingApplied = true;
+                }
+                else
+                {
+                    // Optional: ensure normal style for non-empty cells (prevents style carryover)
+                    e.CellStyle.ForeColor = SystemColors.ControlText;
+                    e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Regular);
+                    e.FormattingApplied = false;
                 }
             }
-
         }
     }
 }

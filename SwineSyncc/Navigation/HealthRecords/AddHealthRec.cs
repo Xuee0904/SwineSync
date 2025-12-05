@@ -13,38 +13,25 @@ using static SwineSyncc.Navigation.Pig_Management.AddPiglet;
 
 namespace SwineSyncc.Navigation
 {
+    using SwineSyncc.Models;
     public partial class AddHealthRec : UserControl
     {
-
         public event EventHandler CancelClicked;
-
         public AddHealthRec()
         {
             InitializeComponent();
 
-            PopulatePigComboBox();
+            HealthRepository.PopulatePigComboBox(comboHealthPigName);
+            comboHealthPigName.DisplayMember = "DisplayText"; // show the DisplayText property
+            comboHealthPigName.SelectedIndex = 0;
 
             buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
             buttonGroup1.ClearClicked += (s, e) => ClearFields();
             buttonGroup1.SaveClicked += (s, e) => SaveHandler(s, e);
         }
 
-        public class PigComboDetails
-        {
-            public int? PigID { get; set; }
-            public int? PigletID { get; set; }
-
-            public string DisplayText { get; set; }
-
-            public bool IsAdultPig => PigID.HasValue && !PigletID.HasValue;
-
-            public override string ToString()
-            {
-                return DisplayText;
-            }
-        }
-
-        private void PopulatePigComboBox()
+        
+        public void PopulatePigComboBox()
         {
             string query = @"SELECT 
             P.PigID,
@@ -99,57 +86,62 @@ namespace SwineSyncc.Navigation
             }
         }
 
-
-        
-
         private void SaveHandler(object sender, EventArgs e)
         {
-            var selectedPigItem = comboHealthPigName.SelectedItem as PigComboDetails;
+            if (comboHealthPigName.SelectedItem is PigComboDetails selectedPigItem)
+            {
+                if (selectedPigItem.PigID == null && selectedPigItem.PigletID == null)
+                {
+                    MessageBox.Show("Please select a valid pig or piglet.", "Validation Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            int? pigIDToSave = selectedPigItem.PigID;
-            int? pigletIDToSave = selectedPigItem.PigletID;
+                int? pigIDToSave = selectedPigItem.PigID;
+                int? pigletIDToSave = selectedPigItem.PigletID;
 
-            DateTime checkUpDate = dtCheckUp.Value;
-            string condition = conditionTxt.Text;
-            string treatment = treatmentTxt.Text;
-            string vetName = vetNameTxt.Text;
-            string notes = notesTxt.Text;
+                DateTime checkUpDate = dtCheckUp.Value;
+                string condition = conditionTxt.Text;
+                string treatment = treatmentTxt.Text;
+                string vetName = vetNameTxt.Text;
+                string notes = notesTxt.Text;
 
-            string query = @"INSERT INTO HealthRecords (PigID, PigletID, CheckupDate, Condition, Treatment, VetName, Notes)
+                string query = @"INSERT INTO HealthRecords (PigID, PigletID, CheckupDate, Condition, Treatment, VetName, Notes)
                             VALUES (@PigID, @PigletID, @Date, @Condition, @Treatment, @VetName, @Notes);";
 
-            using (SqlConnection conn = DBConnection.Instance.GetConnection())
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = DBConnection.Instance.GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@PigID", pigIDToSave.HasValue ? (object)pigIDToSave.Value : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@PigletID", pigletIDToSave.HasValue ? (object)pigletIDToSave.Value : DBNull.Value);
-
-                    cmd.Parameters.AddWithValue("@Date", checkUpDate);
-                    cmd.Parameters.AddWithValue("@Condition", condition);
-                    cmd.Parameters.AddWithValue("@Treatment", treatment);
-                    cmd.Parameters.AddWithValue("@VetName", vetName);
-                    cmd.Parameters.AddWithValue("@Notes", notes);
-
-                    try
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        conn.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@PigID", pigIDToSave.HasValue ? (object)pigIDToSave.Value : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@PigletID", pigletIDToSave.HasValue ? (object)pigletIDToSave.Value : DBNull.Value);
 
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Health record saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmd.Parameters.AddWithValue("@Date", checkUpDate);
+                        cmd.Parameters.AddWithValue("@Condition", condition);
+                        cmd.Parameters.AddWithValue("@Treatment", treatment);
+                        cmd.Parameters.AddWithValue("@VetName", vetName);
+                        cmd.Parameters.AddWithValue("@Notes", notes);
 
-                            ClearFields();
-                        }
-                        else
+                        try
                         {
-                            MessageBox.Show("Record was not saved. Database operation failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            conn.Open();
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Health record saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                ClearFields();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Record was not saved. Database operation failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Database Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Database Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

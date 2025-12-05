@@ -94,6 +94,7 @@
     <Compile Include="DatabaseConnection\DBConnection.cs" />
     <Compile Include="Data\ActivityLogger.cs" />
     <Compile Include="Data\BreedingRepository.cs" />
+    <Compile Include="Data\HealthRepository.cs" />
     <Compile Include="Data\PigletRepository.cs" />
     <Compile Include="Data\PigRepository.cs" />
     <Compile Include="Data\PregnancyRepository.cs" />
