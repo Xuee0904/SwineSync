@@ -59,6 +59,9 @@ namespace SwineSyncc.Navigation
         private void SwineSyncTable_Load(object sender, EventArgs e)
         {
             LoadTable();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
         }
 
         public void SetTableQuery(string tableName)
@@ -271,14 +274,18 @@ namespace SwineSyncc.Navigation
 
         private void AddEditDeleteColumns()
         {
-            // Check role before adding action columns
+            // Check role and table conditions
             bool isAdmin = Session.Role == "Admin";
+            bool allowActions = isAdmin && currentTable != "SowTable" && currentTable != "PigletTable" && currentTable != "BoarTable";
 
             // create padded icons once
             var editIcon = CreatePaddedIcon(Properties.Resources.EditIcon);
             var deleteIcon = CreatePaddedIcon(Properties.Resources.DeleteIcon);
 
-            dataGridView1.RowTemplate.Height = Math.Max(dataGridView1.RowTemplate.Height, IconHeight + IconPadding + 6);
+            dataGridView1.RowTemplate.Height = Math.Max(
+                dataGridView1.RowTemplate.Height,
+                IconHeight + IconPadding + 6
+            );
 
             // Edit column
             if (!dataGridView1.Columns.Contains("EditCol"))
@@ -287,21 +294,21 @@ namespace SwineSyncc.Navigation
                 {
                     Name = "EditCol",
                     HeaderText = "",
-                    Image = isAdmin ? editIcon : null,
+                    Image = allowActions ? editIcon : null,
                     ImageLayout = DataGridViewImageCellLayout.Normal,
                     Width = ActionColWidth,
                     ReadOnly = true,
-                    Visible = isAdmin
+                    Visible = allowActions
                 };
                 dataGridView1.Columns.Add(editCol);
             }
             else
             {
                 var col = (DataGridViewImageColumn)dataGridView1.Columns["EditCol"];
-                col.Image = isAdmin ? editIcon : null;
+                col.Image = allowActions ? editIcon : null;
                 col.Width = ActionColWidth;
                 col.ImageLayout = DataGridViewImageCellLayout.Normal;
-                col.Visible = isAdmin;
+                col.Visible = allowActions;
             }
 
             // Delete column
@@ -311,40 +318,40 @@ namespace SwineSyncc.Navigation
                 {
                     Name = "DeleteCol",
                     HeaderText = "",
-                    Image = isAdmin ? deleteIcon : null,
+                    Image = allowActions ? deleteIcon : null,
                     ImageLayout = DataGridViewImageCellLayout.Normal,
                     Width = ActionColWidth,
                     ReadOnly = true,
-                    Visible = isAdmin
+                    Visible = allowActions
                 };
                 dataGridView1.Columns.Add(delCol);
             }
             else
             {
                 var col = (DataGridViewImageColumn)dataGridView1.Columns["DeleteCol"];
-                col.Image = isAdmin ? deleteIcon : null;
+                col.Image = allowActions ? deleteIcon : null;
                 col.Width = ActionColWidth;
                 col.ImageLayout = DataGridViewImageCellLayout.Normal;
-                col.Visible = isAdmin;
+                col.Visible = allowActions;
             }
 
-            // Padding and alignment only if visible
-            if (isAdmin && dataGridView1.Columns.Contains("EditCol"))
+            // Padding and alignment only if actions are allowed
+            if (allowActions && dataGridView1.Columns.Contains("EditCol"))
             {
                 dataGridView1.Columns["EditCol"].DefaultCellStyle.Padding = new Padding(4);
                 dataGridView1.Columns["EditCol"].HeaderCell.Style.Padding = new Padding(4);
                 dataGridView1.Columns["EditCol"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
-            if (isAdmin && dataGridView1.Columns.Contains("DeleteCol"))
+            if (allowActions && dataGridView1.Columns.Contains("DeleteCol"))
             {
                 dataGridView1.Columns["DeleteCol"].DefaultCellStyle.Padding = new Padding(4);
                 dataGridView1.Columns["DeleteCol"].HeaderCell.Style.Padding = new Padding(4);
                 dataGridView1.Columns["DeleteCol"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
-            // Set per-row icon values only if admin
-            if (isAdmin)
+            // Set per-row icon values only if actions are allowed
+            if (allowActions)
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
@@ -354,6 +361,7 @@ namespace SwineSyncc.Navigation
                 }
             }
         }
+
 
 
 
@@ -499,16 +507,19 @@ namespace SwineSyncc.Navigation
                 var visibleCols = dataGridView1.Columns.Cast<DataGridViewColumn>().Where(c => c.Visible).ToList();
                 if (visibleCols.Count == 0) return;
 
-                // Configurable thresholds
-                const int actionColWidth = 36; // fixed action column width
-                const int nameLengthThreshold = 12; // if column name length > this, expand
-                const int extraWidthForLongName = 30; // extra width to add for long names (changeable)
+                const int actionColWidth = 36;
+                const int nameLengthThreshold = 12;
+                const int extraWidthForLongName = 30;
+                const int totalHorizontalPadding = 8;
+                const int maxAutoColumns = 7;
+                const int fixedColumnWidth = 140;
+                const int minColumnWidth = 100;
 
                 var actionNames = new[] { "EditCol", "DeleteCol" };
                 var actionCols = visibleCols.Where(c => actionNames.Contains(c.Name)).ToList();
                 var dataCols = visibleCols.Except(actionCols).ToList();
 
-                // Apply fixed sizing to action columns up front
+                // Apply fixed sizing to action columns
                 foreach (var a in actionCols)
                 {
                     a.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -522,7 +533,6 @@ namespace SwineSyncc.Navigation
                 int leftOffset = dataGridView1.RowHeadersVisible ? dataGridView1.RowHeadersWidth : 0;
                 clientWidth -= leftOffset;
 
-                // Subtract action columns total width from available client width
                 int totalActionWidth = actionCols.Sum(c => c.Width);
                 clientWidth -= totalActionWidth;
 
@@ -530,37 +540,43 @@ namespace SwineSyncc.Navigation
                                       || (dataGridView1.Rows.Count * dataGridView1.RowTemplate.Height) > dataGridView1.ClientSize.Height;
                 if (vScrollVisible) clientWidth -= SystemInformation.VerticalScrollBarWidth;
 
-                const int totalHorizontalPadding = 8;
                 clientWidth -= totalHorizontalPadding;
                 if (clientWidth < 0) clientWidth = 0;
-
-                const int maxAutoColumns = 7;
-                const int fixedColumnWidth = 140;
-                const int minColumnWidth = 100;
 
                 dataGridView1.SuspendLayout();
                 try
                 {
-                    if (dataCols.Count == 0)
+                    if (dataCols.Count == 0) return;
+
+                    bool noActionColumns = actionCols.Count == 0;
+
+                    if (noActionColumns)
                     {
-                        // No data columns to distribute; action columns already sized
+                        // Stretch all data columns evenly
+                        foreach (var col in dataCols)
+                        {
+                            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                            col.MinimumWidth = minColumnWidth;
+
+                            // Weighted fill for important columns
+                            if (col.Name == "Name" || col.Name == "Status")
+                                col.FillWeight = 150; // give more space
+                            else
+                                col.FillWeight = 100; // default weight
+                        }
                     }
                     else if (dataCols.Count <= maxAutoColumns)
                     {
                         int availableForData = Math.Max(0, clientWidth);
                         int baseWidth = Math.Max(minColumnWidth, availableForData / dataCols.Count);
 
-                        for (int i = 0; i < dataCols.Count; i++)
+                        foreach (var col in dataCols)
                         {
-                            var col = dataCols[i];
                             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                             col.MinimumWidth = Math.Max(minColumnWidth, col.MinimumWidth);
 
-                            // Start with base width
                             int targetWidth = baseWidth;
-
-                            // If the column name (or header text) is long, add extra width
-                            string nameToCheck = !string.IsNullOrEmpty(col.Name) ? col.Name : col.HeaderText;
+                            string nameToCheck = !string.IsNullOrEmpty(col.HeaderText) ? col.HeaderText : col.Name;
                             if (!string.IsNullOrEmpty(nameToCheck) && nameToCheck.Length > nameLengthThreshold)
                             {
                                 targetWidth += extraWidthForLongName;
@@ -569,53 +585,37 @@ namespace SwineSyncc.Navigation
                             col.Width = targetWidth;
                         }
 
+                        // Fill remainder into last column
                         int used = dataCols.Sum(c => c.Width) + totalActionWidth;
                         int remainder = (dataGridView1.ClientSize.Width - leftOffset - totalHorizontalPadding - (vScrollVisible ? SystemInformation.VerticalScrollBarWidth : 0)) - used;
 
+                        var last = dataCols.Last();
                         if (remainder > 0)
                         {
-                            var last = dataCols.Last();
                             last.Width = Math.Max(last.MinimumWidth, last.Width + remainder);
-                            last.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                         else if (remainder < 0)
                         {
-                            var last = dataCols.Last();
                             int shrink = Math.Min(last.Width - last.MinimumWidth, -remainder);
                             if (shrink > 0) last.Width -= shrink;
-                            last.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
-                        else
-                        {
-                            dataCols.Last().AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                        }
+                        last.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     }
                     else
                     {
                         foreach (var col in dataCols)
                         {
                             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-
-                            // Start with fixed width, then expand for long names
-                            int targetWidth = Math.Max(fixedColumnWidth, minColumnWidth);
-                            string nameToCheck = !string.IsNullOrEmpty(col.Name) ? col.Name : col.HeaderText;
+                            int targetWidth = fixedColumnWidth;
+                            string nameToCheck = !string.IsNullOrEmpty(col.HeaderText) ? col.HeaderText : col.Name;
                             if (!string.IsNullOrEmpty(nameToCheck) && nameToCheck.Length > nameLengthThreshold)
                             {
                                 targetWidth += extraWidthForLongName;
                             }
-
                             col.Width = targetWidth;
                         }
 
-                        int used = dataCols.Sum(c => c.Width) + totalActionWidth;
-                        int remainder = (dataGridView1.ClientSize.Width - leftOffset - totalHorizontalPadding - (vScrollVisible ? SystemInformation.VerticalScrollBarWidth : 0)) - used;
-                        if (remainder > 0 && dataCols.Count > 0)
-                        {
-                            var last = dataCols.Last();
-                            last.Width = Math.Max(last.MinimumWidth, last.Width + remainder);
-                            last.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                        }
-                        else if (dataCols.Count > 0)
+                        if (dataCols.Count > 0)
                         {
                             dataCols.Last().AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
@@ -626,7 +626,6 @@ namespace SwineSyncc.Navigation
                     dataGridView1.ResumeLayout();
                 }
 
-                // avoid immediate reentry; invalidate after event stack unwinds
                 dataGridView1.BeginInvoke((Action)(() => dataGridView1.Invalidate()));
             }
             catch (Exception ex)
@@ -638,6 +637,7 @@ namespace SwineSyncc.Navigation
                 _isAdjustingColumns = false;
             }
         }
+
 
 
         private Image CreatePaddedIcon(Image src)
