@@ -1,4 +1,6 @@
-﻿using SwineSyncc.Navigation;
+﻿using SwineSyncc.Data;
+using SwineSyncc.Login;
+using SwineSyncc.Navigation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +33,41 @@ namespace SwineSyncc
         {
             InitializeComponent();
             SetActiveButton(dashboardBtn);
+            LoadCurrentUser();
         }
+
+        private void LoadCurrentUser()
+        {
+            try
+            {
+                if (Session.UserID <= 0)  
+                {
+                    userName.Text = "Not logged in";  
+                    return;
+                }
+                UserRepository repo = new UserRepository();
+                User currentUser = repo.GetUserById(Session.UserID);
+                if (currentUser != null)
+                {
+                    userName.Text = currentUser.Username; 
+                }
+                else
+                {
+                    userName.Text = "User not found";  
+                }
+            }
+            catch (Exception ex)
+            {               
+                userName.Text = "Error loading user";  ;             
+            }
+        }
+
+        public void RefreshCurrentUser()
+        {
+            LoadCurrentUser();
+        }
+
+
 
         private void SetActiveButton(Button clickedButton)
         {
@@ -144,6 +180,11 @@ namespace SwineSyncc
         {
             SetActiveButton(historyBtn);
             HistoryClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
