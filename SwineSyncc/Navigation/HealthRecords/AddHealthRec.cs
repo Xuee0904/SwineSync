@@ -21,9 +21,7 @@ namespace SwineSyncc.Navigation
         {
             InitializeComponent();
 
-            HealthRepository.PopulatePigComboBox(comboHealthPigName);
-            comboHealthPigName.DisplayMember = "DisplayText"; // show the DisplayText property
-            comboHealthPigName.SelectedIndex = 0;
+            PopulatePigComboBox();
 
             buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
             buttonGroup1.ClearClicked += (s, e) => ClearFields();
@@ -147,6 +145,7 @@ namespace SwineSyncc.Navigation
             }
         }
 
+
         private void ClearFields()
         {
             comboHealthPigName.SelectedIndex = -1;
@@ -158,6 +157,11 @@ namespace SwineSyncc.Navigation
         }
 
         private void buttonGroup1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

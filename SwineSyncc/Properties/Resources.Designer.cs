@@ -103,6 +103,16 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ExpirationIcon {
+            get {
+                object obj = ResourceManager.GetObject("ExpirationIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_closed {
             get {
                 object obj = ResourceManager.GetObject("eye_closed", resourceCulture);
@@ -126,6 +136,16 @@ namespace SwineSyncc.Properties {
         internal static System.Drawing.Bitmap failed_message {
             get {
                 object obj = ResourceManager.GetObject("failed_message", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HistoryIcon {
+            get {
+                object obj = ResourceManager.GetObject("HistoryIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +256,16 @@ namespace SwineSyncc.Properties {
         internal static System.Drawing.Bitmap Plus {
             get {
                 object obj = ResourceManager.GetObject("Plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PowerIcon {
+            get {
+                object obj = ResourceManager.GetObject("PowerIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -16,7 +16,7 @@ namespace SwineSyncc
     {
         private NavigationPanel navigationPanel;
         private UserControlManager ucManager;
-
+        
         public Dashboard()
         {
             InitializeComponent();
@@ -29,10 +29,10 @@ namespace SwineSyncc
             navigationPanel.PregnancyRecordsClicked += (s, e) => ucManager.LoadPregnancyRecords();
             navigationPanel.UserManagementClicked += (s, e) => ucManager.LoadUserManagement();
             navigationPanel.BreedingRecordsClicked += (s, e) => ucManager.LoadBreedingRecords();
-            navigationPanel.RemindersClicked += (s, e) => ucManager.LoadReminders();
+            navigationPanel.RemindersClicked += (s, e) => ShowReminders();            
             navigationPanel.InventoryClicked += (s, e) => ucManager.LoadInventory();
             navigationPanel.HealthRecordsClicked += (s, e) => ucManager.LoadHealthRecords();
-            //navigationPanel.DashboardClicked += (s, e) => ucManager.LoadDashboard();
+           
             navigationPanel.HistoryClicked += (s, e) => ucManager.LoadHistory();
 
             navigationPanel.DashboardClicked += (s, e) => ShowDashboard(); 
@@ -45,7 +45,7 @@ namespace SwineSyncc
         {
             if (Session.Role == "Assistant")
             {
-                navigationPanel.HideUserManagementButton();
+                navigationPanel.HideUserManagementButton();               
             }
             else if (Session.Role == "Admin")
             {
@@ -79,6 +79,32 @@ namespace SwineSyncc
             dashboard.Dock = DockStyle.Fill;
         }
 
+        private void ShowReminders()
+        {
+            Reminders reminders = new Reminders();
+
+            reminders.FarrowingPanelClicked += (s, e) =>
+            {              
+                navigationPanel.TriggerPregnancyRecordsClick();
+                ucManager.LoadPregnancyRecords();
+            };
+
+            reminders.BreedingPanelClicked += (s, e) =>
+            {
+                navigationPanel.TriggerBreedingRecordsClick();
+                ucManager.LoadBreedingRecords();
+            };
+
+            reminders.ExpirationPanelClicked += (s, e) =>
+            {
+                navigationPanel.TriggerInventoryClick();
+                ucManager.LoadInventory();
+            };
+
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(reminders);
+            reminders.Dock = DockStyle.Fill;
+        }
 
 
         private void Dashboard_Load(object sender, EventArgs e)

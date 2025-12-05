@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlPregnancyRecords = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
+            this.pnlBreedingRecords = new SwineSyncc.CustomUIElements.Gradient_RoundedPanel();
             this.deletePregnancyBtn = new BorderRoundedButton();
             this.addBreedingBtn = new BorderRoundedButton();
             this.editPregnancyBtn = new BorderRoundedButton();
@@ -39,7 +39,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pnlPregnancyRecords);
+            this.panel1.Controls.Add(this.pnlBreedingRecords);
             this.panel1.Controls.Add(this.deletePregnancyBtn);
             this.panel1.Controls.Add(this.addBreedingBtn);
             this.panel1.Controls.Add(this.editPregnancyBtn);
@@ -50,18 +50,18 @@
             this.panel1.Size = new System.Drawing.Size(1003, 720);
             this.panel1.TabIndex = 0;
             // 
-            // pnlPregnancyRecords
+            // pnlBreedingRecords
             // 
-            this.pnlPregnancyRecords.BackColor = System.Drawing.Color.White;
-            this.pnlPregnancyRecords.BorderRadius = 12;
-            this.pnlPregnancyRecords.ForeColor = System.Drawing.Color.Black;
-            this.pnlPregnancyRecords.GradientAngle = 90F;
-            this.pnlPregnancyRecords.GradientBottomColor = System.Drawing.Color.CadetBlue;
-            this.pnlPregnancyRecords.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.pnlPregnancyRecords.Location = new System.Drawing.Point(38, 98);
-            this.pnlPregnancyRecords.Name = "pnlPregnancyRecords";
-            this.pnlPregnancyRecords.Size = new System.Drawing.Size(921, 479);
-            this.pnlPregnancyRecords.TabIndex = 18;
+            this.pnlBreedingRecords.BackColor = System.Drawing.Color.White;
+            this.pnlBreedingRecords.BorderRadius = 12;
+            this.pnlBreedingRecords.ForeColor = System.Drawing.Color.Black;
+            this.pnlBreedingRecords.GradientAngle = 90F;
+            this.pnlBreedingRecords.GradientBottomColor = System.Drawing.Color.CadetBlue;
+            this.pnlBreedingRecords.GradientTopColor = System.Drawing.Color.DodgerBlue;
+            this.pnlBreedingRecords.Location = new System.Drawing.Point(38, 98);
+            this.pnlBreedingRecords.Name = "pnlBreedingRecords";
+            this.pnlBreedingRecords.Size = new System.Drawing.Size(921, 479);
+            this.pnlBreedingRecords.TabIndex = 18;
             // 
             // deletePregnancyBtn
             // 
@@ -145,7 +145,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private CustomUIElements.Gradient_RoundedPanel pnlPregnancyRecords;
+        private CustomUIElements.Gradient_RoundedPanel pnlBreedingRecords;
         private BorderRoundedButton deletePregnancyBtn;
         private BorderRoundedButton addBreedingBtn;
         private BorderRoundedButton editPregnancyBtn;

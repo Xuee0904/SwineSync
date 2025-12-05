@@ -15,25 +15,58 @@ namespace SwineSyncc.Navigation
 {
     public partial class Reminders : UserControl
     {
+        public event EventHandler FarrowingPanelClicked;
+        public event EventHandler BreedingPanelClicked;
+        public event EventHandler ExpirationPanelClicked;
         public Reminders()
         {
             InitializeComponent();
             this.BackColor = Color.WhiteSmoke;
 
             farrowingPanel.BackColor = Color.FromArgb(240, 237, 232);
+
             farrowingPb.Image = Properties.Resources.PigReminder;
 
 
             pendingBreedingPb.Image = Properties.Resources.PendingIcon;
 
+            expirationPb.Image = Properties.Resources.ExpirationIcon;
+
+            farrowingPanel.Click += ReminderFarrowing_Click;
+            checkForFarrowingLbl.Click += ReminderFarrowing_Click;
+
+            pendingBreedingPanel.Click += ReminderPendingBreeding_Click;
+            labelPendingBreeding.Click += ReminderPendingBreeding_Click;
+
+            expirationPanel.Click += ReminderExpiration_Click;
+            checkExp.Click += ReminderExpiration_Click;
+
             LoadNearestFarrowing();
             LoadPendingBreedingReminder();
+            LoadNearestExpiration();
         }
+
+        private void ReminderFarrowing_Click(object sender, EventArgs e)
+        {
+            FarrowingPanelClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void ReminderPendingBreeding_Click(object sender, EventArgs e)
+        {
+            BreedingPanelClicked?.Invoke(this, EventArgs.Empty);
+        }
+        private void ReminderExpiration_Click(object sender, EventArgs e)
+        {
+            ExpirationPanelClicked?.Invoke(this, EventArgs.Empty);
+        }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+
 
         private void LoadNearestFarrowing()
         {
@@ -108,6 +141,46 @@ namespace SwineSyncc.Navigation
             }
         }
 
+        private void LoadNearestExpiration()
+        {
+            string query = @"
+                SELECT TOP 1 
+                    ProductType,
+                    ExpirationDate
+                FROM Inventory
+                WHERE ExpirationDate >= CAST(GETDATE() AS DATE)
+                ORDER BY ExpirationDate ASC;
+            ";
+            try
+            {
+                using (SqlConnection conn = DBConnection.Instance.GetConnection())
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string productType = reader["ProductType"].ToString();
+                            DateTime expirationDate = Convert.ToDateTime(reader["ExpirationDate"]);
+                            int daysLeft = (expirationDate - DateTime.Now.Date).Days;
+                            expirationLbl.Text =
+                                $"{productType} expires in {daysLeft} day(s)\n" +
+                                $"Expiration Date: {expirationDate:MMMM dd, yyyy}";
+                        }
+                        else
+                        {
+                            expirationLbl.Text = "No upcoming expirations.";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {               
+                expirationLbl.Text = "Error loading expiration reminder.";               
+            }
+        }
+
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
@@ -116,6 +189,7 @@ namespace SwineSyncc.Navigation
             {
                 LoadNearestFarrowing();
                 LoadPendingBreedingReminder();
+                LoadNearestExpiration();
             }
         }
 

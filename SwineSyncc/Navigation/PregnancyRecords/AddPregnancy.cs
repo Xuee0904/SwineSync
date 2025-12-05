@@ -16,6 +16,7 @@ namespace SwineSyncc.Navigation
     {
 
         public event EventHandler CancelClicked;
+        public event EventHandler SaveCompleted;
 
         private DataTable pregnantSowData = new DataTable();
         private int gestationDays = 114;
@@ -259,6 +260,8 @@ namespace SwineSyncc.Navigation
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
+
+                SaveCompleted?.Invoke(this, EventArgs.Empty);
 
                 ActivityLogger.Log(
                     "Register pregnancy",

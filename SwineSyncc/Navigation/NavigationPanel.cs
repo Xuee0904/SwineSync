@@ -1,4 +1,6 @@
-﻿using SwineSyncc.Navigation;
+﻿using SwineSyncc.Data;
+using SwineSyncc.Login;
+using SwineSyncc.Navigation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,8 +32,45 @@ namespace SwineSyncc
         public NavigationPanel()
         {
             InitializeComponent();
+
+            //pbLogout.Click += pbLogout_Click;  
+
             SetActiveButton(dashboardBtn);
+            LoadCurrentUser();
+        }      
+
+        private void LoadCurrentUser()
+        {
+            try
+            {
+                if (Session.UserID <= 0)  
+                {
+                    userName.Text = "Not logged in";  
+                    return;
+                }
+                UserRepository repo = new UserRepository();
+                User currentUser = repo.GetUserById(Session.UserID);
+                if (currentUser != null)
+                {
+                    userName.Text = currentUser.Username; 
+                }
+                else
+                {
+                    userName.Text = "User not found";  
+                }
+            }
+            catch (Exception ex)
+            {               
+                userName.Text = "Error loading user";  ;             
+            }
         }
+
+        public void RefreshCurrentUser()
+        {
+            LoadCurrentUser();
+        }
+
+
 
         private void SetActiveButton(Button clickedButton)
         {
@@ -51,17 +90,23 @@ namespace SwineSyncc
 
         public void TriggerPigManagementClick()
         {
-            SetActiveButton(pigManagementBtn);
-            //PigManagementClicked?.Invoke(this, EventArgs.Empty);
+            SetActiveButton(pigManagementBtn);         
         }
 
         public void TriggerPregnancyRecordsClick()
         {
-            SetActiveButton(pregnancyRecordsBtn);
-            //PigManagementClicked?.Invoke(this, EventArgs.Empty);
+            SetActiveButton(pregnancyRecordsBtn);    
         }
 
+        public void TriggerBreedingRecordsClick()
+        {
+            SetActiveButton(breedingRecordsBtn);
+        }
 
+        public void TriggerInventoryClick()
+        {
+            SetActiveButton(inventoryBtn);
+        }
 
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
@@ -138,6 +183,41 @@ namespace SwineSyncc
         {
             SetActiveButton(historyBtn);
             HistoryClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void userName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbLogout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result != DialogResult.Yes)
+                    return;
+
+                Session.UserID = 0;
+
+                RefreshCurrentUser();
+
+                Form1 loginForm = new Form1();
+                loginForm.Show();
+
+                this.ParentForm?.Close();
+
+                MessageBox.Show("You have been logged out successfully.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred during logout: " + ex.Message, "Logout Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

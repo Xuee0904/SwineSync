@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.addItemPanel = new System.Windows.Forms.Panel();
             this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.descriptionTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,29 +41,30 @@
             this.quantitylabel = new System.Windows.Forms.Label();
             this.productlabel = new System.Windows.Forms.Label();
             this.additemlabel = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.addItemPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // addItemPanel
             // 
-            this.panel1.Controls.Add(this.buttonGroup1);
-            this.panel1.Controls.Add(this.descriptionTxt);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.dtExpirationDate);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.quantityTxt);
-            this.panel1.Controls.Add(this.dtRecordDate);
-            this.panel1.Controls.Add(this.statuslbl);
-            this.panel1.Controls.Add(this.comboProduct);
-            this.panel1.Controls.Add(this.quantitylabel);
-            this.panel1.Controls.Add(this.productlabel);
-            this.panel1.Controls.Add(this.additemlabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 645);
-            this.panel1.TabIndex = 0;
+            this.addItemPanel.Controls.Add(this.buttonGroup1);
+            this.addItemPanel.Controls.Add(this.descriptionTxt);
+            this.addItemPanel.Controls.Add(this.label2);
+            this.addItemPanel.Controls.Add(this.dtExpirationDate);
+            this.addItemPanel.Controls.Add(this.label1);
+            this.addItemPanel.Controls.Add(this.quantityTxt);
+            this.addItemPanel.Controls.Add(this.dtRecordDate);
+            this.addItemPanel.Controls.Add(this.statuslbl);
+            this.addItemPanel.Controls.Add(this.comboProduct);
+            this.addItemPanel.Controls.Add(this.quantitylabel);
+            this.addItemPanel.Controls.Add(this.productlabel);
+            this.addItemPanel.Controls.Add(this.additemlabel);
+            this.addItemPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addItemPanel.Location = new System.Drawing.Point(0, 0);
+            this.addItemPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addItemPanel.Name = "addItemPanel";
+            this.addItemPanel.Size = new System.Drawing.Size(1200, 645);
+            this.addItemPanel.TabIndex = 0;
+            this.addItemPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.addItemPanel_Paint);
             // 
             // buttonGroup1
             // 
@@ -196,19 +197,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.addItemPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddItem";
             this.Size = new System.Drawing.Size(1200, 645);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.addItemPanel.ResumeLayout(false);
+            this.addItemPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel addItemPanel;
         private System.Windows.Forms.Label additemlabel;
         private System.Windows.Forms.DateTimePicker dtRecordDate;
         private System.Windows.Forms.Label statuslbl;

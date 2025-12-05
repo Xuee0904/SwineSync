@@ -149,6 +149,8 @@ namespace SwineSyncc
 
                 _pregnancyUC.AddPregnancyRecordClicked += (s, e) => LoadAddPregnancy();
             }
+
+            _pregnancyUC.TableRefresh();
             ShowUserControl(_pregnancyUC);
         }
 
@@ -167,6 +169,11 @@ namespace SwineSyncc
             AddPregnancy addPregnancy = new AddPregnancy();
 
             addPregnancy.CancelClicked += (s, e) => ShowUserControl(_pregnancyUC);
+            addPregnancy.SaveCompleted += (s, e) =>
+            {
+                _pregnancyUC.TableRefresh();
+                ShowUserControl(_pregnancyUC);
+            };
 
             ShowUserControl(addPregnancy);
         }
@@ -179,6 +186,7 @@ namespace SwineSyncc
 
                 _breedingUC.AddBreedingRecordClicked += (s, e) => LoadAddBreeding();
             }
+            _breedingUC.TableRefresh();
             ShowUserControl(_breedingUC);
         }
 
@@ -187,6 +195,11 @@ namespace SwineSyncc
             AddBreeding addBreeding = new AddBreeding();
 
             addBreeding.CancelClicked += (s, e) => ShowUserControl(_breedingUC);
+            addBreeding.SaveCompleted += (s, e) =>
+            {
+                _breedingUC.TableRefresh();
+                ShowUserControl(_breedingUC);
+            };
 
             ShowUserControl(addBreeding);
         }
@@ -355,6 +368,8 @@ namespace SwineSyncc
 
                 _healthUC.AddHealthRecordClicked += (s, e) => LoadAddHealthRecord();
             }
+
+            _healthUC.TableRefresh();
             ShowUserControl (_healthUC);
         }
 
@@ -363,6 +378,11 @@ namespace SwineSyncc
             AddHealthRec addHealthRecord = new AddHealthRec();
 
             addHealthRecord.CancelClicked += (s, e) => ShowUserControl(_healthUC);
+            addHealthRecord.SaveCompleted += (s, e) =>
+            {
+                _healthUC.TableRefresh();
+                ShowUserControl(_healthUC);
+            };
 
             ShowUserControl(addHealthRecord);
         }
