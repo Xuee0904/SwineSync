@@ -143,6 +143,16 @@ namespace SwineSyncc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HistoryIcon {
+            get {
+                object obj = ResourceManager.GetObject("HistoryIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Inventory_Icon__1_ {
             get {
                 object obj = ResourceManager.GetObject("Inventory Icon (1)", resourceCulture);

@@ -16,7 +16,7 @@ namespace SwineSyncc
     {
         private NavigationPanel navigationPanel;
         private UserControlManager ucManager;
-
+        
         public Dashboard()
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace SwineSyncc
         {
             if (Session.Role == "Assistant")
             {
-                navigationPanel.HideUserManagementButton();
+                navigationPanel.HideUserManagementButton();               
             }
             else if (Session.Role == "Admin")
             {

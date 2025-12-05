@@ -33,9 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.dashboardBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.pigManagementBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
+            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.healthRecordsBtn = new IconRoundedButton();
             this.pregnancyRecordsBtn = new IconRoundedButton();
             this.breedingRecordsBtn = new IconRoundedButton();
@@ -103,23 +103,6 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // panelPigSubMenu
-            // 
-            this.panelPigSubMenu.AutoSize = true;
-            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
-            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
-            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 247);
-            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelPigSubMenu.Name = "panelPigSubMenu";
-            this.panelPigSubMenu.Size = new System.Drawing.Size(366, 227);
-            this.panelPigSubMenu.TabIndex = 5;
-            this.panelPigSubMenu.Visible = false;
-            // 
             // dashboardBtn
             // 
             this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
@@ -169,6 +152,23 @@
             this.pigManagementBtn.TextColor = System.Drawing.SystemColors.Window;
             this.pigManagementBtn.UseVisualStyleBackColor = false;
             this.pigManagementBtn.Click += new System.EventHandler(this.customButton2_Click);
+            // 
+            // panelPigSubMenu
+            // 
+            this.panelPigSubMenu.AutoSize = true;
+            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
+            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 247);
+            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelPigSubMenu.Name = "panelPigSubMenu";
+            this.panelPigSubMenu.Size = new System.Drawing.Size(366, 227);
+            this.panelPigSubMenu.TabIndex = 5;
+            this.panelPigSubMenu.Visible = false;
             // 
             // healthRecordsBtn
             // 
@@ -341,7 +341,7 @@
             this.historyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.historyBtn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.historyBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.historyBtn.Image = global::SwineSyncc.Properties.Resources.notifications__1_;
+            this.historyBtn.Image = global::SwineSyncc.Properties.Resources.HistoryIcon;
             this.historyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.historyBtn.Location = new System.Drawing.Point(3, 783);
             this.historyBtn.Name = "historyBtn";

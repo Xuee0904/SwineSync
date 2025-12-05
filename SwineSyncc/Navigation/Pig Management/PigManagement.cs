@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using SwineSyncc.Data;
+using SwineSyncc.Login;
 using SwineSyncc.Navigation;
 
 namespace SwineSyncc
@@ -27,8 +28,17 @@ namespace SwineSyncc
             togglePicBox.Image = Properties.Resources.tableIcon;
 
             LoadPigButtons();
+            ApplyAccessLevel();
         }
-       
+
+        private void ApplyAccessLevel()
+        {
+            if (Session.Role == "Assistant")
+            {
+                btnDeletePig.Visible = false;  // Hide delete button
+            }
+        }
+
         private void LoadPigButtons()
         {          
             PigLoader loader = new PigLoader(flpFemalePigs, flpMalePigs, OnPigSelected);
@@ -183,6 +193,11 @@ namespace SwineSyncc
         LoadPigButtons();
     }
 
+        }
+
+        public void ShowDeleteButton()
+        {
+            btnDeletePig.Visible = true;         
         }
 
         private void btnRegisterPig_Click_1(object sender, EventArgs e)
