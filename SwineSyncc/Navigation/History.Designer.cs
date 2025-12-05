@@ -38,13 +38,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.healthrecadd = new System.Windows.Forms.Label();
-            this.btnRecords = new RoundedButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnRecords);
             this.panel1.Controls.Add(this.pnlDeletedPiglets);
             this.panel1.Controls.Add(this.pnlDeletedPigs);
             this.panel1.Controls.Add(this.lblDeletedPiglets);
@@ -162,22 +160,6 @@
             this.healthrecadd.TabIndex = 57;
             this.healthrecadd.Text = "History";
             // 
-            // btnRecords
-            // 
-            this.btnRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.btnRecords.BorderRadious = 9;
-            this.btnRecords.FlatAppearance.BorderSize = 0;
-            this.btnRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.btnRecords.Location = new System.Drawing.Point(640, 643);
-            this.btnRecords.Name = "btnRecords";
-            this.btnRecords.Size = new System.Drawing.Size(222, 80);
-            this.btnRecords.TabIndex = 66;
-            this.btnRecords.Text = "Breeding and pregnancy table >";
-            this.btnRecords.UseVisualStyleBackColor = false;
-            this.btnRecords.Click += new System.EventHandler(this.btnRecords_Click);
-            // 
             // History
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +187,5 @@
         private System.Windows.Forms.Label lblDeletedPigs;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private RoundedButton btnRecords;
     }
 }
