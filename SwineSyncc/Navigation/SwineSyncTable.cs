@@ -178,6 +178,7 @@ namespace SwineSyncc.Navigation
             }
         }
 
+
         private void InitAdjustTimer()
         {
             _adjustTimer.Tick -= AdjustTimer_Tick;
@@ -206,6 +207,63 @@ namespace SwineSyncc.Navigation
             ScheduleAdjustColumns();
         }
 
+        #endregion
+
+        #region Search Function
+        public void Search(string searchText)
+        {
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                // Reset to show all rows
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                    row.Visible = true;
+                return;
+            }
+
+            bool anyMatch = false;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                bool rowMatch = false;
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null &&
+                        cell.Value.ToString().IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        rowMatch = true;
+                        break;
+                    }
+                }
+
+                row.Visible = rowMatch;
+                if (rowMatch) anyMatch = true;
+            }
+
+            // If no matches, show a message overlay
+            if (!anyMatch)
+            {
+                dataGridView1.DataSource = null; // or hide rows
+                ShowNoResultsMessage();
+            }
+        }
+
+        private void ShowNoResultsMessage()
+        {
+            Label lbl = new Label
+            {
+                Text = "No results found",
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                ForeColor = Color.DarkGray
+            };
+
+            // Clear controls and overlay message
+            dataGridView1.Controls.Clear();
+            dataGridView1.Controls.Add(lbl);
+        }
         #endregion
 
         #region Edit/Delete columns and handlers
@@ -373,6 +431,11 @@ namespace SwineSyncc.Navigation
             {
                 idColumn = "HealthRecordID";
                 tableNameSql = "HealthRecords";
+            } 
+            else if(currentTable == "Inventory")
+            {
+                idColumn = "ProductID";
+                tableNameSql = "Inventory";
             }
             else
             {
