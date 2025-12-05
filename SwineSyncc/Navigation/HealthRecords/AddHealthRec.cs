@@ -22,6 +22,13 @@ namespace SwineSyncc.Navigation
         {
             InitializeComponent();
 
+            this.Dock = DockStyle.Fill;
+            this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(addHealthRecPanel, 40);
+
+            this.BackColor = Color.WhiteSmoke;
+            addHealthRecPanel.BackColor = Color.FromArgb(217, 221, 220);
+
             PopulatePigComboBox();
 
             buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
@@ -100,10 +107,59 @@ namespace SwineSyncc.Navigation
         }
 
 
-        
+
 
         private void SaveHandler(object sender, EventArgs e)
-        {
+        {           
+         
+            if (comboHealthPigName.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a pig or piglet.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboHealthPigName.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(conditionTxt.Text))
+            {
+                MessageBox.Show("Condition field is required.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                conditionTxt.Focus();
+                return;
+            }
+    
+            if (string.IsNullOrWhiteSpace(treatmentTxt.Text))
+            {
+                MessageBox.Show("Treatment field is required.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                treatmentTxt.Focus();
+                return;
+            }
+         
+            if (string.IsNullOrWhiteSpace(vetNameTxt.Text))
+            {
+                MessageBox.Show("Vet Name is required.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                vetNameTxt.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(notesTxt.Text))
+            {
+                MessageBox.Show("Notes field is required.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                notesTxt.Focus();
+                return;
+            }
+
+            if (dtCheckUp.Value > DateTime.Now)
+            {
+                MessageBox.Show("Checkup date cannot be in the future.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtCheckUp.Focus();
+                return;
+            }
+
             var selectedPigItem = comboHealthPigName.SelectedItem as PigComboDetails;
 
             int? pigIDToSave = selectedPigItem.PigID;
@@ -115,8 +171,9 @@ namespace SwineSyncc.Navigation
             string vetName = vetNameTxt.Text;
             string notes = notesTxt.Text;
 
-            string query = @"INSERT INTO HealthRecords (PigID, PigletID, CheckupDate, Condition, Treatment, VetName, Notes)
-                            VALUES (@PigID, @PigletID, @Date, @Condition, @Treatment, @VetName, @Notes);";
+            string query = @"INSERT INTO HealthRecords 
+            (PigID, PigletID, CheckupDate, Condition, Treatment, VetName, Notes)
+            VALUES (@PigID, @PigletID, @Date, @Condition, @Treatment, @VetName, @Notes);";
 
             using (SqlConnection conn = DBConnection.Instance.GetConnection())
             {
@@ -138,22 +195,26 @@ namespace SwineSyncc.Navigation
 
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Health record saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Health record saved successfully!", "Success",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             ClearFields();
                         }
                         else
                         {
-                            MessageBox.Show("Record was not saved. Database operation failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Record was not saved. Database operation failed.", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Database Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Database Error: {ex.Message}", "Database Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
+
 
         private void ClearFields()
         {
@@ -166,6 +227,11 @@ namespace SwineSyncc.Navigation
         }
 
         private void buttonGroup1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

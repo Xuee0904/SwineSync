@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.addHealthRecPanel = new System.Windows.Forms.Panel();
             this.buttonGroup1 = new SwineSyncc.CustomUIElements.ButtonGroup.ButtonGroup();
             this.notesTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,35 +43,36 @@
             this.checkuplabel = new System.Windows.Forms.Label();
             this.breedlbl = new System.Windows.Forms.Label();
             this.pignamelabel = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.addHealthRecPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // addHealthRecPanel
             // 
-            this.panel1.Controls.Add(this.buttonGroup1);
-            this.panel1.Controls.Add(this.notesTxt);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.vetNameTxt);
-            this.panel1.Controls.Add(this.conditionTxt);
-            this.panel1.Controls.Add(this.comboHealthPigName);
-            this.panel1.Controls.Add(this.healthrecadd);
-            this.panel1.Controls.Add(this.statuslbl);
-            this.panel1.Controls.Add(this.treatmentTxt);
-            this.panel1.Controls.Add(this.weightlbl);
-            this.panel1.Controls.Add(this.dtCheckUp);
-            this.panel1.Controls.Add(this.checkuplabel);
-            this.panel1.Controls.Add(this.breedlbl);
-            this.panel1.Controls.Add(this.pignamelabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 645);
-            this.panel1.TabIndex = 0;
+            this.addHealthRecPanel.Controls.Add(this.buttonGroup1);
+            this.addHealthRecPanel.Controls.Add(this.notesTxt);
+            this.addHealthRecPanel.Controls.Add(this.label1);
+            this.addHealthRecPanel.Controls.Add(this.vetNameTxt);
+            this.addHealthRecPanel.Controls.Add(this.conditionTxt);
+            this.addHealthRecPanel.Controls.Add(this.comboHealthPigName);
+            this.addHealthRecPanel.Controls.Add(this.healthrecadd);
+            this.addHealthRecPanel.Controls.Add(this.statuslbl);
+            this.addHealthRecPanel.Controls.Add(this.treatmentTxt);
+            this.addHealthRecPanel.Controls.Add(this.weightlbl);
+            this.addHealthRecPanel.Controls.Add(this.dtCheckUp);
+            this.addHealthRecPanel.Controls.Add(this.checkuplabel);
+            this.addHealthRecPanel.Controls.Add(this.breedlbl);
+            this.addHealthRecPanel.Controls.Add(this.pignamelabel);
+            this.addHealthRecPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addHealthRecPanel.Location = new System.Drawing.Point(0, 0);
+            this.addHealthRecPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addHealthRecPanel.Name = "addHealthRecPanel";
+            this.addHealthRecPanel.Size = new System.Drawing.Size(1200, 645);
+            this.addHealthRecPanel.TabIndex = 0;
+            this.addHealthRecPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // buttonGroup1
             // 
-            this.buttonGroup1.Location = new System.Drawing.Point(619, 631);
+            this.buttonGroup1.Location = new System.Drawing.Point(619, 604);
             this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGroup1.Name = "buttonGroup1";
             this.buttonGroup1.Size = new System.Drawing.Size(513, 55);
@@ -229,19 +230,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.addHealthRecPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddHealthRec";
             this.Size = new System.Drawing.Size(1200, 645);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.addHealthRecPanel.ResumeLayout(false);
+            this.addHealthRecPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel addHealthRecPanel;
         private System.Windows.Forms.Label statuslbl;
         private System.Windows.Forms.TextBox treatmentTxt;
         private System.Windows.Forms.Label weightlbl;

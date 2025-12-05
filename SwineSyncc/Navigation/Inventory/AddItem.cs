@@ -26,6 +26,13 @@ namespace SwineSyncc.Navigation
         {
             InitializeComponent();
 
+            this.Dock = DockStyle.Fill;
+            this.Padding = new Padding(40);
+            RoundedPanelStyle.ApplyRoundedCorners(addItemPanel, 40);
+
+            this.BackColor = Color.WhiteSmoke;
+            addItemPanel.BackColor = Color.FromArgb(217, 221, 220);
+
             buttonGroup1.CancelClicked += (s, e) => CancelClicked?.Invoke(this, EventArgs.Empty);
             buttonGroup1.ClearClicked += (s, e) => ClearFields();
             buttonGroup1.SaveClicked += SaveHandler;
@@ -113,6 +120,11 @@ namespace SwineSyncc.Navigation
         }
 
         private void buttonGroup1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addItemPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
