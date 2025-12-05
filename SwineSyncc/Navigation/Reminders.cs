@@ -18,6 +18,7 @@ namespace SwineSyncc.Navigation
         public event EventHandler FarrowingPanelClicked;
         public event EventHandler BreedingPanelClicked;
         public event EventHandler ExpirationPanelClicked;
+        public event EventHandler ReleasePigletPanelClicked;
         public Reminders()
         {
             InitializeComponent();
@@ -41,10 +42,18 @@ namespace SwineSyncc.Navigation
             expirationPanel.Click += ReminderExpiration_Click;
             checkExp.Click += ReminderExpiration_Click;
 
+            releasePigletPanel.Click += ReleasePiglet_Click;
+            releasePigletIn.Click += ReleasePiglet_Click;
+
             LoadNearestFarrowing();
             LoadPendingBreedingReminder();
             LoadNearestExpiration();
             LoadPigletReleaseReminder();
+        }
+
+        private void ReleasePigletIn_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void ReminderFarrowing_Click(object sender, EventArgs e)
@@ -59,6 +68,11 @@ namespace SwineSyncc.Navigation
         private void ReminderExpiration_Click(object sender, EventArgs e)
         {
             ExpirationPanelClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void ReleasePiglet_Click(object sender, EventArgs e)
+        {
+            ReleasePigletPanelClicked?.Invoke(this, EventArgs.Empty);
         }
 
 

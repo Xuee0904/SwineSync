@@ -101,6 +101,12 @@ namespace SwineSyncc
                 ucManager.LoadInventory();
             };
 
+            reminders.ReleasePigletPanelClicked += (s, e) =>
+            {
+                navigationPanel.TriggerPigManagementClick();
+                ucManager.LoadPigletTable();
+            };
+
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(reminders);
             reminders.Dock = DockStyle.Fill;
