@@ -59,7 +59,7 @@
             this.panel1.Controls.Add(this.panelTotalPigs);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1004, 720);
             this.panel1.TabIndex = 0;
@@ -88,8 +88,8 @@
             this.panelTotalPregnancy.GradientAngle = 90F;
             this.panelTotalPregnancy.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(155)))));
             this.panelTotalPregnancy.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(155)))));
-            this.panelTotalPregnancy.Location = new System.Drawing.Point(80, 308);
-            this.panelTotalPregnancy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTotalPregnancy.Location = new System.Drawing.Point(80, 299);
+            this.panelTotalPregnancy.Margin = new System.Windows.Forms.Padding(2);
             this.panelTotalPregnancy.Name = "panelTotalPregnancy";
             this.panelTotalPregnancy.Size = new System.Drawing.Size(307, 162);
             this.panelTotalPregnancy.TabIndex = 5;
@@ -98,7 +98,7 @@
             // 
             this.dashboardPregnancyPb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(155)))));
             this.dashboardPregnancyPb.Location = new System.Drawing.Point(36, 52);
-            this.dashboardPregnancyPb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dashboardPregnancyPb.Margin = new System.Windows.Forms.Padding(2);
             this.dashboardPregnancyPb.Name = "dashboardPregnancyPb";
             this.dashboardPregnancyPb.Size = new System.Drawing.Size(63, 49);
             this.dashboardPregnancyPb.TabIndex = 2;
@@ -139,17 +139,17 @@
             this.panelTotalPiglets.GradientAngle = 90F;
             this.panelTotalPiglets.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(150)))));
             this.panelTotalPiglets.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(150)))));
-            this.panelTotalPiglets.Location = new System.Drawing.Point(377, 105);
-            this.panelTotalPiglets.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTotalPiglets.Location = new System.Drawing.Point(414, 105);
+            this.panelTotalPiglets.Margin = new System.Windows.Forms.Padding(2);
             this.panelTotalPiglets.Name = "panelTotalPiglets";
-            this.panelTotalPiglets.Size = new System.Drawing.Size(262, 162);
+            this.panelTotalPiglets.Size = new System.Drawing.Size(307, 162);
             this.panelTotalPiglets.TabIndex = 4;
             // 
             // dashboardPigletPb
             // 
             this.dashboardPigletPb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(150)))));
             this.dashboardPigletPb.Location = new System.Drawing.Point(36, 52);
-            this.dashboardPigletPb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dashboardPigletPb.Margin = new System.Windows.Forms.Padding(2);
             this.dashboardPigletPb.Name = "dashboardPigletPb";
             this.dashboardPigletPb.Size = new System.Drawing.Size(63, 49);
             this.dashboardPigletPb.TabIndex = 2;
@@ -191,9 +191,9 @@
             this.panelTotalPigs.GradientBottomColor = System.Drawing.Color.Tan;
             this.panelTotalPigs.GradientTopColor = System.Drawing.Color.Tan;
             this.panelTotalPigs.Location = new System.Drawing.Point(80, 105);
-            this.panelTotalPigs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTotalPigs.Margin = new System.Windows.Forms.Padding(2);
             this.panelTotalPigs.Name = "panelTotalPigs";
-            this.panelTotalPigs.Size = new System.Drawing.Size(262, 162);
+            this.panelTotalPigs.Size = new System.Drawing.Size(307, 162);
             this.panelTotalPigs.TabIndex = 3;
             this.panelTotalPigs.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalPigs_Paint);
             // 
@@ -201,7 +201,7 @@
             // 
             this.dashboardPigPb.BackColor = System.Drawing.Color.Tan;
             this.dashboardPigPb.Location = new System.Drawing.Point(36, 52);
-            this.dashboardPigPb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dashboardPigPb.Margin = new System.Windows.Forms.Padding(2);
             this.dashboardPigPb.Name = "dashboardPigPb";
             this.dashboardPigPb.Size = new System.Drawing.Size(63, 49);
             this.dashboardPigPb.TabIndex = 2;
@@ -236,7 +236,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DashboardUI";
             this.Size = new System.Drawing.Size(1004, 720);
             this.panel1.ResumeLayout(false);
