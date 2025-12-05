@@ -32,9 +32,12 @@ namespace SwineSyncc
         public NavigationPanel()
         {
             InitializeComponent();
+
+            pbLogout.Click += pbLogout_Click;  
+
             SetActiveButton(dashboardBtn);
             LoadCurrentUser();
-        }
+        }      
 
         private void LoadCurrentUser()
         {
@@ -190,6 +193,31 @@ namespace SwineSyncc
         private void userName_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbLogout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result != DialogResult.Yes)
+                    return;
+
+                Session.UserID = 0;
+
+                RefreshCurrentUser();
+
+                Form1 loginForm = new Form1();
+                loginForm.Show();
+
+                this.ParentForm?.Close();
+
+                MessageBox.Show("You have been logged out successfully.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred during logout: " + ex.Message, "Logout Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

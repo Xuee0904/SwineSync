@@ -34,9 +34,9 @@
             this.pbLogout = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.dashboardBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.pigManagementBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
+            this.panelPigSubMenu = new System.Windows.Forms.Panel();
             this.healthRecordsBtn = new IconRoundedButton();
             this.pregnancyRecordsBtn = new IconRoundedButton();
             this.breedingRecordsBtn = new IconRoundedButton();
@@ -94,11 +94,13 @@
             this.pbLogout.Size = new System.Drawing.Size(60, 48);
             this.pbLogout.TabIndex = 13;
             this.pbLogout.TabStop = false;
+            this.pbLogout.Click += new System.EventHandler(this.pbLogout_Click);
             // 
             // userName
             // 
             this.userName.AutoSize = true;
             this.userName.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.userName.ForeColor = System.Drawing.Color.White;
             this.userName.Location = new System.Drawing.Point(158, 21);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(75, 38);
@@ -117,23 +119,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(62, 52);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
-            // 
-            // panelPigSubMenu
-            // 
-            this.panelPigSubMenu.AutoSize = true;
-            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
-            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
-            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
-            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 247);
-            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelPigSubMenu.Name = "panelPigSubMenu";
-            this.panelPigSubMenu.Size = new System.Drawing.Size(366, 227);
-            this.panelPigSubMenu.TabIndex = 5;
-            this.panelPigSubMenu.Visible = false;
             // 
             // dashboardBtn
             // 
@@ -184,6 +169,23 @@
             this.pigManagementBtn.TextColor = System.Drawing.SystemColors.Window;
             this.pigManagementBtn.UseVisualStyleBackColor = false;
             this.pigManagementBtn.Click += new System.EventHandler(this.customButton2_Click);
+            // 
+            // panelPigSubMenu
+            // 
+            this.panelPigSubMenu.AutoSize = true;
+            this.panelPigSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelPigSubMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelPigSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelPigSubMenu.Controls.Add(this.healthRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.pregnancyRecordsBtn);
+            this.panelPigSubMenu.Controls.Add(this.breedingRecordsBtn);
+            this.panelPigSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPigSubMenu.Location = new System.Drawing.Point(3, 247);
+            this.panelPigSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelPigSubMenu.Name = "panelPigSubMenu";
+            this.panelPigSubMenu.Size = new System.Drawing.Size(366, 227);
+            this.panelPigSubMenu.TabIndex = 5;
+            this.panelPigSubMenu.Visible = false;
             // 
             // healthRecordsBtn
             // 
