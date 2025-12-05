@@ -34,6 +34,7 @@ namespace SwineSyncc
             InitializeComponent();
 
             //pbLogout.Click += pbLogout_Click;  
+            toolLogout.SetToolTip(pbLogout, "Logout");
 
             SetActiveButton(dashboardBtn);
             LoadCurrentUser();

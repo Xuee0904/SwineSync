@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigationPanel));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -45,6 +46,7 @@
             this.userManagementBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.remindersBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
             this.historyBtn = new ColdChainConnectSystem_ACDP.Materials.CustomButton();
+            this.toolLogout = new System.Windows.Forms.ToolTip(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
@@ -406,5 +408,6 @@
         private ColdChainConnectSystem_ACDP.Materials.CustomButton remindersBtn;
         private ColdChainConnectSystem_ACDP.Materials.CustomButton historyBtn;
         private System.Windows.Forms.PictureBox pbLogout;
+        private System.Windows.Forms.ToolTip toolLogout;
     }
 }
