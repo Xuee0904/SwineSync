@@ -9,11 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SwineSyncc.Navigation.Pig_Management.AddBreeding;
 using static SwineSyncc.Navigation.Pig_Management.AddPiglet;
 
 namespace SwineSyncc.Navigation
 {
     using SwineSyncc.Models;
+    using SwineSyncc.Navigation.HealthRecords;
+
     public partial class AddHealthRec : UserControl
     {
         public event EventHandler CancelClicked;
@@ -189,7 +192,8 @@ namespace SwineSyncc.Navigation
                             {
                                 MessageBox.Show("Health record saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                ClearFields();
+                            SaveCompleted?.Invoke(this, EventArgs.Empty);
+                            ClearFields();
                             }
                             else
                             {

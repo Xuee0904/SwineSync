@@ -37,18 +37,18 @@ namespace SwineSyncc.Navigation.Pig_Management
 
         private void LoadTableData()
         {
-            SwineSyncTable displayTable = new SwineSyncTable();
-            displayTable.SetTableQuery("BreedingRecords");
-            displayTable.Dock = DockStyle.Fill;
+            SwineSyncTable displayPregnancy = new SwineSyncTable();
+            SwineSyncTable displayBreeding = new SwineSyncTable();
+            displayBreeding.SetTableQuery("BreedingRecords");
+            displayBreeding.Dock = DockStyle.Fill;
             pnlBreedingRecords.Controls.Clear();
-            pnlBreedingRecords.Controls.Add(displayTable);
+            pnlBreedingRecords.Controls.Add(displayBreeding);
+            displayPregnancy.SetTableQuery("PregnancyRecords");
         }
 
-        private void addBreedingBtn_Click(object sender, EventArgs e)
+        private void btnAddBreeding_Click(object sender, EventArgs e)
         {
             AddBreedingRecordClicked?.Invoke(this, EventArgs.Empty);
         }
-
-        
     }
 }

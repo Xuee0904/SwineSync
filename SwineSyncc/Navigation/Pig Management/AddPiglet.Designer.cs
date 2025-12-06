@@ -68,7 +68,7 @@
             this.addPigletPanel.Controls.Add(this.tagnumberlbl);
             this.addPigletPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addPigletPanel.Location = new System.Drawing.Point(0, 0);
-            this.addPigletPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addPigletPanel.Margin = new System.Windows.Forms.Padding(4);
             this.addPigletPanel.Name = "addPigletPanel";
             this.addPigletPanel.Size = new System.Drawing.Size(1200, 645);
             this.addPigletPanel.TabIndex = 0;
@@ -76,7 +76,7 @@
             // 
             // buttonGroup1
             // 
-            this.buttonGroup1.Location = new System.Drawing.Point(601, 480);
+            this.buttonGroup1.Location = new System.Drawing.Point(603, 494);
             this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGroup1.Name = "buttonGroup1";
             this.buttonGroup1.Size = new System.Drawing.Size(519, 55);
@@ -279,7 +279,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.addPigletPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddPiglet";
             this.Size = new System.Drawing.Size(1200, 645);
             this.addPigletPanel.ResumeLayout(false);

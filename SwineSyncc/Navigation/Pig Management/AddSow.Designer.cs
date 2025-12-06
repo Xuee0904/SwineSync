@@ -50,30 +50,28 @@
             // 
             this.pignamelabel.AutoSize = true;
             this.pignamelabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pignamelabel.Location = new System.Drawing.Point(34, 45);
-            this.pignamelabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pignamelabel.Location = new System.Drawing.Point(45, 55);
             this.pignamelabel.Name = "pignamelabel";
-            this.pignamelabel.Size = new System.Drawing.Size(128, 32);
+            this.pignamelabel.Size = new System.Drawing.Size(157, 41);
             this.pignamelabel.TabIndex = 16;
             this.pignamelabel.Text = "Pig name:";
             // 
             // pigNameTxt
             // 
             this.pigNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pigNameTxt.Location = new System.Drawing.Point(40, 79);
-            this.pigNameTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.pigNameTxt.Location = new System.Drawing.Point(53, 97);
+            this.pigNameTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pigNameTxt.Name = "pigNameTxt";
-            this.pigNameTxt.Size = new System.Drawing.Size(389, 31);
+            this.pigNameTxt.Size = new System.Drawing.Size(517, 37);
             this.pigNameTxt.TabIndex = 17;
             // 
             // breedlbl
             // 
             this.breedlbl.AutoSize = true;
             this.breedlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breedlbl.Location = new System.Drawing.Point(34, 143);
-            this.breedlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.breedlbl.Location = new System.Drawing.Point(45, 176);
             this.breedlbl.Name = "breedlbl";
-            this.breedlbl.Size = new System.Drawing.Size(87, 32);
+            this.breedlbl.Size = new System.Drawing.Size(108, 41);
             this.breedlbl.TabIndex = 18;
             this.breedlbl.Text = "Breed:";
             // 
@@ -81,40 +79,38 @@
             // 
             this.birthdatelbl.AutoSize = true;
             this.birthdatelbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdatelbl.Location = new System.Drawing.Point(445, 46);
-            this.birthdatelbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.birthdatelbl.Location = new System.Drawing.Point(593, 57);
             this.birthdatelbl.Name = "birthdatelbl";
-            this.birthdatelbl.Size = new System.Drawing.Size(134, 32);
+            this.birthdatelbl.Size = new System.Drawing.Size(168, 41);
             this.birthdatelbl.TabIndex = 22;
             this.birthdatelbl.Text = "Birth date:";
             // 
             // dtPicker
             // 
             this.dtPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtPicker.Location = new System.Drawing.Point(451, 80);
-            this.dtPicker.Margin = new System.Windows.Forms.Padding(2);
+            this.dtPicker.Location = new System.Drawing.Point(601, 98);
+            this.dtPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtPicker.Name = "dtPicker";
-            this.dtPicker.Size = new System.Drawing.Size(389, 31);
+            this.dtPicker.Size = new System.Drawing.Size(517, 37);
             this.dtPicker.TabIndex = 23;
             // 
             // weightlbl
             // 
             this.weightlbl.AutoSize = true;
             this.weightlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightlbl.Location = new System.Drawing.Point(445, 143);
-            this.weightlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.weightlbl.Location = new System.Drawing.Point(593, 176);
             this.weightlbl.Name = "weightlbl";
-            this.weightlbl.Size = new System.Drawing.Size(155, 32);
+            this.weightlbl.Size = new System.Drawing.Size(195, 41);
             this.weightlbl.TabIndex = 24;
             this.weightlbl.Text = "Weight (kg):";
             // 
             // weightTxt
             // 
             this.weightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightTxt.Location = new System.Drawing.Point(451, 177);
-            this.weightTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.weightTxt.Location = new System.Drawing.Point(601, 218);
+            this.weightTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.weightTxt.Name = "weightTxt";
-            this.weightTxt.Size = new System.Drawing.Size(389, 31);
+            this.weightTxt.Size = new System.Drawing.Size(517, 37);
             this.weightTxt.TabIndex = 25;
             // 
             // comboBreed
@@ -122,10 +118,10 @@
             this.comboBreed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBreed.FormattingEnabled = true;
-            this.comboBreed.Location = new System.Drawing.Point(40, 177);
-            this.comboBreed.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBreed.Location = new System.Drawing.Point(53, 218);
+            this.comboBreed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBreed.Name = "comboBreed";
-            this.comboBreed.Size = new System.Drawing.Size(389, 33);
+            this.comboBreed.Size = new System.Drawing.Size(517, 38);
             this.comboBreed.TabIndex = 26;
             this.comboBreed.SelectedIndexChanged += new System.EventHandler(this.comboBreed_SelectedIndexChanged);
             // 
@@ -145,20 +141,19 @@
             "Deceased",
             "Sick",
             "Quarantined"});
-            this.comboStatus.Location = new System.Drawing.Point(40, 288);
-            this.comboStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.comboStatus.Location = new System.Drawing.Point(53, 354);
+            this.comboStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboStatus.Name = "comboStatus";
-            this.comboStatus.Size = new System.Drawing.Size(389, 33);
+            this.comboStatus.Size = new System.Drawing.Size(517, 38);
             this.comboStatus.TabIndex = 27;
             // 
             // statuslbl
             // 
             this.statuslbl.AutoSize = true;
             this.statuslbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statuslbl.Location = new System.Drawing.Point(34, 254);
-            this.statuslbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.statuslbl.Location = new System.Drawing.Point(45, 313);
             this.statuslbl.Name = "statuslbl";
-            this.statuslbl.Size = new System.Drawing.Size(90, 32);
+            this.statuslbl.Size = new System.Drawing.Size(113, 41);
             this.statuslbl.TabIndex = 28;
             this.statuslbl.Text = "Status:";
             // 
@@ -178,28 +173,28 @@
             this.registerPigPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerPigPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
             this.registerPigPanel.Location = new System.Drawing.Point(0, 0);
-            this.registerPigPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.registerPigPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.registerPigPanel.Name = "registerPigPanel";
-            this.registerPigPanel.Size = new System.Drawing.Size(900, 524);
+            this.registerPigPanel.Size = new System.Drawing.Size(1200, 645);
             this.registerPigPanel.TabIndex = 0;
             this.registerPigPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.registerPigPanel_Paint);
             // 
             // buttonGroup1
             // 
-            this.buttonGroup1.Location = new System.Drawing.Point(451, 372);
+            this.buttonGroup1.Location = new System.Drawing.Point(601, 456);
             this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGroup1.Name = "buttonGroup1";
-            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
+            this.buttonGroup1.Size = new System.Drawing.Size(519, 55);
             this.buttonGroup1.TabIndex = 35;
             // 
             // AddSow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.registerPigPanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddSow";
-            this.Size = new System.Drawing.Size(900, 524);
+            this.Size = new System.Drawing.Size(1200, 645);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.registerPigPanel.ResumeLayout(false);
             this.registerPigPanel.PerformLayout();

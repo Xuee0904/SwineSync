@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.releasePigletPanel = new System.Windows.Forms.Panel();
+            this.releasePigletLbl = new System.Windows.Forms.Label();
+            this.releasePigletIn = new System.Windows.Forms.Label();
+            this.releasePigletPb = new System.Windows.Forms.PictureBox();
             this.expirationPanel = new System.Windows.Forms.Panel();
             this.expirationLbl = new System.Windows.Forms.Label();
             this.checkExp = new System.Windows.Forms.Label();
@@ -42,19 +46,15 @@
             this.checkForFarrowingLbl = new System.Windows.Forms.Label();
             this.farrowingPb = new System.Windows.Forms.PictureBox();
             this.healthrecadd = new System.Windows.Forms.Label();
-            this.releasePigletPanel = new System.Windows.Forms.Panel();
-            this.releasePigletLbl = new System.Windows.Forms.Label();
-            this.releasePigletIn = new System.Windows.Forms.Label();
-            this.releasePigletPb = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.releasePigletPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.releasePigletPb)).BeginInit();
             this.expirationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expirationPb)).BeginInit();
             this.pendingBreedingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingBreedingPb)).BeginInit();
             this.farrowingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).BeginInit();
-            this.releasePigletPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.releasePigletPb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,13 +72,56 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // releasePigletPanel
+            // 
+            this.releasePigletPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.releasePigletPanel.Controls.Add(this.releasePigletLbl);
+            this.releasePigletPanel.Controls.Add(this.releasePigletIn);
+            this.releasePigletPanel.Controls.Add(this.releasePigletPb);
+            this.releasePigletPanel.Location = new System.Drawing.Point(216, 546);
+            this.releasePigletPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.releasePigletPanel.Name = "releasePigletPanel";
+            this.releasePigletPanel.Size = new System.Drawing.Size(865, 112);
+            this.releasePigletPanel.TabIndex = 62;
+            // 
+            // releasePigletLbl
+            // 
+            this.releasePigletLbl.AutoSize = true;
+            this.releasePigletLbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.releasePigletLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.releasePigletLbl.Location = new System.Drawing.Point(467, 31);
+            this.releasePigletLbl.Name = "releasePigletLbl";
+            this.releasePigletLbl.Size = new System.Drawing.Size(53, 23);
+            this.releasePigletLbl.TabIndex = 59;
+            this.releasePigletLbl.Text = "Piglet";
+            // 
+            // releasePigletIn
+            // 
+            this.releasePigletIn.AutoSize = true;
+            this.releasePigletIn.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.releasePigletIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
+            this.releasePigletIn.Location = new System.Drawing.Point(121, 31);
+            this.releasePigletIn.Name = "releasePigletIn";
+            this.releasePigletIn.Size = new System.Drawing.Size(242, 41);
+            this.releasePigletIn.TabIndex = 58;
+            this.releasePigletIn.Text = "Release piglet in";
+            // 
+            // releasePigletPb
+            // 
+            this.releasePigletPb.Location = new System.Drawing.Point(21, 18);
+            this.releasePigletPb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.releasePigletPb.Name = "releasePigletPb";
+            this.releasePigletPb.Size = new System.Drawing.Size(89, 71);
+            this.releasePigletPb.TabIndex = 0;
+            this.releasePigletPb.TabStop = false;
+            // 
             // expirationPanel
             // 
             this.expirationPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.expirationPanel.Controls.Add(this.expirationLbl);
             this.expirationPanel.Controls.Add(this.checkExp);
             this.expirationPanel.Controls.Add(this.expirationPb);
-            this.expirationPanel.Location = new System.Drawing.Point(79, 399);
+            this.expirationPanel.Location = new System.Drawing.Point(216, 410);
             this.expirationPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.expirationPanel.Name = "expirationPanel";
             this.expirationPanel.Size = new System.Drawing.Size(865, 112);
@@ -121,7 +164,7 @@
             this.pendingBreedingPanel.Controls.Add(this.pendingBreedingLbl);
             this.pendingBreedingPanel.Controls.Add(this.labelPendingBreeding);
             this.pendingBreedingPanel.Controls.Add(this.pendingBreedingPb);
-            this.pendingBreedingPanel.Location = new System.Drawing.Point(79, 265);
+            this.pendingBreedingPanel.Location = new System.Drawing.Point(216, 276);
             this.pendingBreedingPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pendingBreedingPanel.Name = "pendingBreedingPanel";
             this.pendingBreedingPanel.Size = new System.Drawing.Size(865, 112);
@@ -164,7 +207,7 @@
             this.farrowingPanel.Controls.Add(this.farrowingLbl);
             this.farrowingPanel.Controls.Add(this.checkForFarrowingLbl);
             this.farrowingPanel.Controls.Add(this.farrowingPb);
-            this.farrowingPanel.Location = new System.Drawing.Point(79, 127);
+            this.farrowingPanel.Location = new System.Drawing.Point(216, 138);
             this.farrowingPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.farrowingPanel.Name = "farrowingPanel";
             this.farrowingPanel.Size = new System.Drawing.Size(865, 112);
@@ -212,49 +255,6 @@
             this.healthrecadd.TabIndex = 56;
             this.healthrecadd.Text = "Reminders";
             // 
-            // releasePigletPanel
-            // 
-            this.releasePigletPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.releasePigletPanel.Controls.Add(this.releasePigletLbl);
-            this.releasePigletPanel.Controls.Add(this.releasePigletIn);
-            this.releasePigletPanel.Controls.Add(this.releasePigletPb);
-            this.releasePigletPanel.Location = new System.Drawing.Point(79, 535);
-            this.releasePigletPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.releasePigletPanel.Name = "releasePigletPanel";
-            this.releasePigletPanel.Size = new System.Drawing.Size(865, 112);
-            this.releasePigletPanel.TabIndex = 62;
-            // 
-            // releasePigletLbl
-            // 
-            this.releasePigletLbl.AutoSize = true;
-            this.releasePigletLbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.releasePigletLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.releasePigletLbl.Location = new System.Drawing.Point(467, 31);
-            this.releasePigletLbl.Name = "releasePigletLbl";
-            this.releasePigletLbl.Size = new System.Drawing.Size(53, 23);
-            this.releasePigletLbl.TabIndex = 59;
-            this.releasePigletLbl.Text = "Piglet";
-            // 
-            // releasePigletIn
-            // 
-            this.releasePigletIn.AutoSize = true;
-            this.releasePigletIn.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.releasePigletIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.releasePigletIn.Location = new System.Drawing.Point(121, 31);
-            this.releasePigletIn.Name = "releasePigletIn";
-            this.releasePigletIn.Size = new System.Drawing.Size(242, 41);
-            this.releasePigletIn.TabIndex = 58;
-            this.releasePigletIn.Text = "Release piglet in";
-            // 
-            // releasePigletPb
-            // 
-            this.releasePigletPb.Location = new System.Drawing.Point(21, 18);
-            this.releasePigletPb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.releasePigletPb.Name = "releasePigletPb";
-            this.releasePigletPb.Size = new System.Drawing.Size(89, 71);
-            this.releasePigletPb.TabIndex = 0;
-            this.releasePigletPb.TabStop = false;
-            // 
             // Reminders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -265,6 +265,9 @@
             this.Size = new System.Drawing.Size(1269, 1081);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.releasePigletPanel.ResumeLayout(false);
+            this.releasePigletPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.releasePigletPb)).EndInit();
             this.expirationPanel.ResumeLayout(false);
             this.expirationPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expirationPb)).EndInit();
@@ -274,9 +277,6 @@
             this.farrowingPanel.ResumeLayout(false);
             this.farrowingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.farrowingPb)).EndInit();
-            this.releasePigletPanel.ResumeLayout(false);
-            this.releasePigletPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.releasePigletPb)).EndInit();
             this.ResumeLayout(false);
 
         }

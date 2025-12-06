@@ -66,18 +66,18 @@
             this.editPigletPanel.Controls.Add(this.tagnumberlbl);
             this.editPigletPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editPigletPanel.Location = new System.Drawing.Point(0, 0);
-            this.editPigletPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.editPigletPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigletPanel.Name = "editPigletPanel";
-            this.editPigletPanel.Size = new System.Drawing.Size(838, 878);
+            this.editPigletPanel.Size = new System.Drawing.Size(1117, 1081);
             this.editPigletPanel.TabIndex = 0;
             this.editPigletPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.editPigletPanel_Paint);
             // 
             // buttonGroup1
             // 
-            this.buttonGroup1.Location = new System.Drawing.Point(442, 496);
+            this.buttonGroup1.Location = new System.Drawing.Point(589, 611);
             this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGroup1.Name = "buttonGroup1";
-            this.buttonGroup1.Size = new System.Drawing.Size(389, 45);
+            this.buttonGroup1.Size = new System.Drawing.Size(519, 55);
             this.buttonGroup1.TabIndex = 71;
             // 
             // editPigletRbFemale
@@ -85,10 +85,10 @@
             this.editPigletRbFemale.AutoSize = true;
             this.editPigletRbFemale.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editPigletRbFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editPigletRbFemale.Location = new System.Drawing.Point(113, 365);
-            this.editPigletRbFemale.Margin = new System.Windows.Forms.Padding(2);
+            this.editPigletRbFemale.Location = new System.Drawing.Point(151, 449);
+            this.editPigletRbFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigletRbFemale.Name = "editPigletRbFemale";
-            this.editPigletRbFemale.Size = new System.Drawing.Size(97, 34);
+            this.editPigletRbFemale.Size = new System.Drawing.Size(123, 41);
             this.editPigletRbFemale.TabIndex = 70;
             this.editPigletRbFemale.TabStop = true;
             this.editPigletRbFemale.Text = "Female";
@@ -99,10 +99,10 @@
             this.editPigletRbMale.AutoSize = true;
             this.editPigletRbMale.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editPigletRbMale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.editPigletRbMale.Location = new System.Drawing.Point(32, 365);
-            this.editPigletRbMale.Margin = new System.Windows.Forms.Padding(2);
+            this.editPigletRbMale.Location = new System.Drawing.Point(43, 449);
+            this.editPigletRbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigletRbMale.Name = "editPigletRbMale";
-            this.editPigletRbMale.Size = new System.Drawing.Size(77, 34);
+            this.editPigletRbMale.Size = new System.Drawing.Size(97, 41);
             this.editPigletRbMale.TabIndex = 69;
             this.editPigletRbMale.TabStop = true;
             this.editPigletRbMale.Text = "Male";
@@ -113,10 +113,9 @@
             this.registerpiglbl.AutoSize = true;
             this.registerpiglbl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerpiglbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.registerpiglbl.Location = new System.Drawing.Point(22, 24);
-            this.registerpiglbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.registerpiglbl.Location = new System.Drawing.Point(29, 30);
             this.registerpiglbl.Name = "registerpiglbl";
-            this.registerpiglbl.Size = new System.Drawing.Size(174, 45);
+            this.registerpiglbl.Size = new System.Drawing.Size(217, 54);
             this.registerpiglbl.TabIndex = 65;
             this.registerpiglbl.Text = "Edit piglet";
             // 
@@ -125,10 +124,9 @@
             this.statuslbl.AutoSize = true;
             this.statuslbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statuslbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.statuslbl.Location = new System.Drawing.Point(436, 331);
-            this.statuslbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.statuslbl.Location = new System.Drawing.Point(581, 407);
             this.statuslbl.Name = "statuslbl";
-            this.statuslbl.Size = new System.Drawing.Size(90, 32);
+            this.statuslbl.Size = new System.Drawing.Size(113, 41);
             this.statuslbl.TabIndex = 64;
             this.statuslbl.Text = "Status:";
             // 
@@ -148,10 +146,10 @@
             "Deceased",
             "Sick",
             "Quarantined"});
-            this.editPigletStatus.Location = new System.Drawing.Point(442, 363);
-            this.editPigletStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.editPigletStatus.Location = new System.Drawing.Point(589, 447);
+            this.editPigletStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigletStatus.Name = "editPigletStatus";
-            this.editPigletStatus.Size = new System.Drawing.Size(389, 33);
+            this.editPigletStatus.Size = new System.Drawing.Size(517, 38);
             this.editPigletStatus.TabIndex = 63;
             // 
             // editPigletBreed
@@ -173,20 +171,20 @@
             "Pot-bellied Pig",
             "Tamworth",
             "Yorkshire"});
-            this.editPigletBreed.Location = new System.Drawing.Point(32, 256);
-            this.editPigletBreed.Margin = new System.Windows.Forms.Padding(2);
+            this.editPigletBreed.Location = new System.Drawing.Point(43, 315);
+            this.editPigletBreed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigletBreed.Name = "editPigletBreed";
-            this.editPigletBreed.Size = new System.Drawing.Size(389, 33);
+            this.editPigletBreed.Size = new System.Drawing.Size(517, 38);
             this.editPigletBreed.TabIndex = 62;
             this.editPigletBreed.SelectedIndexChanged += new System.EventHandler(this.editPigletBreed_SelectedIndexChanged);
             // 
             // editPigletWeight
             // 
             this.editPigletWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editPigletWeight.Location = new System.Drawing.Point(442, 259);
-            this.editPigletWeight.Margin = new System.Windows.Forms.Padding(2);
+            this.editPigletWeight.Location = new System.Drawing.Point(589, 319);
+            this.editPigletWeight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigletWeight.Name = "editPigletWeight";
-            this.editPigletWeight.Size = new System.Drawing.Size(389, 31);
+            this.editPigletWeight.Size = new System.Drawing.Size(517, 37);
             this.editPigletWeight.TabIndex = 61;
             // 
             // weightlbl
@@ -194,20 +192,19 @@
             this.weightlbl.AutoSize = true;
             this.weightlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weightlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.weightlbl.Location = new System.Drawing.Point(436, 227);
-            this.weightlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.weightlbl.Location = new System.Drawing.Point(581, 279);
             this.weightlbl.Name = "weightlbl";
-            this.weightlbl.Size = new System.Drawing.Size(155, 32);
+            this.weightlbl.Size = new System.Drawing.Size(195, 41);
             this.weightlbl.TabIndex = 60;
             this.weightlbl.Text = "Weight (kg):";
             // 
             // editPigletDt
             // 
             this.editPigletDt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editPigletDt.Location = new System.Drawing.Point(442, 159);
-            this.editPigletDt.Margin = new System.Windows.Forms.Padding(2);
+            this.editPigletDt.Location = new System.Drawing.Point(589, 196);
+            this.editPigletDt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editPigletDt.Name = "editPigletDt";
-            this.editPigletDt.Size = new System.Drawing.Size(389, 31);
+            this.editPigletDt.Size = new System.Drawing.Size(517, 37);
             this.editPigletDt.TabIndex = 59;
             // 
             // birthdatelbl
@@ -215,10 +212,9 @@
             this.birthdatelbl.AutoSize = true;
             this.birthdatelbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthdatelbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.birthdatelbl.Location = new System.Drawing.Point(436, 125);
-            this.birthdatelbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.birthdatelbl.Location = new System.Drawing.Point(581, 154);
             this.birthdatelbl.Name = "birthdatelbl";
-            this.birthdatelbl.Size = new System.Drawing.Size(134, 32);
+            this.birthdatelbl.Size = new System.Drawing.Size(168, 41);
             this.birthdatelbl.TabIndex = 58;
             this.birthdatelbl.Text = "Birth date:";
             // 
@@ -227,10 +223,9 @@
             this.sexlbl.AutoSize = true;
             this.sexlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sexlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.sexlbl.Location = new System.Drawing.Point(26, 331);
-            this.sexlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.sexlbl.Location = new System.Drawing.Point(35, 407);
             this.sexlbl.Name = "sexlbl";
-            this.sexlbl.Size = new System.Drawing.Size(105, 32);
+            this.sexlbl.Size = new System.Drawing.Size(129, 41);
             this.sexlbl.TabIndex = 57;
             this.sexlbl.Text = "Gender:";
             // 
@@ -239,20 +234,19 @@
             this.breedlbl.AutoSize = true;
             this.breedlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.breedlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.breedlbl.Location = new System.Drawing.Point(26, 226);
-            this.breedlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.breedlbl.Location = new System.Drawing.Point(35, 278);
             this.breedlbl.Name = "breedlbl";
-            this.breedlbl.Size = new System.Drawing.Size(87, 32);
+            this.breedlbl.Size = new System.Drawing.Size(108, 41);
             this.breedlbl.TabIndex = 56;
             this.breedlbl.Text = "Breed:";
             // 
             // editTnPiglet
             // 
             this.editTnPiglet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editTnPiglet.Location = new System.Drawing.Point(32, 158);
-            this.editTnPiglet.Margin = new System.Windows.Forms.Padding(2);
+            this.editTnPiglet.Location = new System.Drawing.Point(43, 194);
+            this.editTnPiglet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editTnPiglet.Name = "editTnPiglet";
-            this.editTnPiglet.Size = new System.Drawing.Size(389, 31);
+            this.editTnPiglet.Size = new System.Drawing.Size(517, 37);
             this.editTnPiglet.TabIndex = 55;
             // 
             // tagnumberlbl
@@ -260,21 +254,20 @@
             this.tagnumberlbl.AutoSize = true;
             this.tagnumberlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tagnumberlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.tagnumberlbl.Location = new System.Drawing.Point(26, 124);
-            this.tagnumberlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tagnumberlbl.Location = new System.Drawing.Point(35, 153);
             this.tagnumberlbl.Name = "tagnumberlbl";
-            this.tagnumberlbl.Size = new System.Drawing.Size(159, 32);
+            this.tagnumberlbl.Size = new System.Drawing.Size(195, 41);
             this.tagnumberlbl.TabIndex = 54;
             this.tagnumberlbl.Text = "Tag number:";
             // 
             // EditPiglet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.editPigletPanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EditPiglet";
-            this.Size = new System.Drawing.Size(838, 878);
+            this.Size = new System.Drawing.Size(1117, 1081);
             this.editPigletPanel.ResumeLayout(false);
             this.editPigletPanel.PerformLayout();
             this.ResumeLayout(false);

@@ -56,18 +56,18 @@
             this.addPregnancyPanel.Controls.Add(this.addbreedinglabel);
             this.addPregnancyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addPregnancyPanel.Location = new System.Drawing.Point(0, 0);
-            this.addPregnancyPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.addPregnancyPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addPregnancyPanel.Name = "addPregnancyPanel";
-            this.addPregnancyPanel.Size = new System.Drawing.Size(900, 524);
+            this.addPregnancyPanel.Size = new System.Drawing.Size(1200, 645);
             this.addPregnancyPanel.TabIndex = 0;
             this.addPregnancyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.addPregnancyPanel_Paint);
             // 
             // buttonGroup1
             // 
-            this.buttonGroup1.Location = new System.Drawing.Point(488, 434);
+            this.buttonGroup1.Location = new System.Drawing.Point(650, 533);
             this.buttonGroup1.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGroup1.Name = "buttonGroup1";
-            this.buttonGroup1.Size = new System.Drawing.Size(390, 45);
+            this.buttonGroup1.Size = new System.Drawing.Size(520, 55);
             this.buttonGroup1.TabIndex = 76;
             // 
             // comboBreedingID
@@ -84,10 +84,10 @@
             "Deceased",
             "Sick",
             "Quarantined"});
-            this.comboBreedingID.Location = new System.Drawing.Point(46, 183);
-            this.comboBreedingID.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBreedingID.Location = new System.Drawing.Point(61, 225);
+            this.comboBreedingID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBreedingID.Name = "comboBreedingID";
-            this.comboBreedingID.Size = new System.Drawing.Size(389, 33);
+            this.comboBreedingID.Size = new System.Drawing.Size(517, 38);
             this.comboBreedingID.TabIndex = 72;
             this.comboBreedingID.SelectedIndexChanged += new System.EventHandler(this.comboBreedingID_SelectedIndexChanged);
             // 
@@ -96,29 +96,28 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label3.Location = new System.Drawing.Point(41, 148);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(55, 182);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 32);
+            this.label3.Size = new System.Drawing.Size(194, 41);
             this.label3.TabIndex = 71;
             this.label3.Text = "Breeding ID:";
             // 
             // dtConfirmation
             // 
             this.dtConfirmation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtConfirmation.Location = new System.Drawing.Point(490, 304);
-            this.dtConfirmation.Margin = new System.Windows.Forms.Padding(2);
+            this.dtConfirmation.Location = new System.Drawing.Point(653, 374);
+            this.dtConfirmation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtConfirmation.Name = "dtConfirmation";
-            this.dtConfirmation.Size = new System.Drawing.Size(389, 31);
+            this.dtConfirmation.Size = new System.Drawing.Size(517, 37);
             this.dtConfirmation.TabIndex = 70;
             // 
             // dtExpected
             // 
             this.dtExpected.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtExpected.Location = new System.Drawing.Point(46, 305);
-            this.dtExpected.Margin = new System.Windows.Forms.Padding(2);
+            this.dtExpected.Location = new System.Drawing.Point(61, 375);
+            this.dtExpected.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtExpected.Name = "dtExpected";
-            this.dtExpected.Size = new System.Drawing.Size(389, 31);
+            this.dtExpected.Size = new System.Drawing.Size(517, 37);
             this.dtExpected.TabIndex = 69;
             // 
             // label2
@@ -126,10 +125,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label2.Location = new System.Drawing.Point(485, 269);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(647, 331);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(319, 32);
+            this.label2.Size = new System.Drawing.Size(395, 41);
             this.label2.TabIndex = 67;
             this.label2.Text = "Confirmed farrowing date:";
             // 
@@ -138,10 +136,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(41, 269);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(55, 331);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 32);
+            this.label1.Size = new System.Drawing.Size(374, 41);
             this.label1.TabIndex = 65;
             this.label1.Text = "Expected farrowing date:";
             // 
@@ -159,10 +156,10 @@
             "Deceased",
             "Sick",
             "Quarantined"});
-            this.comboPregnantSow.Location = new System.Drawing.Point(490, 183);
-            this.comboPregnantSow.Margin = new System.Windows.Forms.Padding(2);
+            this.comboPregnantSow.Location = new System.Drawing.Point(653, 225);
+            this.comboPregnantSow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboPregnantSow.Name = "comboPregnantSow";
-            this.comboPregnantSow.Size = new System.Drawing.Size(389, 33);
+            this.comboPregnantSow.Size = new System.Drawing.Size(517, 38);
             this.comboPregnantSow.TabIndex = 64;
             this.comboPregnantSow.SelectedIndexChanged += new System.EventHandler(this.comboPregnantSow_SelectedIndexChanged);
             // 
@@ -171,10 +168,9 @@
             this.pregnantlbl.AutoSize = true;
             this.pregnantlbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pregnantlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.pregnantlbl.Location = new System.Drawing.Point(483, 148);
-            this.pregnantlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pregnantlbl.Location = new System.Drawing.Point(644, 182);
             this.pregnantlbl.Name = "pregnantlbl";
-            this.pregnantlbl.Size = new System.Drawing.Size(248, 32);
+            this.pregnantlbl.Size = new System.Drawing.Size(303, 41);
             this.pregnantlbl.TabIndex = 63;
             this.pregnantlbl.Text = "Pregnant sow name:";
             // 
@@ -183,21 +179,20 @@
             this.addbreedinglabel.AutoSize = true;
             this.addbreedinglabel.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbreedinglabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(72)))), ((int)(((byte)(60)))));
-            this.addbreedinglabel.Location = new System.Drawing.Point(42, 41);
-            this.addbreedinglabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addbreedinglabel.Location = new System.Drawing.Point(56, 50);
             this.addbreedinglabel.Name = "addbreedinglabel";
-            this.addbreedinglabel.Size = new System.Drawing.Size(249, 45);
+            this.addbreedinglabel.Size = new System.Drawing.Size(311, 54);
             this.addbreedinglabel.TabIndex = 62;
             this.addbreedinglabel.Text = "Add pregnancy";
             // 
             // AddPregnancy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.addPregnancyPanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddPregnancy";
-            this.Size = new System.Drawing.Size(900, 524);
+            this.Size = new System.Drawing.Size(1200, 645);
             this.Load += new System.EventHandler(this.AddPregnancy_Load);
             this.addPregnancyPanel.ResumeLayout(false);
             this.addPregnancyPanel.PerformLayout();

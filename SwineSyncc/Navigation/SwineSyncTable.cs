@@ -452,10 +452,10 @@ namespace SwineSyncc.Navigation
 
                 const int actionColWidth = 36;
                 const int nameLengthThreshold = 12;
-                const int extraWidthForLongName = 30;
+                const int extraWidthForLongName = 60;
                 const int totalHorizontalPadding = 8;
-                const int maxAutoColumns = 7;
-                const int fixedColumnWidth = 140;
+                const int maxAutoColumns = 5;
+                const int fixedColumnWidth = 150;
                 const int minColumnWidth = 100;
 
                 var actionNames = new[] { "EditCol", "DeleteCol" };

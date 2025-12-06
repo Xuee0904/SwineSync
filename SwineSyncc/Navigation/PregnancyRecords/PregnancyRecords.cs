@@ -26,22 +26,6 @@ namespace SwineSyncc
             TableRefresh();
         }
 
-        private void addPregnancyBtn_Click(object sender, EventArgs e)
-        {
-            AddPregnancyRecordClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-        
-        private void editPregnancyBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deletePregnancyBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PregnancyRecords_Load(object sender, EventArgs e)
         {
             LoadTableData();
@@ -60,14 +44,14 @@ namespace SwineSyncc
             pnlPregnancyRecords.Controls.Add(displayTable);
         }
 
-        private void customTextBox1__TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void pnlPregnancyRecords_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnAddPregnancy_Click(object sender, EventArgs e)
+        {
+            AddPregnancyRecordClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }
