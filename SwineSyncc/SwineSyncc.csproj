@@ -568,5 +568,8 @@
   <ItemGroup>
     <None Include="Resources\ReleaseIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Piglet_Icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

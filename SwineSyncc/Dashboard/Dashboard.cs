@@ -74,6 +74,13 @@ namespace SwineSyncc
                 ucManager.LoadPigletTable();
             };
 
+            dashboard.TotalSickPanelClicked += (s, e) =>
+            {
+                navigationPanel.TriggerHealthClick();
+                ucManager.LoadHealthRecords();
+            };
+
+
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(dashboard);
             dashboard.Dock = DockStyle.Fill;

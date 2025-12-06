@@ -109,6 +109,11 @@ namespace SwineSyncc
             SetActiveButton(inventoryBtn);
         }
 
+        public void TriggerHealthClick()
+        {
+            SetActiveButton(healthRecordsBtn);
+        }
+
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
 

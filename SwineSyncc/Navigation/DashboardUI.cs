@@ -17,13 +17,14 @@ namespace SwineSyncc.Navigation
         public event EventHandler TotalPigsPanelClicked;
         public event EventHandler TotalPigletsPanelClicked;
         public event EventHandler TotalPregnancyPanelClicked;
-
+        public event EventHandler TotalSickPanelClicked;
         public DashboardUI()
         {
             InitializeComponent();
             dashboardPigPb.Image = Properties.Resources.PigIcon;
             dashboardPigletPb.Image = Properties.Resources.PigletIcon;
             dashboardPregnancyPb.Image = Properties.Resources.PregnancyIcon;
+            pbSick.Image = Properties.Resources.ReleaseIcon;
 
             panelTotalPigs.Click += PanelTotalPigs_Click;
             lblTotalPigs.Click += PanelTotalPigs_Click;  // makes label also clickable
@@ -34,9 +35,14 @@ namespace SwineSyncc.Navigation
             panelTotalPregnancy.Click += PanelTotalPregnancy_Click;
             lblTotalPregnancy.Click += PanelTotalPregnancy_Click;
 
+            panelSickpanel.Click += PanelSick_Click;
+            sickLabel.Click += PanelSick_Click;
+
+
             LoadTotalPigs();
             LoadTotalPiglets();
             LoadTotalPregnancy();
+            LoadSickPigs();
         }
 
         private void PanelTotalPigs_Click(object sender, EventArgs e)
@@ -52,6 +58,11 @@ namespace SwineSyncc.Navigation
         private void PanelTotalPregnancy_Click(object sender, EventArgs e)
         {
             TotalPregnancyPanelClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void PanelSick_Click(object sender, EventArgs e)
+        {
+            TotalSickPanelClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -98,6 +109,20 @@ namespace SwineSyncc.Navigation
             }
         }
 
+        private void LoadSickPigs()
+        {
+            string query = "SELECT COUNT(*) FROM HealthRecords WHERE Condition = 'Sick' AND FlagDeleted = 0";
+
+            using (SqlConnection conn = DBConnection.Instance.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                conn.Open();
+                int totalSick = (int)cmd.ExecuteScalar();
+                sickLbl.Text = totalSick.ToString();
+            }
+        }
+
+
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
@@ -106,10 +131,16 @@ namespace SwineSyncc.Navigation
                 LoadTotalPigs();
                 LoadTotalPiglets();
                 LoadTotalPregnancy();
+                LoadSickPigs();
             }
         }
 
         private void panelTotalPigs_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelSickpanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
